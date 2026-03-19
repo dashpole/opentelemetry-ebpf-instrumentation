@@ -9,15 +9,6 @@ import (
 	"go.opentelemetry.io/obi/pkg/internal/largebuf"
 )
 
-const partitionLen = // 26
-Int16Len +           // error_code
-	Int32Len + // partition_index
-	Int32Len + // leader_id
-	Int32Len + // leader_epoch
-	Int32Len + // replica_nodes
-	Int32Len + // isr_nodes
-	Int32Len // offline_replicas
-
 type MetadataTopic struct {
 	Name string
 	UUID UUID
@@ -150,10 +141,30 @@ func parseMetadataTopic(r *largebuf.LargeBufferReader, header KafkaRequestHeader
 	if err != nil {
 		return nil, err
 	}
-	skipBytes := partitionsCount*partitionLen + // partitions
-		Int32Len // topic_authorized_operations
-	if err = r.Skip(skipBytes); err != nil {
-		// if we can't read partitions, we can still return the topic
+	// skip partitions dynamically because they contain arrays
+	for range partitionsCount {
+		// skip error_code, partition_index, leader_id, leader_epoch
+		if err = r.Skip(Int16Len + 3*Int32Len); err != nil {
+			return &topic, nil
+		}
+		// skip replica_nodes, isr_nodes, offline_replicas
+		for range 3 {
+			l, err := readArrayLength(r, header)
+			if err != nil {
+				return &topic, nil
+			}
+			if l > 0 {
+				if err = r.Skip(l * Int32Len); err != nil {
+					return &topic, nil
+				}
+			}
+		}
+		if err = skipTaggedFields(r, header); err != nil {
+			return &topic, nil
+		}
+	}
+	if err = r.Skip(Int32Len); err != nil { // topic_authorized_operations
+		// if we can't read topic_authorized_operations, we can still return the topic
 		return &topic, nil
 	}
 	if err = skipTaggedFields(r, header); err != nil {
