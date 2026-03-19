@@ -1,0 +1,41 @@
+# HELP obi_ebpf_tracer_flushes Length of the groups of traces flushed from the eBPF tracer to the next pipeline stage
+# TYPE obi_ebpf_tracer_flushes histogram
+obi_ebpf_tracer_flushes_bucket{le="0"} 0
+obi_ebpf_tracer_flushes_bucket{le="10"} 2
+obi_ebpf_tracer_flushes_bucket{le="20"} 9
+obi_ebpf_tracer_flushes_bucket{le="40"} 10
+obi_ebpf_tracer_flushes_bucket{le="80"} 15
+obi_ebpf_tracer_flushes_bucket{le="160"} 23
+obi_ebpf_tracer_flushes_bucket{le="320"} 23
+obi_ebpf_tracer_flushes_bucket{le="+Inf"} 23
+obi_ebpf_tracer_flushes_sum 1265
+obi_ebpf_tracer_flushes_count 23
+# HELP obi_instrumentation_errors_total Total number of instrumentation errors by process name and error type
+# TYPE obi_instrumentation_errors_total counter
+obi_instrumentation_errors_total{error_type="attaching_uprobe",process_name="/pause"} 15
+obi_instrumentation_errors_total{error_type="attaching_uprobe",process_name="/root/workload"} 135
+obi_instrumentation_errors_total{error_type="attaching_uprobe",process_name="/usr/lib/postgresql/15/bin/postgres"} 10
+# HELP obi_instrumented_processes Total number of instrumented processes by process name
+# TYPE obi_instrumented_processes gauge
+obi_instrumented_processes{process_name="pause"} 16
+obi_instrumented_processes{process_name="postgres"} 6
+obi_instrumented_processes{process_name="workload"} 3
+# HELP obi_internal_build_info A metric with a constant '1' value labeled by version, revision, branch, goversion, goos and goarch during build.
+# TYPE obi_internal_build_info gauge
+obi_internal_build_info{goarch="amd64",goos="linux",goversion="go1.25.7",revision="5e460b40",version="memory_investigation"} 1
+# HELP obi_otel_metric_export_errors_total Error count on each failed OTEL metric export
+# TYPE obi_otel_metric_export_errors_total counter
+obi_otel_metric_export_errors_total{error="failed to upload metrics: Post \"http://otelcol.default.svc.cluster.local:4318/v1/metrics\": dial tcp 10.96.94.69:4318: connect: connection refused"} 3
+# HELP obi_otel_metric_exports_total Length of the metric batches submitted to the remote OTEL collector
+# TYPE obi_otel_metric_exports_total counter
+obi_otel_metric_exports_total 0
+# HELP obi_otel_trace_export_errors_total Error count on each failed OTEL trace export
+# TYPE obi_otel_trace_export_errors_total counter
+obi_otel_trace_export_errors_total{error="context deadline exceeded"} 3
+# HELP obi_otel_trace_exports_total Length of the trace batches submitted to the remote OTEL collector
+# TYPE obi_otel_trace_exports_total counter
+obi_otel_trace_exports_total 803
+# HELP promhttp_metric_handler_errors_total Total number of internal errors encountered by the promhttp metric handler.
+# TYPE promhttp_metric_handler_errors_total counter
+promhttp_metric_handler_errors_total{cause="encoding"} 0
+promhttp_metric_handler_errors_total{cause="gathering"} 0

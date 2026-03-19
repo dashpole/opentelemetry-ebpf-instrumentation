@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workload-client
+  labels:
+    app: workload-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: workload-client
+  template:
+    metadata:
+      labels:
+        app: workload-client
+    spec:
+      containers:
+      - name: client
+        image: memory-investigation-workload:latest
+        imagePullPolicy: Never
+        command: ["./workload"]
+        args: ["-mode", "client", "-protocol", "${WORKLOAD_PROTOCOL}", "-target", "${WORKLOAD_TARGET_URL}", "-qps", "${WORKLOAD_QPS}"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workload-server
+  labels:
+    app: workload-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: workload-server
+  template:
+    metadata:
+      labels:
+        app: workload-server
+    spec:
+      containers:
+      - name: server
+        image: memory-investigation-workload:latest
+        imagePullPolicy: Never
+        command: ["./workload"]
+        args: ["-mode", "server", "-protocol", "${WORKLOAD_PROTOCOL}"]
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${WORKLOAD_PROTOCOL}-server
+spec:
+  selector:
+    app: workload-server
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

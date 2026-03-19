@@ -1,0 +1,114 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: obi
+  namespace: default
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: obi
+rules:
+  - apiGroups: [""]
+    resources: ["namespaces", "pods", "services", "nodes"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["apps"]
+    resources: ["replicasets"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: obi
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: obi
+subjects:
+  - kind: ServiceAccount
+    name: obi
+    namespace: default
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: obi-config-baseline
+data:
+  obi-config.yml: |
+    log_level: debug
+    discovery:
+      services:
+        - k8s_deployment_name: http-server
+          namespace: default
+        - k8s_deployment_name: http-client
+          namespace: default
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: obi-service
+spec:
+  selector:
+    app: obi
+  ports:
+    - name: internal-metrics
+      port: 8081
+      targetPort: 8081
+    - name: profile
+      port: 8082
+      targetPort: 8082
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: obi
+spec:
+  selector:
+    matchLabels:
+      app: obi
+  template:
+    metadata:
+      labels:
+        app: obi
+    spec:
+      hostPID: true
+      serviceAccountName: obi
+      containers:
+        - name: obi
+          image: otel/ebpf-instrument:latest
+          imagePullPolicy: Never
+          args: ["--config=/config/obi-config.yml"]
+          securityContext:
+            privileged: true
+            runAsUser: 0
+          ports:
+            - containerPort: 8081
+              name: prom-metrics
+            - containerPort: 8082
+              name: pprof
+          volumeMounts:
+            - mountPath: /config
+              name: obi-config
+            - mountPath: /sys/kernel/debug
+              name: sys-kernel-debug
+          env:
+            - name: OTEL_METRICS_EXPORTER
+              value: "prometheus"
+            - name: OTEL_EBPF_PROMETHEUS_PORT
+              value: "8888"
+            - name: OTEL_TRACES_EXPORTER
+              value: "none"
+            - name: OTEL_EBPF_INTERNAL_METRICS_EXPORTER
+              value: "prometheus"
+            - name: OTEL_EBPF_INTERNAL_METRICS_PROMETHEUS_PORT
+              value: "8081"
+            - name: OTEL_EBPF_PROFILE_PORT
+              value: "8082"
+      volumes:
+        - name: obi-config
+          configMap:
+            name: obi-config-baseline
+        - name: sys-kernel-debug
+          hostPath:
+            path: /sys/kernel/debug
+            type: Directory

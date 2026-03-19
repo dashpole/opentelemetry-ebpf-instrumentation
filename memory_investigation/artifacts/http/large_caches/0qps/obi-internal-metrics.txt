@@ -1,0 +1,25 @@
+# HELP obi_ebpf_tracer_flushes Length of the groups of traces flushed from the eBPF tracer to the next pipeline stage
+# TYPE obi_ebpf_tracer_flushes histogram
+obi_ebpf_tracer_flushes_bucket{le="0"} 0
+obi_ebpf_tracer_flushes_bucket{le="10"} 0
+obi_ebpf_tracer_flushes_bucket{le="20"} 0
+obi_ebpf_tracer_flushes_bucket{le="40"} 0
+obi_ebpf_tracer_flushes_bucket{le="80"} 0
+obi_ebpf_tracer_flushes_bucket{le="160"} 0
+obi_ebpf_tracer_flushes_bucket{le="320"} 0
+obi_ebpf_tracer_flushes_bucket{le="+Inf"} 0
+obi_ebpf_tracer_flushes_sum 0
+obi_ebpf_tracer_flushes_count 0
+# HELP obi_internal_build_info A metric with a constant '1' value labeled by version, revision, branch, goversion, goos and goarch during build.
+# TYPE obi_internal_build_info gauge
+obi_internal_build_info{goarch="amd64",goos="linux",goversion="go1.25.7",revision="89921e25",version="memory_investigation"} 1
+# HELP obi_otel_metric_exports_total Length of the metric batches submitted to the remote OTEL collector
+# TYPE obi_otel_metric_exports_total counter
+obi_otel_metric_exports_total 0
+# HELP obi_otel_trace_exports_total Length of the trace batches submitted to the remote OTEL collector
+# TYPE obi_otel_trace_exports_total counter
+obi_otel_trace_exports_total 0
+# HELP promhttp_metric_handler_errors_total Total number of internal errors encountered by the promhttp metric handler.
+# TYPE promhttp_metric_handler_errors_total counter
+promhttp_metric_handler_errors_total{cause="encoding"} 0
+promhttp_metric_handler_errors_total{cause="gathering"} 0
