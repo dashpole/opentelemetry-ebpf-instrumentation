@@ -38,14 +38,14 @@ Rather than a full Cartesian product, we will run the following targeted scenari
 
 ## Verification Plan
 ### Automated Data Collection
-1. **Infrastructure**: Deploy OBI alongside a generic workload Pod within a local Kubernetes cluster.
-2. **Data Destination**: Deploy OTEL Collector with the `debug` exporter (no external cloud connections).
-3. **Profiling**: For each step in the Test Matrix, we will use `go tool pprof` connected to OBI's internal profiling port (`profile_port` config) to collect:
-   * `heap` profiles (memory consumption details)
-   * `allocs` profiles
+1. **Infrastructure (GKE)**: Provision a GKE cluster with explicitly defined node sizes (e.g., `e2-standard-4`). Use Node Affinity/Tolerations to run the OBI + Server workload on one Node, and the Load Generator (Client) on a separate Node to guarantee CPU isolation.
+2. **eBPF Compatibility**: Ensure the OBI DaemonSet is configured with the necessary privileges (`CAP_SYS_ADMIN` or `CAP_BPF`) and host volume mounts compatible with GKE's Container-Optimized OS (COS).
+3. **Data Destination & Extraction**: Deploy an OTEL Collector and an automated scraping job **inside** the GKE cluster. This avoids the latency and unreliability of running `kubectl port-forward` over the internet.
+4. **Profiling (In-Cluster)**: The in-cluster scraper will connect to OBI's internal profiling port (`profile_port` config) during steady-state load to collect:
+   * `heap` and `allocs` profiles (memory consumption details)
    * `profile` (CPU profile)
-4. **Telemetry Volume & High-Frequency Metrics Collection**:
+5. **Telemetry Volume & High-Frequency Metrics Collection**:
    * **High-Frequency Sampling**: Configure the internal OTLP metrics exporter to push data at a high frequency (e.g., every 1 second) to capture a dense time-series of Go runtime metrics and overall heap behavior.
    * **Statistical Error Bounds**: Maintain a steady-state load for a minimum duration (e.g., 3-5 minutes) per scenario. Use the dense 1-second metric samples to calculate the mean, p99, and standard deviation (error bounds) for both CPU and memory consumption.
-   * **Total Telemetry Data**: Collect overall telemetry quantity (Data points / Spans per second) produced under each configuration by querying the OTEL collector debug exporter metrics.
-5. **Artifact Retention**: Save all `.pprof` files and scraped metrics locally in the user's workspace so follow-up analysis can be performed.
+   * **Total Telemetry Data**: Collect overall telemetry quantity (Data points / Spans per second) produced under each configuration by querying the OTEL collector.
+6. **Artifact Retention (GCS)**: The in-cluster automated job will package and upload all `.pprof` profiles and exported metrics directly to a Google Cloud Storage (GCS) bucket for permanent storage and later analysis.
