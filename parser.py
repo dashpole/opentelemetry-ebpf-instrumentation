@@ -79,6 +79,13 @@ for p in PROTOCOLS:
             allocs = os.path.join(dir_path, "allocs.pprof")
             
             inuse = parse_pprof_total(heap, "inuse_space")
+            top_file = os.path.join(dir_path, "top.txt")
+            if os.path.exists(top_file):
+                with open(top_file, "r") as topf:
+                    m = re.search(r'\s+(\d+)Mi', topf.read())
+                    if m:
+                        inuse = f"{m.group(1)} MB"
+            
             alloc = parse_pprof_total(allocs, "alloc_space")
             
             spans, dt, card = get_metric_info(c, dir_path)

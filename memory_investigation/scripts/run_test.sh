@@ -263,6 +263,11 @@ export PROTOCOL CONFIG SCENARIO GCS_BUCKET
 envsubst '${PROTOCOL} ${CONFIG} ${SCENARIO} ${GCS_BUCKET}' < memory_investigation/manifests/scraper-job-template.yaml | kubectl apply -f -
 
 echo "Waiting for scraper job to collect metrics and upload to GCS..."
+# Capture working set memory at halfway point
+sleep 30
+kubectl top pod -l app=obi -n $NAMESPACE --no-headers > /tmp/top_${PROTOCOL}_${CONFIG}_${SCENARIO}.txt || true
+gsutil cp /tmp/top_${PROTOCOL}_${CONFIG}_${SCENARIO}.txt ${GCS_BUCKET}/${PROTOCOL}/${CONFIG}/${SCENARIO}/top.txt || true
+
 kubectl wait --for=condition=complete job/metric-scraper -n $NAMESPACE --timeout=300s || true
 
 echo "Scraper job logs:"

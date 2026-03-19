@@ -47,6 +47,13 @@ def get_metrics_for_run(p, c, q):
     cpu = os.path.join(dir_path, "cpu.pprof")
     
     inuse = parse_mem(heap, "inuse_space")
+    top_file = os.path.join(dir_path, "top.txt")
+    if os.path.exists(top_file):
+        with open(top_file, "r") as f:
+            m = re.search(r'\s+(\d+)Mi', f.read())
+            if m:
+                inuse = float(m.group(1))
+
     alloc = parse_mem(allocs, "alloc_space")
     cpu_ms = parse_cpu(cpu)
     
