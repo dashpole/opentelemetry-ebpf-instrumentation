@@ -1,0 +1,50 @@
+# HELP otelcol_exporter_sent_metric_points_total Number of metric points successfully sent to destination. [Alpha]
+# TYPE otelcol_exporter_sent_metric_points_total counter
+otelcol_exporter_sent_metric_points_total{exporter="debug",otel_scope_name="go.opentelemetry.io/collector/exporter/exporterhelper",otel_scope_schema_url="",otel_scope_version=""} 61
+otelcol_exporter_sent_metric_points_total{exporter="prometheus",otel_scope_name="go.opentelemetry.io/collector/exporter/exporterhelper",otel_scope_schema_url="",otel_scope_version=""} 61
+# HELP otelcol_exporter_sent_spans_total Number of spans successfully sent to destination. [Alpha]
+# TYPE otelcol_exporter_sent_spans_total counter
+otelcol_exporter_sent_spans_total{exporter="debug",otel_scope_name="go.opentelemetry.io/collector/exporter/exporterhelper",otel_scope_schema_url="",otel_scope_version=""} 8000
+# HELP otelcol_process_cpu_seconds_total Total CPU user and system time in seconds [Alpha]
+# TYPE otelcol_process_cpu_seconds_total counter
+otelcol_process_cpu_seconds_total{otel_scope_name="go.opentelemetry.io/collector/service",otel_scope_schema_url="",otel_scope_version=""} 0.94
+# HELP otelcol_process_memory_rss_bytes Total physical memory (resident set size) [Alpha]
+# TYPE otelcol_process_memory_rss_bytes gauge
+otelcol_process_memory_rss_bytes{otel_scope_name="go.opentelemetry.io/collector/service",otel_scope_schema_url="",otel_scope_version=""} 1.0514432e+08
+# HELP otelcol_process_runtime_heap_alloc_bytes Bytes of allocated heap objects (see 'go doc runtime.MemStats.HeapAlloc') [Alpha]
+# TYPE otelcol_process_runtime_heap_alloc_bytes gauge
+otelcol_process_runtime_heap_alloc_bytes{otel_scope_name="go.opentelemetry.io/collector/service",otel_scope_schema_url="",otel_scope_version=""} 1.6913816e+07
+# HELP otelcol_process_runtime_total_alloc_bytes_total Cumulative bytes allocated for heap objects (see 'go doc runtime.MemStats.TotalAlloc') [Alpha]
+# TYPE otelcol_process_runtime_total_alloc_bytes_total counter
+otelcol_process_runtime_total_alloc_bytes_total{otel_scope_name="go.opentelemetry.io/collector/service",otel_scope_schema_url="",otel_scope_version=""} 6.7261256e+07
+# HELP otelcol_process_runtime_total_sys_memory_bytes Total bytes of memory obtained from the OS (see 'go doc runtime.MemStats.Sys') [Alpha]
+# TYPE otelcol_process_runtime_total_sys_memory_bytes gauge
+otelcol_process_runtime_total_sys_memory_bytes{otel_scope_name="go.opentelemetry.io/collector/service",otel_scope_schema_url="",otel_scope_version=""} 4.2637576e+07
+# HELP otelcol_process_uptime_seconds_total Uptime of the process [Alpha]
+# TYPE otelcol_process_uptime_seconds_total counter
+otelcol_process_uptime_seconds_total{otel_scope_name="go.opentelemetry.io/collector/service",otel_scope_schema_url="",otel_scope_version=""} 345.354699289
+# HELP otelcol_receiver_accepted_metric_points_total Number of metric points successfully pushed into the pipeline. [Alpha]
+# TYPE otelcol_receiver_accepted_metric_points_total counter
+otelcol_receiver_accepted_metric_points_total{otel_scope_name="go.opentelemetry.io/collector/receiver/receiverhelper",otel_scope_schema_url="",otel_scope_version="",receiver="otlp",transport="http"} 61
+# HELP otelcol_receiver_accepted_spans_total Number of spans successfully pushed into the pipeline. [Alpha]
+# TYPE otelcol_receiver_accepted_spans_total counter
+otelcol_receiver_accepted_spans_total{otel_scope_name="go.opentelemetry.io/collector/receiver/receiverhelper",otel_scope_schema_url="",otel_scope_version="",receiver="otlp",transport="http"} 8000
+# HELP otelcol_receiver_failed_metric_points_total The number of metric points that failed to be processed by the receiver due to internal errors. [Alpha]
+# TYPE otelcol_receiver_failed_metric_points_total counter
+otelcol_receiver_failed_metric_points_total{otel_scope_name="go.opentelemetry.io/collector/receiver/receiverhelper",otel_scope_schema_url="",otel_scope_version="",receiver="otlp",transport="http"} 0
+# HELP otelcol_receiver_failed_spans_total The number of spans that failed to be processed by the receiver due to internal errors. [Alpha]
+# TYPE otelcol_receiver_failed_spans_total counter
+otelcol_receiver_failed_spans_total{otel_scope_name="go.opentelemetry.io/collector/receiver/receiverhelper",otel_scope_schema_url="",otel_scope_version="",receiver="otlp",transport="http"} 0
+# HELP otelcol_receiver_refused_metric_points_total Number of metric points that could not be pushed into the pipeline. [Alpha]
+# TYPE otelcol_receiver_refused_metric_points_total counter
+otelcol_receiver_refused_metric_points_total{otel_scope_name="go.opentelemetry.io/collector/receiver/receiverhelper",otel_scope_schema_url="",otel_scope_version="",receiver="otlp",transport="http"} 0
+# HELP otelcol_receiver_refused_spans_total Number of spans that could not be pushed into the pipeline. [Alpha]
+# TYPE otelcol_receiver_refused_spans_total counter
+otelcol_receiver_refused_spans_total{otel_scope_name="go.opentelemetry.io/collector/receiver/receiverhelper",otel_scope_schema_url="",otel_scope_version="",receiver="otlp",transport="http"} 0
+# HELP promhttp_metric_handler_errors_total Total number of internal errors encountered by the promhttp metric handler.
+# TYPE promhttp_metric_handler_errors_total counter
+promhttp_metric_handler_errors_total{cause="encoding"} 0
+promhttp_metric_handler_errors_total{cause="gathering"} 0
+# HELP target_info Target metadata
+# TYPE target_info gauge
+target_info{service_instance_id="34665737-9738-4958-8502-32c60e8f229c",service_name="otelcol",service_version="0.147.0"} 1

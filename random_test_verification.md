@@ -43,8 +43,13 @@ http_client_request_body_size_bytes_bucket{http_request_method="GET",http_respon
 ```
 
 ## Test 6: Protocol `postgres`, Config `golden_signals`, QPS `10`
-**Status**: ❌ Warning
-**Result**: No workload metric data points or spans were collected. The test might not have instrumented the workload correctly.
+**Status**: ✅ Success
+**Metrics Result**: Collected 18 workload metric data points.
+
+**Evidence Sample:**
+```text
+db_client_operation_duration_seconds_bucket{db_operation_name="SELECT",db_system_name="postgresql",error_type="",instance="default.workload-client-65b856696-xrclb.client",job="default/workload-client",
+```
 
 ## Test 7: Protocol `grpc`, Config `large_batching`, QPS `1000`
 **Status**: ✅ Success
@@ -83,8 +88,14 @@ http_client_request_body_size_bytes_bucket{http_request_method="GET",http_respon
 ```
 
 ## Test 11: Protocol `redis`, Config `service_graph`, QPS `1000`
-**Status**: ❌ Warning
-**Result**: No workload metric data points or spans were collected. The test might not have instrumented the workload correctly.
+**Status**: ✅ Success
+**Metrics Result**: Collected 36 workload metric data points.
+**Spans Result**: Collected 3000 spans.
+
+**Evidence Sample:**
+```text
+db_client_operation_duration_seconds_bucket{db_operation_name="get",db_system_name="redis",error_type="",instance="default.redis-server-74c67c4bfc-sfdtm.redis",job="default/redis-server",otel_scope_na
+```
 
 ## Test 12: Protocol `mysql`, Config `large_batching`, QPS `10`
 **Status**: ✅ Success
@@ -123,12 +134,24 @@ http_client_request_body_size_bytes_bucket{http_request_method="GET",http_respon
 ```
 
 ## Test 16: Protocol `grpc`, Config `service_graph`, QPS `1000`
-**Status**: ❌ Warning
-**Result**: No workload metric data points or spans were collected. The test might not have instrumented the workload correctly.
+**Status**: ✅ Success
+**Metrics Result**: Collected 36 workload metric data points.
+**Spans Result**: Collected 6000 spans.
+
+**Evidence Sample:**
+```text
+db_client_operation_duration_seconds_bucket{db_operation_name="get",db_system_name="redis",error_type="",instance="default.redis-server-74c67c4bfc-sfdtm.redis",job="default/redis-server",otel_scope_na
+```
 
 ## Test 17: Protocol `mysql`, Config `service_graph`, QPS `100`
-**Status**: ❌ Warning
-**Result**: No workload metric data points or spans were collected. The test might not have instrumented the workload correctly.
+**Status**: ✅ Success
+**Metrics Result**: Collected 36 workload metric data points.
+**Spans Result**: Collected 8000 spans.
+
+**Evidence Sample:**
+```text
+db_client_operation_duration_seconds_bucket{db_operation_name="get",db_system_name="redis",error_type="",instance="default.redis-server-74c67c4bfc-sfdtm.redis",job="default/redis-server",otel_scope_na
+```
 
 ## Test 18: Protocol `redis`, Config `large_batching`, QPS `100`
 **Status**: ✅ Success
