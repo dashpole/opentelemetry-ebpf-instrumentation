@@ -17,19 +17,11 @@ http_client_request_body_size_bytes_bucket{http_request_method="GET",http_respon
 
 ## Test 3: Protocol `kafka`, Config `go_tracers`, QPS `0`
 **Status**: ✅ Success
-<<<<<<< HEAD
 **Metrics Result**: Collected 11 specific protocol metric data points (kafka).
 
 **Evidence Sample:**
 ```text
 messaging_publish_duration_seconds_bucket{instance="default.workload-client-56b97bcfc7-jbx47.client",job="default/workload-client",k8s_cluster_name="",k8s_container_name="client",k8s_cron
-=======
-**Metrics Result**: Collected 88 workload metric data points.
-
-**Evidence Sample:**
-```text
-http_client_request_body_size_bytes_bucket{http_request_method="GET",http_response_status_code="200",http_route="",instance="default.http-client-858c45464f-d9m49.client",job="default/http-client",k8s_
->>>>>>> parent of e19d3e5f (real random test verification results)
 ```
 
 ## Test 4: Protocol `mysql`, Config `go_tracers`, QPS `1000`
@@ -88,19 +80,11 @@ http_client_request_body_size_bytes_bucket{http_request_method="GET",http_respon
 
 ## Test 10: Protocol `kafka`, Config `large_batching`, QPS `10`
 **Status**: ✅ Success
-<<<<<<< HEAD
 **Metrics Result**: Collected 11 specific protocol metric data points (kafka).
 
 **Evidence Sample:**
 ```text
 messaging_publish_duration_seconds_bucket{instance="default.workload-client-56b97bcfc7-jbx47.client",job="default/workload-client",k8s_cluster_name="",k8s_container_name="client",k8s_cron
-=======
-**Metrics Result**: Collected 88 workload metric data points.
-
-**Evidence Sample:**
-```text
-http_client_request_body_size_bytes_bucket{http_request_method="GET",http_response_status_code="200",http_route="",instance="default.http-client-858c45464f-d9m49.client",job="default/http-client",k8s_
->>>>>>> parent of e19d3e5f (real random test verification results)
 ```
 
 ## Test 11: Protocol `redis`, Config `service_graph`, QPS `1000`
@@ -142,19 +126,11 @@ db_client_operation_duration_seconds_bucket{db_operation_name="get",db_system_na
 
 ## Test 15: Protocol `kafka`, Config `context_disabled`, QPS `1000`
 **Status**: ✅ Success
-<<<<<<< HEAD
 **Metrics Result**: Collected 11 specific protocol metric data points (kafka).
 
 **Evidence Sample:**
 ```text
 messaging_publish_duration_seconds_bucket{instance="default.workload-client-56b97bcfc7-jbx47.client",job="default/workload-client",k8s_cluster_name="",k8s_container_name="client",k8s_cron
-=======
-**Metrics Result**: Collected 88 workload metric data points.
-
-**Evidence Sample:**
-```text
-http_client_request_body_size_bytes_bucket{http_request_method="GET",http_response_status_code="200",http_route="",instance="default.http-client-858c45464f-d9m49.client",job="default/http-client",k8s_
->>>>>>> parent of e19d3e5f (real random test verification results)
 ```
 
 ## Test 16: Protocol `grpc`, Config `service_graph`, QPS `1000`
