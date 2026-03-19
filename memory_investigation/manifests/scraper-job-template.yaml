@@ -1,0 +1,53 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: metric-scraper
+  namespace: default
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        app: metric-scraper
+    spec:
+      serviceAccountName: scraper-ksa
+      restartPolicy: Never
+      containers:
+      - name: scraper
+        image: google/cloud-sdk:alpine
+        env:
+        - name: TARGET_GCS_BUCKET
+          value: "${GCS_BUCKET}"
+        - name: PROFILE_SUBDIR
+          value: "${PROTOCOL}/${CONFIG}/${QPS}qps"
+        command:
+        - /bin/sh
+        - -c
+        - |
+          echo "Waiting 60 seconds for stable accumulation..."
+          sleep 60
+          
+          echo "Collecting profiles to local directory..."
+          mkdir -p /tmp/profiles
+          
+          curl -s http://obi-service.default.svc.cluster.local:8082/debug/pprof/heap > /tmp/profiles/heap.pprof
+          curl -s http://obi-service.default.svc.cluster.local:8082/debug/pprof/allocs > /tmp/profiles/allocs.pprof
+          curl -s "http://obi-service.default.svc.cluster.local:8082/debug/pprof/profile?seconds=10" > /tmp/profiles/cpu.pprof
+          curl -s http://obi-service.default.svc.cluster.local:8081/internal/metrics > /tmp/profiles/obi-internal-metrics.txt
+          curl -s http://obi-service.default.svc.cluster.local:8888/metrics > /tmp/profiles/obi-workload-metrics.txt || true
+          
+          curl -s http://otelcol.default.svc.cluster.local:8888/metrics > /tmp/profiles/collector-internal-metrics.txt || true
+          curl -s http://otelcol.default.svc.cluster.local:8889/metrics > /tmp/profiles/collector-workload-metrics.txt || true
+          
+          echo "Uploading artifacts to GCS..."
+          gsutil -m cp /tmp/profiles/* ${TARGET_GCS_BUCKET}/${PROFILE_SUBDIR}/
+          
+          echo "Done!"
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: scraper-ksa
+  namespace: default
+  annotations:
+    iam.gke.io/gcp-service-account: obi-scraper-sa@dashpole-dev.iam.gserviceaccount.com

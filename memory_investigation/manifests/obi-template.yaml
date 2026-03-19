@@ -75,12 +75,14 @@ spec:
       labels:
         app: obi
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: target-pool
       serviceAccountName: obi
       hostPID: true
       containers:
         - name: obi
-          image: otel/ebpf-instrument:latest
-          imagePullPolicy: Never
+          image: ${DOCKER_REGISTRY}/ebpf-instrument:latest
+          imagePullPolicy: Always
           securityContext:
             privileged: true
           ports:

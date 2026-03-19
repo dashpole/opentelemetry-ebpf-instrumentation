@@ -10,23 +10,25 @@ NAMESPACE="default"
 
 echo "=== Running Metric Test: Protocol=$PROTOCOL Config=$CONFIG QPS=$QPS ==="
 
-echo "Building custom workload image..."
-pushd memory_investigation/workloads/generator > /dev/null
-docker build -t memory-investigation-workload:latest .
-popd > /dev/null
-
-echo "Building OBI image..."
-docker build -t otel/ebpf-instrument:latest .
-
-echo "Checking for existing kind cluster..."
-if ! ./.tools/kind get clusters | grep -q "$CLUSTER_NAME"; then
-  echo "Creating kind cluster..."
-  ./.tools/kind create cluster --name "$CLUSTER_NAME"
+if [ -z "$DOCKER_REGISTRY" ]; then
+    echo "DOCKER_REGISTRY not set. Please set it to your artifact registry (e.g., us-central1-docker.pkg.dev/dashpole-dev/obi-benchmark)"
+    exit 1
 fi
 
-echo "Loading docker images into kind..."
-./.tools/kind load docker-image memory-investigation-workload:latest --name "$CLUSTER_NAME"
-./.tools/kind load docker-image otel/ebpf-instrument:latest --name "$CLUSTER_NAME"
+if [ -z "$GCS_BUCKET" ]; then
+    echo "GCS_BUCKET not set. Defaulting to gs://dashpole-dev-obi-artifacts"
+    export GCS_BUCKET="gs://dashpole-dev-obi-artifacts"
+fi
+
+echo "Building and pushing custom workload image..."
+pushd memory_investigation/workloads/generator > /dev/null
+docker build -t ${DOCKER_REGISTRY}/memory-investigation-workload:latest .
+docker push ${DOCKER_REGISTRY}/memory-investigation-workload:latest
+popd > /dev/null
+
+echo "Building and pushing OBI image..."
+docker build -t ${DOCKER_REGISTRY}/ebpf-instrument:latest .
+docker push ${DOCKER_REGISTRY}/ebpf-instrument:latest
 
 echo "Deploying OTEL Collector..."
 kubectl apply -f memory_investigation/manifests/otelcol.yaml
@@ -233,61 +235,19 @@ export OBI_ENV_VARS
 envsubst < memory_investigation/manifests/obi-template.yaml | kubectl apply -f -
 kubectl rollout status daemonset/obi -n $NAMESPACE --timeout=120s || true
 
-echo "All components deployed successfully. Sleeping for 60 seconds to allow stable accumulation..."
-sleep 60
+echo "All components deployed successfully. Launching in-cluster scraper job..."
 
-echo "Collecting profiles..."
-OBI_POD=$(kubectl get pod -l app=obi -n $NAMESPACE -o jsonpath='{.items[0].metadata.name}')
+export PROTOCOL CONFIG QPS GCS_BUCKET
+envsubst < memory_investigation/manifests/scraper-job-template.yaml | kubectl apply -f -
 
-PROFILE_DIR="memory_investigation/artifacts/${PROTOCOL}/${CONFIG}/${QPS}qps"
-mkdir -p "$PROFILE_DIR"
+echo "Waiting for scraper job to collect metrics and upload to GCS..."
+kubectl wait --for=condition=complete job/metric-scraper -n $NAMESPACE --timeout=300s || true
 
-# Local port forwarding since pprof is inside the cluster
-kubectl port-forward pod/$OBI_POD 8082:8082 &
-PORT_FORWARD_PID=$!
-sleep 2 # wait for port forward to establish
+echo "Scraper job logs:"
+kubectl logs job/metric-scraper -n $NAMESPACE
 
-echo "Downloading heap profile..."
-curl -s http://localhost:8082/debug/pprof/heap > "${PROFILE_DIR}/heap.pprof"
-
-echo "Downloading allocs profile..."
-curl -s http://localhost:8082/debug/pprof/allocs > "${PROFILE_DIR}/allocs.pprof"
-
-echo "Downloading CPU profile (10s)..."
-curl -s "http://localhost:8082/debug/pprof/profile?seconds=10" > "${PROFILE_DIR}/cpu.pprof"
-
-kill $PORT_FORWARD_PID || true
-
-echo "Collecting internal metrics (GC/Memstats)..."
-kubectl port-forward pod/$OBI_POD 8081:8081 &
-PORT_FORWARD_PID_METRICS=$!
-sleep 2
-curl -s http://localhost:8081/internal/metrics > "${PROFILE_DIR}/obi-internal-metrics.txt"
-kill $PORT_FORWARD_PID_METRICS || true
-
-echo "Collecting Workload Telemetry..."
-# 1. Scrape OBI's Prometheus metric exporter directly (for configs using OTEL_METRICS_EXPORTER=prometheus)
-kubectl port-forward pod/$OBI_POD 8890:8888 &
-PORT_FORWARD_PID_OBI_8888=$!
-
-# 2. Scrape OTEL Collector's internal telemetry (to see otlp receiver stats)
-OTELCOL_POD=$(kubectl get pod -l app=otelcol -n $NAMESPACE -o jsonpath='{.items[0].metadata.name}')
-kubectl port-forward pod/$OTELCOL_POD 8888:8888 &
-PORT_FORWARD_PID_OTEL_8888=$!
-
-# 3. Scrape OTEL Collector's Prometheus metric exporter (for configs using OTEL_METRICS_EXPORTER=otlp)
-kubectl port-forward pod/$OTELCOL_POD 8889:8889 &
-PORT_FORWARD_PID_OTEL_8889=$!
-
-sleep 2
-
-curl -s http://localhost:8890/metrics > "${PROFILE_DIR}/obi-workload-metrics.txt" || true
-curl -s http://localhost:8888/metrics > "${PROFILE_DIR}/collector-internal-metrics.txt" || true
-curl -s http://localhost:8889/metrics > "${PROFILE_DIR}/collector-workload-metrics.txt" || true
-
-kill $PORT_FORWARD_PID_OBI_8888 || true
-kill $PORT_FORWARD_PID_OTEL_8888 || true
-kill $PORT_FORWARD_PID_OTEL_8889 || true
+echo "Cleaning up scraper job..."
+kubectl delete job metric-scraper -n $NAMESPACE --ignore-not-found=true
 
 
 echo "Cleaning up current deployment to reset for next test run..."

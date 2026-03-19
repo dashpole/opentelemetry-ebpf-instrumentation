@@ -14,10 +14,12 @@ spec:
       labels:
         app: workload-client
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: generator-pool
       containers:
       - name: client
-        image: memory-investigation-workload:latest
-        imagePullPolicy: Never
+        image: ${DOCKER_REGISTRY}/memory-investigation-workload:latest
+        imagePullPolicy: Always
         command: ["./workload"]
         args: ["-mode", "client", "-protocol", "${WORKLOAD_PROTOCOL}", "-target", "${WORKLOAD_TARGET_URL}", "-qps", "${WORKLOAD_QPS}"]
 ---
@@ -37,10 +39,12 @@ spec:
       labels:
         app: workload-server
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: target-pool
       containers:
       - name: server
-        image: memory-investigation-workload:latest
-        imagePullPolicy: Never
+        image: ${DOCKER_REGISTRY}/memory-investigation-workload:latest
+        imagePullPolicy: Always
         command: ["./workload"]
         args: ["-mode", "server", "-protocol", "${WORKLOAD_PROTOCOL}"]
         ports:
