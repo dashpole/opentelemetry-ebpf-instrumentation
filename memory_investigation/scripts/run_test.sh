@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# Usage: run_test.sh <PROTOCOL> <CONFIG> <QPS>
+# Usage: run_test.sh <PROTOCOL> <CONFIG> <SCENARIO>
 PROTOCOL=${1:-http}
 CONFIG=${2:-baseline}
-QPS=${3:-10}
+SCENARIO=${3:-High-Single}
 
 CLUSTER_NAME="obi-memory-test"
 NAMESPACE="default"
 
-echo "=== Running Metric Test: Protocol=$PROTOCOL Config=$CONFIG QPS=$QPS ==="
+echo "=== Running Metric Test: Protocol=$PROTOCOL Config=$CONFIG Scenario=$SCENARIO ==="
 
 if [ -z "$DOCKER_REGISTRY" ]; then
     echo "DOCKER_REGISTRY not set. Please set it to your artifact registry (e.g., us-central1-docker.pkg.dev/dashpole-dev/obi-benchmark)"
@@ -44,7 +44,28 @@ fi
 
 echo "Deploying Workload Generator ($PROTOCOL)..."
 export WORKLOAD_PROTOCOL=$PROTOCOL
-export WORKLOAD_QPS=$QPS
+
+case $SCENARIO in
+  Idle)
+    export WORKLOAD_CLIENT_REPLICAS=0
+    export WORKLOAD_SERVER_REPLICAS=1
+    export WORKLOAD_QPS=0
+    ;;
+  High-Single)
+    export WORKLOAD_CLIENT_REPLICAS=1
+    export WORKLOAD_SERVER_REPLICAS=1
+    export WORKLOAD_QPS=1000
+    ;;
+  High-Multi)
+    export WORKLOAD_CLIENT_REPLICAS=5
+    export WORKLOAD_SERVER_REPLICAS=5
+    export WORKLOAD_QPS=200
+    ;;
+  *)
+    echo "Unknown SCENARIO: $SCENARIO. Valid options: Idle, High-Single, High-Multi."
+    exit 1
+    ;;
+esac
 
 case $PROTOCOL in
   http)  export WORKLOAD_TARGET_URL="http-server.default.svc.cluster.local:8080" ;;
@@ -56,7 +77,8 @@ case $PROTOCOL in
   kafka) export WORKLOAD_TARGET_URL="kafka-service.default.svc.cluster.local:9092" ;;
 esac
 
-envsubst < memory_investigation/manifests/workload-template.yaml | kubectl apply -f -
+export DOCKER_REGISTRY WORKLOAD_CLIENT_REPLICAS WORKLOAD_SERVER_REPLICAS WORKLOAD_PROTOCOL WORKLOAD_TARGET_URL WORKLOAD_QPS
+envsubst '${DOCKER_REGISTRY} ${WORKLOAD_CLIENT_REPLICAS} ${WORKLOAD_SERVER_REPLICAS} ${WORKLOAD_PROTOCOL} ${WORKLOAD_TARGET_URL} ${WORKLOAD_QPS}' < memory_investigation/manifests/workload-template.yaml | kubectl apply -f -
 kubectl rollout status deployment/workload-client -n $NAMESPACE --timeout=120s || true
 
 echo "Deploying OBI ($CONFIG)..."
@@ -237,8 +259,8 @@ kubectl rollout status daemonset/obi -n $NAMESPACE --timeout=120s || true
 
 echo "All components deployed successfully. Launching in-cluster scraper job..."
 
-export PROTOCOL CONFIG QPS GCS_BUCKET
-envsubst < memory_investigation/manifests/scraper-job-template.yaml | kubectl apply -f -
+export PROTOCOL CONFIG SCENARIO GCS_BUCKET
+envsubst '${PROTOCOL} ${CONFIG} ${SCENARIO} ${GCS_BUCKET}' < memory_investigation/manifests/scraper-job-template.yaml | kubectl apply -f -
 
 echo "Waiting for scraper job to collect metrics and upload to GCS..."
 kubectl wait --for=condition=complete job/metric-scraper -n $NAMESPACE --timeout=300s || true

@@ -19,7 +19,7 @@ spec:
         - name: TARGET_GCS_BUCKET
           value: "${GCS_BUCKET}"
         - name: PROFILE_SUBDIR
-          value: "${PROTOCOL}/${CONFIG}/${QPS}qps"
+          value: "${PROTOCOL}/${CONFIG}/${SCENARIO}"
         command:
         - /bin/sh
         - -c

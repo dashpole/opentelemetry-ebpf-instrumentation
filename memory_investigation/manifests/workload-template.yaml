@@ -5,7 +5,7 @@ metadata:
   labels:
     app: workload-client
 spec:
-  replicas: 1
+  replicas: ${WORKLOAD_CLIENT_REPLICAS}
   selector:
     matchLabels:
       app: workload-client
@@ -30,7 +30,7 @@ metadata:
   labels:
     app: workload-server
 spec:
-  replicas: 1
+  replicas: ${WORKLOAD_SERVER_REPLICAS}
   selector:
     matchLabels:
       app: workload-server

@@ -1,19 +1,26 @@
 #!/bin/bash
 
 # Configuration Matrix driver
-PROTOCOLS="http https grpc mysql postgres redis kafka"
-CONFIGS="baseline k8s_attributes go_tracers service_graph golden_signals traces context_disabled context_headers context_tcp large_batching large_caches payloads"
-QPS_LEVELS="0 10 100 1000"
-
-# Note: The user requested NOT to run tests automatically yet, this script just drives the framework
-# Uncomment the nested loop below to actually run the matrix.
+HTTP_CONFIGS="baseline k8s_attributes go_tracers service_graph golden_signals traces context_disabled context_headers context_tcp large_batching large_caches payloads"
+OTHER_PROTOCOLS="https grpc mysql postgres redis kafka"
+OTHER_CONFIGS="baseline golden_signals"
+HTTP_SCENARIOS="Idle High-Single High-Multi"
+OTHER_SCENARIOS="Idle High-Single"
 
 echo "Starting Matrix driver..."
 
-for PROT in $PROTOCOLS; do
-  for CONF in $CONFIGS; do
-    for QPS in $QPS_LEVELS; do
-      ./memory_investigation/scripts/run_test.sh "$PROT" "$CONF" "$QPS"
+# 1. Exhaustive matrix for HTTP/1.1
+for CONF in $HTTP_CONFIGS; do
+  for SCENARIO in $HTTP_SCENARIOS; do
+    ./memory_investigation/scripts/run_test.sh "http" "$CONF" "$SCENARIO"
+  done
+done
+
+# 2. Baseline and Typical configuration for other protocols
+for PROT in $OTHER_PROTOCOLS; do
+  for CONF in $OTHER_CONFIGS; do
+    for SCENARIO in $OTHER_SCENARIOS; do
+      ./memory_investigation/scripts/run_test.sh "$PROT" "$CONF" "$SCENARIO"
     done
   done
 done

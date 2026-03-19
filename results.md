@@ -1,340 +1,65 @@
-# OBI Memory Investigation Results
+# OBI Performance Results
 
-| Protocol | Config | QPS | In-Use Memory | Total Allocated Memory | Spans | Metrics (Datapoints / Cardinality) | Artifacts |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| HTTP | baseline | 0 | 8.52 MB | 47.30 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/baseline/0qps/) |
-| HTTP | baseline | 10 | 9.53 MB | 54.37 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/baseline/10qps/) |
-| HTTP | baseline | 100 | 9.03 MB | 55.70 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/baseline/100qps/) |
-| HTTP | baseline | 1000 | 9.53 MB | 48.30 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/baseline/1000qps/) |
-| HTTP | k8s_attributes | 0 | 7.02 MB | 12.03 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/k8s_attributes/0qps/) |
-| HTTP | k8s_attributes | 10 | 7.04 MB | 9.54 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/k8s_attributes/10qps/) |
-| HTTP | k8s_attributes | 100 | 7.52 MB | 12.52 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/k8s_attributes/100qps/) |
-| HTTP | k8s_attributes | 1000 | 7.53 MB | 10.03 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/k8s_attributes/1000qps/) |
-| HTTP | go_tracers | 0 | 7.04 MB | 12.04 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/go_tracers/0qps/) |
-| HTTP | go_tracers | 10 | 11.02 MB | 17.03 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/go_tracers/10qps/) |
-| HTTP | go_tracers | 100 | 7.52 MB | 11.02 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/go_tracers/100qps/) |
-| HTTP | go_tracers | 1000 | 8.06 MB | 13.08 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/go_tracers/1000qps/) |
-| HTTP | service_graph | 0 | 8.53 MB | 9.54 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/service_graph/0qps/) |
-| HTTP | service_graph | 10 | 6.02 MB | 11.54 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/service_graph/10qps/) |
-| HTTP | service_graph | 100 | 6.03 MB | 8.53 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/service_graph/100qps/) |
-| HTTP | service_graph | 1000 | 5.53 MB | 8.03 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/service_graph/1000qps/) |
-| HTTP | golden_signals | 0 | 7.02 MB | 11.03 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/golden_signals/0qps/) |
-| HTTP | golden_signals | 10 | 7.08 MB | 12.11 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/golden_signals/10qps/) |
-| HTTP | golden_signals | 100 | 10.57 MB | 12.57 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/golden_signals/100qps/) |
-| HTTP | golden_signals | 1000 | 5.53 MB | 10.54 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/golden_signals/1000qps/) |
-| HTTP | traces | 0 | 9.04 MB | 9.54 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/traces/0qps/) |
-| HTTP | traces | 10 | 8.55 MB | 10.56 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/traces/10qps/) |
-| HTTP | traces | 100 | 8.55 MB | 14.55 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/traces/100qps/) |
-| HTTP | traces | 1000 | 7.55 MB | 11.10 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/traces/1000qps/) |
-| HTTP | context_disabled | 0 | 6.52 MB | 12.09 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/context_disabled/0qps/) |
-| HTTP | context_disabled | 10 | 7.59 MB | 11.62 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/context_disabled/10qps/) |
-| HTTP | context_disabled | 100 | 8.05 MB | 13.57 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/context_disabled/100qps/) |
-| HTTP | context_disabled | 1000 | 6.52 MB | 9.02 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/context_disabled/1000qps/) |
-| HTTP | context_headers | 0 | 5.52 MB | 8.04 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/context_headers/0qps/) |
-| HTTP | context_headers | 10 | 7.02 MB | 11.54 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/context_headers/10qps/) |
-| HTTP | context_headers | 100 | 6.53 MB | 7.03 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/context_headers/100qps/) |
-| HTTP | context_headers | 1000 | 8.04 MB | 10.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/context_headers/1000qps/) |
-| HTTP | context_tcp | 0 | 6.53 MB | 7.53 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/context_tcp/0qps/) |
-| HTTP | context_tcp | 10 | 9.55 MB | 12.08 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/context_tcp/10qps/) |
-| HTTP | context_tcp | 100 | 7.02 MB | 10.06 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/context_tcp/100qps/) |
-| HTTP | context_tcp | 1000 | 9.52 MB | 10.52 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/context_tcp/1000qps/) |
-| HTTP | large_batching | 0 | 7.51 MB | 12.05 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/large_batching/0qps/) |
-| HTTP | large_batching | 10 | 9.53 MB | 15.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/large_batching/10qps/) |
-| HTTP | large_batching | 100 | 9.03 MB | 12.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/large_batching/100qps/) |
-| HTTP | large_batching | 1000 | 9.60 MB | 14.13 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/large_batching/1000qps/) |
-| HTTP | large_caches | 0 | 5.01 MB | 11.01 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/large_caches/0qps/) |
-| HTTP | large_caches | 10 | 9.07 MB | 11.09 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/large_caches/10qps/) |
-| HTTP | large_caches | 100 | 6.01 MB | 11.06 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/large_caches/100qps/) |
-| HTTP | large_caches | 1000 | 5.02 MB | 8.02 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/large_caches/1000qps/) |
-| HTTP | payloads | 0 | 7.03 MB | 9.03 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/http/payloads/0qps/) |
-| HTTP | payloads | 10 | 12.04 MB | 14.57 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/payloads/10qps/) |
-| HTTP | payloads | 100 | 10.04 MB | 13.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/payloads/100qps/) |
-| HTTP | payloads | 1000 | 11.03 MB | 13.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/http/payloads/1000qps/) |
-| HTTPS | baseline | 0 | 10.04 MB | 51.31 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/baseline/0qps/) |
-| HTTPS | baseline | 10 | 11.53 MB | 50.70 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/baseline/10qps/) |
-| HTTPS | baseline | 100 | 9.57 MB | 48.47 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/baseline/100qps/) |
-| HTTPS | baseline | 1000 | 7.06 MB | 51.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/baseline/1000qps/) |
-| HTTPS | k8s_attributes | 0 | 8.07 MB | 13.10 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/k8s_attributes/0qps/) |
-| HTTPS | k8s_attributes | 10 | 7.54 MB | 10.57 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/k8s_attributes/10qps/) |
-| HTTPS | k8s_attributes | 100 | 7.59 MB | 9.63 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/k8s_attributes/100qps/) |
-| HTTPS | k8s_attributes | 1000 | 10.02 MB | 11.02 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/k8s_attributes/1000qps/) |
-| HTTPS | go_tracers | 0 | 9.03 MB | 12.58 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/go_tracers/0qps/) |
-| HTTPS | go_tracers | 10 | 7.55 MB | 10.05 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/go_tracers/10qps/) |
-| HTTPS | go_tracers | 100 | 9.05 MB | 12.55 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/go_tracers/100qps/) |
-| HTTPS | go_tracers | 1000 | 7.05 MB | 11.58 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/go_tracers/1000qps/) |
-| HTTPS | service_graph | 0 | 6.53 MB | 10.05 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/service_graph/0qps/) |
-| HTTPS | service_graph | 10 | 6.02 MB | 8.53 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/service_graph/10qps/) |
-| HTTPS | service_graph | 100 | 7.02 MB | 10.03 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/service_graph/100qps/) |
-| HTTPS | service_graph | 1000 | 7.05 MB | 8.05 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/service_graph/1000qps/) |
-| HTTPS | golden_signals | 0 | 8.04 MB | 13.05 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/golden_signals/0qps/) |
-| HTTPS | golden_signals | 10 | 8.06 MB | 9.06 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/golden_signals/10qps/) |
-| HTTPS | golden_signals | 100 | 8.55 MB | 12.08 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/golden_signals/100qps/) |
-| HTTPS | golden_signals | 1000 | 8.03 MB | 11.10 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/golden_signals/1000qps/) |
-| HTTPS | traces | 0 | 7.05 MB | 11.05 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/traces/0qps/) |
-| HTTPS | traces | 10 | 6.51 MB | 9.02 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/traces/10qps/) |
-| HTTPS | traces | 100 | 7.05 MB | 12.06 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/traces/100qps/) |
-| HTTPS | traces | 1000 | 5.53 MB | 10.06 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/traces/1000qps/) |
-| HTTPS | context_disabled | 0 | 6.52 MB | 11.57 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/context_disabled/0qps/) |
-| HTTPS | context_disabled | 10 | 8.04 MB | 13.55 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/context_disabled/10qps/) |
-| HTTPS | context_disabled | 100 | 7.06 MB | 9.06 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/context_disabled/100qps/) |
-| HTTPS | context_disabled | 1000 | 7.52 MB | 11.59 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/context_disabled/1000qps/) |
-| HTTPS | context_headers | 0 | 7.07 MB | 13.62 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/context_headers/0qps/) |
-| HTTPS | context_headers | 10 | 6.57 MB | 12.07 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/context_headers/10qps/) |
-| HTTPS | context_headers | 100 | 5.52 MB | 7.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/context_headers/100qps/) |
-| HTTPS | context_headers | 1000 | 8.03 MB | 12.55 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/context_headers/1000qps/) |
-| HTTPS | context_tcp | 0 | 6.51 MB | 10.02 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/context_tcp/0qps/) |
-| HTTPS | context_tcp | 10 | 6.53 MB | 9.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/context_tcp/10qps/) |
-| HTTPS | context_tcp | 100 | 8.53 MB | 10.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/context_tcp/100qps/) |
-| HTTPS | context_tcp | 1000 | 8.02 MB | 10.02 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/context_tcp/1000qps/) |
-| HTTPS | large_batching | 0 | 7.03 MB | 11.04 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/large_batching/0qps/) |
-| HTTPS | large_batching | 10 | 3.51 MB | 7.52 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/large_batching/10qps/) |
-| HTTPS | large_batching | 100 | 4.51 MB | 9.05 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/large_batching/100qps/) |
-| HTTPS | large_batching | 1000 | 8.04 MB | 10.57 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/large_batching/1000qps/) |
-| HTTPS | large_caches | 0 | 4.04 MB | 9.04 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/large_caches/0qps/) |
-| HTTPS | large_caches | 10 | 6.51 MB | 10.55 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/large_caches/10qps/) |
-| HTTPS | large_caches | 100 | 4.02 MB | 7.56 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/large_caches/100qps/) |
-| HTTPS | large_caches | 1000 | 6.01 MB | 8.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/large_caches/1000qps/) |
-| HTTPS | payloads | 0 | 8.56 MB | 13.57 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/https/payloads/0qps/) |
-| HTTPS | payloads | 10 | 7.04 MB | 11.05 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/payloads/10qps/) |
-| HTTPS | payloads | 100 | 8.03 MB | 11.55 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/payloads/100qps/) |
-| HTTPS | payloads | 1000 | 7.53 MB | 11.54 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/https/payloads/1000qps/) |
-| GRPC | baseline | 0 | 9.06 MB | 46.00 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/baseline/0qps/) |
-| GRPC | baseline | 10 | 10.08 MB | 46.81 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/baseline/10qps/) |
-| GRPC | baseline | 100 | 9.56 MB | 48.47 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/baseline/100qps/) |
-| GRPC | baseline | 1000 | 8.02 MB | 46.70 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/baseline/1000qps/) |
-| GRPC | k8s_attributes | 0 | 5.01 MB | 7.01 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/k8s_attributes/0qps/) |
-| GRPC | k8s_attributes | 10 | 7.53 MB | 11.56 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/k8s_attributes/10qps/) |
-| GRPC | k8s_attributes | 100 | 6.03 MB | 11.56 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/k8s_attributes/100qps/) |
-| GRPC | k8s_attributes | 1000 | 8.53 MB | 12.56 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/k8s_attributes/1000qps/) |
-| GRPC | go_tracers | 0 | 6.53 MB | 7.53 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/go_tracers/0qps/) |
-| GRPC | go_tracers | 10 | 6.51 MB | 9.51 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/go_tracers/10qps/) |
-| GRPC | go_tracers | 100 | 8.55 MB | 10.08 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/go_tracers/100qps/) |
-| GRPC | go_tracers | 1000 | 6.54 MB | 9.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/go_tracers/1000qps/) |
-| GRPC | service_graph | 0 | 7.53 MB | 11.53 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/service_graph/0qps/) |
-| GRPC | service_graph | 10 | 6.56 MB | 10.06 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/service_graph/10qps/) |
-| GRPC | service_graph | 100 | 7.55 MB | 10.05 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/service_graph/100qps/) |
-| GRPC | service_graph | 1000 | 7.01 MB | 12.52 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/service_graph/1000qps/) |
-| GRPC | golden_signals | 0 | 7.04 MB | 14.66 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/golden_signals/0qps/) |
-| GRPC | golden_signals | 10 | 9.07 MB | 15.10 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/golden_signals/10qps/) |
-| GRPC | golden_signals | 100 | 7.56 MB | 10.06 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/golden_signals/100qps/) |
-| GRPC | golden_signals | 1000 | 6.57 MB | 13.12 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/golden_signals/1000qps/) |
-| GRPC | traces | 0 | 6.03 MB | 10.08 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/traces/0qps/) |
-| GRPC | traces | 10 | 10.54 MB | 15.07 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/traces/10qps/) |
-| GRPC | traces | 100 | 6.51 MB | 12.03 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/traces/100qps/) |
-| GRPC | traces | 1000 | 8.52 MB | 10.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/traces/1000qps/) |
-| GRPC | context_disabled | 0 | 10.07 MB | 14.61 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/context_disabled/0qps/) |
-| GRPC | context_disabled | 10 | 5.05 MB | 7.55 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/context_disabled/10qps/) |
-| GRPC | context_disabled | 100 | 7.03 MB | 10.07 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/context_disabled/100qps/) |
-| GRPC | context_disabled | 1000 | 8.05 MB | 13.05 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/context_disabled/1000qps/) |
-| GRPC | context_headers | 0 | 6.55 MB | 13.05 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/context_headers/0qps/) |
-| GRPC | context_headers | 10 | 8.55 MB | 11.05 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/context_headers/10qps/) |
-| GRPC | context_headers | 100 | 9.56 MB | 18.63 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/context_headers/100qps/) |
-| GRPC | context_headers | 1000 | 7.01 MB | 9.51 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/context_headers/1000qps/) |
-| GRPC | context_tcp | 0 | 7.03 MB | 8.53 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/context_tcp/0qps/) |
-| GRPC | context_tcp | 10 | 5.01 MB | 10.02 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/context_tcp/10qps/) |
-| GRPC | context_tcp | 100 | 7.02 MB | 11.09 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/context_tcp/100qps/) |
-| GRPC | context_tcp | 1000 | 8.57 MB | 13.09 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/context_tcp/1000qps/) |
-| GRPC | large_batching | 0 | 7.53 MB | 14.56 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/large_batching/0qps/) |
-| GRPC | large_batching | 10 | 6.51 MB | 12.02 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/large_batching/10qps/) |
-| GRPC | large_batching | 100 | 6.51 MB | 10.54 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/large_batching/100qps/) |
-| GRPC | large_batching | 1000 | 8.03 MB | 11.03 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/large_batching/1000qps/) |
-| GRPC | large_caches | 0 | 9.02 MB | 14.03 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/large_caches/0qps/) |
-| GRPC | large_caches | 10 | 8.03 MB | 11.03 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/large_caches/10qps/) |
-| GRPC | large_caches | 100 | 6.54 MB | 10.05 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/large_caches/100qps/) |
-| GRPC | large_caches | 1000 | 7.54 MB | 11.05 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/large_caches/1000qps/) |
-| GRPC | payloads | 0 | 7.52 MB | 11.08 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/grpc/payloads/0qps/) |
-| GRPC | payloads | 10 | 7.54 MB | 9.07 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/payloads/10qps/) |
-| GRPC | payloads | 100 | 9.59 MB | 12.62 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/payloads/100qps/) |
-| GRPC | payloads | 1000 | 10.06 MB | 11.59 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/grpc/payloads/1000qps/) |
-| MYSQL | baseline | 0 | 7.53 MB | 54.86 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/baseline/0qps/) |
-| MYSQL | baseline | 10 | 8.07 MB | 47.01 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/baseline/10qps/) |
-| MYSQL | baseline | 100 | 7.52 MB | 46.80 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/baseline/100qps/) |
-| MYSQL | baseline | 1000 | 9.06 MB | 53.34 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/baseline/1000qps/) |
-| MYSQL | k8s_attributes | 0 | 7.02 MB | 10.55 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/k8s_attributes/0qps/) |
-| MYSQL | k8s_attributes | 10 | 7.53 MB | 10.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/k8s_attributes/10qps/) |
-| MYSQL | k8s_attributes | 100 | 6.54 MB | 9.54 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/k8s_attributes/100qps/) |
-| MYSQL | k8s_attributes | 1000 | 7.51 MB | 10.03 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/k8s_attributes/1000qps/) |
-| MYSQL | go_tracers | 0 | 7.02 MB | 9.55 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/go_tracers/0qps/) |
-| MYSQL | go_tracers | 10 | 9.08 MB | 12.11 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/go_tracers/10qps/) |
-| MYSQL | go_tracers | 100 | 8.53 MB | 11.57 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/go_tracers/100qps/) |
-| MYSQL | go_tracers | 1000 | 7.02 MB | 10.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/go_tracers/1000qps/) |
-| MYSQL | service_graph | 0 | 6.52 MB | 12.10 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/service_graph/0qps/) |
-| MYSQL | service_graph | 10 | 8.54 MB | 14.10 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/service_graph/10qps/) |
-| MYSQL | service_graph | 100 | 9.57 MB | 11.60 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/service_graph/100qps/) |
-| MYSQL | service_graph | 1000 | 7.54 MB | 11.56 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/service_graph/1000qps/) |
-| MYSQL | golden_signals | 0 | 5.02 MB | 10.05 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/golden_signals/0qps/) |
-| MYSQL | golden_signals | 10 | 8.52 MB | 13.06 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/golden_signals/10qps/) |
-| MYSQL | golden_signals | 100 | 6.52 MB | 8.52 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/golden_signals/100qps/) |
-| MYSQL | golden_signals | 1000 | 6.51 MB | 10.01 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/golden_signals/1000qps/) |
-| MYSQL | traces | 0 | 6.03 MB | 9.54 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/traces/0qps/) |
-| MYSQL | traces | 10 | 5.51 MB | 8.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/traces/10qps/) |
-| MYSQL | traces | 100 | 6.01 MB | 16.60 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/traces/100qps/) |
-| MYSQL | traces | 1000 | 9.57 MB | 13.10 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/traces/1000qps/) |
-| MYSQL | context_disabled | 0 | 6.54 MB | 13.06 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/context_disabled/0qps/) |
-| MYSQL | context_disabled | 10 | 9.03 MB | 11.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/context_disabled/10qps/) |
-| MYSQL | context_disabled | 100 | 8.04 MB | 10.05 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/context_disabled/100qps/) |
-| MYSQL | context_disabled | 1000 | 5.01 MB | 7.51 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/context_disabled/1000qps/) |
-| MYSQL | context_headers | 0 | 8.06 MB | 12.08 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/context_headers/0qps/) |
-| MYSQL | context_headers | 10 | 7.51 MB | 9.01 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/context_headers/10qps/) |
-| MYSQL | context_headers | 100 | 7.53 MB | 9.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/context_headers/100qps/) |
-| MYSQL | context_headers | 1000 | 6.55 MB | 10.58 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/context_headers/1000qps/) |
-| MYSQL | context_tcp | 0 | 9.07 MB | 16.62 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/context_tcp/0qps/) |
-| MYSQL | context_tcp | 10 | 8.05 MB | 11.62 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/context_tcp/10qps/) |
-| MYSQL | context_tcp | 100 | 8.55 MB | 16.08 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/context_tcp/100qps/) |
-| MYSQL | context_tcp | 1000 | 8.52 MB | 12.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/context_tcp/1000qps/) |
-| MYSQL | large_batching | 0 | 8.52 MB | 12.05 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/large_batching/0qps/) |
-| MYSQL | large_batching | 10 | 10.04 MB | 11.54 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/large_batching/10qps/) |
-| MYSQL | large_batching | 100 | 8.03 MB | 10.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/large_batching/100qps/) |
-| MYSQL | large_batching | 1000 | 7.56 MB | 12.06 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/large_batching/1000qps/) |
-| MYSQL | large_caches | 0 | 7.53 MB | 11.53 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/large_caches/0qps/) |
-| MYSQL | large_caches | 10 | 10.03 MB | 14.06 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/large_caches/10qps/) |
-| MYSQL | large_caches | 100 | 7.02 MB | 14.05 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/large_caches/100qps/) |
-| MYSQL | large_caches | 1000 | 4.52 MB | 10.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/large_caches/1000qps/) |
-| MYSQL | payloads | 0 | 6.51 MB | 11.05 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/mysql/payloads/0qps/) |
-| MYSQL | payloads | 10 | 7.01 MB | 10.52 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/payloads/10qps/) |
-| MYSQL | payloads | 100 | 7.01 MB | 11.02 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/payloads/100qps/) |
-| MYSQL | payloads | 1000 | 5.52 MB | 9.59 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/mysql/payloads/1000qps/) |
-| POSTGRES | baseline | 0 | 8.01 MB | 45.86 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/baseline/0qps/) |
-| POSTGRES | baseline | 10 | 8.56 MB | 54.84 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/baseline/10qps/) |
-| POSTGRES | baseline | 100 | 8.03 MB | 57.64 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/baseline/100qps/) |
-| POSTGRES | baseline | 1000 | 7.55 MB | 45.27 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/baseline/1000qps/) |
-| POSTGRES | k8s_attributes | 0 | 5.01 MB | 8.51 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/k8s_attributes/0qps/) |
-| POSTGRES | k8s_attributes | 10 | 7.03 MB | 12.07 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/k8s_attributes/10qps/) |
-| POSTGRES | k8s_attributes | 100 | 6.51 MB | 14.03 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/k8s_attributes/100qps/) |
-| POSTGRES | k8s_attributes | 1000 | 9.03 MB | 15.05 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/k8s_attributes/1000qps/) |
-| POSTGRES | go_tracers | 0 | 8.56 MB | 12.57 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/go_tracers/0qps/) |
-| POSTGRES | go_tracers | 10 | 4.51 MB | 7.01 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/go_tracers/10qps/) |
-| POSTGRES | go_tracers | 100 | 6.05 MB | 14.09 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/go_tracers/100qps/) |
-| POSTGRES | go_tracers | 1000 | 6.54 MB | 9.58 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/go_tracers/1000qps/) |
-| POSTGRES | service_graph | 0 | 6.55 MB | 13.06 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/service_graph/0qps/) |
-| POSTGRES | service_graph | 10 | 8.54 MB | 11.04 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/service_graph/10qps/) |
-| POSTGRES | service_graph | 100 | 6.04 MB | 7.54 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/service_graph/100qps/) |
-| POSTGRES | service_graph | 1000 | 7.04 MB | 11.54 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/service_graph/1000qps/) |
-| POSTGRES | golden_signals | 0 | 6.02 MB | 9.02 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/golden_signals/0qps/) |
-| POSTGRES | golden_signals | 10 | 6.04 MB | 10.07 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/golden_signals/10qps/) |
-| POSTGRES | golden_signals | 100 | 7.02 MB | 11.05 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/golden_signals/100qps/) |
-| POSTGRES | golden_signals | 1000 | 7.01 MB | 9.54 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/golden_signals/1000qps/) |
-| POSTGRES | traces | 0 | 7.51 MB | 12.02 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/traces/0qps/) |
-| POSTGRES | traces | 10 | 3.51 MB | 9.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/traces/10qps/) |
-| POSTGRES | traces | 100 | 6.57 MB | 11.10 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/traces/100qps/) |
-| POSTGRES | traces | 1000 | 6.03 MB | 10.56 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/traces/1000qps/) |
-| POSTGRES | context_disabled | 0 | 7.05 MB | 10.07 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/context_disabled/0qps/) |
-| POSTGRES | context_disabled | 10 | 8.03 MB | 12.58 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/context_disabled/10qps/) |
-| POSTGRES | context_disabled | 100 | 6.56 MB | 8.06 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/context_disabled/100qps/) |
-| POSTGRES | context_disabled | 1000 | 8.02 MB | 12.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/context_disabled/1000qps/) |
-| POSTGRES | context_headers | 0 | 9.57 MB | 12.58 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/context_headers/0qps/) |
-| POSTGRES | context_headers | 10 | 7.02 MB | 10.52 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/context_headers/10qps/) |
-| POSTGRES | context_headers | 100 | 10.05 MB | 15.58 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/context_headers/100qps/) |
-| POSTGRES | context_headers | 1000 | 9.05 MB | 10.55 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/context_headers/1000qps/) |
-| POSTGRES | context_tcp | 0 | 9.56 MB | 10.56 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/context_tcp/0qps/) |
-| POSTGRES | context_tcp | 10 | 7.04 MB | 9.07 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/context_tcp/10qps/) |
-| POSTGRES | context_tcp | 100 | 9.52 MB | 11.52 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/context_tcp/100qps/) |
-| POSTGRES | context_tcp | 1000 | 7.02 MB | 8.03 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/context_tcp/1000qps/) |
-| POSTGRES | large_batching | 0 | 5.51 MB | 10.57 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/large_batching/0qps/) |
-| POSTGRES | large_batching | 10 | 5.51 MB | 9.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/large_batching/10qps/) |
-| POSTGRES | large_batching | 100 | 6.54 MB | 9.05 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/large_batching/100qps/) |
-| POSTGRES | large_batching | 1000 | 5.53 MB | 8.56 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/large_batching/1000qps/) |
-| POSTGRES | large_caches | 0 | 7.03 MB | 13.54 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/large_caches/0qps/) |
-| POSTGRES | large_caches | 10 | 8.02 MB | 11.02 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/large_caches/10qps/) |
-| POSTGRES | large_caches | 100 | 7.06 MB | 15.57 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/large_caches/100qps/) |
-| POSTGRES | large_caches | 1000 | 7.03 MB | 11.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/large_caches/1000qps/) |
-| POSTGRES | payloads | 0 | 6.02 MB | 7.52 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/postgres/payloads/0qps/) |
-| POSTGRES | payloads | 10 | 7.06 MB | 10.62 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/payloads/10qps/) |
-| POSTGRES | payloads | 100 | 7.53 MB | 9.55 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/payloads/100qps/) |
-| POSTGRES | payloads | 1000 | 6.52 MB | 8.02 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/postgres/payloads/1000qps/) |
-| REDIS | baseline | 0 | 9.03 MB | 49.70 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/baseline/0qps/) |
-| REDIS | baseline | 10 | 10.53 MB | 49.35 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/baseline/10qps/) |
-| REDIS | baseline | 100 | 9.56 MB | 53.07 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/baseline/100qps/) |
-| REDIS | baseline | 1000 | 9.54 MB | 50.81 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/baseline/1000qps/) |
-| REDIS | k8s_attributes | 0 | 6.51 MB | 11.02 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/k8s_attributes/0qps/) |
-| REDIS | k8s_attributes | 10 | 8.05 MB | 10.09 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/k8s_attributes/10qps/) |
-| REDIS | k8s_attributes | 100 | 7.03 MB | 10.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/k8s_attributes/100qps/) |
-| REDIS | k8s_attributes | 1000 | 7.03 MB | 15.08 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/k8s_attributes/1000qps/) |
-| REDIS | go_tracers | 0 | 11.05 MB | 14.05 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/go_tracers/0qps/) |
-| REDIS | go_tracers | 10 | 6.03 MB | 11.54 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/go_tracers/10qps/) |
-| REDIS | go_tracers | 100 | 8.54 MB | 13.06 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/go_tracers/100qps/) |
-| REDIS | go_tracers | 1000 | 10.52 MB | 17.06 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/go_tracers/1000qps/) |
-| REDIS | service_graph | 0 | 9.55 MB | 12.05 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/service_graph/0qps/) |
-| REDIS | service_graph | 10 | 6.51 MB | 11.02 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/service_graph/10qps/) |
-| REDIS | service_graph | 100 | 8.05 MB | 12.05 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/service_graph/100qps/) |
-| REDIS | service_graph | 1000 | 9.07 MB | 10.58 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/service_graph/1000qps/) |
-| REDIS | golden_signals | 0 | 7.53 MB | 12.04 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/golden_signals/0qps/) |
-| REDIS | golden_signals | 10 | 8.04 MB | 12.54 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/golden_signals/10qps/) |
-| REDIS | golden_signals | 100 | 7.03 MB | 8.53 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/golden_signals/100qps/) |
-| REDIS | golden_signals | 1000 | 7.02 MB | 11.02 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/golden_signals/1000qps/) |
-| REDIS | traces | 0 | 6.52 MB | 11.04 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/traces/0qps/) |
-| REDIS | traces | 10 | 7.03 MB | 12.57 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/traces/10qps/) |
-| REDIS | traces | 100 | 6.02 MB | 10.06 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/traces/100qps/) |
-| REDIS | traces | 1000 | 6.52 MB | 9.52 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/traces/1000qps/) |
-| REDIS | context_disabled | 0 | 7.03 MB | 10.03 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/context_disabled/0qps/) |
-| REDIS | context_disabled | 10 | 8.58 MB | 10.08 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/context_disabled/10qps/) |
-| REDIS | context_disabled | 100 | 6.02 MB | 9.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/context_disabled/100qps/) |
-| REDIS | context_disabled | 1000 | 9.56 MB | 15.09 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/context_disabled/1000qps/) |
-| REDIS | context_headers | 0 | 6.02 MB | 12.55 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/context_headers/0qps/) |
-| REDIS | context_headers | 10 | 9.53 MB | 13.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/context_headers/10qps/) |
-| REDIS | context_headers | 100 | 8.03 MB | 8.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/context_headers/100qps/) |
-| REDIS | context_headers | 1000 | 8.09 MB | 13.10 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/context_headers/1000qps/) |
-| REDIS | context_tcp | 0 | 7.06 MB | 13.60 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/context_tcp/0qps/) |
-| REDIS | context_tcp | 10 | 10.54 MB | 14.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/context_tcp/10qps/) |
-| REDIS | context_tcp | 100 | 8.03 MB | 9.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/context_tcp/100qps/) |
-| REDIS | context_tcp | 1000 | 8.05 MB | 10.61 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/context_tcp/1000qps/) |
-| REDIS | large_batching | 0 | 8.56 MB | 13.07 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/large_batching/0qps/) |
-| REDIS | large_batching | 10 | 7.01 MB | 12.52 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/large_batching/10qps/) |
-| REDIS | large_batching | 100 | 9.58 MB | 12.58 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/large_batching/100qps/) |
-| REDIS | large_batching | 1000 | 9.03 MB | 11.03 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/large_batching/1000qps/) |
-| REDIS | large_caches | 0 | 5.51 MB | 9.09 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/large_caches/0qps/) |
-| REDIS | large_caches | 10 | 7.06 MB | 10.06 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/large_caches/10qps/) |
-| REDIS | large_caches | 100 | 8.02 MB | 12.02 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/large_caches/100qps/) |
-| REDIS | large_caches | 1000 | 7.58 MB | 13.11 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/large_caches/1000qps/) |
-| REDIS | payloads | 0 | 8.56 MB | 11.07 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/redis/payloads/0qps/) |
-| REDIS | payloads | 10 | 6.54 MB | 9.56 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/payloads/10qps/) |
-| REDIS | payloads | 100 | 9.03 MB | 11.55 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/payloads/100qps/) |
-| REDIS | payloads | 1000 | 7.56 MB | 9.56 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/redis/payloads/1000qps/) |
-| KAFKA | baseline | 0 | 7.01 MB | 44.42 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/baseline/0qps/) |
-| KAFKA | baseline | 10 | 10.03 MB | 52.08 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/baseline/10qps/) |
-| KAFKA | baseline | 100 | 10.53 MB | 46.73 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/baseline/100qps/) |
-| KAFKA | baseline | 1000 | 9.05 MB | 49.74 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/baseline/1000qps/) |
-| KAFKA | k8s_attributes | 0 | 6.04 MB | 10.07 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/k8s_attributes/0qps/) |
-| KAFKA | k8s_attributes | 10 | 7.53 MB | 11.10 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/k8s_attributes/10qps/) |
-| KAFKA | k8s_attributes | 100 | 6.52 MB | 13.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/k8s_attributes/100qps/) |
-| KAFKA | k8s_attributes | 1000 | 7.53 MB | 14.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/k8s_attributes/1000qps/) |
-| KAFKA | go_tracers | 0 | 10.55 MB | 13.55 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/go_tracers/0qps/) |
-| KAFKA | go_tracers | 10 | 7.01 MB | 9.52 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/go_tracers/10qps/) |
-| KAFKA | go_tracers | 100 | 7.03 MB | 10.08 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/go_tracers/100qps/) |
-| KAFKA | go_tracers | 1000 | 9.58 MB | 12.08 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/go_tracers/1000qps/) |
-| KAFKA | service_graph | 0 | 8.04 MB | 14.10 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/service_graph/0qps/) |
-| KAFKA | service_graph | 10 | 6.53 MB | 10.54 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/service_graph/10qps/) |
-| KAFKA | service_graph | 100 | 5.01 MB | 10.06 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/service_graph/100qps/) |
-| KAFKA | service_graph | 1000 | 8.55 MB | 11.05 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/service_graph/1000qps/) |
-| KAFKA | golden_signals | 0 | 8.52 MB | 10.02 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/golden_signals/0qps/) |
-| KAFKA | golden_signals | 10 | 7.03 MB | 11.60 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/golden_signals/10qps/) |
-| KAFKA | golden_signals | 100 | 6.03 MB | 7.54 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/golden_signals/100qps/) |
-| KAFKA | golden_signals | 1000 | 8.52 MB | 14.06 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/golden_signals/1000qps/) |
-| KAFKA | traces | 0 | 7.51 MB | 12.52 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/traces/0qps/) |
-| KAFKA | traces | 10 | 7.03 MB | 11.05 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/traces/10qps/) |
-| KAFKA | traces | 100 | 7.04 MB | 10.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/traces/100qps/) |
-| KAFKA | traces | 1000 | 10.61 MB | 12.63 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/traces/1000qps/) |
-| KAFKA | context_disabled | 0 | 7.06 MB | 13.08 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/context_disabled/0qps/) |
-| KAFKA | context_disabled | 10 | 6.56 MB | 10.61 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/context_disabled/10qps/) |
-| KAFKA | context_disabled | 100 | 7.01 MB | 12.03 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/context_disabled/100qps/) |
-| KAFKA | context_disabled | 1000 | 10.05 MB | 12.55 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/context_disabled/1000qps/) |
-| KAFKA | context_headers | 0 | 7.53 MB | 10.54 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/context_headers/0qps/) |
-| KAFKA | context_headers | 10 | 8.03 MB | 14.05 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/context_headers/10qps/) |
-| KAFKA | context_headers | 100 | 7.05 MB | 9.55 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/context_headers/100qps/) |
-| KAFKA | context_headers | 1000 | 8.53 MB | 14.55 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/context_headers/1000qps/) |
-| KAFKA | context_tcp | 0 | 7.04 MB | 10.04 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/context_tcp/0qps/) |
-| KAFKA | context_tcp | 10 | 8.53 MB | 9.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/context_tcp/10qps/) |
-| KAFKA | context_tcp | 100 | 10.09 MB | 13.09 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/context_tcp/100qps/) |
-| KAFKA | context_tcp | 1000 | 7.54 MB | 11.58 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/context_tcp/1000qps/) |
-| KAFKA | large_batching | 0 | 7.53 MB | 10.53 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/large_batching/0qps/) |
-| KAFKA | large_batching | 10 | 6.56 MB | 11.06 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/large_batching/10qps/) |
-| KAFKA | large_batching | 100 | 10.05 MB | 16.57 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/large_batching/100qps/) |
-| KAFKA | large_batching | 1000 | 7.04 MB | 8.54 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/large_batching/1000qps/) |
-| KAFKA | large_caches | 0 | 7.02 MB | 10.56 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/large_caches/0qps/) |
-| KAFKA | large_caches | 10 | 5.52 MB | 9.05 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/large_caches/10qps/) |
-| KAFKA | large_caches | 100 | 9.53 MB | 9.53 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/large_caches/100qps/) |
-| KAFKA | large_caches | 1000 | 7.03 MB | 10.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/large_caches/1000qps/) |
-| KAFKA | payloads | 0 | 8.52 MB | 11.02 MB | 0 | 0 / 0 | [directory](./memory_investigation/artifacts/kafka/payloads/0qps/) |
-| KAFKA | payloads | 10 | 5.01 MB | 8.04 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/payloads/10qps/) |
-| KAFKA | payloads | 100 | 7.52 MB | 10.52 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/payloads/100qps/) |
-| KAFKA | payloads | 1000 | 9.53 MB | 14.03 MB | 0 | 2 / 2 | [directory](./memory_investigation/artifacts/kafka/payloads/1000qps/) |
+| Protocol | Config | Scenario | CPU Profile | Heap Inuse |
+| :--- | :--- | :--- | :--- | :--- |
+| grpc | baseline | High-Single | 0.312 cores | 83.55 MB |
+| grpc | baseline | Idle | 0.007 cores | 128.76 MB |
+| grpc | golden_signals | High-Single | 0.010 cores | 45.76 MB |
+| grpc | golden_signals | Idle | 0.012 cores | 50.70 MB |
+| http | baseline | High-Multi | 0.207 cores | 89.27 MB |
+| http | baseline | High-Single | 0.276 cores | 77.79 MB |
+| http | baseline | Idle | 0.012 cores | 161.50 MB |
+| http | context_disabled | High-Multi | 0.004 cores | 43.19 MB |
+| http | context_disabled | High-Single | 0.006 cores | 37.12 MB |
+| http | context_disabled | Idle | 0.006 cores | 50.31 MB |
+| http | context_headers | High-Multi | 0.009 cores | 39.08 MB |
+| http | context_headers | High-Single | 0.007 cores | 43.76 MB |
+| http | context_headers | Idle | 0.006 cores | 57.71 MB |
+| http | context_tcp | High-Multi | 0.008 cores | 45.56 MB |
+| http | context_tcp | High-Single | 0.012 cores | 37.38 MB |
+| http | context_tcp | Idle | 0.003 cores | 41.15 MB |
+| http | go_tracers | High-Multi | 0.031 cores | 25.74 MB |
+| http | go_tracers | High-Single | 0.022 cores | 29.89 MB |
+| http | go_tracers | Idle | 0.006 cores | 48.28 MB |
+| http | golden_signals | High-Multi | 0.007 cores | 40.92 MB |
+| http | golden_signals | High-Single | 0.006 cores | 22.32 MB |
+| http | golden_signals | Idle | 0.007 cores | 51.19 MB |
+| http | k8s_attributes | High-Multi | 0.030 cores | 26.80 MB |
+| http | k8s_attributes | High-Single | 0.023 cores | 31.36 MB |
+| http | k8s_attributes | Idle | 0.004 cores | 43.98 MB |
+| http | large_batching | High-Multi | 0.031 cores | 41.17 MB |
+| http | large_batching | High-Single | 0.021 cores | 47.32 MB |
+| http | large_batching | Idle | 0.006 cores | 39.82 MB |
+| http | large_caches | High-Multi | 0.029 cores | 29.80 MB |
+| http | large_caches | High-Single | 0.021 cores | 24.70 MB |
+| http | large_caches | Idle | 0.006 cores | 53.22 MB |
+| http | payloads | High-Multi | 0.012 cores | 37.93 MB |
+| http | payloads | High-Single | 0.007 cores | 29.30 MB |
+| http | payloads | Idle | 0.006 cores | 41.23 MB |
+| http | service_graph | High-Multi | 0.008 cores | 40.54 MB |
+| http | service_graph | High-Single | 0.005 cores | 33.83 MB |
+| http | service_graph | Idle | 0.005 cores | 37.14 MB |
+| http | traces | 1000qps | 0.006 cores | 40.95 MB |
+| http | traces | High-Multi | 0.008 cores | 51.42 MB |
+| http | traces | High-Single | 0.007 cores | 41.18 MB |
+| http | traces | Idle | 0.006 cores | 43.45 MB |
+| https | baseline | High-Single | 0.128 cores | 64.51 MB |
+| https | baseline | Idle | 0.006 cores | 137.42 MB |
+| https | golden_signals | High-Single | 0.006 cores | 45.14 MB |
+| https | golden_signals | Idle | 0.007 cores | 48.77 MB |
+| kafka | baseline | High-Single | 0.345 cores | 89.64 MB |
+| kafka | baseline | Idle | 0.008 cores | 171.74 MB |
+| kafka | golden_signals | High-Single | 0.007 cores | 40.17 MB |
+| kafka | golden_signals | Idle | 0.007 cores | 37.69 MB |
+| mysql | baseline | High-Single | 0.161 cores | 141.59 MB |
+| mysql | baseline | Idle | 0.008 cores | 119.94 MB |
+| mysql | golden_signals | High-Single | 0.007 cores | 40.73 MB |
+| mysql | golden_signals | Idle | 0.004 cores | 42.79 MB |
+| postgres | baseline | High-Single | 0.130 cores | 70.66 MB |
+| postgres | baseline | Idle | 0.005 cores | 116.33 MB |
+| postgres | golden_signals | High-Single | 0.005 cores | 42.67 MB |
+| postgres | golden_signals | Idle | 0.007 cores | 46.30 MB |
+| redis | baseline | High-Single | 0.202 cores | 91.53 MB |
+| redis | baseline | Idle | 0.007 cores | 122.52 MB |
+| redis | golden_signals | High-Single | 0.009 cores | 40.67 MB |
+| redis | golden_signals | Idle | 0.010 cores | 36.19 MB |
