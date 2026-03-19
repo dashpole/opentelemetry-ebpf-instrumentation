@@ -1,28 +1,51 @@
+# HELP obi_bpf_network_ignored_packets_total How many network packets have been internally ignored due to collisions in the internal eBPF cache
+# TYPE obi_bpf_network_ignored_packets_total counter
+obi_bpf_network_ignored_packets_total 0
+# HELP obi_bpf_network_packets_total How many network packets have been internally accounted
+# TYPE obi_bpf_network_packets_total counter
+obi_bpf_network_packets_total 0
 # HELP obi_ebpf_tracer_flushes Length of the groups of traces flushed from the eBPF tracer to the next pipeline stage
 # TYPE obi_ebpf_tracer_flushes histogram
 obi_ebpf_tracer_flushes_bucket{le="0"} 0
 obi_ebpf_tracer_flushes_bucket{le="10"} 0
 obi_ebpf_tracer_flushes_bucket{le="20"} 0
 obi_ebpf_tracer_flushes_bucket{le="40"} 0
-obi_ebpf_tracer_flushes_bucket{le="80"} 2
-obi_ebpf_tracer_flushes_bucket{le="160"} 12
-obi_ebpf_tracer_flushes_bucket{le="320"} 12
-obi_ebpf_tracer_flushes_bucket{le="+Inf"} 12
-obi_ebpf_tracer_flushes_sum 1294
-obi_ebpf_tracer_flushes_count 12
+obi_ebpf_tracer_flushes_bucket{le="80"} 0
+obi_ebpf_tracer_flushes_bucket{le="160"} 0
+obi_ebpf_tracer_flushes_bucket{le="320"} 0
+obi_ebpf_tracer_flushes_bucket{le="+Inf"} 0
+obi_ebpf_tracer_flushes_sum 0
+obi_ebpf_tracer_flushes_count 0
 # HELP obi_instrumentation_errors_total Total number of instrumentation errors by process name and error type
 # TYPE obi_instrumentation_errors_total counter
 obi_instrumentation_errors_total{error_type="attaching_uprobe",process_name="/pause"} 15
-obi_instrumentation_errors_total{error_type="attaching_uprobe",process_name="/root/workload"} 135
+obi_instrumentation_errors_total{error_type="attaching_uprobe",process_name="/root/workload"} 55
 obi_instrumentation_errors_total{error_type="attaching_uprobe",process_name="/usr/lib/jvm/java-21-temurin-jre/bin/java"} 15
+obi_instrumentation_errors_total{error_type="attaching_uprobe",process_name="/usr/local/bin/redis-server"} 10
 # HELP obi_instrumented_processes Total number of instrumented processes by process name
 # TYPE obi_instrumented_processes gauge
 obi_instrumented_processes{process_name="java"} 1
-obi_instrumented_processes{process_name="pause"} 16
-obi_instrumented_processes{process_name="workload"} 3
+obi_instrumented_processes{process_name="pause"} 15
+obi_instrumented_processes{process_name="redis-server"} 1
+obi_instrumented_processes{process_name="workload"} 1
 # HELP obi_internal_build_info A metric with a constant '1' value labeled by version, revision, branch, goversion, goos and goarch during build.
 # TYPE obi_internal_build_info gauge
-obi_internal_build_info{goarch="amd64",goos="linux",goversion="go1.25.7",revision="5e460b40",version="memory_investigation"} 1
+obi_internal_build_info{goarch="amd64",goos="linux",goversion="go1.25.7",revision="e19d3e5f",version="obi_testing"} 1
+# HELP obi_kube_cache_forward_lag_seconds How long, in seconds, it takes since a Kubernetes event happens until it is forwarded to the subscribers
+# TYPE obi_kube_cache_forward_lag_seconds histogram
+obi_kube_cache_forward_lag_seconds_bucket{le="0.5"} 0
+obi_kube_cache_forward_lag_seconds_bucket{le="1"} 1
+obi_kube_cache_forward_lag_seconds_bucket{le="2"} 1
+obi_kube_cache_forward_lag_seconds_bucket{le="4"} 1
+obi_kube_cache_forward_lag_seconds_bucket{le="8"} 1
+obi_kube_cache_forward_lag_seconds_bucket{le="16"} 2
+obi_kube_cache_forward_lag_seconds_bucket{le="32"} 2
+obi_kube_cache_forward_lag_seconds_bucket{le="64"} 3
+obi_kube_cache_forward_lag_seconds_bucket{le="128"} 3
+obi_kube_cache_forward_lag_seconds_bucket{le="256"} 3
+obi_kube_cache_forward_lag_seconds_bucket{le="+Inf"} 3
+obi_kube_cache_forward_lag_seconds_sum 52.795683995
+obi_kube_cache_forward_lag_seconds_count 3
 # HELP obi_otel_metric_exports_total Length of the metric batches submitted to the remote OTEL collector
 # TYPE obi_otel_metric_exports_total counter
 obi_otel_metric_exports_total 0

@@ -108,6 +108,14 @@ spec:
               value: "*"
             - name: OTEL_EBPF_METADATA_RETRY_TIMEOUT
               value: "0"
+            - name: OTEL_EBPF_BPF_BUFFER_SIZE_KAFKA
+              value: "4096"
+            - name: OTEL_EBPF_BPF_BUFFER_SIZE_POSTGRES
+              value: "4096"
+            - name: OTEL_EBPF_BPF_BUFFER_SIZE_MYSQL
+              value: "4096"
+            - name: OTEL_EBPF_BPF_BUFFER_SIZE_HTTP
+              value: "4096"
 ${OBI_ENV_VARS}
       volumes:
         - name: obi-config
