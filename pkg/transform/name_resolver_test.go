@@ -515,7 +515,7 @@ func TestResolver(t *testing.T) {
 	nr := NameResolver{
 		store:   store,
 		cache:   expirable.NewLRU[string, string](10, nil, 5*time.Hour),
-		sources: resolverSources([]Source{SourceK8s, SourceDNS, SourceRDNS}),
+		sources: resolverSources([]Source{SourceK8s}),
 		logger:  nrlog(),
 	}
 

@@ -31,8 +31,8 @@ func NewProcessTracer(_ ProcessTracerType, _ []Tracer, _ *obi.Config, _ imetrics
 }
 
 func (pt *ProcessTracer) Init(_ *ebpfcommon.EBPFEventContext) error {
-	pt.log.Debug("avoiding linter complaints for not using log, shutdownTimeout, and bpffsPath fields",
-		"v", pt.shutdownTimeout, "bpffsPath", pt.bpffsPath)
+	pt.log.Debug("avoiding linter complaints for not using log, shutdownTimeout, bpffsPath, and bpfCapacityFactor fields",
+		"v", pt.shutdownTimeout, "bpffsPath", pt.bpffsPath, "bpfCapacityFactor", pt.bpfCapacityFactor)
 	return nil
 }
 
@@ -46,6 +46,6 @@ func (pt *ProcessTracer) NewExecutableInstance(_ *Instrumentable) error {
 
 func (pt *ProcessTracer) UnlinkExecutable(_ *exec.FileInfo) {}
 
-func RunUtilityTracer(_ context.Context, _ *ebpfcommon.EBPFEventContext, _ UtilityTracer) error {
+func RunUtilityTracer(_ context.Context, _ *ebpfcommon.EBPFEventContext, _ UtilityTracer, _ int) error {
 	return nil
 }

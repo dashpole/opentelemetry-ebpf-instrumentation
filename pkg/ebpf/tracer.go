@@ -145,10 +145,11 @@ const (
 // so that the GPU kernel event listener can find symbols names from addresses
 // in the ELF file.
 type ProcessTracer struct {
-	log             *slog.Logger
-	metrics         imetrics.Reporter
-	shutdownTimeout time.Duration
-	bpffsPath       string
+	log               *slog.Logger
+	metrics           imetrics.Reporter
+	shutdownTimeout   time.Duration
+	bpffsPath         string
+	bpfCapacityFactor int
 
 	Type            ProcessTracerType
 	Instrumentables map[uint64]*instrumenter

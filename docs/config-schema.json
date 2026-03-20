@@ -314,6 +314,11 @@
           ],
           "x-env-var": "OTEL_EBPF_BPF_BATCH_TIMEOUT"
         },
+        "bpf_capacity_factor": {
+          "type": "integer",
+          "description": "BpfCapacityFactor scales the maximum number of entries in eBPF maps by a factor of X/100.",
+          "x-env-var": "OTEL_EBPF_BPF_CAPACITY_FACTOR"
+        },
         "bpf_debug": {
           "type": "boolean",
           "description": "Enables logging of eBPF program events",

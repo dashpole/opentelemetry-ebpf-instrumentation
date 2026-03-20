@@ -98,6 +98,21 @@ case $CONFIG in
 EOF
 )
     ;;
+  baseline_reduced)
+    OBI_ENV_VARS=$(cat <<'EOF'
+            - name: OTEL_METRICS_EXPORTER
+              value: "prometheus"
+            - name: OTEL_EBPF_PROMETHEUS_PORT
+              value: "8888"
+            - name: OTEL_TRACES_EXPORTER
+              value: "none"
+            - name: OTEL_EBPF_KUBE_METADATA_ENABLE
+              value: "false"
+            - name: OTEL_EBPF_BPF_CAPACITY_FACTOR
+              value: "10"
+EOF
+)
+    ;;
   k8s_attributes)
     OBI_ENV_VARS=$(cat <<'EOF'
             - name: OTEL_METRICS_EXPORTER
@@ -264,8 +279,10 @@ envsubst '${PROTOCOL} ${CONFIG} ${SCENARIO} ${GCS_BUCKET}' < memory_investigatio
 
 echo "Waiting for scraper job to collect metrics and upload to GCS..."
 # Capture working set memory at halfway point
-sleep 30
-kubectl top pod -l app=obi -n $NAMESPACE --no-headers > /tmp/top_${PROTOCOL}_${CONFIG}_${SCENARIO}.txt || true
+for i in {1..10}; do
+  kubectl top pod -l app=obi -n $NAMESPACE --no-headers > /tmp/top_${PROTOCOL}_${CONFIG}_${SCENARIO}.txt 2>/dev/null && break
+  sleep 10
+done
 gsutil cp /tmp/top_${PROTOCOL}_${CONFIG}_${SCENARIO}.txt ${GCS_BUCKET}/${PROTOCOL}/${CONFIG}/${SCENARIO}/top.txt || true
 
 kubectl wait --for=condition=complete job/metric-scraper -n $NAMESPACE --timeout=300s || true

@@ -125,6 +125,9 @@ type EBPFTracer struct {
 
 	// BPF path used to pin eBPF maps
 	BPFFSPath string `yaml:"bpf_fs_path" env:"OTEL_EBPF_BPF_FS_PATH"`
+
+	// BpfCapacityFactor scales the maximum number of entries in eBPF maps by a factor of X/100.
+	BpfCapacityFactor int `yaml:"bpf_capacity_factor" env:"OTEL_EBPF_BPF_CAPACITY_FACTOR" validate:"gte=1,lte=100"`
 }
 
 var nvidiaSMIExistsFunc = nvidiaSMIExists
