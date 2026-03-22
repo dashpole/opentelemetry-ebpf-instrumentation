@@ -41,7 +41,7 @@ OBI pipes raw telemetry from kernel-to-userspace using BPF Ring Buffers. These r
 
 By default, the Linux kernel pre-allocates 100% of a Hash Map's memory upfront to guarantee lockless performance. 
 * **Approach:** For maps that do *not* require an LRU eviction policy (standard `BPF_MAP_TYPE_HASH`), we can enable `BPF_F_NO_PREALLOC`. This flag forces the kernel to start the map at 0 bytes and dynamically allocate/free kernel memory exactly when entries are added/removed.
-* **Outcome:** Memory scales beautifully with workload/traffic. **Note:** This cannot be used on LRU maps (like `incoming_trace_map`), so we'd have to rewrite maps and implement userspace periodic eviction logic to prevent full-map data drops.
+* **Outcome:** (Failed) Attempting to dynamically inject `BPF_F_NO_PREALLOC` into the Go `ebpf.CollectionSpec` caused immediate eBPF Map loading failures. Similar to Approach 2, this caused `tracer.Init` to crash gracefully, dropping the discover module into a vicious retry-loop that spiked idle Go memory to **551 MiB**. This BPF failure confirms elasticity requires static C map definition adjustments.
 
 ## 6. Swap Caching for Per-CPU Scratchpads
 **Target:** Kernel-Space (Non-Evictable Memory) | **Complexity:** High | **Impact:** Medium
