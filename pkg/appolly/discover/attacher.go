@@ -11,6 +11,7 @@ import (
 
 	"github.com/cilium/ebpf/link"
 	"github.com/cilium/ebpf/rlimit"
+	lru "github.com/hashicorp/golang-lru/v2"
 
 	"go.opentelemetry.io/obi/pkg/appolly/app"
 	"go.opentelemetry.io/obi/pkg/appolly/app/request"
@@ -46,6 +47,7 @@ type traceAttacher struct {
 
 	// keeps a copy of all the tracers for a given executable path
 	existingTracers     map[uint64]*ebpf.ProcessTracer
+	failedTracers       *lru.Cache[uint64, struct{}]
 	nodeInjector        *nodejs.NodeInjector
 	javaInjector        *javaagent.JavaInjector
 	reusableTracer      *ebpf.ProcessTracer
@@ -85,6 +87,7 @@ func traceAttacherProvider(ta *traceAttacher) swarm.InstanceFunc {
 func (ta *traceAttacher) attacherLoop(_ context.Context) (swarm.RunFunc, error) {
 	ta.log = slog.With("component", "discover.traceAttacher")
 	ta.existingTracers = map[uint64]*ebpf.ProcessTracer{}
+	ta.failedTracers, _ = lru.New[uint64, struct{}](100)
 	ta.nodeInjector = nodejs.NewNodeInjector(ta.Cfg)
 	javaInjector, err := javaagent.NewJavaInjector(ta.Cfg)
 	if err != nil {
@@ -136,6 +139,13 @@ func (ta *traceAttacher) attacherLoop(_ context.Context) (swarm.RunFunc, error) 
 
 //nolint:cyclop
 func (ta *traceAttacher) getTracer(ie *ebpf.Instrumentable) bool {
+	if _, ok := ta.failedTracers.Get(ie.FileInfo.Ino); ok {
+		ta.log.Debug("ignoring already failed instrumentable",
+			"pid", ie.FileInfo.Pid,
+			"cmd", ie.FileInfo.CmdExePath)
+		return false
+	}
+
 	if tracer, ok := ta.existingTracers[ie.FileInfo.Ino]; ok {
 		ta.log.Debug("new process for already instrumented executable",
 			"pid", ie.FileInfo.Pid,
@@ -210,6 +220,7 @@ func (ta *traceAttacher) getTracer(ie *ebpf.Instrumentable) bool {
 	if len(programs) == 0 {
 		ta.log.Warn("no instrumentable functions found. Ignoring", "pid", ie.FileInfo.Pid, "cmd", ie.FileInfo.CmdExePath)
 		ta.Metrics.InstrumentationError(ie.FileInfo.ExecutableName(), imetrics.InstrumentationErrorNoInstrumentableFunctionsFound)
+		ta.failedTracers.Add(ie.FileInfo.Ino, struct{}{})
 		return false
 	}
 
@@ -222,6 +233,7 @@ func (ta *traceAttacher) getTracer(ie *ebpf.Instrumentable) bool {
 	exe, ok := ta.loadExecutable(ie)
 	if !ok {
 		ta.Metrics.InstrumentationError(ie.FileInfo.ExecutableName(), imetrics.InstrumentationErrorInspectionFailed)
+		ta.failedTracers.Add(ie.FileInfo.Ino, struct{}{})
 		return false
 	}
 
@@ -230,6 +242,7 @@ func (ta *traceAttacher) getTracer(ie *ebpf.Instrumentable) bool {
 	if err := tracer.Init(ta.EbpfEventContext); err != nil {
 		ta.log.Error("couldn't trace process. Stopping process tracer", "error", err)
 		ta.Metrics.InstrumentationError(ie.FileInfo.ExecutableName(), imetrics.InstrumentationErrorInspectionFailed)
+		ta.failedTracers.Add(ie.FileInfo.Ino, struct{}{})
 		return false
 	}
 
@@ -237,6 +250,7 @@ func (ta *traceAttacher) getTracer(ie *ebpf.Instrumentable) bool {
 
 	if err := tracer.NewExecutable(exe, ie); err != nil {
 		ta.Metrics.InstrumentationError(ie.FileInfo.ExecutableName(), imetrics.InstrumentationErrorAttachingUprobe)
+		ta.failedTracers.Add(ie.FileInfo.Ino, struct{}{})
 		return false
 	}
 

@@ -304,7 +304,8 @@ func TestMinProcessAge(t *testing.T) {
 		output:            msg.NewQueue[[]Event[ProcessAttrs]](msg.ChannelBufferLen(1)),
 	}
 
-	procs, err := fetchProcessPorts(false)
+	testFetchProcesses := processFetcher()
+	procs, err := testFetchProcesses(false)
 	require.NoError(t, err)
 	process, ok := procs[app.PID(1)]
 
@@ -319,7 +320,7 @@ func TestMinProcessAge(t *testing.T) {
 	assert.False(t, acc.processTooNew(process))
 
 	for range 10 {
-		procs, err = fetchProcessPorts(false)
+		procs, err = testFetchProcesses(false)
 		require.NoError(t, err)
 	}
 

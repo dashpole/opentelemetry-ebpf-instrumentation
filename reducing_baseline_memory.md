@@ -19,6 +19,8 @@ OBI currently hardcodes maximum capacities for its `LRU_HASH` maps (e.g., `MAX_C
 Currently, the `generictracer` module frequently loads maps and programs for all supported telemetry (HTTP, MySQL, PostgreSQL, Redis, Kafka) regardless of whether the user actually has those workloads running.
 * **Approach:** Refactor the initialization in Go (`loadTracers()`) to only inject the BPF modules corresponding to the explicitly enabled protocols (`OTEL_EBPF_TRACES_INSTRUMENTATIONS`). 
 * **Outcome:** If a cluster only needs to trace HTTP traffic, preventing the massive Kafka and MySQL state-tracking maps from ever entering the kernel securely strips megabytes of unused RAM.
+  > [!WARNING]
+  > **Currently Infeasible:** The BPF C codebase statically links protocol parsing (e.g., `protocol_tcp.h` statically includes and uses `protocol_kafka.h` routines). Stripping unused maps or programs dynamically from the `CollectionSpec` in Go causes `cilium/ebpf` to fail with missing map relocation errors. This failure violently disrupts the tracer installation, ironically forcing the node discovery agent into an endless polling and DWARF-parsing retry loop that exponentially bloats Go userspace memory (up to 470 MiB RSS). Fully decoupling the BPF codebase via independent tail-calls is required before this approach can be executed safely.
 
 ## 3. Deduplicate and Reuse Idle Process Polling (`fetchProcessPorts`)
 **Target:** Userspace (Go Heap / GC Overhead) | **Complexity:** Low | **Impact:** Medium

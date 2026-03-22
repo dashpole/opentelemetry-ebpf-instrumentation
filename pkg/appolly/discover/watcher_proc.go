@@ -75,10 +75,10 @@ func ProcessWatcherFunc(cfg *obi.Config, ebpfContext *ebpfcommon.EBPFEventContex
 	acc := pollAccounter{
 		cfg:               cfg,
 		output:            output,
+		fetchProcesses:    processFetcher(),
 		interval:          cfg.Discovery.PollInterval,
 		pids:              map[app.PID]ProcessAttrs{},
 		pidPorts:          map[pidPort]ProcessAttrs{},
-		listProcesses:     fetchProcessPorts,
 		executableReady:   ExecutableReady,
 		loadBPFWatcher:    loadBPFWatcher,
 		loadBPFLogger:     loadBPFLogger,
@@ -113,6 +113,11 @@ type pollAccounter struct {
 	pidPorts map[pidPort]ProcessAttrs
 	// injectable function
 	listProcesses func(bool) (map[app.PID]ProcessAttrs, error)
+	log               *slog.Logger
+	events            chan<- watcher.Event
+	fetchProcesses    func(scanPorts bool) (map[app.PID]ProcessAttrs, error)
+	scanPorts         bool
+	portPollerEnabled bool
 	// injectable function
 	executableReady func(app.PID) (string, bool)
 	// injectable function to load the bpf program
@@ -157,7 +162,7 @@ func (pa *pollAccounter) run(ctx context.Context) {
 	}
 
 	for {
-		procs, err := pa.listProcesses(pa.portFetchRequired())
+		procs, err := pa.fetchProcesses(pa.portFetchRequired())
 		if err != nil {
 			log.Warn("can't get system processes", "error", err)
 		} else {
@@ -521,32 +526,44 @@ var processPidsFunc = process.Pids
 
 // fetchProcessConnections returns a map with the PIDs of all the running processes as a key,
 // and the open ports for the given process as a value
-func fetchProcessPorts(scanPorts bool) (map[app.PID]ProcessAttrs, error) {
+func processFetcher() func(scanPorts bool) (map[app.PID]ProcessAttrs, error) {
 	log := wplog()
-	processes := map[app.PID]ProcessAttrs{}
-	pids, err := processPidsFunc()
-	if err != nil {
-		return nil, fmt.Errorf("can't get processes: %w", err)
-	}
-
-	for _, pid := range pids {
-		if !scanPorts {
-			processes[app.PID(pid)] = ProcessAttrs{pid: app.PID(pid), detectedType: svc.InstrumentableUnknown, openPorts: []uint32{}, processAge: processAgeFunc(app.PID(pid))}
-			continue
+	processes := make(map[app.PID]ProcessAttrs)
+	return func(scanPorts bool) (map[app.PID]ProcessAttrs, error) {
+		for k := range processes {
+			delete(processes, k)
 		}
-		conns, err := net.ConnectionsPid("inet", pid)
+		pids, err := processPidsFunc()
 		if err != nil {
-			log.Debug("can't get connections for process. Skipping", "pid", pid, "error", err)
-			continue
+			return nil, fmt.Errorf("can't get processes: %w", err)
 		}
-		var openPorts []uint32
-		// TODO: Cap the size of this array, leaking client ephemeral ports will cause this to grow very long
-		for _, conn := range conns {
-			openPorts = append(openPorts, conn.Laddr.Port)
+
+		for _, pid := range pids {
+			if !scanPorts {
+				processes[app.PID(pid)] = ProcessAttrs{pid: app.PID(pid), detectedType: svc.InstrumentableUnknown, openPorts: []uint32{}, processAge: processAgeFunc(app.PID(pid))}
+				continue
+			}
+			conns, err := net.ConnectionsPid("inet", pid)
+			if err != nil {
+				log.Debug("can't get connections for process. Skipping", "pid", pid, "error", err)
+				continue
+			}
+			
+			portSet := map[uint32]struct{}{}
+			var openPorts []uint32
+			for _, conn := range conns {
+				if _, ok := portSet[conn.Laddr.Port]; !ok {
+					openPorts = append(openPorts, conn.Laddr.Port)
+					portSet[conn.Laddr.Port] = struct{}{}
+					if len(openPorts) >= 50 {
+						break
+					}
+				}
+			}
+			processes[app.PID(pid)] = ProcessAttrs{pid: app.PID(pid), detectedType: svc.InstrumentableUnknown, openPorts: openPorts, processAge: time.Duration(0)}
 		}
-		processes[app.PID(pid)] = ProcessAttrs{pid: app.PID(pid), detectedType: svc.InstrumentableUnknown, openPorts: openPorts, processAge: time.Duration(0)}
+		return processes, nil
 	}
-	return processes, nil
 }
 
 func loadBPFWatcher(ctx context.Context, ebpfEventContext *ebpfcommon.EBPFEventContext, cfg *obi.Config, events chan<- watcher.Event) error {
