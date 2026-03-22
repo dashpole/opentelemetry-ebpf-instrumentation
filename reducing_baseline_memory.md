@@ -33,8 +33,8 @@ Analysis of the `heap.pprof` and `allocs.pprof` showed that OBI unconditionally 
 **Target:** Kernel-Space (Non-Evictable Memory) | **Complexity:** Low | **Impact:** Medium
 
 OBI pipes raw telemetry from kernel-to-userspace using BPF Ring Buffers. These ring buffers require contiguous pages of `mmap`'ed (locked) memory.
-* **Approach:** We can reduce the default size of the ring buffer (or make it configurable via config maps).
-* **Outcome:** Since we proved earlier that OBI's Go userspace can read traces extremely quickly using batching, a deep, memory-heavy ring buffer queue is less necessary, dropping another solid chunk of memory.
+* **Approach:** We can conditionally restrict tracing ringbuffer sizes dynamically in the Linux kernel via a config mapping (`OTEL_EBPF_BPF_RINGBUF_CAPACITY_FACTOR`).
+* **Outcome:** (Verified) By scaling the ring-buffer configurations down to 10% capacity (`10`), the isolated non-evictable memory was structurally reduced. The benchmark yielded an explicit drop down to **161 MiB** (Compared to the standard Approach 3 minimum baseline of **186 MiB**). This successfully stripped away exactly **25 MiB** of idle memory!
 
 ## 5. Enable Elastic Map Allocation (`BPF_F_NO_PREALLOC`)
 **Target:** Kernel-Space (Non-Evictable Memory) | **Complexity:** Medium/High | **Impact:** Medium

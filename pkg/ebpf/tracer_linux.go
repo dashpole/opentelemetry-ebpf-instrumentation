@@ -21,6 +21,7 @@ import (
 	"github.com/cilium/ebpf"
 	"github.com/cilium/ebpf/btf"
 	"github.com/cilium/ebpf/link"
+	"golang.org/x/sys/unix"
 
 	"go.opentelemetry.io/obi/pkg/appolly/app/request"
 	"go.opentelemetry.io/obi/pkg/appolly/discover/exec"
@@ -65,13 +66,21 @@ func alignMaxEntriesIfRingBuf(m *ebpf.MapSpec) {
 }
 
 // sets up internal maps and ensures sane max entries values
-func resolveMaps(eventContext *common.EBPFEventContext, spec *ebpf.CollectionSpec, capacityFactor int) (*ebpf.CollectionOptions, error) {
+func resolveMaps(eventContext *common.EBPFEventContext, spec *ebpf.CollectionSpec, capacityFactor int, ringBufFactor int, elasticMaps bool) (*ebpf.CollectionOptions, error) {
 	collOpts := ebpf.CollectionOptions{MapReplacements: map[string]*ebpf.Map{}}
 
 	eventContext.MapsLock.Lock()
 	defer eventContext.MapsLock.Unlock()
 
 	for k, v := range spec.Maps {
+		if ringBufFactor > 0 && ringBufFactor != 100 && v.Type == ebpf.RingBuf {
+			newMax := float64(v.MaxEntries) * float64(ringBufFactor) / 100.0
+			if newMax < float64(os.Getpagesize()) {
+				v.MaxEntries = uint32(os.Getpagesize())
+			} else {
+				v.MaxEntries = uint32(newMax)
+			}
+		}
 		alignMaxEntriesIfRingBuf(v)
 
 		if capacityFactor > 0 && capacityFactor != 100 {
@@ -83,6 +92,10 @@ func resolveMaps(eventContext *common.EBPFEventContext, spec *ebpf.CollectionSpe
 					v.MaxEntries = uint32(newMax)
 				}
 			}
+		}
+
+		if elasticMaps && v.Type == ebpf.Hash {
+			v.Flags |= unix.BPF_F_NO_PREALLOC
 		}
 
 		if v.Pinning != PinInternal {
@@ -110,12 +123,12 @@ func resolveMaps(eventContext *common.EBPFEventContext, spec *ebpf.CollectionSpe
 	return &collOpts, nil
 }
 
-func loadSpec(eventContext *common.EBPFEventContext, bundle *common.SpecBundle, otelBPFFSPath string, idx int, capacityFactor int) error {
+func loadSpec(eventContext *common.EBPFEventContext, bundle *common.SpecBundle, otelBPFFSPath string, idx int, capacityFactor int, ringBufFactor int, elasticMaps bool) error {
 	if err := ebpfconvenience.RewriteConstants(bundle.Spec, bundle.Constants); err != nil {
 		return fmt.Errorf("rewriting BPF constants for spec %d: %w", idx, err)
 	}
 
-	collOpts, err := resolveMaps(eventContext, bundle.Spec, capacityFactor)
+	collOpts, err := resolveMaps(eventContext, bundle.Spec, capacityFactor, ringBufFactor, elasticMaps)
 	if err != nil {
 		return fmt.Errorf("resolving maps for spec %d: %w", idx, err)
 	}
@@ -157,7 +170,9 @@ func NewProcessTracer(tracerType ProcessTracerType, programs []Tracer, cfg *obi.
 		shutdownTimeout:   cfg.ShutdownTimeout,
 		metrics:           metrics,
 		bpffsPath:         cfg.EBPF.BPFFSPath,
-		bpfCapacityFactor: cfg.EBPF.BpfCapacityFactor,
+		bpfCapacityFactor:        cfg.EBPF.BpfCapacityFactor,
+		bpfRingbufCapacityFactor: cfg.EBPF.BpfRingbufCapacityFactor,
+		bpfElasticMaps:           cfg.EBPF.BpfElasticMaps,
 	}
 }
 
@@ -260,7 +275,7 @@ func (pt *ProcessTracer) loadAndAssign(eventContext *common.EBPFEventContext, p 
 	otelBPFFSPath := pt.setupOtelBPFFSPath(bundles)
 
 	for i, bundle := range bundles {
-		if err := loadSpec(eventContext, bundle, otelBPFFSPath, i, pt.bpfCapacityFactor); err != nil {
+		if err := loadSpec(eventContext, bundle, otelBPFFSPath, i, pt.bpfCapacityFactor, pt.bpfRingbufCapacityFactor, pt.bpfElasticMaps); err != nil {
 			closeLoadedSpecs(bundles[:i])
 			return err
 		}
@@ -445,7 +460,7 @@ func printVerifierErrorInfo(err error) {
 	}
 }
 
-func RunUtilityTracer(ctx context.Context, eventContext *common.EBPFEventContext, p UtilityTracer, capacityFactor int) error {
+func RunUtilityTracer(ctx context.Context, eventContext *common.EBPFEventContext, p UtilityTracer, capacityFactor int, ringBufCapacityFactor int, elasticMaps bool) error {
 	i := instrumenter{}
 	plog := ptlog()
 	plog.Debug("loading independent eBPF program")
@@ -456,7 +471,7 @@ func RunUtilityTracer(ctx context.Context, eventContext *common.EBPFEventContext
 	}
 
 	for idx, bundle := range bundles {
-		if err := loadSpec(eventContext, bundle, "", idx, capacityFactor); err != nil {
+		if err := loadSpec(eventContext, bundle, "", idx, capacityFactor, ringBufCapacityFactor, elasticMaps); err != nil {
 			closeLoadedSpecs(bundles[:idx])
 			printVerifierErrorInfo(err)
 			return err

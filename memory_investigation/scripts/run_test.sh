@@ -113,6 +113,36 @@ EOF
 EOF
 )
     ;;
+  approach4)
+    OBI_ENV_VARS=$(cat <<'EOF'
+            - name: OTEL_METRICS_EXPORTER
+              value: "prometheus"
+            - name: OTEL_EBPF_PROMETHEUS_PORT
+              value: "8888"
+            - name: OTEL_TRACES_EXPORTER
+              value: "none"
+            - name: OTEL_EBPF_KUBE_METADATA_ENABLE
+              value: "false"
+            - name: OTEL_EBPF_BPF_RINGBUF_CAPACITY_FACTOR
+              value: "10"
+EOF
+)
+    ;;
+  approach5)
+    OBI_ENV_VARS=$(cat <<'EOF'
+            - name: OTEL_METRICS_EXPORTER
+              value: "prometheus"
+            - name: OTEL_EBPF_PROMETHEUS_PORT
+              value: "8888"
+            - name: OTEL_TRACES_EXPORTER
+              value: "none"
+            - name: OTEL_EBPF_KUBE_METADATA_ENABLE
+              value: "false"
+            - name: OTEL_EBPF_BPF_ELASTIC_MAPS
+              value: "true"
+EOF
+)
+    ;;
   k8s_attributes)
     OBI_ENV_VARS=$(cat <<'EOF'
             - name: OTEL_METRICS_EXPORTER

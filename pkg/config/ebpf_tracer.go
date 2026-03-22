@@ -128,6 +128,12 @@ type EBPFTracer struct {
 
 	// BpfCapacityFactor scales the maximum number of entries in eBPF maps by a factor of X/100.
 	BpfCapacityFactor int `yaml:"bpf_capacity_factor" env:"OTEL_EBPF_BPF_CAPACITY_FACTOR" validate:"gte=1,lte=100"`
+
+	// BpfRingbufCapacityFactor scales the maximum number of entries in eBPF ringbuf maps by a factor of X/100.
+	BpfRingbufCapacityFactor int `yaml:"bpf_ringbuf_capacity_factor" env:"OTEL_EBPF_BPF_RINGBUF_CAPACITY_FACTOR" validate:"gte=1,lte=100"`
+
+	// BpfElasticMaps disables pre-allocation for compatible maps, forcing them to allocate memory elastically.
+	BpfElasticMaps bool `yaml:"bpf_elastic_maps" env:"OTEL_EBPF_BPF_ELASTIC_MAPS"`
 }
 
 var nvidiaSMIExistsFunc = nvidiaSMIExists

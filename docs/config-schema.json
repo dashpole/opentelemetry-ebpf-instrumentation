@@ -324,10 +324,20 @@
           "description": "Enables logging of eBPF program events",
           "x-env-var": "OTEL_EBPF_BPF_DEBUG"
         },
+        "bpf_elastic_maps": {
+          "type": "boolean",
+          "description": "BpfElasticMaps disables pre-allocation for compatible maps, forcing them to allocate memory elastically.",
+          "x-env-var": "OTEL_EBPF_BPF_ELASTIC_MAPS"
+        },
         "bpf_fs_path": {
           "type": "string",
           "description": "BPF path used to pin eBPF maps",
           "x-env-var": "OTEL_EBPF_BPF_FS_PATH"
+        },
+        "bpf_ringbuf_capacity_factor": {
+          "type": "integer",
+          "description": "BpfRingbufCapacityFactor scales the maximum number of entries in eBPF ringbuf maps by a factor of X/100.",
+          "x-env-var": "OTEL_EBPF_BPF_RINGBUF_CAPACITY_FACTOR"
         },
         "buffer_sizes": {
           "$ref": "#/$defs/EBPFBufferSizes",

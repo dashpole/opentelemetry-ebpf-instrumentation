@@ -179,7 +179,9 @@ discovery:
 			},
 			BPFFSPath:         "/sys/fs/bpf/",
 			InstrumentCuda:    config.CudaModeAuto,
-			BpfCapacityFactor: 100,
+			BpfCapacityFactor:        100,
+			BpfRingbufCapacityFactor: 100,
+			BpfElasticMaps:           false,
 		},
 		NetworkFlows: nc,
 		Metrics: perapp.MetricsConfig{

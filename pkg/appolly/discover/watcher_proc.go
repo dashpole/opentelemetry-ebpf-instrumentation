@@ -568,10 +568,10 @@ func processFetcher() func(scanPorts bool) (map[app.PID]ProcessAttrs, error) {
 
 func loadBPFWatcher(ctx context.Context, ebpfEventContext *ebpfcommon.EBPFEventContext, cfg *obi.Config, events chan<- watcher.Event) error {
 	wt := watcher.New(cfg, events)
-	return ebpf.RunUtilityTracer(ctx, ebpfEventContext, wt, cfg.EBPF.BpfCapacityFactor)
+	return ebpf.RunUtilityTracer(ctx, ebpfEventContext, wt, cfg.EBPF.BpfCapacityFactor, cfg.EBPF.BpfRingbufCapacityFactor, cfg.EBPF.BpfElasticMaps)
 }
 
 func loadBPFLogger(ctx context.Context, ebpfEventContext *ebpfcommon.EBPFEventContext, cfg *obi.Config) error {
 	wt := logger.New(cfg)
-	return ebpf.RunUtilityTracer(ctx, ebpfEventContext, wt, cfg.EBPF.BpfCapacityFactor)
+	return ebpf.RunUtilityTracer(ctx, ebpfEventContext, wt, cfg.EBPF.BpfCapacityFactor, cfg.EBPF.BpfRingbufCapacityFactor, cfg.EBPF.BpfElasticMaps)
 }

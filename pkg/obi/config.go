@@ -175,8 +175,10 @@ var DefaultConfig = Config{
 			AsyncWriterChannelLen: 500,
 		},
 		BPFFSPath:         "/sys/fs/bpf/",
-		InstrumentCuda:    config.CudaModeAuto,
-		BpfCapacityFactor: 100,
+		InstrumentCuda:           config.CudaModeAuto,
+		BpfCapacityFactor:        100,
+		BpfRingbufCapacityFactor: 100,
+		BpfElasticMaps:           false,
 	},
 	NameResolver: &transform.NameResolverConfig{
 		Sources:  []transform.Source{transform.SourceK8s},
