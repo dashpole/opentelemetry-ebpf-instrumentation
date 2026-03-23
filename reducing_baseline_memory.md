@@ -49,3 +49,26 @@ By default, the Linux kernel pre-allocates 100% of a Hash Map's memory upfront t
 Some maps are just used to buffer data temporarily within a single BPF execution context before writing to the Ringbuffer.
 * **Approach:** Swap huge global hash maps for `BPF_MAP_TYPE_PERCPU_ARRAY`.
 * **Outcome:** Instead of allocating memory for 10,000 potential requests, memory is allocated exclusively per CPU core (e.g., 4 cores = 4 tiny scratchpads). Memory usage drops to kilobytes, but it requires rewriting BPF C payload extraction logic.
+
+## 7. Decouple Protocol Parsers (Startup Protocol Selection)
+**Target:** Kernel-Space (Non-Evictable Memory) | **Complexity:** High | **Impact:** High
+
+The BPF verifier requires that if a loaded BPF program references a map in its C code, that map *must* exist. In Approach 2, we attempted to drop the maps in Go at startup, but the monolithic C program still tried to load and verify references to those missing maps, causing a catastrophic failure.
+
+To achieve the goal of only loading configured maps at startup without breaking the verifier, we must fundamentally alter how the C code is structured to eliminate those hardcoded references.
+
+* **Approach:** Instead of a single monolithic C program, we can:
+  1.  **Use eBPF Tail Calls**: Structure the BPF code so the main network hook only contains a jumping table (`BPF_MAP_TYPE_PROG_ARRAY`). At startup, Go checks the configuration, loads only the requested protocol programs (and their respective maps), and populates the jump table.
+  2.  **Use Compile-Time Variants**: Add `#ifdef` feature flags in the C code, and compile multiple object files during the build process (e.g. `tracer_http.o`, `tracer_kafka.o`, `tracer_all.o`). At startup, Go reads the configuration and loads the specific pre-compiled binary that corresponds to that configuration.
+* **Outcome / Evaluation:** This would successfully achieve the major memory savings envisioned in Approach 2 (saving megabytes of kernel RAM by leaving unused protocol maps completely unallocated). However, the complexity is High. Tail-calls require a major C re-architecture and careful state-passing. Pre-compiled variants are slightly easier to implement in C natively via `#ifdef`, but would greatly multiply the number of binary assets embedded via `go:generate` into the final executable.
+
+---
+
+## Summary & Recommendations
+
+Based on our implementation experiments, identifying the true baseline, and testing the kernel-space levers, the **highest-impact** approaches for slashing OBI baseline memory and CPU overhead are:
+
+1. **Approach 3 (Fixed Userspace GC & Bugs):** *[Already Completed & Verified]* Fixing the DWARF inode cache bug structurally eliminated a **~280 MiB** memory leak, while the `processFetcher` map reuse killed an idle process loop that was blindly consuming over **1.0 CPU Cores**. This safely established our true baseline floor.
+2. **Approach 4 (Tune Ring Buffer Capacity):** *[Already Completed & Verified]* Shrinking BPF Ringbuf footprint dynamically via the `OTEL_EBPF_BPF_RINGBUF_CAPACITY_FACTOR` config cleanly sheared exactly **25 MiB** of non-evictable kernel memory right off the top (bringing the baseline down to **161 MiB**), with minimal code complexity.
+3. **Approach 1 (Dynamically Reduce BPF Map Sizes):** This remains the absolute lowest-hanging remaining fruit with the highest impact. Downsizing the massive hardcoded `LRU_HASH` entries globally via `OTEL_EBPF_BPF_CAPACITY_FACTOR` will aggressively strip dozens of megabytes of kernel-space RAM with near-zero code complexity.
+4. **Approach 7 (Decouple Protocol Parsers):** This represents the ultimate, structurally correct way to save massive Kernel RAM (instead of the failed Approach 2 or 5). Moving to Tail Calls or Compile-Time Variants will allow OBI to boot up *only* the specific protocol code it needs, dropping megabytes of unused SQL/Kafka maps. This has the highest development complexity, but offers the greatest long-term baseline reduction.
