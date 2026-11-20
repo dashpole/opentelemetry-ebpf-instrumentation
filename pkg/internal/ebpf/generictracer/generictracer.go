@@ -226,6 +226,7 @@ func (p *Tracer) LoadSpecs() ([]*ebpfcommon.SpecBundle, error) {
 	}
 
 	ebpfcommon.FixupSpec(spec, p.cfg.EBPF.OverrideBPFLoopEnabled)
+	ebpfcommon.ShrinkDisabledFeatureMaps(spec, p.cfg.MapPruneOptions())
 	if !p.exceptionsEnabled() {
 		ebpfcommon.ShrinkPythonExceptionMaps(spec)
 	}
@@ -291,7 +292,10 @@ func (p *Tracer) constants(eventsRingBufSize uint32) map[string]any {
 	canWriteHeaders := p.cfg.EBPF.ContextPropagation.HasHeaders() && !ebpfcommon.IntegrityModeOverride &&
 		ebpfcommon.SupportsContextPropagationWithProbe(p.log)
 	m["g_bpf_probe_write_user_enabled"] = canWriteHeaders
-	m["g_bpf_java_http1_enabled"] = p.cfg.EBPF.ContextPropagation.HasHeaders() && ebpfcommon.SupportsJavaHTTP1Propagation(p.log)
+	m["g_bpf_java_http1_enabled"] = p.cfg.EBPF.ContextPropagation.HasHeaders() && p.cfg.Java.Enabled && ebpfcommon.SupportsJavaHTTP1Propagation(p.log)
+	if !p.cfg.EBPF.ContextPropagation.HasHeaders() || !p.cfg.Java.Enabled {
+		m["java_http1_max_requests"] = uint32(1)
+	}
 	m["jvm_sampling_interval_ns"] = uint64(0)
 	if p.cfg.AppRuntimeMetricsEnabled() {
 		m["jvm_sampling_interval_ns"] = uint64(p.cfg.JVMRuntimeMetrics.SamplingInterval.Nanoseconds())

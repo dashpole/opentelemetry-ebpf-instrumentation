@@ -314,6 +314,7 @@ type Tracer struct {
 	log                               *slog.Logger
 	pidsFilter                        ebpfcommon.ServiceFilter
 	cfg                               *config.EBPFTracer
+	fullCfg                           *obi.Config
 	shutdownTimeout                   time.Duration
 	tracesSampler                     *services.SamplerConfig
 	metrics                           imetrics.Reporter
@@ -360,6 +361,7 @@ func New(
 		log:                               log,
 		pidsFilter:                        pidFilter,
 		cfg:                               &cfg.EBPF,
+		fullCfg:                           cfg,
 		shutdownTimeout:                   cfg.ShutdownTimeout,
 		tracesSampler:                     &cfg.Traces.SamplerConfig,
 		metrics:                           metrics,
@@ -499,6 +501,7 @@ func (p *Tracer) LoadSpecs() ([]*ebpfcommon.SpecBundle, error) {
 		ebpfcommon.DisableJavaHTTP1Atomics(spec)
 	}
 	p.privateExceptionEvents(spec)
+	ebpfcommon.ShrinkDisabledFeatureMaps(spec, p.fullCfg.MapPruneOptions())
 	if !p.exceptionsEnabled {
 		ebpfcommon.ShrinkPythonExceptionMaps(spec)
 	}
@@ -2607,6 +2610,9 @@ func (p *Tracer) goAutoSDKActivationProbesEnabled() bool {
 	if p == nil || p.currentBinary.Ino == 0 {
 		return false
 	}
+	if p.fullCfg != nil && !p.fullCfg.MapPruneOptions().GoManualSDKEnabled {
+		return false
+	}
 
 	return p.goAutoSDKActivationByExecutable[p.currentBinary] && p.supportsContextPropagation()
 }
@@ -2616,6 +2622,9 @@ func (p *Tracer) goChannelLinkProbesEnabled() bool {
 		return false
 	}
 	if p.cfg != nil && p.cfg.DisableGoChannelLinks {
+		return false
+	}
+	if p.fullCfg != nil && !p.fullCfg.MapPruneOptions().GoChannelLinksEnabled {
 		return false
 	}
 
