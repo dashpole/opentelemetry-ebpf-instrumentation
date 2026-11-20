@@ -44,30 +44,18 @@ func alignMaxEntriesIfRingBuf(m *ebpf.MapSpec) {
 // Maps that are identically defined in generictracer and gotracer (via shared
 // protocol_handler.c / common headers) without OBI_PIN_INTERNAL, causing
 // redundant kernel allocations when both tracers load on a mixed node.
-// All listed PerCPUArray scratch maps are used only in kprobe/uprobe task
-// context (never from softirq/sock_ops/socket_filter).
+// Limited to shared state hash maps on Linux 5.8+: PerCPUArray scratch maps
+// are intentionally NOT pinned across generictracer kprobes and gotracer
+// uprobes because Linux 6.0-6.9 dropped preempt_disable for uprobes while
+// bpf_preempt_disable kfuncs did not arrive until Linux 6.10
+// (see bpf/common/preempt_guard.h).
 var implicitSharedMaps = map[string]bool{
-	"protocol_cache":               true,
-	"kafka_state":                  true,
-	"kafka_ongoing_requests":       true,
-	"mysql_state":                  true,
-	"aerospike_state":              true,
-	"listening_ports":              true,
-	"tcp_large_buffers_storage":    true,
-	"h2_joined_storage":            true,
-	"exception_record_t_storage":   true,
-	"grpc_frames_ctx_mem":          true,
-	"http1_header_buf_storage":     true,
-	"http1_header_scan_storage":    true,
-	"http2_info_storage":           true,
-	"http_info_mem":                true,
-	"tcp_req_mem":                  true,
-	"h2_cut_frame_storage":         true,
-	"protocol_args_mem":            true,
-	"large_buf_emit_state_storage": true,
-	"h2_tp_huff_win_storage":       true,
-	"h2_tp_huff_out_storage":       true,
-	"connection_meta_mem":          true,
+	"protocol_cache":         true,
+	"kafka_state":            true,
+	"kafka_ongoing_requests": true,
+	"mysql_state":            true,
+	"aerospike_state":        true,
+	"listening_ports":        true,
 }
 
 // Userspace-populated (BPF read-only) or strictly bounded metadata maps where
@@ -87,15 +75,18 @@ var semanticRightSizeRules = map[string]rightSizeRule{
 	"go_runtime_metric_targets": {maxEntries: 3001, toHash: true, noPrealloc: true},
 	// Serialized transient TID entry held only during uprobe_register.
 	"go_executable_identity_requests": {maxEntries: 64, toHash: true, noPrealloc: true},
-	// Up to 3 activation attempts per Go Auto SDK process.
-	"go_auto_activation_attempts": {maxEntries: 1024, toHash: true, noPrealloc: true},
+	// Up to 3 activation attempts per Go Auto SDK process; BPF-written in uprobe, so
+	// right-size MaxEntries only on Linux < 6.1 (no BPF_F_NO_PREALLOC before bpf_mem_alloc).
+	"go_auto_activation_attempts": {maxEntries: 1024, toHash: true, noPrealloc: false},
 	// Userspace-written per-PID config / target tables (BPF read-only).
-	"pid_samplers":                    {maxEntries: 0, toHash: true, noPrealloc: true},
-	"go_auto_targets":                 {maxEntries: 0, toHash: true, noPrealloc: true},
-	"go_exception_pids":               {maxEntries: 0, toHash: true, noPrealloc: true},
-	"python_exception_procs":          {maxEntries: 0, toHash: true, noPrealloc: true},
-	"python_runtime_metric_targets":   {maxEntries: 0, toHash: true, noPrealloc: true},
-	"python_runtime_metric_snapshots": {maxEntries: 0, toHash: true, noPrealloc: true},
+	"pid_samplers":                  {maxEntries: 0, toHash: true, noPrealloc: true},
+	"go_auto_targets":               {maxEntries: 0, toHash: true, noPrealloc: true},
+	"go_exception_pids":             {maxEntries: 0, toHash: true, noPrealloc: true},
+	"python_exception_procs":        {maxEntries: 0, toHash: true, noPrealloc: true},
+	"python_runtime_metric_targets": {maxEntries: 0, toHash: true, noPrealloc: true},
+	// BPF-written in uprobe/python_gc_done: preserve k_max_concurrent_pids without
+	// setting BPF_F_NO_PREALLOC on Linux < 6.1.
+	"python_runtime_metric_snapshots": {maxEntries: 0, toHash: true, noPrealloc: false},
 }
 
 // Core hot-path request/connection maps that keep their full MaxEntries bucket
@@ -132,6 +123,7 @@ var lruEvictionDependentMaps = map[string]bool{
 	"server_traces_aux":              true,
 	"connection_tracker":             true,
 	"ongoing_goroutines":             true,
+	"tcp_io_accum":                   true,
 	"clone_map":                      true,
 	"ssl_to_conn":                    true,
 	"protocol_cache":                 true,
@@ -259,7 +251,8 @@ func OptimizeSpecMaps(spec *ebpf.CollectionSpec) {
 			}
 			m.Type = ebpf.Hash
 			m.Flags |= unix.BPF_F_NO_PREALLOC
-			if (noPreallocMode == "capped" || noPreallocMode == "hybrid") && !hotRequestMaps[name] && m.MaxEntries > 2048 {
+			_, isPIDConfigTable := semanticRightSizeRules[name]
+			if (noPreallocMode == "capped" || noPreallocMode == "hybrid") && !hotRequestMaps[name] && !isPIDConfigTable && m.MaxEntries > 2048 {
 				m.MaxEntries = 2048
 			}
 		}

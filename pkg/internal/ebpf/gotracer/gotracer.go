@@ -2052,45 +2052,6 @@ func (p *Tracer) GoProbes() map[string][]*ebpfcommon.ProbeDesc {
 		"github.com/Shopify/sarama.(*Broker).sendInternal": {{
 			Start: p.bpfObjects.ObiUprobeSaramaSendInternal,
 		}},
-		// Go OTel SDK
-		"go.opentelemetry.io/otel/internal/global.(*tracer).Start": {{
-			Start: p.bpfObjects.ObiUprobeTracerStartGlobal,
-			End:   p.bpfObjects.ObiUprobeTracerStartReturns,
-		}},
-		"go.opentelemetry.io/auto/sdk.(*tracer).Start": {{
-			Start: p.bpfObjects.ObiUprobeTracerStart,
-			End:   p.bpfObjects.ObiUprobeTracerStartReturns,
-		}},
-		"go.opentelemetry.io/otel/internal/global.(*nonRecordingSpan).End": {{
-			Start: p.bpfObjects.ObiUprobeNonRecordingSpanEnd,
-		}},
-		"go.opentelemetry.io/auto/sdk.(*span).End": {{
-			Start: p.bpfObjects.ObiUprobeNonRecordingSpanEnd,
-		}},
-		"go.opentelemetry.io/otel/internal/global.(*nonRecordingSpan).SetStatus": {{
-			Start: p.bpfObjects.ObiUprobeSetStatus,
-		}},
-		"go.opentelemetry.io/auto/sdk.(*span).SetStatus": {{
-			Start: p.bpfObjects.ObiUprobeSetStatus,
-		}},
-		"go.opentelemetry.io/otel/internal/global.(*nonRecordingSpan).SetAttributes": {{
-			Start: p.bpfObjects.ObiUprobeSetAttributes,
-		}},
-		"go.opentelemetry.io/auto/sdk.(*span).SetAttributes": {{
-			Start: p.bpfObjects.ObiUprobeSetAttributes,
-		}},
-		"go.opentelemetry.io/otel/internal/global.(*nonRecordingSpan).SetName": {{
-			Start: p.bpfObjects.ObiUprobeSetName,
-		}},
-		"go.opentelemetry.io/auto/sdk.(*span).SetName": {{
-			Start: p.bpfObjects.ObiUprobeSetName,
-		}},
-		"go.opentelemetry.io/otel/internal/global.(*nonRecordingSpan).RecordError": {{
-			Start: p.bpfObjects.ObiUprobeRecordError,
-		}},
-		"go.opentelemetry.io/auto/sdk.(*span).RecordError": {{
-			Start: p.bpfObjects.ObiUprobeRecordError,
-		}},
 		// Go MongoDB
 		"go.mongodb.org/mongo-driver/x/mongo/driver.Operation.Execute": {{
 			Start: p.bpfObjects.ObiUprobeMongoOpExecute,
@@ -2244,6 +2205,49 @@ func (p *Tracer) GoProbes() map[string][]*ebpfcommon.ProbeDesc {
 	} else {
 		m["net/textproto.(*Reader).readContinuedLineSlice"] = []*ebpfcommon.ProbeDesc{{
 			End: p.bpfObjects.ObiUprobeReadContinuedLineSliceReturns,
+		}}
+	}
+
+	// Go OTel manual/auto SDK probes: only attach when traces or span metrics
+	// are enabled so shrinking active_spans/span_names/span_mem is race-free.
+	if p.fullCfg == nil || p.fullCfg.MapPruneOptions().GoManualSDKEnabled {
+		m["go.opentelemetry.io/otel/internal/global.(*tracer).Start"] = []*ebpfcommon.ProbeDesc{{
+			Start: p.bpfObjects.ObiUprobeTracerStartGlobal,
+			End:   p.bpfObjects.ObiUprobeTracerStartReturns,
+		}}
+		m["go.opentelemetry.io/auto/sdk.(*tracer).Start"] = []*ebpfcommon.ProbeDesc{{
+			Start: p.bpfObjects.ObiUprobeTracerStart,
+			End:   p.bpfObjects.ObiUprobeTracerStartReturns,
+		}}
+		m["go.opentelemetry.io/otel/internal/global.(*nonRecordingSpan).End"] = []*ebpfcommon.ProbeDesc{{
+			Start: p.bpfObjects.ObiUprobeNonRecordingSpanEnd,
+		}}
+		m["go.opentelemetry.io/auto/sdk.(*span).End"] = []*ebpfcommon.ProbeDesc{{
+			Start: p.bpfObjects.ObiUprobeNonRecordingSpanEnd,
+		}}
+		m["go.opentelemetry.io/otel/internal/global.(*nonRecordingSpan).SetStatus"] = []*ebpfcommon.ProbeDesc{{
+			Start: p.bpfObjects.ObiUprobeSetStatus,
+		}}
+		m["go.opentelemetry.io/auto/sdk.(*span).SetStatus"] = []*ebpfcommon.ProbeDesc{{
+			Start: p.bpfObjects.ObiUprobeSetStatus,
+		}}
+		m["go.opentelemetry.io/otel/internal/global.(*nonRecordingSpan).SetAttributes"] = []*ebpfcommon.ProbeDesc{{
+			Start: p.bpfObjects.ObiUprobeSetAttributes,
+		}}
+		m["go.opentelemetry.io/auto/sdk.(*span).SetAttributes"] = []*ebpfcommon.ProbeDesc{{
+			Start: p.bpfObjects.ObiUprobeSetAttributes,
+		}}
+		m["go.opentelemetry.io/otel/internal/global.(*nonRecordingSpan).SetName"] = []*ebpfcommon.ProbeDesc{{
+			Start: p.bpfObjects.ObiUprobeSetName,
+		}}
+		m["go.opentelemetry.io/auto/sdk.(*span).SetName"] = []*ebpfcommon.ProbeDesc{{
+			Start: p.bpfObjects.ObiUprobeSetName,
+		}}
+		m["go.opentelemetry.io/otel/internal/global.(*nonRecordingSpan).RecordError"] = []*ebpfcommon.ProbeDesc{{
+			Start: p.bpfObjects.ObiUprobeRecordError,
+		}}
+		m["go.opentelemetry.io/auto/sdk.(*span).RecordError"] = []*ebpfcommon.ProbeDesc{{
+			Start: p.bpfObjects.ObiUprobeRecordError,
 		}}
 	}
 

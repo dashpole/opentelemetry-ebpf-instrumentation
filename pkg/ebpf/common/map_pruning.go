@@ -41,11 +41,12 @@ func shrinkMap(spec *ebpf.CollectionSpec, name string) {
 		m.Pinning = ebpf.PinNone
 		m.MaxEntries = uint32(os.Getpagesize())
 	case ebpf.PerCPUArray:
-		// Convert disabled PerCPU scratch arrays to a regular 1-entry Array
-		// preserving ValueSize so the BPF verifier still accepts all load-time
-		// bounds checks while eliminating N_CPUs multiplication.
+		// Convert disabled PerCPU scratch arrays to a regular Array preserving
+		// ValueSize and MaxEntries (e.g. span_mem has MaxEntries=2) so BPF
+		// verifier load-time bounds checks pass while eliminating N_CPUs scaling.
+		// Callers MUST ensure all BPF programs touching this map are either
+		// unattached or dead-code-eliminated via .rodata constants.
 		m.Type = ebpf.Array
-		m.MaxEntries = 1
 	default:
 		if m.Pinning == ebpf.PinByName {
 			m.Pinning = ebpf.PinNone
@@ -92,10 +93,12 @@ func ShrinkDisabledFeatureMaps(spec *ebpf.CollectionSpec, opts MapPruneOptions) 
 	}
 
 	if !opts.ContextPropagationEnabled && !opts.TrackRequestHeaders {
+		// Note: http1_header_buf_storage is intentionally NOT converted to Array
+		// because gotracer hardcodes g_bpf_traceparent_enabled=true and attaches
+		// ObiUprobeReadMimeHeader on kernels >= 5.17, actively using it per-CPU.
 		shrinkMaps(spec, []string{
 			"http1_header_scans",
 			"go_http1_header_scans",
-			"http1_header_buf_storage",
 			"http1_header_scan_storage",
 		})
 	}
@@ -227,7 +230,6 @@ func ShrinkDisabledFeatureMaps(spec *ebpf.CollectionSpec, opts MapPruneOptions) 
 				"ongoing_grpc_operate_headers",
 				"grpc_app_owned_writes",
 				"grpc_pending_header_by_request",
-				"grpc_frames_ctx_mem",
 			})
 		}
 		if !sel.SQLEnabled() {
@@ -247,10 +249,9 @@ func ShrinkDisabledFeatureMaps(spec *ebpf.CollectionSpec, opts MapPruneOptions) 
 			shrinkMap(spec, "aerospike_state")
 		}
 		if !sel.DBEnabled() && !sel.MQEnabled() && !sel.SunRPCEnabled() {
-			shrinkMaps(spec, []string{
-				"ongoing_tcp_req",
-				"tcp_req_mem",
-			})
+			// Note: tcp_req_mem stays PerCPUArray until protocol_handler.c gates
+			// k_tail_protocol_tcp via a .rodata protocol bitmask.
+			shrinkMap(spec, "ongoing_tcp_req")
 		}
 		if !sel.HTTPEnabled() && !sel.GRPCEnabled() {
 			shrinkMaps(spec, []string{
@@ -260,6 +261,7 @@ func ShrinkDisabledFeatureMaps(spec *ebpf.CollectionSpec, opts MapPruneOptions) 
 				"h2_joined_storage",
 				"h2_cut_frame_storage",
 				"http2_info_storage",
+				"grpc_frames_ctx_mem",
 			})
 		}
 	}
