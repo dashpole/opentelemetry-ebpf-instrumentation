@@ -80,6 +80,10 @@ func NewSockFlowFetcher(
 	spec.Maps[aggregatedFlowsMap].MaxEntries = uint32(cacheMaxSize)
 	spec.Maps[flowDirectionsMap].MaxEntries = uint32(cacheMaxSize)
 	spec.Maps[connInitiatorsMap].MaxEntries = uint32(cacheMaxSize)
+	if cacheMaxSize > 0 {
+		// direct_flows is only an overflow fallback when aggregated_flows update returns -EBUSY.
+		spec.Maps["direct_flows"].MaxEntries = 1 << 20
+	}
 
 	convenience.SetupMapSizes(spec, cfg.MapsConfig.GlobalScaleFactor)
 

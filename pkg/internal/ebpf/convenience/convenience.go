@@ -12,6 +12,7 @@ import (
 
 	"github.com/cilium/ebpf"
 	"github.com/cilium/ebpf/btf"
+	"golang.org/x/sys/unix"
 )
 
 // This file contains convenience functions around the cilium/ebpf
@@ -39,8 +40,128 @@ func alignMaxEntriesIfRingBuf(m *ebpf.MapSpec) {
 	}
 }
 
+// Maps that are identically defined in generictracer and gotracer (via shared
+// protocol_handler.c / common headers) without OBI_PIN_INTERNAL, causing
+// redundant kernel allocations when both tracers load on a mixed node.
+// All listed PerCPUArray scratch maps are used only in kprobe/uprobe task
+// context (never from softirq/sock_ops/socket_filter).
+var implicitSharedMaps = map[string]bool{
+	"protocol_cache":               true,
+	"kafka_state":                  true,
+	"kafka_ongoing_requests":       true,
+	"mysql_state":                  true,
+	"aerospike_state":              true,
+	"listening_ports":              true,
+	"tcp_large_buffers_storage":    true,
+	"h2_joined_storage":            true,
+	"exception_record_t_storage":   true,
+	"grpc_frames_ctx_mem":          true,
+	"http1_header_buf_storage":     true,
+	"http1_header_scan_storage":    true,
+	"http2_info_storage":           true,
+	"http_info_mem":                true,
+	"tcp_req_mem":                  true,
+	"h2_cut_frame_storage":         true,
+	"protocol_args_mem":            true,
+	"large_buf_emit_state_storage": true,
+	"h2_tp_huff_win_storage":       true,
+	"h2_tp_huff_out_storage":       true,
+	"connection_meta_mem":          true,
+}
+
+// Userspace-populated (BPF read-only) or strictly bounded metadata maps where
+// BPF_MAP_TYPE_HASH | BPF_F_NO_PREALLOC is safe on Linux 5.8+ (zero BPF-side
+// dynamic allocation in kprobe/uprobe hot paths) and avoids multi-MiB upfront
+// preallocation.
+type rightSizeRule struct {
+	maxEntries uint32
+	toHash     bool
+	noPrealloc bool
+}
+
+var semanticRightSizeRules = map[string]rightSizeRule{
+	// One entry per unique Go executable (dev, ino) on the node; userspace-written only.
+	"go_offsets_map": {maxEntries: 1024, toHash: true, noPrealloc: true},
+	// One entry per instrumented Go process with runtime metrics; userspace-written only.
+	"go_runtime_metric_targets": {maxEntries: 3001, toHash: true, noPrealloc: true},
+	// Serialized transient TID entry held only during uprobe_register.
+	"go_executable_identity_requests": {maxEntries: 64, toHash: true, noPrealloc: true},
+	// Up to 3 activation attempts per Go Auto SDK process.
+	"go_auto_activation_attempts": {maxEntries: 1024, toHash: true, noPrealloc: true},
+	// Userspace-written per-PID config / target tables (BPF read-only).
+	"pid_samplers":                    {maxEntries: 0, toHash: true, noPrealloc: true},
+	"go_auto_targets":                 {maxEntries: 0, toHash: true, noPrealloc: true},
+	"go_exception_pids":               {maxEntries: 0, toHash: true, noPrealloc: true},
+	"python_exception_procs":          {maxEntries: 0, toHash: true, noPrealloc: true},
+	"python_runtime_metric_targets":   {maxEntries: 0, toHash: true, noPrealloc: true},
+	"python_runtime_metric_snapshots": {maxEntries: 0, toHash: true, noPrealloc: true},
+}
+
+func referencedMaps(spec *ebpf.CollectionSpec) map[string]bool {
+	refs := make(map[string]bool, len(spec.Maps))
+	for _, prog := range spec.Programs {
+		for _, ins := range prog.Instructions {
+			if ref := ins.Reference(); ref != "" {
+				if _, ok := spec.Maps[ref]; ok {
+					refs[ref] = true
+				}
+			}
+		}
+	}
+	return refs
+}
+
+// OptimizeSpecMaps applies zero-tradeoff map hygiene before ResolveMaps:
+// 1. Replaces unreferenced non-special maps with a minimal private 1-entry Array
+//    so header-leaked maps are not allocated or inserted into sharedMaps.
+// 2. Marks known duplicated protocol/scratch maps as PinInternal.
+// 3. Right-sizes non-request metadata maps and enables BPF_F_NO_PREALLOC on
+//    userspace-populated Hash maps.
+func OptimizeSpecMaps(spec *ebpf.CollectionSpec) {
+	if len(spec.Programs) == 0 {
+		return
+	}
+	refs := referencedMaps(spec)
+	for name, m := range spec.Maps {
+		if strings.HasPrefix(name, ".") {
+			continue
+		}
+		if m.Type == ebpf.ProgramArray || m.Type == ebpf.RingBuf || m.Type == ebpf.UserRingbuf {
+			continue
+		}
+		if !refs[name] {
+			// Detach from PinInternal/PinByName so we never poison sharedMaps
+			// for another tracer that genuinely references this map.
+			m.Pinning = ebpf.PinNone
+			m.Type = ebpf.Array
+			m.KeySize = 4
+			m.ValueSize = 4
+			m.MaxEntries = 1
+			m.Flags = 0
+			m.Key = nil
+			m.Value = nil
+			continue
+		}
+		if m.Pinning == ebpf.PinNone && implicitSharedMaps[name] {
+			m.Pinning = PinInternal
+		}
+		if rule, ok := semanticRightSizeRules[name]; ok {
+			if rule.maxEntries > 0 && m.MaxEntries > rule.maxEntries {
+				m.MaxEntries = rule.maxEntries
+			}
+			if rule.toHash {
+				m.Type = ebpf.Hash
+			}
+			if rule.noPrealloc && m.Type == ebpf.Hash {
+				m.Flags |= unix.BPF_F_NO_PREALLOC
+			}
+		}
+	}
+}
+
 // ResolveMaps sets up internal maps and ensures sane max entries values
 func ResolveMaps(spec *ebpf.CollectionSpec, sharedMaps map[string]*ebpf.Map, mu *sync.Mutex) (*ebpf.CollectionOptions, error) {
+	OptimizeSpecMaps(spec)
 	collOpts := ebpf.CollectionOptions{MapReplacements: map[string]*ebpf.Map{}}
 
 	mu.Lock()
