@@ -122,6 +122,33 @@ var hotRequestMaps = map[string]bool{
 	"ssl_to_conn":                      true,
 }
 
+// Maps that empirically rely on LRU eviction (not explicitly deleted on every
+// close/exit path) or act as long-lived caches; hybrid mode keeps these as
+// LRU_HASH to eliminate -E2BIG exhaustion risk while converting all strictly
+// paired/bounded/idle-language/idle-protocol maps to HASH | BPF_F_NO_PREALLOC.
+var lruEvictionDependentMaps = map[string]bool{
+	"pid_tid_to_conn":                true,
+	"fd_map":                         true,
+	"server_traces_aux":              true,
+	"connection_tracker":             true,
+	"ongoing_goroutines":             true,
+	"clone_map":                      true,
+	"ssl_to_conn":                    true,
+	"protocol_cache":                 true,
+	"listening_ports":                true,
+	"filter_ports":                   true,
+	"unreadable_buffer_ports":        true,
+	"handled_by_go_conn":             true,
+	"go_grpc_client_conns":           true,
+	"cached_grpc_client_connections": true,
+	"active_ssl_connections":         true,
+	"bio_to_ssl":                     true,
+	"ssl_to_bios":                    true,
+	"tls_prefix_to_ssl":              true,
+	"sock_pids":                      true,
+	"active_unix_socks":              true,
+}
+
 var (
 	bpfMemAllocOnce sync.Once
 	bpfMemAllocOK   bool
@@ -219,16 +246,20 @@ func OptimizeSpecMaps(spec *ebpf.CollectionSpec) {
 
 		// Layer 3 prototype: on Linux >= 6.1 (bpf_mem_alloc), convert
 		// preallocated LRUHash/Hash maps to demand-allocated HASH | BPF_F_NO_PREALLOC.
-		// Controlled by OBI_PROTO_NO_PREALLOC=full|capped (off by default).
+		// Controlled by OBI_PROTO_NO_PREALLOC=full|capped|hybrid (off by default).
 		noPreallocMode := os.Getenv("OBI_PROTO_NO_PREALLOC")
-		if (noPreallocMode == "full" || noPreallocMode == "capped") &&
+		if (noPreallocMode == "full" || noPreallocMode == "capped" || noPreallocMode == "hybrid") &&
 			supportsBPFMemAlloc() &&
 			m.Pinning != ebpf.PinByName &&
 			m.MaxEntries > 1 &&
 			(m.Type == ebpf.LRUHash || m.Type == ebpf.Hash) {
+			if noPreallocMode == "hybrid" && lruEvictionDependentMaps[name] {
+				// Keep eviction-dependent / cache maps as LRU_HASH.
+				continue
+			}
 			m.Type = ebpf.Hash
 			m.Flags |= unix.BPF_F_NO_PREALLOC
-			if noPreallocMode == "capped" && !hotRequestMaps[name] && m.MaxEntries > 2048 {
+			if (noPreallocMode == "capped" || noPreallocMode == "hybrid") && !hotRequestMaps[name] && m.MaxEntries > 2048 {
 				m.MaxEntries = 2048
 			}
 		}
