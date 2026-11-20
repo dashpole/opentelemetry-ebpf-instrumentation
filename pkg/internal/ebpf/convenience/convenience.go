@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 	"runtime"
+	"strconv"
 	"strings"
 	"sync"
 
@@ -97,6 +98,65 @@ var semanticRightSizeRules = map[string]rightSizeRule{
 	"python_runtime_metric_snapshots": {maxEntries: 0, toHash: true, noPrealloc: true},
 }
 
+// Core hot-path request/connection maps that keep their full MaxEntries bucket
+// table in OBI_PROTO_NO_PREALLOC=capped mode while secondary/cold maps cap
+// buckets at 2048 to lower the fixed hash bucket array floor.
+var hotRequestMaps = map[string]bool{
+	"ongoing_http":                     true,
+	"ongoing_http2_grpc":               true,
+	"ongoing_tcp_req":                  true,
+	"trace_map":                        true,
+	"server_traces":                    true,
+	"server_traces_aux":                true,
+	"http_server_trace_index":          true,
+	"cp_support_connect_info":          true,
+	"ongoing_http_server_requests":     true,
+	"ongoing_http_client_requests_data": true,
+	"ongoing_server_connections":       true,
+	"ongoing_goroutines":               true,
+	"go_trace_map":                     true,
+	"fd_map":                           true,
+	"fd_to_connection":                 true,
+	"connection_tracker":               true,
+	"pid_tid_to_conn":                  true,
+	"ssl_to_conn":                      true,
+}
+
+var (
+	bpfMemAllocOnce sync.Once
+	bpfMemAllocOK   bool
+)
+
+// supportsBPFMemAlloc reports whether the running kernel is >= 6.1, where
+// BPF_F_NO_PREALLOC hash maps use lockless per-CPU bpf_mem_alloc instead of
+// kmalloc(GFP_ATOMIC), making them safe in kprobe/uprobe/tracing contexts.
+func supportsBPFMemAlloc() bool {
+	bpfMemAllocOnce.Do(func() {
+		var u unix.Utsname
+		if err := unix.Uname(&u); err != nil {
+			return
+		}
+		rel := unix.ByteSliceToString(u.Release[:])
+		parts := strings.SplitN(rel, ".", 3)
+		if len(parts) < 2 {
+			return
+		}
+		major, err1 := strconv.Atoi(parts[0])
+		minorStr := parts[1]
+		for i, r := range minorStr {
+			if r < '0' || r > '9' {
+				minorStr = minorStr[:i]
+				break
+			}
+		}
+		minor, err2 := strconv.Atoi(minorStr)
+		if err1 == nil && err2 == nil {
+			bpfMemAllocOK = major > 6 || (major == 6 && minor >= 1)
+		}
+	})
+	return bpfMemAllocOK
+}
+
 func referencedMaps(spec *ebpf.CollectionSpec) map[string]bool {
 	refs := make(map[string]bool, len(spec.Maps))
 	for _, prog := range spec.Programs {
@@ -154,6 +214,22 @@ func OptimizeSpecMaps(spec *ebpf.CollectionSpec) {
 			}
 			if rule.noPrealloc && m.Type == ebpf.Hash {
 				m.Flags |= unix.BPF_F_NO_PREALLOC
+			}
+		}
+
+		// Layer 3 prototype: on Linux >= 6.1 (bpf_mem_alloc), convert
+		// preallocated LRUHash/Hash maps to demand-allocated HASH | BPF_F_NO_PREALLOC.
+		// Controlled by OBI_PROTO_NO_PREALLOC=full|capped (off by default).
+		noPreallocMode := os.Getenv("OBI_PROTO_NO_PREALLOC")
+		if (noPreallocMode == "full" || noPreallocMode == "capped") &&
+			supportsBPFMemAlloc() &&
+			m.Pinning != ebpf.PinByName &&
+			m.MaxEntries > 1 &&
+			(m.Type == ebpf.LRUHash || m.Type == ebpf.Hash) {
+			m.Type = ebpf.Hash
+			m.Flags |= unix.BPF_F_NO_PREALLOC
+			if noPreallocMode == "capped" && !hotRequestMaps[name] && m.MaxEntries > 2048 {
+				m.MaxEntries = 2048
 			}
 		}
 	}
