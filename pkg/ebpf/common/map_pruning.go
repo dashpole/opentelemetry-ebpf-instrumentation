@@ -253,15 +253,15 @@ func ShrinkDisabledFeatureMaps(spec *ebpf.CollectionSpec, opts MapPruneOptions) 
 			// k_tail_protocol_tcp via a .rodata protocol bitmask.
 			shrinkMap(spec, "ongoing_tcp_req")
 		}
-		if !sel.HTTPEnabled() && !sel.GRPCEnabled() {
+		if !sel.HTTPEnabled() && !sel.GRPCEnabled() && !sel.GenAIEnabled() {
+			// Note: HTTP/2 PerCPUArray scratch maps (h2_joined_storage,
+			// h2_cut_frame_storage, http2_info_storage, grpc_frames_ctx_mem)
+			// remain PerCPUArray until protocol_handler.c gates
+			// k_tail_protocol_http2 via a .rodata protocol bitmask.
 			shrinkMaps(spec, []string{
 				"ongoing_http2_grpc",
 				"ongoing_http2_connections",
 				"h2_cut_frames",
-				"h2_joined_storage",
-				"h2_cut_frame_storage",
-				"http2_info_storage",
-				"grpc_frames_ctx_mem",
 			})
 		}
 	}

@@ -6,6 +6,8 @@ package ebpfconvenience // import "go.opentelemetry.io/obi/pkg/internal/ebpf/con
 import (
 	"errors"
 	"log/slog"
+	"os"
+	"path/filepath"
 	"sync"
 
 	"github.com/cilium/ebpf"
@@ -40,6 +42,29 @@ func DrainTraceContextMap[V any](log *slog.Logger, m *ebpf.Map) {
 	}
 
 	drainOnce.Do(func() { drainTraceContextMap[V](log, m) })
+}
+
+// DrainPinnedTraceContextMap opens an existing bpffs pin for traces_ctx_v1
+// left behind by a prior populating run, drains any stale entries once per
+// process, and closes the FD so a non-populating run does not keep the full
+// pinned map resident when traces_ctx_v1 is detached and shrunk.
+func DrainPinnedTraceContextMap[V any](log *slog.Logger, bpffsPath string) {
+	if bpffsPath == "" {
+		return
+	}
+
+	drainOnce.Do(func() {
+		pinPath := filepath.Join(bpffsPath, "otel", "traces_ctx_v1")
+		m, err := ebpf.LoadPinnedMap(pinPath, nil)
+		if err != nil {
+			if !errors.Is(err, os.ErrNotExist) {
+				log.Debug("skipping pinned trace context map drain", "path", pinPath, "error", err)
+			}
+			return
+		}
+		defer m.Close()
+		drainTraceContextMap[V](log, m)
+	})
 }
 
 func drainTraceContextMap[V any](log *slog.Logger, m *ebpf.Map) {

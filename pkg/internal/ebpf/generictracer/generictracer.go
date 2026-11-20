@@ -302,7 +302,7 @@ func (p *Tracer) constants(eventsRingBufSize uint32) map[string]any {
 	}
 	m["g_exceptions_enabled"] = p.exceptionsEnabled()
 	m["nodejs_runtime_metrics_enabled"] = uint64(0)
-	if p.cfg.AppRuntimeMetricsEnabled() {
+	if p.cfg.AppRuntimeMetricsEnabled() && p.cfg.NodeJS.Enabled {
 		m["nodejs_runtime_metrics_enabled"] = uint64(1)
 	}
 
@@ -540,18 +540,6 @@ func (p *Tracer) UProbes() map[string]map[string][]*ebpfcommon.ProbeDesc {
 				End:      p.bpfObjects.ObiNgxEventConnectPeerRet,
 			}},
 		},
-		"node": {
-			"uv_fs_access": {{
-				Required: false,
-				Start:    p.bpfObjects.ObiUvFsAccess,
-			}},
-		},
-		"libuv.so": {
-			"uv_fs_access": {{
-				Required: false,
-				Start:    p.bpfObjects.ObiUvFsAccess,
-			}},
-		},
 		// Puma request-to-worker correlation. Both symbols are hot in any Ruby
 		// process, so attach only where the correlation can work: Ruby 4.0
 		// stopped routing Class#new through rb_obj_call_init_kw, and outside
@@ -633,6 +621,20 @@ func (p *Tracer) UProbes() map[string]map[string][]*ebpfcommon.ProbeDesc {
 				End:      p.bpfObjects.ObiUprobeTaskStepRet,
 			}},
 		},
+	}
+	if p.cfg == nil || p.cfg.NodeJS.Enabled {
+		m["node"] = map[string][]*ebpfcommon.ProbeDesc{
+			"uv_fs_access": {{
+				Required: false,
+				Start:    p.bpfObjects.ObiUvFsAccess,
+			}},
+		}
+		m["libuv.so"] = map[string][]*ebpfcommon.ProbeDesc{
+			"uv_fs_access": {{
+				Required: false,
+				Start:    p.bpfObjects.ObiUvFsAccess,
+			}},
+		}
 	}
 	return m
 }
@@ -832,7 +834,11 @@ func (p *Tracer) Run(
 	}
 
 	if !p.traceCtxMapEnabled {
-		ebpfconvenience.DrainTraceContextMap[BpfObiCtxInfoT](p.log, p.bpfObjects.TracesCtxV1)
+		if p.bpfObjects.TracesCtxV1 != nil && p.bpfObjects.TracesCtxV1.MaxEntries() <= 1 && p.cfg != nil && p.cfg.EBPF.BPFFSPath != "" {
+			ebpfconvenience.DrainPinnedTraceContextMap[BpfObiCtxInfoT](p.log, p.cfg.EBPF.BPFFSPath)
+		} else {
+			ebpfconvenience.DrainTraceContextMap[BpfObiCtxInfoT](p.log, p.bpfObjects.TracesCtxV1)
+		}
 	}
 
 	timeoutTicker := time.NewTicker(2 * time.Second)

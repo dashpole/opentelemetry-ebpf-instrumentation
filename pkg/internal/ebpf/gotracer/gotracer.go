@@ -419,16 +419,18 @@ func (p *Tracer) AllowPID(pid app.PID, ns uint32, fi *exec.FileInfo) {
 				return key.pid == pid
 			})
 		}
-		generation, err := p.enableGoAutoSDKTarget(pid, dev, ino, startTime)
-		if err == nil && identityErr != nil {
-			err = identityErr
-		}
-		if err == nil {
-			err = p.ensureGoAutoSDKActivationLinkLocked(pid, ino, generation)
-		}
-		if err != nil && p.log != nil {
-			p.log.Warn("attaching process-scoped Go Auto SDK activation probe failed",
-				"pid", pid, "generation", generation, "error", err)
+		if p.fullCfg == nil || p.fullCfg.MapPruneOptions().GoManualSDKEnabled {
+			generation, err := p.enableGoAutoSDKTarget(pid, dev, ino, startTime)
+			if err == nil && identityErr != nil {
+				err = identityErr
+			}
+			if err == nil {
+				err = p.ensureGoAutoSDKActivationLinkLocked(pid, ino, generation)
+			}
+			if err != nil && p.log != nil {
+				p.log.Warn("attaching process-scoped Go Auto SDK activation probe failed",
+					"pid", pid, "generation", generation, "error", err)
+			}
 		}
 	}
 	p.goAutoSDKTargetsMu.Unlock()
@@ -2436,8 +2438,7 @@ func (p *Tracer) GoProbeGroups() []ebpfcommon.GoProbeGroup {
 		})
 	}
 
-	if p.currentBinary.Ino != 0 && p.embeddedSDKActivationByExecutable[p.currentBinary] &&
-		p.supportsContextPropagation() {
+	if p.goEmbeddedSDKActivationProbesEnabled() {
 		groups = append(groups, ebpfcommon.GoProbeGroup{
 			Name: "go_embedded_sdk_activation",
 			Probes: []ebpfcommon.GoProbe{
@@ -2621,6 +2622,17 @@ func (p *Tracer) goAutoSDKActivationProbesEnabled() bool {
 	return p.goAutoSDKActivationByExecutable[p.currentBinary] && p.supportsContextPropagation()
 }
 
+func (p *Tracer) goEmbeddedSDKActivationProbesEnabled() bool {
+	if p == nil || p.currentBinary.Ino == 0 {
+		return false
+	}
+	if p.fullCfg != nil && !p.fullCfg.MapPruneOptions().GoManualSDKEnabled {
+		return false
+	}
+
+	return p.embeddedSDKActivationByExecutable[p.currentBinary] && p.supportsContextPropagation()
+}
+
 func (p *Tracer) goChannelLinkProbesEnabled() bool {
 	if p == nil || p.currentBinary.Ino == 0 {
 		return false
@@ -2703,7 +2715,11 @@ func (p *Tracer) Run(ctx context.Context, ebpfEventContext *ebpfcommon.EBPFEvent
 	p.readExceptionEvents(ctx, ebpfEventContext)
 
 	if !p.traceCtxMapEnabled {
-		ebpfconvenience.DrainTraceContextMap[BpfObiCtxInfoT](p.log, p.bpfObjects.TracesCtxV1)
+		if p.bpfObjects.TracesCtxV1 != nil && p.bpfObjects.TracesCtxV1.MaxEntries() <= 1 && p.cfg != nil && p.cfg.BPFFSPath != "" {
+			ebpfconvenience.DrainPinnedTraceContextMap[BpfObiCtxInfoT](p.log, p.cfg.BPFFSPath)
+		} else {
+			ebpfconvenience.DrainTraceContextMap[BpfObiCtxInfoT](p.log, p.bpfObjects.TracesCtxV1)
+		}
 	}
 
 	ebpfcommon.SharedRingbufWithDrainContext(
