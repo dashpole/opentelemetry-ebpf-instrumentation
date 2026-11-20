@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:34:05 UTC
+Showing nodes accounting for 29365.91kB, 100% of 29365.91kB total
+Showing top 40 nodes out of 93
+      flat  flat%   sum%        cum   cum%
+ 7983.91kB 27.19% 27.19% 14640.51kB 49.86%  github.com/hashicorp/golang-lru/v2/simplelru.(*LRU[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).Add
+ 6688.63kB 22.78% 49.96%  6688.63kB 22.78%  runtime.mallocgc
+ 6656.61kB 22.67% 72.63%  6656.61kB 22.67%  github.com/hashicorp/golang-lru/v2/internal.(*LruList[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).insertValue (inline)
+ 1536.31kB  5.23% 77.86%  2048.38kB  6.98%  github.com/aws/smithy-go.(*Schema).AddMember
+  858.34kB  2.92% 80.79%   858.34kB  2.92%  reflect.compiledTypelinks
+  809.97kB  2.76% 83.55%   809.97kB  2.76%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  727.78kB  2.48% 86.02%   727.78kB  2.48%  go.opentelemetry.io/obi/pkg/export/otel.newOBITracesExporter
+  516.64kB  1.76% 87.78%   516.64kB  1.76%  github.com/go-playground/validator/v10.map.init.13
+  513.69kB  1.75% 89.53%   513.69kB  1.75%  golang.org/x/text/internal/language.map.init.1
+  513.50kB  1.75% 91.28%   513.50kB  1.75%  regexp/syntax.(*compiler).inst
+  512.22kB  1.74% 93.02%   512.22kB  1.74%  go.opentelemetry.io/collector/pdata/internal.CopyKeyValueSlice
+  512.12kB  1.74% 94.77%   512.12kB  1.74%  go.opentelemetry.io/obi/pkg/export/attributes.buildGetterList[go.shape.*uint8,go.shape.string] (inline)
+  512.11kB  1.74% 96.51%   512.11kB  1.74%  github.com/aws/smithy-go.NewSchema
+  512.07kB  1.74% 98.26%   512.07kB  1.74%  github.com/aws/smithy-go.cloneIndexed (inline)
+  512.02kB  1.74%   100%   512.02kB  1.74%  k8s.io/api/flowcontrol/v1.init
+         0     0%   100%   858.34kB  2.92%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  2.92%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  2.92%  encoding/gob.getType
+         0     0%   100%   858.34kB  2.92%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  2.92%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  2.92%  encoding/gob.init
+         0     0%   100%   858.34kB  2.92%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  2.92%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  2.92%  encoding/gob.userType
+         0     0%   100%   858.34kB  2.92%  encoding/gob.validUserType
+         0     0%   100%   512.11kB  1.74%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%  2048.38kB  6.98%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   516.64kB  1.76%  github.com/go-playground/validator/v10.init
+         0     0%   100% 14640.51kB 49.86%  github.com/hashicorp/golang-lru/v2.(*Cache[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).Add
+         0     0%   100%  6656.61kB 22.67%  github.com/hashicorp/golang-lru/v2/internal.(*LruList[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).PushFront
+         0     0%   100%   512.22kB  1.74%  go.opentelemetry.io/collector/pdata/internal.CopySpan
+         0     0%   100%   512.22kB  1.74%  go.opentelemetry.io/collector/pdata/ptrace.ResourceSpansSlice.All.func1
+         0     0%   100%   512.22kB  1.74%  go.opentelemetry.io/collector/pdata/ptrace.ScopeSpansSlice.All.func1 (inline)
+         0     0%   100%   512.22kB  1.74%  go.opentelemetry.io/collector/pdata/ptrace.Span.CopyTo (inline)
+         0     0%   100%   512.22kB  1.74%  go.opentelemetry.io/collector/pdata/ptrace.SpanSlice.All.func1 (inline)
+         0     0%   100%   512.12kB  1.74%  go.opentelemetry.io/obi/pkg/appolly.(*graphFunctions).buildGraph
+         0     0%   100% 14640.51kB 49.86%  go.opentelemetry.io/obi/pkg/appolly.(*parentSettler).process
+         0     0%   100% 14640.51kB 49.86%  go.opentelemetry.io/obi/pkg/appolly.(*parentSettler).run.func1
+         0     0%   100%   512.12kB  1.74%  go.opentelemetry.io/obi/pkg/appolly.BuildWithProtocolMetricSelection
+         0     0%   100%   809.97kB  2.76%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1

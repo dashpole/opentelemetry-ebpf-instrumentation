@@ -1,0 +1,47 @@
+File: obi
+Build ID: 03ff4d1718bb24c66c39a56672a03753db270d95
+Type: inuse_space
+Time: 2026-11-20 19:07:26 UTC
+Showing nodes accounting for 14487.33kB, 100% of 14487.33kB total
+Showing top 40 nodes out of 73
+      flat  flat%   sum%        cum   cum%
+ 3603.90kB 24.88% 24.88%  3603.90kB 24.88%  runtime.mallocgc
+ 1536.32kB 10.60% 35.48%  1536.32kB 10.60%  github.com/aws/smithy-go.(*Schema).AddMember
+ 1131.52kB  7.81% 43.29%  1643.56kB 11.34%  go.opentelemetry.io/obi/pkg/appolly.(*parentSettler).process
+ 1028.07kB  7.10% 50.39%  1028.07kB  7.10%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner
+  858.34kB  5.92% 56.31%   858.34kB  5.92%  reflect.compiledTypelinks
+  618.49kB  4.27% 60.58%   618.49kB  4.27%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDsFilter).Filter
+  565.76kB  3.91% 64.49%   565.76kB  3.91%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).flushEvents
+  525.43kB  3.63% 68.11%   525.43kB  3.63%  github.com/go-playground/validator/v10.map.init.7
+  522.70kB  3.61% 71.72%   522.70kB  3.61%  github.com/google/gnostic-models/openapiv2.init
+  512.56kB  3.54% 75.26%   512.56kB  3.54%  github.com/aws/aws-sdk-go-v2/service/route53/internal/endpoints.init
+  512.05kB  3.53% 78.79%   512.05kB  3.53%  github.com/prometheus/client_golang/prometheus.(*goCollector).Describe
+  512.05kB  3.53% 82.33%   512.05kB  3.53%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).bgFlushOnTimeout
+  512.05kB  3.53% 85.86%   512.05kB  3.53%  os/signal.NotifyContext.func1
+  512.05kB  3.53% 89.40%   512.05kB  3.53%  github.com/hashicorp/golang-lru/v2/internal.(*LruList[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).insertValue (inline)
+  512.02kB  3.53% 92.93%   512.02kB  3.53%  github.com/prometheus/client_golang/prometheus.(*Registry).Register
+  512.01kB  3.53% 96.47%   512.01kB  3.53%  go.opentelemetry.io/obi/pkg/internal/transform/route/clusterurl.(*ClusterURLClassifier).ClusterURL
+  512.01kB  3.53%   100%   512.01kB  3.53%  k8s.io/kube-openapi/pkg/internal/third_party/go-json-experiment/json.init
+         0     0%   100%   858.34kB  5.92%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  5.92%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  5.92%  encoding/gob.getType
+         0     0%   100%   858.34kB  5.92%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  5.92%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  5.92%  encoding/gob.init
+         0     0%   100%   858.34kB  5.92%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  5.92%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  5.92%  encoding/gob.userType
+         0     0%   100%   858.34kB  5.92%  encoding/gob.validUserType
+         0     0%   100%  1536.32kB 10.60%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   525.43kB  3.63%  github.com/go-playground/validator/v10.init
+         0     0%   100%   512.05kB  3.53%  github.com/hashicorp/golang-lru/v2.(*Cache[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).Add
+         0     0%   100%   512.05kB  3.53%  github.com/hashicorp/golang-lru/v2/internal.(*LruList[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).PushFront
+         0     0%   100%   512.05kB  3.53%  github.com/hashicorp/golang-lru/v2/simplelru.(*LRU[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).Add
+         0     0%   100%   512.02kB  3.53%  github.com/prometheus/client_golang/prometheus.(*Registry).MustRegister
+         0     0%   100%   512.05kB  3.53%  github.com/prometheus/client_golang/prometheus.(*Registry).Register.func1
+         0     0%   100%   512.02kB  3.53%  github.com/prometheus/client_golang/prometheus.MustRegister (inline)
+         0     0%   100%   512.02kB  3.53%  github.com/prometheus/client_golang/prometheus.init.0
+         0     0%   100%  1643.56kB 11.34%  go.opentelemetry.io/obi/pkg/appolly.(*parentSettler).run.func1
+         0     0%   100%  1028.07kB  7.10%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).Run.func1
+         0     0%   100%  1184.25kB  8.17%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+         0     0%   100%  1184.25kB  8.17%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner.func1

@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:37:54 UTC
+Showing nodes accounting for 11230.01kB, 100% of 11230.01kB total
+Showing top 40 nodes out of 93
+      flat  flat%   sum%        cum   cum%
+ 3084.29kB 27.46% 27.46%  3084.29kB 27.46%  runtime.mallocgc
+  858.34kB  7.64% 35.11%   858.34kB  7.64%  reflect.compiledTypelinks
+  618.49kB  5.51% 40.62%   618.49kB  5.51%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  518.65kB  4.62% 45.23%   518.65kB  4.62%  go.opentelemetry.io/obi/pkg/ebpf/common.init.func4
+  516.01kB  4.59% 49.83%   516.01kB  4.59%  google.golang.org/protobuf/internal/filedesc.(*File).initDecls
+  513.56kB  4.57% 54.40%   513.56kB  4.57%  sync.(*Pool).pinSlow
+  512.28kB  4.56% 58.96%   512.28kB  4.56%  github.com/cilium/ebpf/ringbuf.(*ringReader).readRecord
+  512.11kB  4.56% 63.52%   512.11kB  4.56%  github.com/aws/smithy-go.(*Schema).AddMember
+  512.08kB  4.56% 68.08%  2048.16kB 18.24%  regexp.compile
+  512.05kB  4.56% 72.64%   512.05kB  4.56%  github.com/prometheus/client_golang/prometheus.(*goCollector).Describe
+  512.05kB  4.56% 77.20%   512.05kB  4.56%  regexp/syntax.(*parser).newRegexp (inline)
+  512.02kB  4.56% 81.76%   512.02kB  4.56%  k8s.io/api/core/v1.init
+  512.02kB  4.56% 86.32%   512.02kB  4.56%  github.com/prometheus/client_golang/prometheus.memstatNamespace (inline)
+  512.02kB  4.56% 90.88%   512.02kB  4.56%  regexp/syntax.appendRange
+  512.01kB  4.56% 95.44%   512.01kB  4.56%  internal/bytealg.MakeNoZero
+  512.01kB  4.56%   100%   512.01kB  4.56%  regexp.makeOnePass.func1
+         0     0%   100%   858.34kB  7.64%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  7.64%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  7.64%  encoding/gob.getType
+         0     0%   100%   858.34kB  7.64%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  7.64%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  7.64%  encoding/gob.init
+         0     0%   100%   858.34kB  7.64%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  7.64%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  7.64%  encoding/gob.userType
+         0     0%   100%   858.34kB  7.64%  encoding/gob.validUserType
+         0     0%   100%   512.05kB  4.56%  github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime/datetime.init
+         0     0%   100%   512.11kB  4.56%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.01kB  4.56%  github.com/aws/aws-sdk-go-v2/service/ssooidc/internal/endpoints.init
+         0     0%   100%   512.28kB  4.56%  github.com/cilium/ebpf/ringbuf.(*Reader).ReadInto
+         0     0%   100%   512.05kB  4.56%  github.com/prometheus/client_golang/prometheus.(*Registry).Register.func1
+         0     0%   100%   512.01kB  4.56%  github.com/prometheus/client_golang/prometheus.BuildFQName
+         0     0%   100%   512.01kB  4.56%  github.com/prometheus/client_golang/prometheus.NewGauge
+         0     0%   100%  1024.03kB  9.12%  github.com/prometheus/client_golang/prometheus.NewGoCollector
+         0     0%   100%   512.02kB  4.56%  github.com/prometheus/client_golang/prometheus.goRuntimeMemStats
+         0     0%   100%  1024.03kB  9.12%  github.com/prometheus/client_golang/prometheus.init.0
+         0     0%   100%   513.56kB  4.57%  github.com/prometheus/client_golang/prometheus/promhttp.HandlerForTransactional.func1
+         0     0%   100%   513.56kB  4.57%  github.com/prometheus/common/expfmt.MetricFamilyToText
+         0     0%   100%   513.56kB  4.57%  github.com/prometheus/common/expfmt.NewEncoder.func7
+         0     0%   100%   513.56kB  4.57%  github.com/prometheus/common/expfmt.encoderCloser.Encode

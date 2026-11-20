@@ -1,0 +1,47 @@
+File: obi
+Build ID: 371bc8850325075ec00d40904bffc7e151357b51
+Type: inuse_space
+Time: 2026-11-20 20:11:23 UTC
+Showing nodes accounting for 13648.76kB, 100% of 13648.76kB total
+Showing top 40 nodes out of 80
+      flat  flat%   sum%        cum   cum%
+ 6169.13kB 45.20% 45.20%  6169.13kB 45.20%  runtime.mallocgc
+ 1536.32kB 11.26% 56.46%  1536.32kB 11.26%  github.com/aws/smithy-go.(*Schema).AddMember
+  809.97kB  5.93% 62.39%   809.97kB  5.93%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  518.65kB  3.80% 66.19%   518.65kB  3.80%  go.opentelemetry.io/obi/pkg/ebpf/common.init.func4 (inline)
+  515.19kB  3.77% 69.96%   515.19kB  3.77%  github.com/go-playground/validator/v10.map.init.14
+  515.19kB  3.77% 73.74%   515.19kB  3.77%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner
+  512.14kB  3.75% 77.49%   512.14kB  3.75%  k8s.io/api/storagemigration/v1beta1.init
+  512.05kB  3.75% 81.24%   512.05kB  3.75%  github.com/aws/smithy-go.(*Schema).addTrait
+  512.05kB  3.75% 84.99%   512.05kB  3.75%  go.opentelemetry.io/obi/pkg/pipe/swarm/swarms.ForEachInput[go.shape.[]go.opentelemetry.io/obi/pkg/appolly/discover.Event[go.opentelemetry.io/obi/pkg/appolly/discover.ProcessMatch]]
+  512.02kB  3.75% 88.75%  1024.07kB  7.50%  github.com/aws/smithy-go.NewSchema
+  512.02kB  3.75% 92.50%   512.02kB  3.75%  syscall.anyToSockaddr
+  512.01kB  3.75% 96.25%   512.01kB  3.75%  google.golang.org/protobuf/reflect/protoregistry.(*Files).RegisterFile
+  512.01kB  3.75%   100%   512.01kB  3.75%  regexp.mergeRuneSets.func2 (inline)
+         0     0%   100%   512.01kB  3.75%  github.com/aws/aws-sdk-go-v2/service/ecs/internal/endpoints.init
+         0     0%   100%   512.02kB  3.75%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%  1536.32kB 11.26%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.05kB  3.75%  github.com/aws/aws-sdk-go-v2/service/signin/schemas.init
+         0     0%   100%   515.19kB  3.77%  github.com/go-playground/validator/v10.init
+         0     0%   100%   809.97kB  5.93%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1
+         0     0%   100%   809.97kB  5.93%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1.1
+         0     0%   100%   809.97kB  5.93%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).getTracer
+         0     0%   100%   809.97kB  5.93%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).monitorPIDs
+         0     0%   100%   512.05kB  3.75%  go.opentelemetry.io/obi/pkg/appolly/discover.ExecTyperProvider.func1.1
+         0     0%   100%   809.97kB  5.93%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).AllowPID (inline)
+         0     0%   100%   515.19kB  3.77%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).Run.func1
+         0     0%   100%   515.19kB  3.77%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).sharedReadAndForward
+         0     0%   100%   518.65kB  3.80%  go.opentelemetry.io/obi/pkg/ebpf/common.init
+         0     0%   100%   809.97kB  5.93%  go.opentelemetry.io/obi/pkg/internal/ebpf/generictracer.(*Tracer).AllowPID
+         0     0%   100%   515.19kB  3.77%  go.opentelemetry.io/obi/pkg/internal/ebpf/generictracer.(*Tracer).Run
+         0     0%   100%   809.97kB  5.93%  go.opentelemetry.io/obi/pkg/internal/ebpf/generictracer.(*Tracer).rebuildValidPids
+         0     0%   100%  1322.03kB  9.69%  go.opentelemetry.io/obi/pkg/pipe/swarm.(*Runner).Start.func2
+         0     0%   100%   809.97kB  5.93%  go.opentelemetry.io/obi/pkg/pipe/swarm/swarms.ForEachInput[go.shape.[]go.opentelemetry.io/obi/pkg/appolly/discover.Event[go.opentelemetry.io/obi/pkg/ebpf.Instrumentable]]
+         0     0%   100%   512.01kB  3.75%  google.golang.org/protobuf/internal/filedesc.Builder.Build
+         0     0%   100%   512.01kB  3.75%  google.golang.org/protobuf/internal/filetype.Builder.Build
+         0     0%   100%   512.01kB  3.75%  google.golang.org/protobuf/types/descriptorpb.file_google_protobuf_descriptor_proto_init
+         0     0%   100%   512.01kB  3.75%  google.golang.org/protobuf/types/descriptorpb.init.0
+         0     0%   100%   512.02kB  3.75%  net.(*Dialer).Dial
+         0     0%   100%   512.02kB  3.75%  net.(*Dialer).DialContext
+         0     0%   100%   512.02kB  3.75%  net.(*netFD).connect
+         0     0%   100%   512.02kB  3.75%  net.(*netFD).dial

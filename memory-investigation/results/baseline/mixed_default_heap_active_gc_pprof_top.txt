@@ -1,0 +1,47 @@
+File: obi
+Build ID: 503d6d6183b36bdd535eca7c23a309036e3a3f00
+Type: inuse_space
+Time: 2026-11-20 18:53:27 UTC
+Showing nodes accounting for 21480.25kB, 100% of 21480.25kB total
+Showing top 40 nodes out of 130
+      flat  flat%   sum%        cum   cum%
+ 6688.61kB 31.14% 31.14%  6688.61kB 31.14%  runtime.mallocgc
+ 3584.33kB 16.69% 47.83%  3584.33kB 16.69%  github.com/hashicorp/golang-lru/v2/internal.(*LruList[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).insertValue (inline)
+ 2661.30kB 12.39% 60.21%  6245.63kB 29.08%  github.com/hashicorp/golang-lru/v2/simplelru.(*LRU[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).Add
+ 1536.33kB  7.15% 67.37%  1536.33kB  7.15%  github.com/aws/smithy-go.(*Schema).AddMember
+  858.34kB  4.00% 71.36%   858.34kB  4.00%  reflect.compiledTypelinks
+     514kB  2.39% 73.76%      514kB  2.39%  github.com/json-iterator/go.init.4
+  513.69kB  2.39% 76.15%   513.69kB  2.39%  google.golang.org/protobuf/types/known/wrapperspb.init
+  513.31kB  2.39% 78.54%   513.31kB  2.39%  regexp.onePassCopy
+  513.12kB  2.39% 80.93%   513.12kB  2.39%  runtime/debug.ParseBuildInfo
+  512.69kB  2.39% 83.31%   512.69kB  2.39%  regexp/syntax.(*compiler).inst (inline)
+  512.14kB  2.38% 85.70%   512.14kB  2.38%  k8s.io/api/networking/v1.init
+  512.12kB  2.38% 88.08%   512.12kB  2.38%  reflect.growslice
+  512.12kB  2.38% 90.47%   512.12kB  2.38%  github.com/DataDog/go-sqllexer.addToTrie
+  512.05kB  2.38% 92.85%   512.05kB  2.38%  os/signal.NotifyContext.func1
+  512.05kB  2.38% 95.23%   512.05kB  2.38%  regexp/syntax.(*parser).newRegexp
+  512.02kB  2.38% 97.62%   512.02kB  2.38%  net/http.(*Transport).registerProtocol
+  512.01kB  2.38%   100%   512.01kB  2.38%  net/http.(*Server).configureHTTP2
+         0     0%   100%   858.34kB  4.00%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  4.00%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  4.00%  encoding/gob.getType
+         0     0%   100%   858.34kB  4.00%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  4.00%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  4.00%  encoding/gob.init
+         0     0%   100%   858.34kB  4.00%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  4.00%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  4.00%  encoding/gob.userType
+         0     0%   100%   858.34kB  4.00%  encoding/gob.validUserType
+         0     0%   100%   512.12kB  2.38%  encoding/json.Unmarshal
+         0     0%   100%   512.12kB  2.38%  encoding/json/v2.Unmarshal
+         0     0%   100%   512.12kB  2.38%  encoding/json/v2.makeSliceArshaler.func3
+         0     0%   100%   512.12kB  2.38%  encoding/json/v2.makeStructArshaler.func3
+         0     0%   100%   512.12kB  2.38%  encoding/json/v2.unmarshalDecode
+         0     0%   100%   512.02kB  2.38%  github.com/Azure/azure-sdk-for-go/sdk/internal/transport.init.0
+         0     0%   100%   512.12kB  2.38%  github.com/DataDog/go-sqllexer.buildCombinedTrie
+         0     0%   100%   512.12kB  2.38%  github.com/DataDog/go-sqllexer.init
+         0     0%   100%  1536.33kB  7.15%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.69kB  2.39%  github.com/distribution/reference.init
+         0     0%   100%  6245.63kB 29.08%  github.com/hashicorp/golang-lru/v2.(*Cache[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).Add
+         0     0%   100%  3584.33kB 16.69%  github.com/hashicorp/golang-lru/v2/internal.(*LruList[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).PushFront
+         0     0%   100%   513.12kB  2.39%  github.com/moby/moby/client.(*Client).Info

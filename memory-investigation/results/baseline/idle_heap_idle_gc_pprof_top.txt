@@ -1,0 +1,47 @@
+File: obi
+Build ID: 503d6d6183b36bdd535eca7c23a309036e3a3f00
+Type: inuse_space
+Time: 2026-11-20 18:51:14 UTC
+Showing nodes accounting for 9692.03kB, 100% of 9692.03kB total
+Showing top 40 nodes out of 68
+      flat  flat%   sum%        cum   cum%
+ 3603.58kB 37.18% 37.18%  3603.58kB 37.18%  runtime.mallocgc
+ 1536.33kB 15.85% 53.03%  1536.33kB 15.85%  github.com/aws/smithy-go.(*Schema).AddMember
+  858.34kB  8.86% 61.89%   858.34kB  8.86%  reflect.compiledTypelinks
+  618.49kB  6.38% 68.27%   618.49kB  6.38%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  513.56kB  5.30% 73.57%   513.56kB  5.30%  sync.(*Pool).pinSlow
+  513.31kB  5.30% 78.87%   513.31kB  5.30%  google.golang.org/protobuf/internal/filedesc.(*File).initDecls (inline)
+  512.20kB  5.28% 84.15%   512.20kB  5.28%  github.com/aws/smithy-go.NewSchema
+  512.14kB  5.28% 89.43%   512.14kB  5.28%  k8s.io/api/storage/v1beta1.init
+  512.05kB  5.28% 94.72%   512.05kB  5.28%  github.com/gabriel-vasile/mimetype.newMIME (inline)
+  512.01kB  5.28%   100%   512.01kB  5.28%  reflect.FuncOf.func1
+         0     0%   100%   858.34kB  8.86%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  8.86%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  8.86%  encoding/gob.getType
+         0     0%   100%   858.34kB  8.86%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  8.86%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  8.86%  encoding/gob.init
+         0     0%   100%   858.34kB  8.86%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  8.86%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  8.86%  encoding/gob.userType
+         0     0%   100%   858.34kB  8.86%  encoding/gob.validUserType
+         0     0%   100%   512.20kB  5.28%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%  1536.33kB 15.85%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.05kB  5.28%  github.com/gabriel-vasile/mimetype.init
+         0     0%   100%   513.31kB  5.30%  github.com/google/s2a-go/internal/proto/s2a_go_proto.file_internal_proto_s2a_s2a_proto_init
+         0     0%   100%   513.31kB  5.30%  github.com/google/s2a-go/internal/proto/s2a_go_proto.init.0
+         0     0%   100%   513.56kB  5.30%  go.opentelemetry.io/obi/pkg/appolly/discover.(*pollAccounter).run
+         0     0%   100%   513.56kB  5.30%  go.opentelemetry.io/obi/pkg/appolly/discover.(*procStatReader).getProcStartTime
+         0     0%   100%   513.56kB  5.30%  go.opentelemetry.io/obi/pkg/appolly/discover.(*procStatReader).getProcStatField
+         0     0%   100%   513.56kB  5.30%  go.opentelemetry.io/obi/pkg/appolly/discover.(*procStatReader).processAge
+         0     0%   100%   513.56kB  5.30%  go.opentelemetry.io/obi/pkg/appolly/discover.fetchProcessPorts
+         0     0%   100%   618.49kB  6.38%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner.func1
+         0     0%   100%   513.56kB  5.30%  go.opentelemetry.io/obi/pkg/pipe/swarm.(*Runner).Start.func2
+         0     0%   100%   513.31kB  5.30%  google.golang.org/protobuf/internal/filedesc.Builder.Build
+         0     0%   100%   513.31kB  5.30%  google.golang.org/protobuf/internal/filedesc.newRawFile
+         0     0%   100%   513.31kB  5.30%  google.golang.org/protobuf/internal/filetype.Builder.Build
+         0     0%   100%   512.01kB  5.28%  k8s.io/api/rbac/v1alpha1.addKnownTypes
+         0     0%   100%   512.01kB  5.28%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypeWithName
+         0     0%   100%   512.01kB  5.28%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypes
+         0     0%   100%   512.01kB  5.28%  k8s.io/apimachinery/pkg/runtime.(*SchemeBuilder).AddToScheme
+         0     0%   100%   512.01kB  5.28%  k8s.io/client-go/kubernetes/scheme.init.0

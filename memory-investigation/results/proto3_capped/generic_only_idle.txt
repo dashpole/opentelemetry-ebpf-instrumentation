@@ -1,0 +1,31 @@
+PID=7  cgroup.current=91.32 MiB  cgroup.peak=94.25 MiB
+  cgroup.stat: anon=72.85 file=0.00 kernel=16.46 slab=5.58(unrecl=4.95) percpu=0.10 vmalloc=8.49 pagetables=0.81
+  proc.status: VmRSS=130296 kB VmHWM=130296 kB RssAnon=64608 kB RssFile=2148 kB Threads=19
+  BPF maps=122 memlock=11.26 MiB | BPF progs=96 memlock=1.62 MiB | BPF total=12.88 MiB
+  BPF maps by type: Array=0.61MiB Hash=8.84MiB LRUHash=0.01MiB PerCPUArray=0.72MiB ProgramArray=0.00MiB RingBuf=1.09MiB
+  Top 25 BPF maps by real kernel memlock:
+     1. id=8264  events           RingBuf       k=  0 v=    0 max=1048576 flg=0 memlock=  1.02 MiB
+     2. id=8201  server_traces    Hash          k= 24 v=   56 max=  30000 flg=1 memlock=  0.50 MiB
+     3. id=8189  ssl_to_conn      Hash          k= 16 v=   48 max=  30000 flg=1 memlock=  0.50 MiB
+     4. id=8208  go_trace_map     Hash          k= 16 v=   48 max=  30000 flg=1 memlock=  0.50 MiB
+     5. id=8265  fd_to_connectio  Hash          k= 16 v=   36 max=  30000 flg=1 memlock=  0.50 MiB
+     6. id=8258  trace_map        Hash          k= 40 v=   56 max=  30000 flg=1 memlock=  0.50 MiB
+     7. id=8280  pid_tid_to_conn  Hash          k=  8 v=   48 max=  30000 flg=1 memlock=  0.50 MiB
+     8. id=8231  cp_support_conn  Hash          k= 40 v=   40 max=  30000 flg=1 memlock=  0.50 MiB
+     9. id=8221  server_traces_a  Hash          k= 24 v=   56 max=  30000 flg=1 memlock=  0.50 MiB
+    10. id=8210  ongoing_tcp_req  Hash          k= 40 v=  544 max=  30000 flg=1 memlock=  0.50 MiB
+    11. id=8236  connection_trac  Hash          k= 36 v=   16 max=  30000 flg=1 memlock=  0.50 MiB
+    12. id=8224  http_server_tra  Hash          k= 20 v=   64 max=  30000 flg=1 memlock=  0.50 MiB
+    13. id=8223  ongoing_gorouti  Hash          k= 16 v=   24 max=  30000 flg=1 memlock=  0.50 MiB
+    14. id=8238  ongoing_http     Hash          k= 40 v=  424 max=  30000 flg=1 memlock=  0.50 MiB
+    15. id=8192  ongoing_http2_g  Hash          k= 44 v=  456 max=  30000 flg=1 memlock=  0.50 MiB
+    16. id=8211  fd_map           Hash          k= 24 v=   20 max=  30000 flg=1 memlock=  0.50 MiB
+    17. id=8200  valid_pids       Array         k=  4 v=    8 max=  65536 flg=0 memlock=  0.50 MiB
+    18. id=8282  iovec_mem        PerCPUArray   k=  4 v=16384 max=      1 flg=0 memlock=  0.38 MiB
+    19. id=8203  h2_joined_stora  PerCPUArray   k=  4 v= 8448 max=      1 flg=0 memlock=  0.19 MiB
+    20. id=8249  obi_usdt_specs   Array         k=  4 v=  208 max=    256 flg=0 memlock=  0.05 MiB
+    21. id=8179  debug_events     RingBuf       k=  0 v=    0 max=  32768 flg=0 memlock=  0.04 MiB
+    22. id=8292  python_exceptio  PerCPUArray   k=  4 v= 1424 max=      1 flg=0 memlock=  0.03 MiB
+    23. id=8244  listening_ports  Hash          k=  8 v=    1 max=   2048 flg=1 memlock=  0.03 MiB
+    24. id=8229  active_unix_soc  Hash          k=  8 v=    4 max=   2048 flg=1 memlock=  0.03 MiB
+    25. id=8228  aerospike_state  Hash          k= 36 v=    8 max=   2048 flg=1 memlock=  0.03 MiB

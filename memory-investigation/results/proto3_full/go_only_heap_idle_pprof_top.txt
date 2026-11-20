@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:32:17 UTC
+Showing nodes accounting for 31601.50kB, 100% of 31601.50kB total
+Showing top 40 nodes out of 124
+      flat  flat%   sum%        cum   cum%
+ 4117.33kB 13.03% 13.03%  4117.33kB 13.03%  runtime.mallocgc
+ 4009.60kB 12.69% 25.72%  4009.60kB 12.69%  io.ReadAll
+ 3071.14kB  9.72% 35.44%  3071.14kB  9.72%  github.com/cilium/ebpf.(*ProgramSpec).Copy (inline)
+ 2674.14kB  8.46% 43.90%  5746.27kB 18.18%  github.com/cilium/ebpf.(*elfCode).loadFunctions-range1
+ 2560.12kB  8.10% 52.00%  2560.12kB  8.10%  github.com/cilium/ebpf/asm.(*Metadata).Set
+ 2048.09kB  6.48% 58.48%  3085.55kB  9.76%  github.com/cilium/ebpf/btf.newLineInfo
+ 1354.64kB  4.29% 62.77%  1354.64kB  4.29%  internal/saferio.ReadData
+ 1140.13kB  3.61% 66.37%  1971.42kB  6.24%  github.com/cilium/ebpf/btf.newDecoder
+ 1024.44kB  3.24% 69.62%  2061.93kB  6.52%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func3
+ 1024.22kB  3.24% 72.86%  1024.22kB  3.24%  github.com/aws/smithy-go.(*Schema).AddMember
+ 1024.02kB  3.24% 76.10%  1024.02kB  3.24%  google.golang.org/protobuf/internal/impl.(*atomicNilMessage).Init
+  831.28kB  2.63% 78.73%   831.28kB  2.63%  github.com/cilium/ebpf/btf.newFuzzyStringIndex
+  526.13kB  1.66% 80.39%   526.13kB  1.66%  github.com/google/gnostic-models/openapiv3.init
+  525.43kB  1.66% 82.06%   525.43kB  1.66%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func1
+  525.43kB  1.66% 83.72%  1037.46kB  3.28%  github.com/cilium/ebpf/btf.(*stringTable).LookupCached
+  525.43kB  1.66% 85.38%   525.43kB  1.66%  github.com/go-playground/validator/v10.map.init.7
+  518.65kB  1.64% 87.02%   518.65kB  1.64%  go.opentelemetry.io/obi/pkg/internal/nodejstools.map.init.1
+     515kB  1.63% 88.65%      515kB  1.63%  regexp/syntax.(*compiler).inst
+     514kB  1.63% 90.28%      514kB  1.63%  google.golang.org/protobuf/internal/filedesc.(*File).initDecls
+  512.11kB  1.62% 91.90%   512.11kB  1.62%  github.com/aws/smithy-go.NewSchema
+  512.06kB  1.62% 93.52%  2061.93kB  6.52%  github.com/cilium/ebpf/btf.(*decoder).inflateType
+  512.05kB  1.62% 95.14%   512.05kB  1.62%  regexp/syntax.(*parser).newRegexp (inline)
+  512.03kB  1.62% 96.76%   512.03kB  1.62%  github.com/cilium/ebpf/btf.(*stringTable).Lookup (inline)
+  512.01kB  1.62% 98.38%   512.01kB  1.62%  google.golang.org/protobuf/reflect/protoregistry.(*Files).RegisterFile
+  512.01kB  1.62%   100%  1024.03kB  3.24%  github.com/cilium/ebpf/asm.Instruction.WithReference (inline)
+         0     0%   100%  1354.64kB  4.29%  debug/elf.(*Section).Data
+         0     0%   100%   512.05kB  1.62%  github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime/datetime.init
+         0     0%   100%   512.11kB  1.62%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%   512.11kB  1.62%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.11kB  1.62%  github.com/aws/aws-sdk-go-v2/service/ssooidc/schemas.init.0
+         0     0%   100%  7246.01kB 22.93%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign
+         0     0%   100%  7246.01kB 22.93%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign.func1
+         0     0%   100%  7246.01kB 22.93%  github.com/cilium/ebpf.(*collectionLoader).loadProgram
+         0     0%   100%   544.67kB  1.72%  github.com/cilium/ebpf.(*elfCode).loadDataSections
+         0     0%   100%  5746.27kB 18.18%  github.com/cilium/ebpf.(*elfCode).loadFunctions
+         0     0%   100%  5746.27kB 18.18%  github.com/cilium/ebpf.(*elfCode).loadProgramSections
+         0     0%   100%  1024.03kB  3.24%  github.com/cilium/ebpf.(*elfCode).relocateInstruction
+         0     0%   100%  5746.27kB 18.18%  github.com/cilium/ebpf.(*elfSection).symbolsSorted.func1 (inline)
+         0     0%   100% 10186.46kB 32.23%  github.com/cilium/ebpf.LoadCollectionSpecFromReader
+         0     0%   100%  6493.08kB 20.55%  github.com/cilium/ebpf.applyRelocations

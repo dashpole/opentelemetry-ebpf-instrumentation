@@ -1,0 +1,47 @@
+File: obi
+Build ID: 503d6d6183b36bdd535eca7c23a309036e3a3f00
+Type: inuse_space
+Time: 2026-11-20 18:53:05 UTC
+Showing nodes accounting for 14208.62kB, 100% of 14208.62kB total
+Showing top 40 nodes out of 123
+      flat  flat%   sum%        cum   cum%
+ 5662.61kB 39.85% 39.85%  5662.61kB 39.85%  runtime.mallocgc
+ 1536.33kB 10.81% 50.67%  1536.33kB 10.81%  github.com/aws/smithy-go.(*Schema).AddMember
+  858.34kB  6.04% 56.71%   858.34kB  6.04%  reflect.compiledTypelinks
+     514kB  3.62% 60.32%      514kB  3.62%  github.com/json-iterator/go.init.4
+  513.69kB  3.62% 63.94%   513.69kB  3.62%  google.golang.org/protobuf/types/known/wrapperspb.init
+  513.31kB  3.61% 67.55%   513.31kB  3.61%  regexp.onePassCopy
+  513.12kB  3.61% 71.16%   513.12kB  3.61%  runtime/debug.ParseBuildInfo
+  512.69kB  3.61% 74.77%   512.69kB  3.61%  regexp/syntax.(*compiler).inst (inline)
+  512.14kB  3.60% 78.38%   512.14kB  3.60%  k8s.io/api/networking/v1.init
+  512.12kB  3.60% 81.98%   512.12kB  3.60%  reflect.growslice
+  512.12kB  3.60% 85.59%   512.12kB  3.60%  github.com/DataDog/go-sqllexer.addToTrie
+  512.05kB  3.60% 89.19%   512.05kB  3.60%  os/signal.NotifyContext.func1
+  512.05kB  3.60% 92.79%   512.05kB  3.60%  regexp/syntax.(*parser).newRegexp
+  512.02kB  3.60% 96.40%   512.02kB  3.60%  net/http.(*Transport).registerProtocol
+  512.01kB  3.60%   100%   512.01kB  3.60%  net/http.(*Server).configureHTTP2
+         0     0%   100%   858.34kB  6.04%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  6.04%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  6.04%  encoding/gob.getType
+         0     0%   100%   858.34kB  6.04%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  6.04%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  6.04%  encoding/gob.init
+         0     0%   100%   858.34kB  6.04%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  6.04%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  6.04%  encoding/gob.userType
+         0     0%   100%   858.34kB  6.04%  encoding/gob.validUserType
+         0     0%   100%   512.12kB  3.60%  encoding/json.Unmarshal
+         0     0%   100%   512.12kB  3.60%  encoding/json/v2.Unmarshal
+         0     0%   100%   512.12kB  3.60%  encoding/json/v2.makeSliceArshaler.func3
+         0     0%   100%   512.12kB  3.60%  encoding/json/v2.makeStructArshaler.func3
+         0     0%   100%   512.12kB  3.60%  encoding/json/v2.unmarshalDecode
+         0     0%   100%   512.02kB  3.60%  github.com/Azure/azure-sdk-for-go/sdk/internal/transport.init.0
+         0     0%   100%   512.12kB  3.60%  github.com/DataDog/go-sqllexer.buildCombinedTrie
+         0     0%   100%   512.12kB  3.60%  github.com/DataDog/go-sqllexer.init
+         0     0%   100%  1536.33kB 10.81%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.69kB  3.61%  github.com/distribution/reference.init
+         0     0%   100%   513.12kB  3.61%  github.com/moby/moby/client.(*Client).Info
+         0     0%   100%   513.12kB  3.61%  github.com/moby/moby/client.(*Client).Ping
+         0     0%   100%   513.12kB  3.61%  github.com/moby/moby/client.(*Client).addHeaders
+         0     0%   100%   513.12kB  3.61%  github.com/moby/moby/client.(*Client).buildRequest
+         0     0%   100%   513.12kB  3.61%  github.com/moby/moby/client.(*Client).checkVersion

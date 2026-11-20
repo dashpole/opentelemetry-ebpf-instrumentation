@@ -1,0 +1,47 @@
+File: obi
+Build ID: 03ff4d1718bb24c66c39a56672a03753db270d95
+Type: inuse_space
+Time: 2026-11-20 19:09:09 UTC
+Showing nodes accounting for 34349.91kB, 100% of 34349.91kB total
+Showing top 40 nodes out of 143
+      flat  flat%   sum%        cum   cum%
+ 5660.71kB 16.48% 16.48%  5660.71kB 16.48%  runtime.mallocgc
+ 4852.92kB 14.13% 30.61%  9461.12kB 27.54%  github.com/cilium/ebpf.(*elfCode).loadFunctions-range1
+ 4096.19kB 11.92% 42.53%  4096.19kB 11.92%  github.com/cilium/ebpf/asm.(*Metadata).Set
+ 3072.14kB  8.94% 51.48%  3584.19kB 10.43%  github.com/cilium/ebpf/btf.newLineInfo
+ 1992.42kB  5.80% 57.28%  1992.42kB  5.80%  github.com/cilium/ebpf.(*ProgramSpec).Copy
+ 1140.13kB  3.32% 60.60%  1971.42kB  5.74%  github.com/cilium/ebpf/btf.newDecoder
+ 1133.89kB  3.30% 63.90%  1133.89kB  3.30%  go.opentelemetry.io/obi/pkg/internal/netolly/ebpf.chooseMapReader
+ 1026.82kB  2.99% 66.89%  1026.82kB  2.99%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func3
+ 1024.22kB  2.98% 69.87%  1024.22kB  2.98%  github.com/aws/smithy-go.(*Schema).AddMember
+  858.34kB  2.50% 72.37%   858.34kB  2.50%  reflect.compiledTypelinks
+  831.28kB  2.42% 74.79%   831.28kB  2.42%  github.com/cilium/ebpf/btf.newFuzzyStringIndex
+  809.97kB  2.36% 77.14%   809.97kB  2.36%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  809.97kB  2.36% 79.50%   809.97kB  2.36%  internal/saferio.ReadData
+  758.02kB  2.21% 81.71%   758.02kB  2.21%  github.com/cilium/ebpf.flattenInstructions
+  618.49kB  1.80% 83.51%   618.49kB  1.80%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  525.43kB  1.53% 85.04%  1552.24kB  4.52%  github.com/cilium/ebpf/btf.(*decoder).inflateType
+  525.43kB  1.53% 86.57%   525.43kB  1.53%  k8s.io/apimachinery/pkg/api/meta.init
+  514.63kB  1.50% 88.07%   514.63kB  1.50%  go.opentelemetry.io/ebpf-profiler/metrics.init
+     514kB  1.50% 89.56%      514kB  1.50%  bufio.NewReaderSize
+  512.28kB  1.49% 91.05%   512.28kB  1.49%  github.com/aws/smithy-go.(*Schema).addTrait
+  512.28kB  1.49% 92.55%   512.28kB  1.49%  github.com/prometheus/common/expfmt.init.0
+  512.17kB  1.49% 94.04%   512.17kB  1.49%  github.com/distribution/reference.anchored
+  512.09kB  1.49% 95.53%   512.09kB  1.49%  github.com/go-playground/validator/v10.map.init.11
+  512.05kB  1.49% 97.02%   512.05kB  1.49%  github.com/cilium/ebpf/btf.(*stringTable).Lookup (inline)
+  512.02kB  1.49% 98.51%   512.02kB  1.49%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypeWithName
+  512.01kB  1.49%   100%  1024.03kB  2.98%  github.com/cilium/ebpf/asm.Instruction.WithReference (inline)
+         0     0%   100%   809.97kB  2.36%  debug/elf.(*Section).Data
+         0     0%   100%   858.34kB  2.50%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  2.50%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  2.50%  encoding/gob.getType
+         0     0%   100%   858.34kB  2.50%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  2.50%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  2.50%  encoding/gob.init
+         0     0%   100%   858.34kB  2.50%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  2.50%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  2.50%  encoding/gob.userType
+         0     0%   100%   858.34kB  2.50%  encoding/gob.validUserType
+         0     0%   100%   512.28kB  1.49%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%  1024.22kB  2.98%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.28kB  1.49%  github.com/aws/smithy-go.NewSchema

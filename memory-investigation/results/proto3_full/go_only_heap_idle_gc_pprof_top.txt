@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:32:17 UTC
+Showing nodes accounting for 10816.15kB, 100% of 10816.15kB total
+Showing top 40 nodes out of 62
+      flat  flat%   sum%        cum   cum%
+ 4117.33kB 38.07% 38.07%  4117.33kB 38.07%  runtime.mallocgc
+ 1024.22kB  9.47% 47.54%  1024.22kB  9.47%  github.com/aws/smithy-go.(*Schema).AddMember
+ 1024.02kB  9.47% 57.00%  1024.02kB  9.47%  google.golang.org/protobuf/internal/impl.(*atomicNilMessage).Init
+  526.13kB  4.86% 61.87%   526.13kB  4.86%  github.com/google/gnostic-models/openapiv3.init
+  525.43kB  4.86% 66.73%   525.43kB  4.86%  github.com/go-playground/validator/v10.map.init.7
+  518.65kB  4.80% 71.52%   518.65kB  4.80%  go.opentelemetry.io/obi/pkg/internal/nodejstools.map.init.1
+  515.19kB  4.76% 76.28%   515.19kB  4.76%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner
+     515kB  4.76% 81.05%      515kB  4.76%  regexp/syntax.(*compiler).inst (inline)
+     514kB  4.75% 85.80%      514kB  4.75%  google.golang.org/protobuf/internal/filedesc.(*File).initDecls (inline)
+  512.11kB  4.73% 90.53%   512.11kB  4.73%  github.com/aws/smithy-go.NewSchema
+  512.05kB  4.73% 95.27%   512.05kB  4.73%  regexp/syntax.(*parser).newRegexp (inline)
+  512.01kB  4.73%   100%   512.01kB  4.73%  google.golang.org/protobuf/reflect/protoregistry.(*Files).RegisterFile
+         0     0%   100%   512.05kB  4.73%  github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime/datetime.init
+         0     0%   100%   512.11kB  4.73%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%   512.11kB  4.73%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.11kB  4.73%  github.com/aws/aws-sdk-go-v2/service/ssooidc/schemas.init.0
+         0     0%   100%   525.43kB  4.86%  github.com/go-playground/validator/v10.init
+         0     0%   100%   512.01kB  4.73%  github.com/google/gnostic-models/openapiv2.file_openapiv2_OpenAPIv2_proto_init
+         0     0%   100%   512.01kB  4.73%  github.com/google/gnostic-models/openapiv2.init.0
+         0     0%   100%  1024.02kB  9.47%  github.com/google/gnostic-models/openapiv3.file_openapiv3_annotations_proto_init
+         0     0%   100%  1024.02kB  9.47%  github.com/google/gnostic-models/openapiv3.init.1
+         0     0%   100%   515.19kB  4.76%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).Run.func1
+         0     0%   100%   515.19kB  4.76%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).sharedReadAndForward
+         0     0%   100%   515.19kB  4.76%  go.opentelemetry.io/obi/pkg/internal/ebpf/gotracer.(*Tracer).Run
+         0     0%   100%      515kB  4.76%  go.opentelemetry.io/obi/pkg/internal/helpers/container.init
+         0     0%   100%   518.65kB  4.80%  go.opentelemetry.io/obi/pkg/internal/nodejstools.init
+         0     0%   100%      514kB  4.75%  go.opentelemetry.io/proto/otlp/metrics/v1.file_opentelemetry_proto_metrics_v1_metrics_proto_init
+         0     0%   100%      514kB  4.75%  go.opentelemetry.io/proto/otlp/metrics/v1.init.0
+         0     0%   100%  1024.02kB  9.47%  google.golang.org/protobuf/internal/filedesc.(*File).resolveMessageDependency
+         0     0%   100%  2050.03kB 18.95%  google.golang.org/protobuf/internal/filedesc.Builder.Build
+         0     0%   100%  1538.02kB 14.22%  google.golang.org/protobuf/internal/filedesc.newRawFile
+         0     0%   100%  1024.02kB  9.47%  google.golang.org/protobuf/internal/filetype.(*resolverByIndex).FindMessageByIndex
+         0     0%   100%  2050.03kB 18.95%  google.golang.org/protobuf/internal/filetype.Builder.Build
+         0     0%   100%  1024.02kB  9.47%  google.golang.org/protobuf/internal/impl.(*MessageInfo).MessageOf
+         0     0%   100%  1024.02kB  9.47%  google.golang.org/protobuf/internal/impl.Export.MessageDescriptorOf
+         0     0%   100%   512.01kB  4.73%  google.golang.org/protobuf/types/descriptorpb.(*FileOptions).ProtoReflect
+         0     0%   100%   512.01kB  4.73%  google.golang.org/protobuf/types/descriptorpb.(*MethodOptions).ProtoReflect
+         0     0%   100%  1027.06kB  9.50%  regexp.Compile (inline)
+         0     0%   100%  1027.06kB  9.50%  regexp.MustCompile
+         0     0%   100%  1027.06kB  9.50%  regexp.compile

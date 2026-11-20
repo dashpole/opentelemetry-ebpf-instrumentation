@@ -1,0 +1,47 @@
+File: obi
+Build ID: 03ff4d1718bb24c66c39a56672a03753db270d95
+Type: inuse_space
+Time: 2026-11-20 19:07:49 UTC
+Showing nodes accounting for 14193.07kB, 100% of 14193.07kB total
+Showing top 40 nodes out of 117
+      flat  flat%   sum%        cum   cum%
+ 4110.29kB 28.96% 28.96%  4110.29kB 28.96%  runtime.mallocgc
+ 1537.01kB 10.83% 39.79%  2049.06kB 14.44%  github.com/aws/smithy-go.NewSchema
+ 1024.22kB  7.22% 47.01%  1024.22kB  7.22%  go.opentelemetry.io/obi/pkg/internal/transform/route/harvest/java.map.init.0
+  858.34kB  6.05% 53.05%   858.34kB  6.05%  reflect.compiledTypelinks
+  516.01kB  3.64% 56.69%   516.01kB  3.64%  golang.org/x/net/trace.init
+  513.56kB  3.62% 60.31%   513.56kB  3.62%  sync.(*Pool).pinSlow
+  512.88kB  3.61% 63.92%   512.88kB  3.61%  github.com/go-openapi/swag/mangling.(*indexOfInitialisms).add
+  512.28kB  3.61% 67.53%   512.28kB  3.61%  go.opentelemetry.io/obi/pkg/internal/sqlprune.map.init.0
+  512.14kB  3.61% 71.14%   512.14kB  3.61%  k8s.io/api/core/v1.init
+  512.12kB  3.61% 74.75%   512.12kB  3.61%  github.com/DataDog/go-sqllexer.addToTrie
+  512.05kB  3.61% 78.35%   512.05kB  3.61%  github.com/aws/smithy-go.(*Schema).addTrait
+  512.05kB  3.61% 81.96%   512.05kB  3.61%  regexp/syntax.(*parser).newRegexp (inline)
+  512.03kB  3.61% 85.57%   512.03kB  3.61%  google.golang.org/protobuf/internal/filedesc.(*File).initDecls
+  512.03kB  3.61% 89.18%   512.03kB  3.61%  sync.OnceValues[go.shape.*uint8,go.shape.bool] (inline)
+  512.02kB  3.61% 92.79%   512.02kB  3.61%  github.com/hashicorp/golang-lru/v2/expirable.NewLRU[go.shape.struct { HostPID uint32; ID uint16 },go.shape.*uint8]
+  512.02kB  3.61% 96.39%   512.02kB  3.61%  syscall.anyToSockaddr
+  512.01kB  3.61%   100%   512.01kB  3.61%  internal/bytealg.MakeNoZero
+         0     0%   100%   858.34kB  6.05%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  6.05%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  6.05%  encoding/gob.getType
+         0     0%   100%   858.34kB  6.05%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  6.05%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  6.05%  encoding/gob.init
+         0     0%   100%   858.34kB  6.05%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  6.05%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  6.05%  encoding/gob.userType
+         0     0%   100%   858.34kB  6.05%  encoding/gob.validUserType
+         0     0%   100%   512.12kB  3.61%  github.com/DataDog/go-sqllexer.buildCombinedTrie
+         0     0%   100%   512.12kB  3.61%  github.com/DataDog/go-sqllexer.init
+         0     0%   100%  1024.98kB  7.22%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%   512.05kB  3.61%  github.com/aws/aws-sdk-go-v2/service/signin/schemas.init
+         0     0%   100%   512.02kB  3.61%  github.com/aws/aws-sdk-go-v2/service/ssooidc/schemas.init
+         0     0%   100%   512.05kB  3.61%  github.com/distribution/reference.init
+         0     0%   100%   512.88kB  3.61%  github.com/go-openapi/swag.init
+         0     0%   100%   512.88kB  3.61%  github.com/go-openapi/swag/mangling.(*NameMangler).addInitialisms
+         0     0%   100%   512.88kB  3.61%  github.com/go-openapi/swag/mangling.NewNameMangler
+         0     0%   100%   512.03kB  3.61%  github.com/moby/moby/client/internal/mod.init
+         0     0%   100%   513.56kB  3.62%  github.com/shirou/gopsutil/v4/process.Pids
+         0     0%   100%   513.56kB  3.62%  github.com/shirou/gopsutil/v4/process.PidsWithContext
+         0     0%   100%   513.56kB  3.62%  github.com/shirou/gopsutil/v4/process.pidsWithContext

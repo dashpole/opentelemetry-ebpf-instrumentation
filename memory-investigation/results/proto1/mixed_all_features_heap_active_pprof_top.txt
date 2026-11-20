@@ -1,0 +1,47 @@
+File: obi
+Build ID: 03ff4d1718bb24c66c39a56672a03753db270d95
+Type: inuse_space
+Time: 2026-11-20 19:09:32 UTC
+Showing nodes accounting for 29933.10kB, 100% of 29933.10kB total
+Showing top 40 nodes out of 110
+      flat  flat%   sum%        cum   cum%
+ 6387.12kB 21.34% 21.34% 12531.69kB 41.87%  github.com/hashicorp/golang-lru/v2/simplelru.(*LRU[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).Add
+ 6173.71kB 20.63% 41.96%  6173.71kB 20.63%  runtime.mallocgc
+ 6144.56kB 20.53% 62.49%  6144.56kB 20.53%  github.com/hashicorp/golang-lru/v2/internal.(*LruList[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).insertValue (inline)
+ 1133.89kB  3.79% 66.28%  1133.89kB  3.79%  go.opentelemetry.io/obi/pkg/internal/netolly/ebpf.chooseMapReader
+ 1024.22kB  3.42% 69.70%  1024.22kB  3.42%  github.com/aws/smithy-go.(*Schema).AddMember
+  858.34kB  2.87% 72.57%   858.34kB  2.87%  reflect.compiledTypelinks
+  809.97kB  2.71% 75.27%   809.97kB  2.71%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  618.49kB  2.07% 77.34%  1184.25kB  3.96%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  565.76kB  1.89% 79.23% 13097.45kB 43.76%  go.opentelemetry.io/obi/pkg/appolly.(*parentSettler).process
+  565.76kB  1.89% 81.12%   565.76kB  1.89%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).flushEvents
+  525.43kB  1.76% 82.88%   525.43kB  1.76%  k8s.io/apimachinery/pkg/api/meta.init
+  514.63kB  1.72% 84.59%   514.63kB  1.72%  go.opentelemetry.io/ebpf-profiler/metrics.init
+     514kB  1.72% 86.31%      514kB  1.72%  bufio.NewReaderSize
+  512.28kB  1.71% 88.02%   512.28kB  1.71%  github.com/aws/smithy-go.(*Schema).addTrait
+  512.28kB  1.71% 89.73%   512.28kB  1.71%  github.com/cilium/ebpf/ringbuf.(*ringReader).readRecord
+  512.28kB  1.71% 91.45%   512.28kB  1.71%  github.com/prometheus/common/expfmt.init.0
+  512.17kB  1.71% 93.16%   512.17kB  1.71%  github.com/distribution/reference.anchored (inline)
+  512.09kB  1.71% 94.87%   512.09kB  1.71%  github.com/go-playground/validator/v10.map.init.11
+  512.08kB  1.71% 96.58%   512.08kB  1.71%  go.opentelemetry.io/obi/pkg/export/prom.labelValues[go.shape.*uint8]
+  512.02kB  1.71% 98.29%   512.02kB  1.71%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypeWithName
+  512.01kB  1.71%   100%   512.01kB  1.71%  net/netip.Addr.String
+         0     0%   100%   858.34kB  2.87%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  2.87%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  2.87%  encoding/gob.getType
+         0     0%   100%   858.34kB  2.87%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  2.87%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  2.87%  encoding/gob.init
+         0     0%   100%   858.34kB  2.87%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  2.87%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  2.87%  encoding/gob.userType
+         0     0%   100%   858.34kB  2.87%  encoding/gob.validUserType
+         0     0%   100%   512.28kB  1.71%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%  1024.22kB  3.42%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.28kB  1.71%  github.com/aws/smithy-go.NewSchema
+         0     0%   100%   512.28kB  1.71%  github.com/cilium/ebpf/ringbuf.(*Reader).ReadInto
+         0     0%   100%   512.17kB  1.71%  github.com/distribution/reference.init
+         0     0%   100%   512.09kB  1.71%  github.com/go-playground/validator/v10.init
+         0     0%   100% 12531.69kB 41.87%  github.com/hashicorp/golang-lru/v2.(*Cache[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).Add
+         0     0%   100%  6144.56kB 20.53%  github.com/hashicorp/golang-lru/v2/internal.(*LruList[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).PushFront
+         0     0%   100% 13097.45kB 43.76%  go.opentelemetry.io/obi/pkg/appolly.(*parentSettler).run.func1

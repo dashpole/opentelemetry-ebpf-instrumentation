@@ -1,0 +1,47 @@
+File: obi
+Build ID: 503d6d6183b36bdd535eca7c23a309036e3a3f00
+Type: inuse_space
+Time: 2026-11-20 20:09:09 UTC
+Showing nodes accounting for 13922.12kB, 100% of 13922.12kB total
+Showing top 40 nodes out of 89
+      flat  flat%   sum%        cum   cum%
+ 4623.09kB 33.21% 33.21%  4623.09kB 33.21%  runtime.mallocgc
+ 1026.12kB  7.37% 40.58%  1026.12kB  7.37%  google.golang.org/protobuf/internal/filedesc.(*File).initDecls (inline)
+ 1024.13kB  7.36% 47.93%  1024.13kB  7.36%  github.com/aws/smithy-go.NewSchema
+ 1024.07kB  7.36% 55.29%  1024.07kB  7.36%  time.NewTicker
+  858.34kB  6.17% 61.45%   858.34kB  6.17%  reflect.compiledTypelinks
+  727.78kB  5.23% 66.68%   727.78kB  5.23%  go.opentelemetry.io/obi/pkg/export/otel.newOBITracesExporter
+  525.43kB  3.77% 70.46%   525.43kB  3.77%  github.com/go-playground/validator/v10.map.init.7
+  522.70kB  3.75% 74.21%  1034.78kB  7.43%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypeWithName
+  516.64kB  3.71% 77.92%   516.64kB  3.71%  github.com/aws/aws-sdk-go-v2/service/sts/internal/endpoints.init
+  513.50kB  3.69% 81.61%   513.50kB  3.69%  regexp/syntax.(*compiler).inst (inline)
+  512.12kB  3.68% 85.29%   512.12kB  3.68%  github.com/DataDog/go-sqllexer.addToTrie
+  512.08kB  3.68% 88.97%   512.08kB  3.68%  internal/sync.newIndirectNode[go.shape.interface {},go.shape.interface {}] (inline)
+  512.05kB  3.68% 92.64%   512.05kB  3.68%  go.opentelemetry.io/obi/pkg/internal/traces.ReadFromChannel.func1
+  512.05kB  3.68% 96.32%   512.05kB  3.68%  time.newTimer
+  512.02kB  3.68%   100%   512.02kB  3.68%  go.opentelemetry.io/obi/pkg/transform.(*cloudProcessDecorator).run
+         0     0%   100%   858.34kB  6.17%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  6.17%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  6.17%  encoding/gob.getType
+         0     0%   100%   858.34kB  6.17%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  6.17%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  6.17%  encoding/gob.init
+         0     0%   100%   858.34kB  6.17%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  6.17%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  6.17%  encoding/gob.userType
+         0     0%   100%   858.34kB  6.17%  encoding/gob.validUserType
+         0     0%   100%   512.12kB  3.68%  github.com/DataDog/go-sqllexer.buildCombinedTrie
+         0     0%   100%   512.12kB  3.68%  github.com/DataDog/go-sqllexer.init
+         0     0%   100%  1024.13kB  7.36%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%   513.50kB  3.69%  github.com/aws/aws-sdk-go-v2/service/signin/internal/endpoints.init
+         0     0%   100%   525.43kB  3.77%  github.com/go-playground/validator/v10.init
+         0     0%   100%   512.05kB  3.68%  go.opentelemetry.io/obi/pkg/appolly.(*parentSettler).run.func1
+         0     0%   100%   512.05kB  3.68%  go.opentelemetry.io/obi/pkg/docker.(*ContainerStore).watchContainerEvents
+         0     0%   100%   512.01kB  3.68%  go.opentelemetry.io/obi/pkg/export/mcpsession.(*Store).Start
+         0     0%   100%   727.78kB  5.23%  go.opentelemetry.io/obi/pkg/export/otel.(*tracesOTELReceiver).provideLoop
+         0     0%   100%   727.78kB  5.23%  go.opentelemetry.io/obi/pkg/export/otel.getTracesExporter
+         0     0%   100%   727.78kB  5.23%  go.opentelemetry.io/obi/pkg/export/otel.newOTLPTracesExporter
+         0     0%   100%  2263.91kB 16.26%  go.opentelemetry.io/obi/pkg/pipe/swarm.(*Runner).Start.func2
+         0     0%   100%   512.12kB  3.68%  go.opentelemetry.io/proto/otlp/resource/v1.file_opentelemetry_proto_resource_v1_resource_proto_init
+         0     0%   100%   512.12kB  3.68%  go.opentelemetry.io/proto/otlp/resource/v1.init.0
+         0     0%   100%      514kB  3.69%  google.golang.org/genproto/googleapis/rpc/errdetails.file_google_rpc_error_details_proto_init

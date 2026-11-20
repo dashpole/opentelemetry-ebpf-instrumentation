@@ -1,0 +1,47 @@
+File: obi
+Build ID: 371bc8850325075ec00d40904bffc7e151357b51
+Type: inuse_space
+Time: 2026-11-20 20:14:28 UTC
+Showing nodes accounting for 14946.34kB, 100% of 14946.34kB total
+Showing top 40 nodes out of 121
+      flat  flat%   sum%        cum   cum%
+ 3605.08kB 24.12% 24.12%  3605.08kB 24.12%  runtime.mallocgc
+ 1133.89kB  7.59% 31.71%  1133.89kB  7.59%  go.opentelemetry.io/obi/pkg/internal/netolly/ebpf.chooseMapReader
+ 1024.22kB  6.85% 38.56%  1024.22kB  6.85%  github.com/aws/smithy-go.(*Schema).AddMember
+  809.97kB  5.42% 43.98%   809.97kB  5.42%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  618.49kB  4.14% 48.12%  1184.25kB  7.92%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  565.76kB  3.79% 51.90%   565.76kB  3.79%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).flushEvents
+  525.43kB  3.52% 55.42%   525.43kB  3.52%  github.com/go-playground/validator/v10.map.init.7
+  515.19kB  3.45% 58.86%   515.19kB  3.45%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner
+  513.50kB  3.44% 62.30%   513.50kB  3.44%  regexp/syntax.(*compiler).inst (inline)
+  513.12kB  3.43% 65.73%  1025.16kB  6.86%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypeWithName
+  512.75kB  3.43% 69.16%   512.75kB  3.43%  github.com/google/gnostic-models/extensions.init
+  512.28kB  3.43% 72.59%   512.28kB  3.43%  k8s.io/api/resource/v1beta1.map.init.5
+  512.23kB  3.43% 76.02%   512.23kB  3.43%  github.com/aws/aws-sdk-go-v2/internal/endpoints/awsrulesfn.init
+  512.14kB  3.43% 79.44%   512.14kB  3.43%  k8s.io/api/batch/v1.init
+  512.14kB  3.43% 82.87%   512.14kB  3.43%  k8s.io/api/core/v1.init
+  512.05kB  3.43% 86.30%   512.05kB  3.43%  go.opentelemetry.io/obi/pkg/pipe/swarm.(*Runner).watchForRunnersExiting
+  512.03kB  3.43% 89.72%   512.03kB  3.43%  internal/abi.NewName
+  512.03kB  3.43% 93.15%   512.03kB  3.43%  runtime/debug.ParseBuildInfo
+  512.01kB  3.43% 96.57%   512.01kB  3.43%  encoding/json/v2.makeStructArshaler (inline)
+  512.01kB  3.43%   100%   512.01kB  3.43%  github.com/prometheus/client_golang/prometheus.addToBucket
+         0     0%   100%   513.50kB  3.44%  cloud.google.com/go/auth/internal/trustboundary.init
+         0     0%   100%   512.01kB  3.43%  encoding/json.Unmarshal (inline)
+         0     0%   100%   512.01kB  3.43%  encoding/json/v2.Unmarshal
+         0     0%   100%   512.01kB  3.43%  encoding/json/v2.lookupArshaler
+         0     0%   100%   512.01kB  3.43%  encoding/json/v2.makeDefaultArshaler
+         0     0%   100%   512.01kB  3.43%  encoding/json/v2.unmarshalDecode
+         0     0%   100%   512.11kB  3.43%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.11kB  3.43%  github.com/aws/aws-sdk-go-v2/service/signin/schemas.init.0
+         0     0%   100%   525.43kB  3.52%  github.com/go-playground/validator/v10.init
+         0     0%   100%   512.01kB  3.43%  github.com/grafana/go-offsets-tracker/pkg/offsets.Read
+         0     0%   100%   512.03kB  3.43%  github.com/moby/moby/client.(*Client).Info
+         0     0%   100%   512.03kB  3.43%  github.com/moby/moby/client.(*Client).Ping
+         0     0%   100%   512.03kB  3.43%  github.com/moby/moby/client.(*Client).addHeaders
+         0     0%   100%   512.03kB  3.43%  github.com/moby/moby/client.(*Client).buildRequest
+         0     0%   100%   512.03kB  3.43%  github.com/moby/moby/client.(*Client).checkVersion
+         0     0%   100%   512.03kB  3.43%  github.com/moby/moby/client.(*Client).get (inline)
+         0     0%   100%   512.03kB  3.43%  github.com/moby/moby/client.(*Client).getAPIPath
+         0     0%   100%   512.03kB  3.43%  github.com/moby/moby/client.(*Client).ping
+         0     0%   100%   512.03kB  3.43%  github.com/moby/moby/client.(*Client).sendRequest
+         0     0%   100%   512.03kB  3.43%  github.com/moby/moby/client.userAgent

@@ -1,0 +1,31 @@
+PID=12  cgroup.current=121.80 MiB  cgroup.peak=131.01 MiB
+  cgroup.stat: anon=75.78 file=0.00 kernel=29.45 slab=13.80(unrecl=13.03) percpu=0.27 vmalloc=10.75 pagetables=0.87
+  proc.status: VmRSS=142632 kB VmHWM=142632 kB RssAnon=67568 kB RssFile=6344 kB Threads=28
+  BPF maps=239 memlock=21.76 MiB | BPF progs=275 memlock=4.01 MiB | BPF total=25.78 MiB
+  BPF maps by type: Array=0.71MiB Hash=11.79MiB LRUCPUHash=5.20MiB LRUHash=0.03MiB PerCPUArray=0.80MiB ProgramArray=0.00MiB RingBuf=3.23MiB
+  Top 25 BPF maps by real kernel memlock:
+     1. id=8981  aggregated_flow  LRUCPUHash    k= 44 v=   40 max=   5000 flg=0 memlock=  5.20 MiB
+     2. id=8985  direct_flows     RingBuf       k=  0 v=    0 max=1048576 flg=0 memlock=  1.02 MiB
+     3. id=8973  stats_events     RingBuf       k=  0 v=    0 max=1048576 flg=0 memlock=  1.02 MiB
+     4. id=9031  events           RingBuf       k=  0 v=    0 max=1048576 flg=0 memlock=  1.02 MiB
+     5. id=9002  ongoing_http2_g  Hash          k= 44 v=  456 max=  30000 flg=1 memlock=  0.50 MiB
+     6. id=9042  fd_to_connectio  Hash          k= 16 v=   36 max=  30000 flg=1 memlock=  0.50 MiB
+     7. id=9025  fd_map           Hash          k= 24 v=   20 max=  30000 flg=1 memlock=  0.50 MiB
+     8. id=9086  pid_tid_to_conn  Hash          k=  8 v=   48 max=  30000 flg=1 memlock=  0.50 MiB
+     9. id=9029  ongoing_gorouti  Hash          k= 16 v=   24 max=  30000 flg=1 memlock=  0.50 MiB
+    10. id=9004  go_trace_map     Hash          k= 16 v=   48 max=  30000 flg=1 memlock=  0.50 MiB
+    11. id=9140  ongoing_server_  Hash          k= 16 v=   48 max=  30000 flg=1 memlock=  0.50 MiB
+    12. id=9006  http_server_tra  Hash          k= 20 v=   64 max=  30000 flg=1 memlock=  0.50 MiB
+    13. id=9041  cp_support_conn  Hash          k= 40 v=   40 max=  30000 flg=1 memlock=  0.50 MiB
+    14. id=9001  ongoing_tcp_req  Hash          k= 40 v=  544 max=  30000 flg=1 memlock=  0.50 MiB
+    15. id=9068  trace_map        Hash          k= 40 v=   56 max=  30000 flg=1 memlock=  0.50 MiB
+    16. id=9016  ongoing_http     Hash          k= 40 v=  424 max=  30000 flg=1 memlock=  0.50 MiB
+    17. id=8991  ssl_to_conn      Hash          k= 16 v=   48 max=  30000 flg=1 memlock=  0.50 MiB
+    18. id=9012  server_traces_a  Hash          k= 24 v=   56 max=  30000 flg=1 memlock=  0.50 MiB
+    19. id=8998  connection_trac  Hash          k= 36 v=   16 max=  30000 flg=1 memlock=  0.50 MiB
+    20. id=9060  server_traces    Hash          k= 24 v=   56 max=  30000 flg=1 memlock=  0.50 MiB
+    21. id=9003  valid_pids       Array         k=  4 v=    8 max=  65536 flg=0 memlock=  0.50 MiB
+    22. id=9088  iovec_mem        PerCPUArray   k=  4 v=16384 max=      1 flg=0 memlock=  0.38 MiB
+    23. id=8975  tcp_io_accum     Hash          k= 16 v=   44 max=   2048 flg=1 memlock=  0.27 MiB
+    24. id=9161  ongoing_http_se  Hash          k= 16 v=  400 max=  10000 flg=1 memlock=  0.25 MiB
+    25. id=9187  ongoing_http_cl  Hash          k= 16 v=  344 max=  10000 flg=1 memlock=  0.25 MiB

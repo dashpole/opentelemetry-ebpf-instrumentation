@@ -1,0 +1,47 @@
+File: obi
+Build ID: 503d6d6183b36bdd535eca7c23a309036e3a3f00
+Type: inuse_space
+Time: 2026-11-20 18:51:14 UTC
+Showing nodes accounting for 14560.32kB, 100% of 14560.32kB total
+Showing top 40 nodes out of 70
+      flat  flat%   sum%        cum   cum%
+ 4976.30kB 34.18% 34.18%  4976.30kB 34.18%  go.opentelemetry.io/obi/pkg/internal/java.ensureEmbeddedAgent
+ 3603.58kB 24.75% 58.93%  3603.58kB 24.75%  runtime.mallocgc
+ 1536.33kB 10.55% 69.48%  1536.33kB 10.55%  github.com/aws/smithy-go.(*Schema).AddMember
+  858.34kB  5.90% 75.37%   858.34kB  5.90%  reflect.compiledTypelinks
+  513.31kB  3.53% 78.90%   513.31kB  3.53%  google.golang.org/protobuf/internal/filedesc.(*File).initDecls (inline)
+  512.20kB  3.52% 82.42%   512.20kB  3.52%  github.com/aws/smithy-go.NewSchema
+  512.14kB  3.52% 85.93%   512.14kB  3.52%  k8s.io/api/storage/v1beta1.init
+  512.05kB  3.52% 89.45%   512.05kB  3.52%  github.com/gabriel-vasile/mimetype.newMIME (inline)
+  512.04kB  3.52% 92.97%   512.04kB  3.52%  net.newDNSError
+  512.02kB  3.52% 96.48%   512.02kB  3.52%  cloud.google.com/go/compute/metadata.init.func2
+  512.01kB  3.52%   100%   512.01kB  3.52%  reflect.FuncOf.func1
+         0     0%   100%   858.34kB  5.90%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  5.90%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  5.90%  encoding/gob.getType
+         0     0%   100%   858.34kB  5.90%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  5.90%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  5.90%  encoding/gob.init
+         0     0%   100%   858.34kB  5.90%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  5.90%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  5.90%  encoding/gob.userType
+         0     0%   100%   858.34kB  5.90%  encoding/gob.validUserType
+         0     0%   100%   512.20kB  3.52%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%  1536.33kB 10.55%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.05kB  3.52%  github.com/gabriel-vasile/mimetype.init
+         0     0%   100%   513.31kB  3.53%  github.com/google/s2a-go/internal/proto/s2a_go_proto.file_internal_proto_s2a_s2a_proto_init
+         0     0%   100%   513.31kB  3.53%  github.com/google/s2a-go/internal/proto/s2a_go_proto.init.0
+         0     0%   100%  4976.30kB 34.18%  go.opentelemetry.io/obi/pkg/appolly/discover.(*ProcessFinder).Start
+         0     0%   100%  4976.30kB 34.18%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop
+         0     0%   100%  4976.30kB 34.18%  go.opentelemetry.io/obi/pkg/instrumenter.runWithContextInfo.func2
+         0     0%   100%  4976.30kB 34.18%  go.opentelemetry.io/obi/pkg/instrumenter.setupAppO11y
+         0     0%   100%  4976.30kB 34.18%  go.opentelemetry.io/obi/pkg/internal/appolly.(*Instrumenter).FindAndInstrument
+         0     0%   100%  4976.30kB 34.18%  go.opentelemetry.io/obi/pkg/internal/java.NewJavaInjector
+         0     0%   100%  4976.30kB 34.18%  go.opentelemetry.io/obi/pkg/pipe/swarm.(*Instancer).Instance
+         0     0%   100%  4976.30kB 34.18%  golang.org/x/sync/errgroup.(*Group).Go.func1
+         0     0%   100%   513.31kB  3.53%  google.golang.org/protobuf/internal/filedesc.Builder.Build
+         0     0%   100%   513.31kB  3.53%  google.golang.org/protobuf/internal/filedesc.newRawFile
+         0     0%   100%   513.31kB  3.53%  google.golang.org/protobuf/internal/filetype.Builder.Build
+         0     0%   100%   512.01kB  3.52%  k8s.io/api/rbac/v1alpha1.addKnownTypes
+         0     0%   100%   512.01kB  3.52%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypeWithName
+         0     0%   100%   512.01kB  3.52%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypes

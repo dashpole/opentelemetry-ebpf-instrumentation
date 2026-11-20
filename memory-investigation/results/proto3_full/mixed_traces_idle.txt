@@ -1,0 +1,31 @@
+PID=12  cgroup.current=123.78 MiB  cgroup.peak=124.00 MiB
+  cgroup.stat: anon=73.05 file=0.00 kernel=46.40 slab=9.98(unrecl=9.24) percpu=0.23 vmalloc=33.79 pagetables=0.82
+  proc.status: VmRSS=134864 kB VmHWM=134864 kB RssAnon=64628 kB RssFile=2148 kB Threads=25
+  BPF maps=213 memlock=35.76 MiB | BPF progs=236 memlock=3.39 MiB | BPF total=39.15 MiB
+  BPF maps by type: Array=0.68MiB Hash=32.76MiB LRUHash=0.02MiB PerCPUArray=1.18MiB ProgramArray=0.00MiB RingBuf=1.11MiB
+  Top 25 BPF maps by real kernel memlock:
+     1. id=7728  events           RingBuf       k=  0 v=    0 max=1048576 flg=0 memlock=  1.02 MiB
+     2. id=7690  python_task_sta  Hash          k= 16 v=   48 max=  30000 flg=1 memlock=  0.50 MiB
+     3. id=7717  python_thread_s  Hash          k=  8 v=   32 max=  30000 flg=1 memlock=  0.50 MiB
+     4. id=7770  ongoing_http2_g  Hash          k= 44 v=  456 max=  30000 flg=1 memlock=  0.50 MiB
+     5. id=7709  trace_map        Hash          k= 40 v=   56 max=  30000 flg=1 memlock=  0.50 MiB
+     6. id=7704  ongoing_gorouti  Hash          k= 16 v=   24 max=  30000 flg=1 memlock=  0.50 MiB
+     7. id=7832  go_grpc_client_  Hash          k= 40 v=    1 max=  30000 flg=1 memlock=  0.50 MiB
+     8. id=7815  ongoing_server_  Hash          k= 16 v=   48 max=  30000 flg=1 memlock=  0.50 MiB
+     9. id=7784  pid_tid_to_conn  Hash          k=  8 v=   48 max=  30000 flg=1 memlock=  0.50 MiB
+    10. id=7828  server_conn_gor  Hash          k= 16 v=   16 max=  30000 flg=1 memlock=  0.50 MiB
+    11. id=7742  active_ssl_writ  Hash          k=  8 v=   32 max=  30000 flg=1 memlock=  0.50 MiB
+    12. id=7741  active_ssl_conn  Hash          k= 40 v=    8 max=  30000 flg=1 memlock=  0.50 MiB
+    13. id=7689  python_context_  Hash          k= 16 v=   24 max=  30000 flg=1 memlock=  0.50 MiB
+    14. id=7744  http_server_tra  Hash          k= 20 v=   64 max=  30000 flg=1 memlock=  0.50 MiB
+    15. id=7708  ongoing_http     Hash          k= 40 v=  424 max=  30000 flg=1 memlock=  0.50 MiB
+    16. id=7696  fd_map           Hash          k= 24 v=   20 max=  30000 flg=1 memlock=  0.50 MiB
+    17. id=7718  cp_support_conn  Hash          k= 40 v=   40 max=  30000 flg=1 memlock=  0.50 MiB
+    18. id=7743  ssl_to_conn      Hash          k= 16 v=   48 max=  30000 flg=1 memlock=  0.50 MiB
+    19. id=7691  clone_map        Hash          k= 12 v=   12 max=  30000 flg=1 memlock=  0.50 MiB
+    20. id=7733  fd_to_connectio  Hash          k= 16 v=   36 max=  30000 flg=1 memlock=  0.50 MiB
+    21. id=7757  ongoing_tcp_req  Hash          k= 40 v=  544 max=  30000 flg=1 memlock=  0.50 MiB
+    22. id=7750  server_traces_a  Hash          k= 24 v=   56 max=  30000 flg=1 memlock=  0.50 MiB
+    23. id=7723  connection_trac  Hash          k= 36 v=   16 max=  30000 flg=1 memlock=  0.50 MiB
+    24. id=7720  nodejs_fd_map    Hash          k=  8 v=    4 max=  30000 flg=1 memlock=  0.50 MiB
+    25. id=7727  go_trace_map     Hash          k= 16 v=   48 max=  30000 flg=1 memlock=  0.50 MiB

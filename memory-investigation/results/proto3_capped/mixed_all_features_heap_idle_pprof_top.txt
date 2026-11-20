@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:38:20 UTC
+Showing nodes accounting for 36474.46kB, 100% of 36474.46kB total
+Showing top 40 nodes out of 158
+      flat  flat%   sum%        cum   cum%
+ 5136.29kB 14.08% 14.08%  5136.29kB 14.08%  runtime.mallocgc
+ 4480.17kB 12.28% 26.36%  7552.28kB 20.71%  github.com/cilium/ebpf.(*elfCode).loadFunctions-range1
+ 3072.14kB  8.42% 34.79%  4109.62kB 11.27%  github.com/cilium/ebpf/btf.newLineInfo
+ 2048.09kB  5.62% 40.40%  2048.09kB  5.62%  github.com/cilium/ebpf/asm.(*Metadata).Set
+ 1536.32kB  4.21% 44.61%  1536.32kB  4.21%  github.com/aws/smithy-go.(*Schema).AddMember
+ 1294.39kB  3.55% 48.16%  1294.39kB  3.55%  github.com/cilium/ebpf.flattenInstructions
+ 1239.49kB  3.40% 51.56%  1239.49kB  3.40%  github.com/cilium/ebpf.(*ProgramSpec).Copy
+ 1236.99kB  3.39% 54.95%  1236.99kB  3.39%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+ 1133.89kB  3.11% 58.06%  1133.89kB  3.11%  go.opentelemetry.io/obi/pkg/internal/netolly/ebpf.chooseMapReader
+ 1050.86kB  2.88% 60.94%  1050.86kB  2.88%  github.com/go-playground/validator/v10.map.init.7
+ 1037.46kB  2.84% 63.79%  2595.24kB  7.12%  github.com/cilium/ebpf/btf.(*decoder).inflateType
+ 1032.35kB  2.83% 66.62%  1032.35kB  2.83%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func3
+  858.34kB  2.35% 68.97%   858.34kB  2.35%  reflect.compiledTypelinks
+  831.28kB  2.28% 71.25%   831.28kB  2.28%  github.com/cilium/ebpf/btf.newFuzzyStringIndex
+  809.97kB  2.22% 73.47%   809.97kB  2.22%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  809.97kB  2.22% 75.69%   809.97kB  2.22%  internal/saferio.ReadData
+  578.66kB  1.59% 77.28%   578.66kB  1.59%  io.ReadAll
+  565.76kB  1.55% 78.83%   565.76kB  1.55%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner
+  525.43kB  1.44% 80.27%   525.43kB  1.44%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func1
+  525.43kB  1.44% 81.71%  1037.47kB  2.84%  github.com/cilium/ebpf/btf.(*stringTable).LookupCached
+  518.65kB  1.42% 83.13%   518.65kB  1.42%  go.opentelemetry.io/obi/pkg/ebpf/common.init.func4
+  518.02kB  1.42% 84.55%   518.02kB  1.42%  regexp/syntax.(*compiler).inst
+     514kB  1.41% 85.96%      514kB  1.41%  regexp.onePassCopy
+  512.14kB  1.40% 87.37%   512.14kB  1.40%  k8s.io/api/storage/v1.init
+  512.11kB  1.40% 88.77%   512.11kB  1.40%  github.com/aws/smithy-go.NewSchema
+  512.05kB  1.40% 90.17%   512.05kB  1.40%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).bgFlushOnTimeout
+  512.05kB  1.40% 91.58%   512.05kB  1.40%  github.com/cilium/ebpf/btf.(*stringTable).Lookup (inline)
+  512.04kB  1.40% 92.98%  1921.99kB  5.27%  github.com/cilium/ebpf.newProgramWithOptions
+  512.03kB  1.40% 94.38%   512.03kB  1.40%  go.opentelemetry.io/obi/pkg/pipe/msg.NewQueue[go.shape.[]go.opentelemetry.io/obi/pkg/appolly/app/request.Span]
+  512.03kB  1.40% 95.79%   512.03kB  1.40%  regexp.mergeRuneSets.func2
+  512.02kB  1.40% 97.19%  1544.38kB  4.23%  github.com/cilium/ebpf/btf.newRelocationInfo
+  512.01kB  1.40% 98.60%  1024.02kB  2.81%  github.com/cilium/ebpf.(*elfCode).relocateInstruction
+  512.01kB  1.40%   100%   512.01kB  1.40%  github.com/cilium/ebpf/asm.Instruction.WithReference (inline)
+         0     0%   100%   809.97kB  2.22%  debug/elf.(*Section).Data
+         0     0%   100%   858.34kB  2.35%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  2.35%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  2.35%  encoding/gob.getType
+         0     0%   100%   858.34kB  2.35%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  2.35%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  2.35%  encoding/gob.init

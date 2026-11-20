@@ -1,0 +1,47 @@
+File: obi
+Build ID: 371bc8850325075ec00d40904bffc7e151357b51
+Type: inuse_space
+Time: 2026-11-20 20:14:28 UTC
+Showing nodes accounting for 14380.59kB, 100% of 14380.59kB total
+Showing top 40 nodes out of 120
+      flat  flat%   sum%        cum   cum%
+ 3605.08kB 25.07% 25.07%  3605.08kB 25.07%  runtime.mallocgc
+ 1133.89kB  7.88% 32.95%  1133.89kB  7.88%  go.opentelemetry.io/obi/pkg/internal/netolly/ebpf.chooseMapReader
+ 1024.22kB  7.12% 40.08%  1024.22kB  7.12%  github.com/aws/smithy-go.(*Schema).AddMember
+  809.97kB  5.63% 45.71%   809.97kB  5.63%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  618.49kB  4.30% 50.01%   618.49kB  4.30%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  525.43kB  3.65% 53.66%   525.43kB  3.65%  github.com/go-playground/validator/v10.map.init.7
+  515.19kB  3.58% 57.25%   515.19kB  3.58%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner
+  513.50kB  3.57% 60.82%   513.50kB  3.57%  regexp/syntax.(*compiler).inst (inline)
+  513.12kB  3.57% 64.38%  1025.16kB  7.13%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypeWithName
+  512.75kB  3.57% 67.95%   512.75kB  3.57%  github.com/google/gnostic-models/extensions.init
+  512.28kB  3.56% 71.51%   512.28kB  3.56%  k8s.io/api/resource/v1beta1.map.init.5
+  512.23kB  3.56% 75.07%   512.23kB  3.56%  github.com/aws/aws-sdk-go-v2/internal/endpoints/awsrulesfn.init
+  512.14kB  3.56% 78.64%   512.14kB  3.56%  k8s.io/api/batch/v1.init
+  512.14kB  3.56% 82.20%   512.14kB  3.56%  k8s.io/api/core/v1.init
+  512.05kB  3.56% 85.76%   512.05kB  3.56%  go.opentelemetry.io/obi/pkg/pipe/swarm.(*Runner).watchForRunnersExiting
+  512.03kB  3.56% 89.32%   512.03kB  3.56%  internal/abi.NewName
+  512.03kB  3.56% 92.88%   512.03kB  3.56%  runtime/debug.ParseBuildInfo
+  512.01kB  3.56% 96.44%   512.01kB  3.56%  encoding/json/v2.makeStructArshaler (inline)
+  512.01kB  3.56%   100%   512.01kB  3.56%  github.com/prometheus/client_golang/prometheus.addToBucket
+         0     0%   100%   513.50kB  3.57%  cloud.google.com/go/auth/internal/trustboundary.init
+         0     0%   100%   512.01kB  3.56%  encoding/json.Unmarshal (inline)
+         0     0%   100%   512.01kB  3.56%  encoding/json/v2.Unmarshal
+         0     0%   100%   512.01kB  3.56%  encoding/json/v2.lookupArshaler
+         0     0%   100%   512.01kB  3.56%  encoding/json/v2.makeDefaultArshaler
+         0     0%   100%   512.01kB  3.56%  encoding/json/v2.unmarshalDecode
+         0     0%   100%   512.11kB  3.56%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.11kB  3.56%  github.com/aws/aws-sdk-go-v2/service/signin/schemas.init.0
+         0     0%   100%   525.43kB  3.65%  github.com/go-playground/validator/v10.init
+         0     0%   100%   512.01kB  3.56%  github.com/grafana/go-offsets-tracker/pkg/offsets.Read
+         0     0%   100%   512.03kB  3.56%  github.com/moby/moby/client.(*Client).Info
+         0     0%   100%   512.03kB  3.56%  github.com/moby/moby/client.(*Client).Ping
+         0     0%   100%   512.03kB  3.56%  github.com/moby/moby/client.(*Client).addHeaders
+         0     0%   100%   512.03kB  3.56%  github.com/moby/moby/client.(*Client).buildRequest
+         0     0%   100%   512.03kB  3.56%  github.com/moby/moby/client.(*Client).checkVersion
+         0     0%   100%   512.03kB  3.56%  github.com/moby/moby/client.(*Client).get (inline)
+         0     0%   100%   512.03kB  3.56%  github.com/moby/moby/client.(*Client).getAPIPath
+         0     0%   100%   512.03kB  3.56%  github.com/moby/moby/client.(*Client).ping
+         0     0%   100%   512.03kB  3.56%  github.com/moby/moby/client.(*Client).sendRequest
+         0     0%   100%   512.03kB  3.56%  github.com/moby/moby/client.userAgent
+         0     0%   100%   512.03kB  3.56%  github.com/moby/moby/client/internal/mod.Version

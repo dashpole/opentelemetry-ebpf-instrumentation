@@ -1,0 +1,8 @@
+PID=7  cgroup.current=39.64 MiB  cgroup.peak=39.73 MiB
+  cgroup.stat: anon=33.72 file=1.30 kernel=1.99 slab=0.77(unrecl=0.48) percpu=0.00 vmalloc=0.02 pagetables=0.75
+  proc.status: VmRSS=85716 kB VmHWM=85716 kB RssAnon=26320 kB RssFile=44 kB Threads=17
+  BPF maps=2 memlock=0.06 MiB | BPF progs=1 memlock=0.00 MiB | BPF total=0.06 MiB
+  BPF maps by type: RingBuf=0.06MiB
+  Top 25 BPF maps by real kernel memlock:
+     1. id=5004  debug_events     RingBuf       k=  0 v=    0 max=  32768 flg=0 memlock=  0.04 MiB
+     2. id=5005  watch_events     RingBuf       k=  0 v=    0 max=   4096 flg=0 memlock=  0.02 MiB

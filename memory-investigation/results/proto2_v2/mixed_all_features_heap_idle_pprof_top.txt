@@ -1,0 +1,47 @@
+File: obi
+Build ID: 371bc8850325075ec00d40904bffc7e151357b51
+Type: inuse_space
+Time: 2026-11-20 20:14:05 UTC
+Showing nodes accounting for 28588.48kB, 100% of 28588.48kB total
+Showing top 40 nodes out of 165
+      flat  flat%   sum%        cum   cum%
+ 3936.87kB 13.77% 13.77%  7009.01kB 24.52%  github.com/cilium/ebpf.(*elfCode).loadFunctions-range1
+ 3092.08kB 10.82% 24.59%  3092.08kB 10.82%  runtime.mallocgc
+ 3072.14kB 10.75% 35.33%  3072.14kB 10.75%  github.com/cilium/ebpf/asm.(*Metadata).Set
+ 3072.14kB 10.75% 46.08%  3597.57kB 12.58%  github.com/cilium/ebpf/btf.newLineInfo
+ 1335.94kB  4.67% 50.75%  1335.94kB  4.67%  github.com/cilium/ebpf.(*ProgramSpec).Copy
+ 1140.13kB  3.99% 54.74%  1140.13kB  3.99%  github.com/cilium/ebpf/btf.newDecoder
+ 1133.89kB  3.97% 58.71%  1133.89kB  3.97%  go.opentelemetry.io/obi/pkg/internal/netolly/ebpf.chooseMapReader
+ 1024.22kB  3.58% 62.29%  1024.22kB  3.58%  github.com/aws/smithy-go.(*Schema).AddMember
+  809.97kB  2.83% 65.12%   809.97kB  2.83%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  618.49kB  2.16% 67.29%   618.49kB  2.16%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  596.16kB  2.09% 69.37%   596.16kB  2.09%  github.com/cilium/ebpf.flattenInstructions
+  525.43kB  1.84% 71.21%  1042.07kB  3.65%  github.com/cilium/ebpf/btf.(*decoder).inflateType
+  525.43kB  1.84% 73.05%   525.43kB  1.84%  github.com/cilium/ebpf/btf.(*stringTable).LookupCached
+  525.43kB  1.84% 74.88%   525.43kB  1.84%  github.com/go-playground/validator/v10.map.init.7
+  516.64kB  1.81% 76.69%   516.64kB  1.81%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func3
+  515.19kB  1.80% 78.49%   515.19kB  1.80%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner
+  513.50kB  1.80% 80.29%   513.50kB  1.80%  regexp/syntax.(*compiler).inst (inline)
+  513.12kB  1.79% 82.08%  1025.16kB  3.59%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypeWithName
+  512.75kB  1.79% 83.88%   512.75kB  1.79%  github.com/google/gnostic-models/extensions.init
+  512.28kB  1.79% 85.67%   512.28kB  1.79%  k8s.io/api/resource/v1beta1.map.init.5
+  512.23kB  1.79% 87.46%   512.23kB  1.79%  github.com/aws/aws-sdk-go-v2/internal/endpoints/awsrulesfn.init
+  512.14kB  1.79% 89.25%   512.14kB  1.79%  k8s.io/api/batch/v1.init
+  512.14kB  1.79% 91.04%   512.14kB  1.79%  k8s.io/api/core/v1.init
+  512.05kB  1.79% 92.84%   512.05kB  1.79%  go.opentelemetry.io/obi/pkg/pipe/swarm.(*Runner).watchForRunnersExiting
+  512.03kB  1.79% 94.63%   512.03kB  1.79%  internal/abi.NewName
+  512.03kB  1.79% 96.42%   512.03kB  1.79%  runtime/debug.ParseBuildInfo
+  512.02kB  1.79% 98.21%  1028.66kB  3.60%  github.com/cilium/ebpf/btf.newRelocationInfo
+  512.01kB  1.79%   100%   512.01kB  1.79%  encoding/json/v2.makeStructArshaler (inline)
+         0     0%   100%   513.50kB  1.80%  cloud.google.com/go/auth/internal/trustboundary.init
+         0     0%   100%   512.01kB  1.79%  encoding/json.Unmarshal
+         0     0%   100%   512.01kB  1.79%  encoding/json/v2.Unmarshal
+         0     0%   100%   512.01kB  1.79%  encoding/json/v2.lookupArshaler
+         0     0%   100%   512.01kB  1.79%  encoding/json/v2.makeDefaultArshaler
+         0     0%   100%   512.01kB  1.79%  encoding/json/v2.unmarshalDecode
+         0     0%   100%   512.11kB  1.79%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.11kB  1.79%  github.com/aws/aws-sdk-go-v2/service/signin/schemas.init.0
+         0     0%   100%  1140.13kB  3.99%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign
+         0     0%   100%  1140.13kB  3.99%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign.func1
+         0     0%   100%  1140.13kB  3.99%  github.com/cilium/ebpf.(*collectionLoader).loadProgram
+         0     0%   100%   525.43kB  1.84%  github.com/cilium/ebpf.(*elfCode).loadDataSections

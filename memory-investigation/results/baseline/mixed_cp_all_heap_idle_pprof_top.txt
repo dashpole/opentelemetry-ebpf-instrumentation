@@ -1,0 +1,47 @@
+File: obi
+Build ID: 503d6d6183b36bdd535eca7c23a309036e3a3f00
+Type: inuse_space
+Time: 2026-11-20 18:54:38 UTC
+Showing nodes accounting for 28449.33kB, 100% of 28449.33kB total
+Showing top 40 nodes out of 121
+      flat  flat%   sum%        cum   cum%
+ 4292.96kB 15.09% 15.09%  4292.96kB 15.09%  github.com/cilium/ebpf.(*elfCode).loadSectionRelocations
+ 3584.16kB 12.60% 27.69%  3584.16kB 12.60%  github.com/cilium/ebpf/asm.(*Metadata).Set
+ 2935.59kB 10.32% 38.01%  7031.76kB 24.72%  github.com/cilium/ebpf.(*elfCode).loadFunctions-range1
+ 2570.53kB  9.04% 47.04%  2570.53kB  9.04%  runtime.mallocgc
+ 2560.53kB  9.00% 56.04%  2560.53kB  9.00%  github.com/aws/smithy-go.(*Schema).AddMember
+ 2048.09kB  7.20% 63.24%  2048.09kB  7.20%  github.com/cilium/ebpf/btf.newLineInfo
+ 1061.80kB  3.73% 66.97%  1587.23kB  5.58%  github.com/cilium/ebpf/btf.(*decoder).inflateType
+  858.34kB  3.02% 69.99%   858.34kB  3.02%  reflect.compiledTypelinks
+  809.97kB  2.85% 72.84%   809.97kB  2.85%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  809.97kB  2.85% 75.69%   809.97kB  2.85%  internal/saferio.ReadData
+  618.49kB  2.17% 77.86%   618.49kB  2.17%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  609.50kB  2.14% 80.00%  2657.59kB  9.34%  github.com/cilium/ebpf/btf.newLineInfos
+  532.26kB  1.87% 81.87%   532.26kB  1.87%  google.golang.org/protobuf/reflect/protoregistry.(*Files).RegisterFile.func2
+  525.43kB  1.85% 83.72%   525.43kB  1.85%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func1
+  524.09kB  1.84% 85.56%   524.09kB  1.84%  github.com/cilium/ebpf/btf.newRelocationInfos
+  522.70kB  1.84% 87.40%   522.70kB  1.84%  github.com/google/gnostic-models/openapiv2.init
+  512.62kB  1.80% 89.20%   512.62kB  1.80%  go.opentelemetry.io/obi/pkg/pipe/msg.(*Queue[go.shape.[]go.opentelemetry.io/obi/pkg/appolly/app/request.Span]).Subscribe
+  512.14kB  1.80% 91.00%   512.14kB  1.80%  k8s.io/api/core/v1.init
+  512.05kB  1.80% 92.80%   512.05kB  1.80%  os/signal.NotifyContext.func1
+  512.03kB  1.80% 94.60%   512.03kB  1.80%  github.com/cilium/ebpf/btf.(*Typedef).copy
+  512.02kB  1.80% 96.40%   512.02kB  1.80%  debug/elf.getString (inline)
+  512.02kB  1.80% 98.20%   512.02kB  1.80%  k8s.io/api/rbac/v1alpha1.init
+  512.01kB  1.80%   100%   512.01kB  1.80%  github.com/cilium/ebpf/asm.Instruction.WithReference (inline)
+         0     0%   100%   512.02kB  1.80%  debug/elf.(*File).Symbols
+         0     0%   100%   512.02kB  1.80%  debug/elf.(*File).getSymbols
+         0     0%   100%   512.02kB  1.80%  debug/elf.(*File).getSymbols64
+         0     0%   100%   809.97kB  2.85%  debug/elf.(*Section).Data
+         0     0%   100%   858.34kB  3.02%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  3.02%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  3.02%  encoding/gob.getType
+         0     0%   100%   858.34kB  3.02%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  3.02%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  3.02%  encoding/gob.init
+         0     0%   100%   858.34kB  3.02%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  3.02%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  3.02%  encoding/gob.userType
+         0     0%   100%   858.34kB  3.02%  encoding/gob.validUserType
+         0     0%   100%  2560.53kB  9.00%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%  2099.26kB  7.38%  github.com/cilium/ebpf.(*elfCode).loadDataSections
+         0     0%   100%  7031.76kB 24.72%  github.com/cilium/ebpf.(*elfCode).loadFunctions

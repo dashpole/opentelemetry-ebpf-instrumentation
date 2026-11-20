@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:38:21 UTC
+Showing nodes accounting for 17463.52kB, 100% of 17463.52kB total
+Showing top 40 nodes out of 102
+      flat  flat%   sum%        cum   cum%
+ 5136.29kB 29.41% 29.41%  5136.29kB 29.41%  runtime.mallocgc
+ 1536.32kB  8.80% 38.21%  1536.32kB  8.80%  github.com/aws/smithy-go.(*Schema).AddMember
+ 1236.99kB  7.08% 45.29%  1236.99kB  7.08%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+ 1133.89kB  6.49% 51.79%  1133.89kB  6.49%  go.opentelemetry.io/obi/pkg/internal/netolly/ebpf.chooseMapReader
+ 1050.86kB  6.02% 57.80%  1050.86kB  6.02%  github.com/go-playground/validator/v10.map.init.7
+  858.34kB  4.92% 62.72%   858.34kB  4.92%  reflect.compiledTypelinks
+  809.97kB  4.64% 67.36%   809.97kB  4.64%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  565.76kB  3.24% 70.60%   565.76kB  3.24%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner
+  518.65kB  2.97% 73.57%   518.65kB  2.97%  go.opentelemetry.io/obi/pkg/ebpf/common.init.func4
+  518.02kB  2.97% 76.53%   518.02kB  2.97%  regexp/syntax.(*compiler).inst
+     514kB  2.94% 79.47%      514kB  2.94%  regexp.onePassCopy
+  512.14kB  2.93% 82.41%   512.14kB  2.93%  k8s.io/api/storage/v1.init
+  512.11kB  2.93% 85.34%   512.11kB  2.93%  github.com/aws/smithy-go.NewSchema
+  512.05kB  2.93% 88.27%   512.05kB  2.93%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).bgFlushOnTimeout
+  512.04kB  2.93% 91.20%   512.04kB  2.93%  github.com/cilium/ebpf.newProgramWithOptions
+  512.03kB  2.93% 94.14%   512.03kB  2.93%  go.opentelemetry.io/obi/pkg/pipe/msg.NewQueue[go.shape.[]go.opentelemetry.io/obi/pkg/appolly/app/request.Span]
+  512.03kB  2.93% 97.07%   512.03kB  2.93%  regexp.mergeRuneSets.func2 (inline)
+  512.02kB  2.93%   100%   512.02kB  2.93%  github.com/cilium/ebpf.newVariable
+         0     0%   100%   858.34kB  4.92%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  4.92%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  4.92%  encoding/gob.getType
+         0     0%   100%   858.34kB  4.92%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  4.92%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  4.92%  encoding/gob.init
+         0     0%   100%   858.34kB  4.92%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  4.92%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  4.92%  encoding/gob.userType
+         0     0%   100%   858.34kB  4.92%  encoding/gob.validUserType
+         0     0%   100%   512.11kB  2.93%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%  1536.32kB  8.80%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.03kB  2.93%  github.com/aws/aws-sdk-go-v2/service/ssooidc/internal/endpoints.init
+         0     0%   100%  1024.06kB  5.86%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign
+         0     0%   100%  1024.06kB  5.86%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign.func1
+         0     0%   100%   512.04kB  2.93%  github.com/cilium/ebpf.(*collectionLoader).loadProgram
+         0     0%   100%   512.02kB  2.93%  github.com/cilium/ebpf.(*collectionLoader).loadVariable
+         0     0%   100%  1024.06kB  5.86%  github.com/cilium/ebpf.assignValues
+         0     0%   100%  1050.86kB  6.02%  github.com/go-playground/validator/v10.init
+         0     0%   100%      514kB  2.94%  go.opentelemetry.io/contrib/detectors/gcp/internal.init
+         0     0%   100%   512.03kB  2.93%  go.opentelemetry.io/obi/pkg/appolly.BuildWithProtocolMetricSelection
+         0     0%   100%   512.03kB  2.93%  go.opentelemetry.io/obi/pkg/appolly.newGraphBuilderWithProtocolMetricSelection

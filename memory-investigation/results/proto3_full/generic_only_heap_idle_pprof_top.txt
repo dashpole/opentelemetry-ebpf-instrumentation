@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:31:37 UTC
+Showing nodes accounting for 28080.94kB, 100% of 28080.94kB total
+Showing top 40 nodes out of 128
+      flat  flat%   sum%        cum   cum%
+ 4110.28kB 14.64% 14.64%  4110.28kB 14.64%  runtime.mallocgc
+ 3072.65kB 10.94% 25.58%  6656.78kB 23.71%  github.com/cilium/ebpf.(*elfCode).loadFunctions-range1
+ 2560.12kB  9.12% 34.70%  2560.12kB  9.12%  github.com/cilium/ebpf/asm.(*Metadata).Set
+ 2051.12kB  7.30% 42.00%  4664.88kB 16.61%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func3
+ 1562.89kB  5.57% 47.57%  4664.88kB 16.61%  github.com/cilium/ebpf/btf.(*decoder).inflateType
+ 1536.33kB  5.47% 53.04%  1536.33kB  5.47%  github.com/aws/smithy-go.(*Schema).AddMember
+ 1536.07kB  5.47% 58.51%  1536.07kB  5.47%  github.com/cilium/ebpf/btf.newLineInfo
+ 1331.59kB  4.74% 63.25%  1331.59kB  4.74%  github.com/cilium/ebpf.(*ProgramSpec).Copy (inline)
+ 1121.59kB  3.99% 67.24%  1121.59kB  3.99%  github.com/cilium/ebpf.flattenInstructions
+ 1050.86kB  3.74% 70.99%  1050.86kB  3.74%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func1
+ 1025.57kB  3.65% 74.64%  1025.57kB  3.65%  sync.(*Pool).pinSlow
+ 1024.02kB  3.65% 78.28%  1536.04kB  5.47%  github.com/cilium/ebpf/asm.Instruction.WithReference (inline)
+  831.28kB  2.96% 81.25%   831.28kB  2.96%  github.com/cilium/ebpf/btf.newFuzzyStringIndex
+  570.04kB  2.03% 83.27%   570.04kB  2.03%  io.ReadAll
+  565.76kB  2.01% 85.29%   565.76kB  2.01%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner
+  525.43kB  1.87% 87.16%   525.43kB  1.87%  github.com/go-playground/validator/v10.map.init.7
+  522.70kB  1.86% 89.02%   522.70kB  1.86%  github.com/google/gnostic-models/openapiv2.init
+  521.05kB  1.86% 90.88%   521.05kB  1.86%  encoding/xml.map.init.0
+  512.50kB  1.83% 92.70%   512.50kB  1.83%  gopkg.in/yaml%2ev3.getStructInfo
+  512.50kB  1.83% 94.53%   512.50kB  1.83%  hash/crc32.simpleMakeTable
+  512.44kB  1.82% 96.35%   512.44kB  1.82%  github.com/prometheus/client_golang/prometheus.NewGoCollector
+  512.14kB  1.82% 98.18%   512.14kB  1.82%  k8s.io/api/storage/v1.init
+  512.02kB  1.82%   100%   512.02kB  1.82%  github.com/cilium/ebpf/btf.newRelocationInfo
+         0     0%   100%   521.05kB  1.86%  encoding/xml.init
+         0     0%   100%  1536.33kB  5.47%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%  2491.99kB  8.87%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign
+         0     0%   100%  2491.99kB  8.87%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign.func1
+         0     0%   100%  2491.99kB  8.87%  github.com/cilium/ebpf.(*collectionLoader).loadProgram
+         0     0%   100%   512.12kB  1.82%  github.com/cilium/ebpf.(*elfCode).loadBTFMaps
+         0     0%   100%  6656.78kB 23.71%  github.com/cilium/ebpf.(*elfCode).loadFunctions
+         0     0%   100%  7778.37kB 27.70%  github.com/cilium/ebpf.(*elfCode).loadProgramSections
+         0     0%   100%  1536.04kB  5.47%  github.com/cilium/ebpf.(*elfCode).relocateInstruction
+         0     0%   100%   512.12kB  1.82%  github.com/cilium/ebpf.(*elfCode).sectionVars
+         0     0%   100%  6656.78kB 23.71%  github.com/cilium/ebpf.(*elfSection).symbolsSorted.func1 (inline)
+         0     0%   100% 10851.71kB 38.64%  github.com/cilium/ebpf.LoadCollectionSpecFromReader
+         0     0%   100%  1401.32kB  4.99%  github.com/cilium/ebpf.applyRelocations
+         0     0%   100%  2048.09kB  7.29%  github.com/cilium/ebpf.assignMetadata
+         0     0%   100%  2491.99kB  8.87%  github.com/cilium/ebpf.assignValues
+         0     0%   100%  1121.59kB  3.99%  github.com/cilium/ebpf.flattenPrograms
+         0     0%   100%  1913.33kB  6.81%  github.com/cilium/ebpf.newProgramWithOptions

@@ -1,0 +1,47 @@
+File: obi
+Build ID: 371bc8850325075ec00d40904bffc7e151357b51
+Type: inuse_space
+Time: 2026-11-20 20:10:45 UTC
+Showing nodes accounting for 35517.33kB, 100% of 35517.33kB total
+Showing top 40 nodes out of 129
+      flat  flat%   sum%        cum   cum%
+ 6397.22kB 18.01% 18.01%  9469.36kB 26.66%  github.com/cilium/ebpf.(*elfCode).loadFunctions-range1
+ 3173.02kB  8.93% 26.95%  3173.02kB  8.93%  github.com/cilium/ebpf.(*elfCode).loadSectionRelocations
+ 3091.32kB  8.70% 35.65%  3091.32kB  8.70%  runtime.mallocgc
+ 3072.14kB  8.65% 44.30%  3072.14kB  8.65%  github.com/cilium/ebpf/asm.(*Metadata).Set
+ 2560.53kB  7.21% 51.51%  2560.53kB  7.21%  github.com/aws/smithy-go.(*Schema).AddMember
+ 2180.53kB  6.14% 57.65%  4740.68kB 13.35%  github.com/cilium/ebpf/btf.newLineInfos
+ 2048.09kB  5.77% 63.41%  2560.15kB  7.21%  github.com/cilium/ebpf/btf.newLineInfo
+ 1536.42kB  4.33% 67.74%  1536.42kB  4.33%  github.com/aws/smithy-go.NewSchema
+ 1222.15kB  3.44% 71.18%  1222.15kB  3.44%  github.com/cilium/ebpf.flattenInstructions
+ 1037.46kB  2.92% 74.10%  1562.89kB  4.40%  github.com/cilium/ebpf/btf.(*decoder).inflateType
+    1027kB  2.89% 76.99%     1027kB  2.89%  google.golang.org/protobuf/internal/filedesc.(*File).initDecls
+  858.34kB  2.42% 79.41%   858.34kB  2.42%  reflect.compiledTypelinks
+  618.49kB  1.74% 81.15%   618.49kB  1.74%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  525.43kB  1.48% 82.63%   525.43kB  1.48%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func1
+  524.09kB  1.48% 84.11%   524.09kB  1.48%  regexp/syntax.(*compiler).inst
+  518.02kB  1.46% 85.56%   518.02kB  1.46%  google.golang.org/protobuf/types/descriptorpb.init
+  516.64kB  1.45% 87.02%   516.64kB  1.45%  github.com/go-playground/validator/v10.New
+  512.88kB  1.44% 88.46%   512.88kB  1.44%  github.com/prometheus/client_golang/prometheus.(*Registry).Register
+  512.88kB  1.44% 89.91%   512.88kB  1.44%  go.opentelemetry.io/obi/pkg/internal/pythontools/frameworks.optionSet
+  512.28kB  1.44% 91.35%   512.28kB  1.44%  k8s.io/api/apps/v1beta1.map.init.3
+  512.14kB  1.44% 92.79%   512.14kB  1.44%  k8s.io/api/resource/v1beta2.init
+  512.12kB  1.44% 94.23%   512.12kB  1.44%  go.opentelemetry.io/obi/pkg/export/attributes.buildGetterList[go.shape.*uint8,go.shape.string]
+  512.05kB  1.44% 95.68%   512.05kB  1.44%  github.com/cilium/ebpf/btf.(*stringTable).Lookup (inline)
+  512.05kB  1.44% 97.12%   512.05kB  1.44%  os/signal.NotifyContext.func1
+  512.02kB  1.44% 98.56%   512.02kB  1.44%  github.com/cilium/ebpf/btf.newRelocationInfo
+  512.01kB  1.44%   100%   512.01kB  1.44%  debug/elf.getString (inline)
+         0     0%   100%   512.01kB  1.44%  debug/elf.(*File).Symbols
+         0     0%   100%   512.01kB  1.44%  debug/elf.(*File).getSymbols
+         0     0%   100%   512.01kB  1.44%  debug/elf.(*File).getSymbols64
+         0     0%   100%   858.34kB  2.42%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  2.42%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  2.42%  encoding/gob.getType
+         0     0%   100%   858.34kB  2.42%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  2.42%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  2.42%  encoding/gob.init
+         0     0%   100%   858.34kB  2.42%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  2.42%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  2.42%  encoding/gob.userType
+         0     0%   100%   858.34kB  2.42%  encoding/gob.validUserType
+         0     0%   100%  1536.42kB  4.33%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init

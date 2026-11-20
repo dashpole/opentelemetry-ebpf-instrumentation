@@ -1,0 +1,4 @@
+Hash/LRUHash maps audited=117, non-empty=3, total_live_entries=655
+  id=7299  ongoing_gorouti  Hash     entries=653    max=30000  flg=1 memlock=574.09 KiB
+  id=7281  go_auto_targets  Hash     entries=1      max=3001   flg=1 memlock= 64.95 KiB
+  id=7336  go_offsets_map   Hash     entries=1      max=1024   flg=1 memlock= 18.12 KiB

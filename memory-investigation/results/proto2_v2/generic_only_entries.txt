@@ -1,0 +1,8 @@
+Hash/LRUHash maps audited=69, non-empty=7, total_live_entries=25273
+  id=10859 pid_tid_to_conn  LRUHash  entries=7121   max=30000  flg=0 memlock=3559.75 KiB
+  id=10839 fd_map           LRUHash  entries=6130   max=30000  flg=0 memlock=3325.38 KiB
+  id=10791 server_traces_a  LRUHash  entries=6130   max=30000  flg=0 memlock=4262.88 KiB
+  id=10802 connection_trac  LRUHash  entries=5884   max=30000  flg=0 memlock=3559.75 KiB
+  id=10816 fd_to_connectio  LRUHash  entries=4      max=30000  flg=0 memlock=3559.75 KiB
+  id=10774 listening_ports  LRUHash  entries=3      max=10000  flg=0 memlock=881.88 KiB
+  id=10798 filter_ports     LRUHash  entries=1      max=10000  flg=0 memlock=881.88 KiB

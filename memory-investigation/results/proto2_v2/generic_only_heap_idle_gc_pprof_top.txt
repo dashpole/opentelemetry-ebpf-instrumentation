@@ -1,0 +1,47 @@
+File: obi
+Build ID: 371bc8850325075ec00d40904bffc7e151357b51
+Type: inuse_space
+Time: 2026-11-20 20:10:02 UTC
+Showing nodes accounting for 10567.11kB, 100% of 10567.11kB total
+Showing top 40 nodes out of 75
+      flat  flat%   sum%        cum   cum%
+ 3091.33kB 29.25% 29.25%  3091.33kB 29.25%  runtime.mallocgc
+  858.34kB  8.12% 37.38%   858.34kB  8.12%  reflect.compiledTypelinks
+  809.97kB  7.67% 45.04%   809.97kB  7.67%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  618.49kB  5.85% 50.90%   618.49kB  5.85%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  565.76kB  5.35% 56.25%   565.76kB  5.35%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner
+  525.43kB  4.97% 61.22%   525.43kB  4.97%  github.com/go-playground/validator/v10.map.init.7
+  512.88kB  4.85% 66.07%   512.88kB  4.85%  go.opentelemetry.io/obi/pkg/appolly/discover.newInjectionQueue[go.shape.struct { Pid go.opentelemetry.io/obi/pkg/appolly/app.PID; Process *go.opentelemetry.io/obi/pkg/internal/procs.ProcessHandle }] (inline)
+  512.56kB  4.85% 70.93%   512.56kB  4.85%  google.golang.org/protobuf/internal/filedesc.(*Enum).unmarshalSeed
+  512.11kB  4.85% 75.77%   512.11kB  4.85%  github.com/aws/smithy-go.(*Schema).AddMember
+  512.11kB  4.85% 80.62%   512.11kB  4.85%  github.com/aws/smithy-go.NewSchema
+  512.05kB  4.85% 85.46%   512.05kB  4.85%  os/signal.NotifyContext.func1
+  512.05kB  4.85% 90.31%   512.05kB  4.85%  github.com/gabriel-vasile/mimetype.newMIME (inline)
+  512.02kB  4.85% 95.15%   512.02kB  4.85%  math/big.nat.make
+     512kB  4.85%   100%      512kB  4.85%  go.opentelemetry.io/obi/pkg/appolly/app/request.map.init.0
+         0     0%   100%   858.34kB  8.12%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  8.12%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  8.12%  encoding/gob.getType
+         0     0%   100%   858.34kB  8.12%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  8.12%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  8.12%  encoding/gob.init
+         0     0%   100%   858.34kB  8.12%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  8.12%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  8.12%  encoding/gob.userType
+         0     0%   100%   858.34kB  8.12%  encoding/gob.validUserType
+         0     0%   100%   512.11kB  4.85%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%   512.11kB  4.85%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.05kB  4.85%  github.com/gabriel-vasile/mimetype.init
+         0     0%   100%   525.43kB  4.97%  github.com/go-playground/validator/v10.init
+         0     0%   100%      512kB  4.85%  go.opentelemetry.io/obi/pkg/appolly/app/request.init
+         0     0%   100%  1322.85kB 12.52%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1
+         0     0%   100%   809.97kB  7.67%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1.1
+         0     0%   100%   809.97kB  7.67%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).getTracer
+         0     0%   100%   809.97kB  7.67%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).monitorPIDs
+         0     0%   100%   512.88kB  4.85%  go.opentelemetry.io/obi/pkg/appolly/discover.newNodeInjectionQueue (inline)
+         0     0%   100%   809.97kB  7.67%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).AllowPID (inline)
+         0     0%   100%   565.76kB  5.35%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).Run.func1
+         0     0%   100%   618.49kB  5.85%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner.func1
+         0     0%   100%   565.76kB  5.35%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).sharedReadAndForward
+         0     0%   100%   809.97kB  7.67%  go.opentelemetry.io/obi/pkg/internal/ebpf/generictracer.(*Tracer).AllowPID
+         0     0%   100%   565.76kB  5.35%  go.opentelemetry.io/obi/pkg/internal/ebpf/generictracer.(*Tracer).Run

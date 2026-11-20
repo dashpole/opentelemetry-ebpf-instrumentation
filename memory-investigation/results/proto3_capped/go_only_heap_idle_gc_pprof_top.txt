@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:36:06 UTC
+Showing nodes accounting for 9711.87kB, 100% of 9711.87kB total
+Showing top 40 nodes out of 81
+      flat  flat%   sum%        cum   cum%
+ 4118.08kB 42.40% 42.40%  4118.08kB 42.40%  runtime.mallocgc
+ 1024.15kB 10.55% 52.95%  1024.15kB 10.55%  github.com/aws/smithy-go.(*Schema).addTrait
+  858.34kB  8.84% 61.79%   858.34kB  8.84%  reflect.compiledTypelinks
+  618.49kB  6.37% 68.15%   618.49kB  6.37%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  526.13kB  5.42% 73.57%   526.13kB  5.42%  github.com/google/gnostic-models/openapiv3.init
+  516.64kB  5.32% 78.89%   516.64kB  5.32%  reflect.addReflectOff
+  513.31kB  5.29% 84.18%   513.31kB  5.29%  go.opentelemetry.io/proto/otlp/trace/v1.init
+  512.69kB  5.28% 89.46%   512.69kB  5.28%  regexp/syntax.(*compiler).inst (inline)
+  512.02kB  5.27% 94.73%   512.02kB  5.27%  go.opentelemetry.io/obi/pkg/internal/ebpf/watcher.(*Watcher).Run
+  512.02kB  5.27%   100%   512.02kB  5.27%  syscall.anyToSockaddr
+         0     0%   100%   858.34kB  8.84%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  8.84%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  8.84%  encoding/gob.getType
+         0     0%   100%   858.34kB  8.84%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  8.84%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  8.84%  encoding/gob.init
+         0     0%   100%   858.34kB  8.84%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  8.84%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  8.84%  encoding/gob.userType
+         0     0%   100%   858.34kB  8.84%  encoding/gob.validUserType
+         0     0%   100%   516.64kB  5.32%  encoding/json.Unmarshal (inline)
+         0     0%   100%   516.64kB  5.32%  encoding/json/v2.Unmarshal
+         0     0%   100%   516.64kB  5.32%  encoding/json/v2.makeStructArshaler.func1
+         0     0%   100%   516.64kB  5.32%  encoding/json/v2.makeStructArshaler.func3
+         0     0%   100%   516.64kB  5.32%  encoding/json/v2.makeStructFields
+         0     0%   100%   516.64kB  5.32%  encoding/json/v2.makeStructFields.func3
+         0     0%   100%   516.64kB  5.32%  encoding/json/v2.unmarshalDecode
+         0     0%   100%   512.09kB  5.27%  github.com/aws/aws-sdk-go-v2/service/signin/schemas.init.0
+         0     0%   100%   512.05kB  5.27%  github.com/aws/aws-sdk-go-v2/service/sso/schemas.init
+         0     0%   100%   512.09kB  5.27%  github.com/aws/smithy-go.(*Schema).AddMember
+         0     0%   100%   512.05kB  5.27%  github.com/aws/smithy-go.NewSchema
+         0     0%   100%   618.49kB  6.37%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner.func1
+         0     0%   100%   512.69kB  5.28%  go.opentelemetry.io/obi/pkg/ebpf/common/http.init
+         0     0%   100%   516.64kB  5.32%  google.golang.org/grpc.init.0
+         0     0%   100%   516.64kB  5.32%  google.golang.org/grpc.parseServiceConfig
+         0     0%   100%   512.02kB  5.27%  net.(*Dialer).DialContext
+         0     0%   100%   512.02kB  5.27%  net.(*netFD).connect
+         0     0%   100%   512.02kB  5.27%  net.(*netFD).dial
+         0     0%   100%   512.02kB  5.27%  net.(*sysDialer).dialParallel
+         0     0%   100%   512.02kB  5.27%  net.(*sysDialer).dialSerial

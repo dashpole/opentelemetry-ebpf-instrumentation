@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:37:31 UTC
+Showing nodes accounting for 25048.36kB, 100% of 25048.36kB total
+Showing top 40 nodes out of 124
+      flat  flat%   sum%        cum   cum%
+ 3084.29kB 12.31% 12.31%  3084.29kB 12.31%  runtime.mallocgc
+ 3072.14kB 12.26% 24.58%  3072.14kB 12.26%  github.com/cilium/ebpf/btf.newLineInfo
+ 2713.77kB 10.83% 35.41%  2713.77kB 10.83%  github.com/cilium/ebpf.(*elfCode).loadSectionRelocations
+ 2532.57kB 10.11% 45.52%  4068.64kB 16.24%  github.com/cilium/ebpf.(*elfCode).loadFunctions-range1
+ 2141.51kB  8.55% 54.07%  5213.65kB 20.81%  github.com/cilium/ebpf/btf.newLineInfos
+ 1536.07kB  6.13% 60.20%  1536.07kB  6.13%  github.com/cilium/ebpf/asm.(*Metadata).Set
+  858.34kB  3.43% 63.63%   858.34kB  3.43%  reflect.compiledTypelinks
+  732.77kB  2.93% 66.56%   732.77kB  2.93%  internal/saferio.ReadData
+  618.49kB  2.47% 69.03%   618.49kB  2.47%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  565.76kB  2.26% 71.28%   565.76kB  2.26%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner
+  525.43kB  2.10% 73.38%   525.43kB  2.10%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func1
+  518.65kB  2.07% 75.45%   518.65kB  2.07%  go.opentelemetry.io/obi/pkg/ebpf/common.init.func4
+  516.01kB  2.06% 77.51%   516.01kB  2.06%  google.golang.org/protobuf/internal/filedesc.(*File).initDecls
+  512.16kB  2.04% 79.56%   512.16kB  2.04%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func3
+  512.11kB  2.04% 81.60%   512.11kB  2.04%  github.com/aws/smithy-go.(*Schema).AddMember
+  512.08kB  2.04% 83.65%  2048.16kB  8.18%  regexp.compile
+  512.05kB  2.04% 85.69%   512.05kB  2.04%  github.com/prometheus/client_golang/prometheus.(*goCollector).Describe
+  512.05kB  2.04% 87.74%   512.05kB  2.04%  regexp/syntax.(*parser).newRegexp (inline)
+  512.02kB  2.04% 89.78%   512.02kB  2.04%  github.com/cilium/ebpf/btf.parseCOREAccessor
+  512.02kB  2.04% 91.82%   512.02kB  2.04%  k8s.io/api/core/v1.init
+  512.02kB  2.04% 93.87%   512.02kB  2.04%  github.com/prometheus/client_golang/prometheus.memstatNamespace
+  512.02kB  2.04% 95.91%   512.02kB  2.04%  regexp/syntax.appendRange
+  512.01kB  2.04% 97.96%   512.01kB  2.04%  internal/bytealg.MakeNoZero
+  512.01kB  2.04%   100%   512.01kB  2.04%  regexp.makeOnePass.func1
+         0     0%   100%   732.77kB  2.93%  debug/elf.(*Section).Data
+         0     0%   100%   858.34kB  3.43%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  3.43%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  3.43%  encoding/gob.getType
+         0     0%   100%   858.34kB  3.43%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  3.43%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  3.43%  encoding/gob.init
+         0     0%   100%   858.34kB  3.43%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  3.43%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  3.43%  encoding/gob.userType
+         0     0%   100%   858.34kB  3.43%  encoding/gob.validUserType
+         0     0%   100%   512.05kB  2.04%  github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime/datetime.init
+         0     0%   100%   512.11kB  2.04%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.01kB  2.04%  github.com/aws/aws-sdk-go-v2/service/ssooidc/internal/endpoints.init
+         0     0%   100%   525.43kB  2.10%  github.com/cilium/ebpf.(*elfCode).loadBTFMaps
+         0     0%   100%  4068.64kB 16.24%  github.com/cilium/ebpf.(*elfCode).loadFunctions

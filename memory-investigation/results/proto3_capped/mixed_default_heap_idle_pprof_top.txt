@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:36:42 UTC
+Showing nodes accounting for 32116.49kB, 100% of 32116.49kB total
+Showing top 40 nodes out of 156
+      flat  flat%   sum%        cum   cum%
+ 3982.59kB 12.40% 12.40%  7566.74kB 23.56%  github.com/cilium/ebpf.(*elfCode).loadFunctions-range1
+ 3072.14kB  9.57% 21.97%  3072.14kB  9.57%  github.com/cilium/ebpf/asm.(*Metadata).Set
+ 3072.14kB  9.57% 31.53%  3072.14kB  9.57%  github.com/cilium/ebpf/btf.newLineInfo
+ 2866.56kB  8.93% 40.46%  2866.56kB  8.93%  io.ReadAll
+ 2571.28kB  8.01% 48.46%  2571.28kB  8.01%  runtime.mallocgc
+ 2354.04kB  7.33% 55.79%  2354.04kB  7.33%  github.com/cilium/ebpf.(*ProgramSpec).Copy
+ 1140.13kB  3.55% 59.34%  1971.42kB  6.14%  github.com/cilium/ebpf/btf.newDecoder
+ 1024.22kB  3.19% 62.53%  1536.23kB  4.78%  github.com/aws/smithy-go.(*Schema).AddMember
+  831.28kB  2.59% 65.12%   831.28kB  2.59%  github.com/cilium/ebpf/btf.newFuzzyStringIndex
+  809.97kB  2.52% 67.64%   809.97kB  2.52%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  596.16kB  1.86% 69.50%   596.16kB  1.86%  github.com/cilium/ebpf.flattenInstructions
+  525.43kB  1.64% 71.13%   525.43kB  1.64%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func1
+  525.43kB  1.64% 72.77%   525.43kB  1.64%  github.com/go-playground/validator/v10.map.init.7
+  525.43kB  1.64% 74.41%   525.43kB  1.64%  k8s.io/apimachinery/pkg/api/meta.init
+  524.09kB  1.63% 76.04%   524.09kB  1.63%  regexp/syntax.(*compiler).inst
+  520.04kB  1.62% 77.66%   520.04kB  1.62%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func3
+  515.19kB  1.60% 79.26%   515.19kB  1.60%  github.com/go-playground/validator/v10.map.init.9
+     514kB  1.60% 80.86%      514kB  1.60%  github.com/json-iterator/go.init.4
+     513kB  1.60% 82.46%      513kB  1.60%  google.golang.org/protobuf/internal/filedesc.(*File).initDecls
+  512.44kB  1.60% 84.06%   512.44kB  1.60%  go.opentelemetry.io/obi/pkg/internal/pythontools/frameworks.optionSet
+  512.44kB  1.60% 85.65%   512.44kB  1.60%  google.golang.org/protobuf/internal/strs.(*Builder).grow
+  512.31kB  1.60% 87.25%   512.31kB  1.60%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDsFilter).addPID
+  512.05kB  1.59% 88.84%   512.05kB  1.59%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  512.02kB  1.59% 90.43%  1544.07kB  4.81%  github.com/cilium/ebpf/btf.newRelocationInfo
+  512.02kB  1.59% 92.03%   512.02kB  1.59%  internal/sync.newEntryNode[go.shape.interface {},go.shape.interface {}]
+  512.02kB  1.59% 93.62%   512.02kB  1.59%  regexp/syntax.(*compiler).init
+  512.02kB  1.59% 95.22%   512.02kB  1.59%  github.com/cilium/ebpf/btf.(*stringTable).Lookup (inline)
+  512.01kB  1.59% 96.81%   512.01kB  1.59%  github.com/aws/smithy-go.(*Schema).addTrait
+  512.01kB  1.59% 98.41%   512.01kB  1.59%  github.com/cilium/ebpf/asm.Instruction.WithReference (inline)
+  512.01kB  1.59%   100%   512.01kB  1.59%  github.com/cilium/ebpf/btf.parseCOREAccessor
+         0     0%   100%   512.11kB  1.59%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%  1024.12kB  3.19%  github.com/aws/aws-sdk-go-v2/service/signin/schemas.init.0
+         0     0%   100%  4837.98kB 15.06%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign
+         0     0%   100%  4837.98kB 15.06%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign.func1
+         0     0%   100%  4837.98kB 15.06%  github.com/cilium/ebpf.(*collectionLoader).loadProgram
+         0     0%   100%  1037.44kB  3.23%  github.com/cilium/ebpf.(*elfCode).loadDataSections
+         0     0%   100%  7566.74kB 23.56%  github.com/cilium/ebpf.(*elfCode).loadFunctions
+         0     0%   100%  8162.90kB 25.42%  github.com/cilium/ebpf.(*elfCode).loadProgramSections
+         0     0%   100%   512.01kB  1.59%  github.com/cilium/ebpf.(*elfCode).relocateInstruction
+         0     0%   100%  7566.74kB 23.56%  github.com/cilium/ebpf.(*elfSection).symbolsSorted.func1 (inline)

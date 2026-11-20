@@ -1,0 +1,47 @@
+File: obi
+Build ID: 371bc8850325075ec00d40904bffc7e151357b51
+Type: inuse_space
+Time: 2026-11-20 20:15:15 UTC
+Showing nodes accounting for 11155.49kB, 100% of 11155.49kB total
+Showing top 40 nodes out of 63
+      flat  flat%   sum%        cum   cum%
+ 4117.33kB 36.91% 36.91%  4117.33kB 36.91%  runtime.mallocgc
+ 2048.42kB 18.36% 55.27%  2048.42kB 18.36%  github.com/aws/smithy-go.(*Schema).AddMember
+  858.34kB  7.69% 62.97%   858.34kB  7.69%  reflect.compiledTypelinks
+  526.13kB  4.72% 67.68%   526.13kB  4.72%  github.com/google/gnostic-models/openapiv3.init
+  525.43kB  4.71% 72.39%   525.43kB  4.71%  github.com/go-playground/validator/v10.map.init.7
+  518.65kB  4.65% 77.04%   518.65kB  4.65%  github.com/go-playground/validator/v10.map.init.3
+  512.88kB  4.60% 81.64%   512.88kB  4.60%  github.com/aws/aws-sdk-go-v2/aws/signer/internal/v4.init
+  512.14kB  4.59% 86.23%   512.14kB  4.59%  k8s.io/api/batch/v1beta1.init
+  512.11kB  4.59% 90.82%   512.11kB  4.59%  github.com/aws/smithy-go.NewSchema
+  512.03kB  4.59% 95.41%   512.03kB  4.59%  github.com/cilium/ebpf/btf.(*Typedef).copy
+  512.02kB  4.59%   100%   512.02kB  4.59%  google.golang.org/protobuf/types/descriptorpb.init
+         0     0%   100%   858.34kB  7.69%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  7.69%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  7.69%  encoding/gob.getType
+         0     0%   100%   858.34kB  7.69%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  7.69%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  7.69%  encoding/gob.init
+         0     0%   100%   858.34kB  7.69%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  7.69%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  7.69%  encoding/gob.userType
+         0     0%   100%   858.34kB  7.69%  encoding/gob.validUserType
+         0     0%   100%   512.11kB  4.59%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%  2048.42kB 18.36%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.03kB  4.59%  github.com/cilium/ebpf.(*elfCode).loadDataSections
+         0     0%   100%   512.03kB  4.59%  github.com/cilium/ebpf.LoadCollectionSpecFromReader
+         0     0%   100%   512.03kB  4.59%  github.com/cilium/ebpf/btf.Copy (inline)
+         0     0%   100%   512.03kB  4.59%  github.com/cilium/ebpf/btf.children.func1 (inline)
+         0     0%   100%   512.03kB  4.59%  github.com/cilium/ebpf/btf.copyType
+         0     0%   100%   512.03kB  4.59%  github.com/cilium/ebpf/btf.copyType-range1 (inline)
+         0     0%   100%  1044.08kB  9.36%  github.com/go-playground/validator/v10.init
+         0     0%   100%   512.03kB  4.59%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1
+         0     0%   100%   512.03kB  4.59%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1.1
+         0     0%   100%   512.03kB  4.59%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).getTracer
+         0     0%   100%   512.03kB  4.59%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).Init (inline)
+         0     0%   100%   512.03kB  4.59%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).loadAndAssign
+         0     0%   100%   512.03kB  4.59%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).loadTracer
+         0     0%   100%   512.03kB  4.59%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).loadTracers
+         0     0%   100%   512.03kB  4.59%  go.opentelemetry.io/obi/pkg/internal/ebpf/gotracer.(*Tracer).LoadSpecs
+         0     0%   100%   512.03kB  4.59%  go.opentelemetry.io/obi/pkg/internal/ebpf/gotracer.LoadBpf
+         0     0%   100%   512.03kB  4.59%  go.opentelemetry.io/obi/pkg/pipe/swarm.(*Runner).Start.func2

@@ -1,0 +1,9 @@
+open_port: "18080,18081"
+profile_port: 6060
+prometheus_export:
+  port: 9090
+attributes:
+  kubernetes:
+    enable: false
+ebpf:
+  context_propagation: all

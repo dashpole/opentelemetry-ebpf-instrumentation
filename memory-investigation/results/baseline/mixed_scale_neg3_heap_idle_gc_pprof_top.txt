@@ -1,0 +1,47 @@
+File: obi
+Build ID: 503d6d6183b36bdd535eca7c23a309036e3a3f00
+Type: inuse_space
+Time: 2026-11-20 18:53:52 UTC
+Showing nodes accounting for 13411.13kB, 100% of 13411.13kB total
+Showing top 40 nodes out of 108
+      flat  flat%   sum%        cum   cum%
+ 3612.12kB 26.93% 26.93%  3612.12kB 26.93%  runtime.mallocgc
+    1027kB  7.66% 34.59%     1027kB  7.66%  regexp/syntax.(*compiler).inst (inline)
+ 1024.21kB  7.64% 42.23%  1024.21kB  7.64%  github.com/aws/smithy-go.(*Schema).AddMember
+ 1024.16kB  7.64% 49.87%  1024.16kB  7.64%  internal/sync.newIndirectNode[go.shape.interface {},go.shape.interface {}] (inline)
+  858.34kB  6.40% 56.27%   858.34kB  6.40%  reflect.compiledTypelinks
+  618.49kB  4.61% 60.88%   618.49kB  4.61%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  565.76kB  4.22% 65.10%   565.76kB  4.22%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner
+  548.84kB  4.09% 69.19%   548.84kB  4.09%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypeWithName
+  532.26kB  3.97% 73.16%   532.26kB  3.97%  google.golang.org/protobuf/reflect/protoregistry.(*Files).RegisterFile.func2
+  525.43kB  3.92% 77.07%   525.43kB  3.92%  github.com/go-playground/validator/v10.map.init.7
+  513.31kB  3.83% 80.90%   513.31kB  3.83%  gopkg.in/yaml%2ev3.getStructInfo
+  512.88kB  3.82% 84.73%   512.88kB  3.82%  go.opentelemetry.io/obi/pkg/internal/ebpf/bhpack.init
+  512.14kB  3.82% 88.55%   512.14kB  3.82%  k8s.io/api/scheduling/v1beta1.init
+  512.12kB  3.82% 92.36%   512.12kB  3.82%  github.com/DataDog/go-sqllexer.addToTrie
+  512.05kB  3.82% 96.18%   512.05kB  3.82%  os/signal.NotifyContext.func1
+  512.01kB  3.82%   100%   512.01kB  3.82%  github.com/go-openapi/swag/mangling.asUpperCased
+         0     0%   100%   858.34kB  6.40%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  6.40%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  6.40%  encoding/gob.getType
+         0     0%   100%   858.34kB  6.40%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  6.40%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  6.40%  encoding/gob.init
+         0     0%   100%   858.34kB  6.40%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  6.40%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  6.40%  encoding/gob.userType
+         0     0%   100%   858.34kB  6.40%  encoding/gob.validUserType
+         0     0%   100%   512.08kB  3.82%  encoding/json.Marshal
+         0     0%   100%   512.08kB  3.82%  encoding/json/v2.Marshal
+         0     0%   100%   512.08kB  3.82%  encoding/json/v2.lookupArshaler
+         0     0%   100%   512.08kB  3.82%  encoding/json/v2.makeInterfaceArshaler.func1
+         0     0%   100%   512.08kB  3.82%  encoding/json/v2.makeMapArshaler.func2
+         0     0%   100%   512.08kB  3.82%  encoding/json/v2.makeSliceArshaler.func2
+         0     0%   100%   512.08kB  3.82%  encoding/json/v2.marshalEncode
+         0     0%   100%   512.12kB  3.82%  github.com/DataDog/go-sqllexer.buildCombinedTrie
+         0     0%   100%   512.12kB  3.82%  github.com/DataDog/go-sqllexer.init
+         0     0%   100%  1024.21kB  7.64%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   513.50kB  3.83%  github.com/aws/aws-sdk-go-v2/service/sso/internal/endpoints.init
+         0     0%   100%   513.50kB  3.83%  github.com/aws/aws-sdk-go-v2/service/sts/internal/endpoints.init
+         0     0%   100%   512.01kB  3.82%  github.com/go-openapi/swag.init
+         0     0%   100%   512.01kB  3.82%  github.com/go-openapi/swag/mangling.(*NameMangler).addInitialisms

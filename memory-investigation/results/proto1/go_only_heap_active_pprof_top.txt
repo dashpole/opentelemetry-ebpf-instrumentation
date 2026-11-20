@@ -1,0 +1,47 @@
+File: obi
+Build ID: 03ff4d1718bb24c66c39a56672a03753db270d95
+Type: inuse_space
+Time: 2026-11-20 19:08:02 UTC
+Showing nodes accounting for 27841.49kB, 100% of 27841.49kB total
+Showing top 40 nodes out of 118
+      flat  flat%   sum%        cum   cum%
+ 7451.64kB 26.76% 26.76% 13084.16kB 47.00%  github.com/hashicorp/golang-lru/v2/simplelru.(*LRU[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).Add
+ 5632.52kB 20.23% 47.00%  5632.52kB 20.23%  github.com/hashicorp/golang-lru/v2/internal.(*LruList[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).insertValue (inline)
+ 4110.29kB 14.76% 61.76%  4110.29kB 14.76%  runtime.mallocgc
+ 1537.01kB  5.52% 67.28%  2049.06kB  7.36%  github.com/aws/smithy-go.NewSchema
+ 1024.22kB  3.68% 70.96%  1024.22kB  3.68%  go.opentelemetry.io/obi/pkg/internal/transform/route/harvest/java.map.init.0
+  858.34kB  3.08% 74.04%   858.34kB  3.08%  reflect.compiledTypelinks
+  565.76kB  2.03% 76.07% 13649.92kB 49.03%  go.opentelemetry.io/obi/pkg/appolly.(*parentSettler).process
+  516.01kB  1.85% 77.93%   516.01kB  1.85%  golang.org/x/net/trace.init
+  512.88kB  1.84% 79.77%   512.88kB  1.84%  github.com/go-openapi/swag/mangling.(*indexOfInitialisms).add
+  512.28kB  1.84% 81.61%   512.28kB  1.84%  go.opentelemetry.io/obi/pkg/internal/sqlprune.map.init.0
+  512.14kB  1.84% 83.45%   512.14kB  1.84%  k8s.io/api/core/v1.init
+  512.12kB  1.84% 85.29%   512.12kB  1.84%  github.com/DataDog/go-sqllexer.addToTrie
+  512.07kB  1.84% 87.13%   512.07kB  1.84%  go.opentelemetry.io/obi/pkg/export/prom.labelValues[go.shape.*uint8]
+  512.05kB  1.84% 88.97%   512.05kB  1.84%  github.com/aws/smithy-go.(*Schema).addTrait
+  512.05kB  1.84% 90.80%   512.05kB  1.84%  regexp/syntax.(*parser).newRegexp (inline)
+  512.03kB  1.84% 92.64%   512.03kB  1.84%  google.golang.org/protobuf/internal/filedesc.(*File).initDecls
+  512.03kB  1.84% 94.48%   512.03kB  1.84%  sync.OnceValues[go.shape.*uint8,go.shape.bool]
+  512.02kB  1.84% 96.32%   512.02kB  1.84%  github.com/hashicorp/golang-lru/v2/expirable.NewLRU[go.shape.struct { HostPID uint32; ID uint16 },go.shape.*uint8]
+  512.02kB  1.84% 98.16%   512.02kB  1.84%  syscall.anyToSockaddr
+  512.01kB  1.84%   100%   512.01kB  1.84%  internal/bytealg.MakeNoZero
+         0     0%   100%   858.34kB  3.08%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  3.08%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  3.08%  encoding/gob.getType
+         0     0%   100%   858.34kB  3.08%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  3.08%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  3.08%  encoding/gob.init
+         0     0%   100%   858.34kB  3.08%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  3.08%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  3.08%  encoding/gob.userType
+         0     0%   100%   858.34kB  3.08%  encoding/gob.validUserType
+         0     0%   100%   512.12kB  1.84%  github.com/DataDog/go-sqllexer.buildCombinedTrie
+         0     0%   100%   512.12kB  1.84%  github.com/DataDog/go-sqllexer.init
+         0     0%   100%  1024.98kB  3.68%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%   512.05kB  1.84%  github.com/aws/aws-sdk-go-v2/service/signin/schemas.init
+         0     0%   100%   512.02kB  1.84%  github.com/aws/aws-sdk-go-v2/service/ssooidc/schemas.init
+         0     0%   100%   512.05kB  1.84%  github.com/distribution/reference.init
+         0     0%   100%   512.88kB  1.84%  github.com/go-openapi/swag.init
+         0     0%   100%   512.88kB  1.84%  github.com/go-openapi/swag/mangling.(*NameMangler).addInitialisms
+         0     0%   100%   512.88kB  1.84%  github.com/go-openapi/swag/mangling.NewNameMangler
+         0     0%   100% 13084.16kB 47.00%  github.com/hashicorp/golang-lru/v2.(*Cache[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).Add

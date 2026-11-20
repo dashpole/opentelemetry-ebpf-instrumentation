@@ -1,0 +1,31 @@
+PID=12  cgroup.current=121.38 MiB  cgroup.peak=123.51 MiB
+  cgroup.stat: anon=67.00 file=0.00 kernel=39.38 slab=7.27(unrecl=6.59) percpu=0.17 vmalloc=29.67 pagetables=0.73
+  proc.status: VmRSS=130632 kB VmHWM=132052 kB RssAnon=60716 kB RssFile=2148 kB Threads=20
+  BPF maps=198 memlock=31.16 MiB | BPF progs=171 memlock=2.74 MiB | BPF total=33.89 MiB
+  BPF maps by type: Array=0.70MiB Hash=28.54MiB LRUHash=0.03MiB PerCPUArray=0.77MiB ProgramArray=0.00MiB RingBuf=1.11MiB
+  Top 25 BPF maps by real kernel memlock:
+     1. id=7466  events           RingBuf       k=  0 v=    0 max=1048576 flg=0 memlock=  1.02 MiB
+     2. id=7588  server_conn_gor  Hash          k= 16 v=   16 max=  30000 flg=1 memlock=  0.50 MiB
+     3. id=7464  ongoing_gorouti  Hash          k= 16 v=   24 max=  30000 flg=1 memlock=  0.50 MiB
+     4. id=7463  active_ssl_conn  Hash          k= 40 v=    8 max=  30000 flg=1 memlock=  0.50 MiB
+     5. id=7490  go_trace_map     Hash          k= 16 v=   48 max=  30000 flg=1 memlock=  0.50 MiB
+     6. id=7518  ongoing_http     Hash          k= 40 v=  424 max=  30000 flg=1 memlock=  0.50 MiB
+     7. id=7514  clone_map        Hash          k= 12 v=   12 max=  30000 flg=1 memlock=  0.50 MiB
+     8. id=7487  trace_map        Hash          k= 40 v=   56 max=  30000 flg=1 memlock=  0.50 MiB
+     9. id=7470  server_traces    Hash          k= 24 v=   56 max=  30000 flg=1 memlock=  0.50 MiB
+    10. id=7478  python_context_  Hash          k= 16 v=   24 max=  30000 flg=1 memlock=  0.50 MiB
+    11. id=7468  cp_support_conn  Hash          k= 40 v=   40 max=  30000 flg=1 memlock=  0.50 MiB
+    12. id=7457  active_ssl_read  Hash          k=  8 v=   32 max=  30000 flg=1 memlock=  0.50 MiB
+    13. id=7544  pid_tid_to_conn  Hash          k=  8 v=   48 max=  30000 flg=1 memlock=  0.50 MiB
+    14. id=7465  ongoing_tcp_req  Hash          k= 40 v=  544 max=  30000 flg=1 memlock=  0.50 MiB
+    15. id=7602  ongoing_server_  Hash          k= 16 v=   48 max=  30000 flg=1 memlock=  0.50 MiB
+    16. id=7507  http_server_tra  Hash          k= 20 v=   64 max=  30000 flg=1 memlock=  0.50 MiB
+    17. id=7475  nodejs_fd_map    Hash          k=  8 v=    4 max=  30000 flg=1 memlock=  0.50 MiB
+    18. id=7458  server_traces_a  Hash          k= 24 v=   56 max=  30000 flg=1 memlock=  0.50 MiB
+    19. id=7449  connection_trac  Hash          k= 36 v=   16 max=  30000 flg=1 memlock=  0.50 MiB
+    20. id=7502  ssl_to_conn      Hash          k= 16 v=   48 max=  30000 flg=1 memlock=  0.50 MiB
+    21. id=7488  ongoing_http2_g  Hash          k= 44 v=  456 max=  30000 flg=1 memlock=  0.50 MiB
+    22. id=7494  python_task_sta  Hash          k= 16 v=   48 max=  30000 flg=1 memlock=  0.50 MiB
+    23. id=7486  active_ssl_writ  Hash          k=  8 v=   32 max=  30000 flg=1 memlock=  0.50 MiB
+    24. id=7454  fd_to_connectio  Hash          k= 16 v=   36 max=  30000 flg=1 memlock=  0.50 MiB
+    25. id=7452  python_thread_s  Hash          k=  8 v=   32 max=  30000 flg=1 memlock=  0.50 MiB

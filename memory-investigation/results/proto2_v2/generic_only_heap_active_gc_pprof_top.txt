@@ -1,0 +1,47 @@
+File: obi
+Build ID: 371bc8850325075ec00d40904bffc7e151357b51
+Type: inuse_space
+Time: 2026-11-20 20:10:16 UTC
+Showing nodes accounting for 10001.35kB, 100% of 10001.35kB total
+Showing top 40 nodes out of 71
+      flat  flat%   sum%        cum   cum%
+ 3091.33kB 30.91% 30.91%  3091.33kB 30.91%  runtime.mallocgc
+  858.34kB  8.58% 39.49%   858.34kB  8.58%  reflect.compiledTypelinks
+  809.97kB  8.10% 47.59%   809.97kB  8.10%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  618.49kB  6.18% 53.77%   618.49kB  6.18%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  525.43kB  5.25% 59.03%   525.43kB  5.25%  github.com/go-playground/validator/v10.map.init.7
+  512.88kB  5.13% 64.16%   512.88kB  5.13%  go.opentelemetry.io/obi/pkg/appolly/discover.newInjectionQueue[go.shape.struct { Pid go.opentelemetry.io/obi/pkg/appolly/app.PID; Process *go.opentelemetry.io/obi/pkg/internal/procs.ProcessHandle }] (inline)
+  512.56kB  5.12% 69.28%   512.56kB  5.12%  google.golang.org/protobuf/internal/filedesc.(*Enum).unmarshalSeed
+  512.11kB  5.12% 74.40%   512.11kB  5.12%  github.com/aws/smithy-go.(*Schema).AddMember
+  512.11kB  5.12% 79.52%   512.11kB  5.12%  github.com/aws/smithy-go.NewSchema
+  512.05kB  5.12% 84.64%   512.05kB  5.12%  os/signal.NotifyContext.func1
+  512.05kB  5.12% 89.76%   512.05kB  5.12%  github.com/gabriel-vasile/mimetype.newMIME (inline)
+  512.02kB  5.12% 94.88%   512.02kB  5.12%  math/big.nat.make
+     512kB  5.12%   100%      512kB  5.12%  go.opentelemetry.io/obi/pkg/appolly/app/request.map.init.0
+         0     0%   100%   858.34kB  8.58%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  8.58%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  8.58%  encoding/gob.getType
+         0     0%   100%   858.34kB  8.58%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  8.58%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  8.58%  encoding/gob.init
+         0     0%   100%   858.34kB  8.58%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  8.58%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  8.58%  encoding/gob.userType
+         0     0%   100%   858.34kB  8.58%  encoding/gob.validUserType
+         0     0%   100%   512.11kB  5.12%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%   512.11kB  5.12%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.05kB  5.12%  github.com/gabriel-vasile/mimetype.init
+         0     0%   100%   525.43kB  5.25%  github.com/go-playground/validator/v10.init
+         0     0%   100%      512kB  5.12%  go.opentelemetry.io/obi/pkg/appolly/app/request.init
+         0     0%   100%  1322.85kB 13.23%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1
+         0     0%   100%   809.97kB  8.10%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1.1
+         0     0%   100%   809.97kB  8.10%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).getTracer
+         0     0%   100%   809.97kB  8.10%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).monitorPIDs
+         0     0%   100%   512.88kB  5.13%  go.opentelemetry.io/obi/pkg/appolly/discover.newNodeInjectionQueue (inline)
+         0     0%   100%   809.97kB  8.10%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).AllowPID (inline)
+         0     0%   100%   618.49kB  6.18%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner.func1
+         0     0%   100%   809.97kB  8.10%  go.opentelemetry.io/obi/pkg/internal/ebpf/generictracer.(*Tracer).AllowPID
+         0     0%   100%   809.97kB  8.10%  go.opentelemetry.io/obi/pkg/internal/ebpf/generictracer.(*Tracer).rebuildValidPids
+         0     0%   100%  1322.85kB 13.23%  go.opentelemetry.io/obi/pkg/pipe/swarm.(*Runner).Start.func2
+         0     0%   100%   809.97kB  8.10%  go.opentelemetry.io/obi/pkg/pipe/swarm/swarms.ForEachInput[go.shape.[]go.opentelemetry.io/obi/pkg/appolly/discover.Event[go.opentelemetry.io/obi/pkg/ebpf.Instrumentable]]
+         0     0%   100%   512.56kB  5.12%  google.golang.org/genproto/googleapis/rpc/code.file_google_rpc_code_proto_init

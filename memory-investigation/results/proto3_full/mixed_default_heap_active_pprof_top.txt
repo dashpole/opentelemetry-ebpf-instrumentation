@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:33:16 UTC
+Showing nodes accounting for 12267.04kB, 100% of 12267.04kB total
+Showing top 40 nodes out of 64
+      flat  flat%   sum%        cum   cum%
+ 3084.29kB 25.14% 25.14%  3084.29kB 25.14%  runtime.mallocgc
+ 1236.99kB 10.08% 35.23%  2368.50kB 19.31%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+ 1131.52kB  9.22% 44.45%  1131.52kB  9.22%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).flushEvents
+ 1029.20kB  8.39% 52.84%  1029.20kB  8.39%  github.com/aws/aws-sdk-go-v2/service/sso/internal/endpoints.init
+  858.34kB  7.00% 59.84%   858.34kB  7.00%  reflect.compiledTypelinks
+  809.97kB  6.60% 66.44%   809.97kB  6.60%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  525.43kB  4.28% 70.72%   525.43kB  4.28%  k8s.io/apimachinery/pkg/api/meta.init
+  518.65kB  4.23% 74.95%   518.65kB  4.23%  github.com/go-playground/validator/v10.map.init.3
+  512.34kB  4.18% 79.13%   512.34kB  4.18%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypeWithName
+  512.20kB  4.18% 83.30%   512.20kB  4.18%  go.opentelemetry.io/obi/pkg/internal/pythontools.map.init.1
+  512.05kB  4.17% 87.48%   512.05kB  4.17%  os/signal.NotifyContext.func1
+  512.02kB  4.17% 91.65%   512.02kB  4.17%  github.com/hashicorp/golang-lru/v2/expirable.NewLRU[go.shape.struct { HostPID uint32; ID uint16 },go.shape.*uint8]
+  512.02kB  4.17% 95.83%   512.02kB  4.17%  go.opentelemetry.io/obi/pkg/internal/ebpf/watcher.(*Watcher).Run
+  512.01kB  4.17%   100%   512.01kB  4.17%  go.mongodb.org/mongo-driver/v2/bson.registerDefaultDecoders
+         0     0%   100%   858.34kB  7.00%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  7.00%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  7.00%  encoding/gob.getType
+         0     0%   100%   858.34kB  7.00%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  7.00%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  7.00%  encoding/gob.init
+         0     0%   100%   858.34kB  7.00%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  7.00%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  7.00%  encoding/gob.userType
+         0     0%   100%   858.34kB  7.00%  encoding/gob.validUserType
+         0     0%   100%   518.65kB  4.23%  github.com/go-playground/validator/v10.init
+         0     0%   100%   512.01kB  4.17%  go.mongodb.org/mongo-driver/v2/bson.NewRegistry
+         0     0%   100%   512.01kB  4.17%  go.mongodb.org/mongo-driver/v2/bson.init
+         0     0%   100%   809.97kB  6.60%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1
+         0     0%   100%   809.97kB  6.60%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1.1
+         0     0%   100%   809.97kB  6.60%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).getTracer
+         0     0%   100%   809.97kB  6.60%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).monitorPIDs
+         0     0%   100%   809.97kB  6.60%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).AllowPID (inline)
+         0     0%   100%   512.02kB  4.17%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).Run.func1
+         0     0%   100%  2368.50kB 19.31%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner.func1
+         0     0%   100%   512.02kB  4.17%  go.opentelemetry.io/obi/pkg/ebpf/common.NewEBPFParseContext
+         0     0%   100%   809.97kB  6.60%  go.opentelemetry.io/obi/pkg/internal/ebpf/generictracer.(*Tracer).AllowPID
+         0     0%   100%   512.02kB  4.17%  go.opentelemetry.io/obi/pkg/internal/ebpf/generictracer.(*Tracer).Run
+         0     0%   100%   809.97kB  6.60%  go.opentelemetry.io/obi/pkg/internal/ebpf/generictracer.(*Tracer).rebuildValidPids
+         0     0%   100%   512.20kB  4.18%  go.opentelemetry.io/obi/pkg/internal/pythontools.init
+         0     0%   100%   809.97kB  6.60%  go.opentelemetry.io/obi/pkg/pipe/swarm.(*Runner).Start.func2

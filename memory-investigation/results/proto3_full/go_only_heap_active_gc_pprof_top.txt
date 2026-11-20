@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:32:31 UTC
+Showing nodes accounting for 12356.94kB, 100% of 12356.94kB total
+Showing top 40 nodes out of 90
+      flat  flat%   sum%        cum   cum%
+ 4117.33kB 33.32% 33.32%  4117.33kB 33.32%  runtime.mallocgc
+ 1024.22kB  8.29% 41.61%  1024.22kB  8.29%  github.com/aws/smithy-go.(*Schema).AddMember
+ 1024.02kB  8.29% 49.90%  1024.02kB  8.29%  google.golang.org/protobuf/internal/impl.(*atomicNilMessage).Init
+  526.13kB  4.26% 54.15%   526.13kB  4.26%  github.com/google/gnostic-models/openapiv3.init
+  525.43kB  4.25% 58.41%   525.43kB  4.25%  github.com/go-playground/validator/v10.map.init.7
+  518.65kB  4.20% 62.60%   518.65kB  4.20%  go.opentelemetry.io/obi/pkg/internal/nodejstools.map.init.1
+  515.19kB  4.17% 66.77%   515.19kB  4.17%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner
+  515.19kB  4.17% 70.94%   515.19kB  4.17%  strings.(*Replacer).build
+     515kB  4.17% 75.11%      515kB  4.17%  regexp/syntax.(*compiler).inst (inline)
+     514kB  4.16% 79.27%      514kB  4.16%  google.golang.org/protobuf/internal/filedesc.(*File).initDecls
+  513.56kB  4.16% 83.42%   513.56kB  4.16%  sync.(*Pool).pinSlow
+  512.11kB  4.14% 87.57%   512.11kB  4.14%  github.com/aws/smithy-go.NewSchema
+  512.05kB  4.14% 91.71%   512.05kB  4.14%  regexp/syntax.(*parser).newRegexp (inline)
+  512.03kB  4.14% 95.86%   512.03kB  4.14%  bufio.NewWriterSize
+  512.01kB  4.14%   100%   512.01kB  4.14%  google.golang.org/protobuf/reflect/protoregistry.(*Files).RegisterFile
+         0     0%   100%   512.05kB  4.14%  github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime/datetime.init
+         0     0%   100%   512.11kB  4.14%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%   512.11kB  4.14%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.11kB  4.14%  github.com/aws/aws-sdk-go-v2/service/ssooidc/schemas.init.0
+         0     0%   100%   525.43kB  4.25%  github.com/go-playground/validator/v10.init
+         0     0%   100%   512.01kB  4.14%  github.com/google/gnostic-models/openapiv2.file_openapiv2_OpenAPIv2_proto_init
+         0     0%   100%   512.01kB  4.14%  github.com/google/gnostic-models/openapiv2.init.0
+         0     0%   100%  1024.02kB  8.29%  github.com/google/gnostic-models/openapiv3.file_openapiv3_annotations_proto_init
+         0     0%   100%  1024.02kB  8.29%  github.com/google/gnostic-models/openapiv3.init.1
+         0     0%   100%   515.19kB  4.17%  github.com/prometheus/client_golang/prometheus/promhttp.HandlerForTransactional.func1
+         0     0%   100%   515.19kB  4.17%  github.com/prometheus/common/expfmt.MetricFamilyToText
+         0     0%   100%   515.19kB  4.17%  github.com/prometheus/common/expfmt.NewEncoder.func7
+         0     0%   100%   515.19kB  4.17%  github.com/prometheus/common/expfmt.encoderCloser.Encode
+         0     0%   100%   515.19kB  4.17%  github.com/prometheus/common/expfmt.writeEscapedString
+         0     0%   100%   515.19kB  4.17%  github.com/prometheus/common/expfmt.writeNameAndLabelPairs
+         0     0%   100%   515.19kB  4.17%  github.com/prometheus/common/expfmt.writeSample
+         0     0%   100%   513.56kB  4.16%  go.opentelemetry.io/obi/pkg/appolly/discover.(*pollAccounter).run
+         0     0%   100%   513.56kB  4.16%  go.opentelemetry.io/obi/pkg/appolly/discover.(*procStatReader).getProcStartTime
+         0     0%   100%   513.56kB  4.16%  go.opentelemetry.io/obi/pkg/appolly/discover.(*procStatReader).getProcStatField
+         0     0%   100%   513.56kB  4.16%  go.opentelemetry.io/obi/pkg/appolly/discover.(*procStatReader).processAge
+         0     0%   100%   513.56kB  4.16%  go.opentelemetry.io/obi/pkg/appolly/discover.fetchProcessPorts
+         0     0%   100%   515.19kB  4.17%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).Run.func1
+         0     0%   100%   515.19kB  4.17%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).sharedReadAndForward
+         0     0%   100%   515.19kB  4.17%  go.opentelemetry.io/obi/pkg/internal/ebpf/gotracer.(*Tracer).Run
+         0     0%   100%      515kB  4.17%  go.opentelemetry.io/obi/pkg/internal/helpers/container.init

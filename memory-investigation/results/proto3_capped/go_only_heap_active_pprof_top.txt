@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:36:20 UTC
+Showing nodes accounting for 11840.72kB, 100% of 11840.72kB total
+Showing top 40 nodes out of 95
+      flat  flat%   sum%        cum   cum%
+ 4631.08kB 39.11% 39.11%  4631.08kB 39.11%  runtime.mallocgc
+ 1024.15kB  8.65% 47.76%  1024.15kB  8.65%  github.com/aws/smithy-go.(*Schema).addTrait
+  858.34kB  7.25% 55.01%   858.34kB  7.25%  reflect.compiledTypelinks
+  618.49kB  5.22% 60.23%  1210.25kB 10.22%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  591.75kB  5.00% 65.23%   591.75kB  5.00%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDsFilter).Filter
+  526.13kB  4.44% 69.67%   526.13kB  4.44%  github.com/google/gnostic-models/openapiv3.init
+  516.64kB  4.36% 74.04%   516.64kB  4.36%  reflect.addReflectOff
+  513.31kB  4.34% 78.37%   513.31kB  4.34%  go.opentelemetry.io/proto/otlp/trace/v1.init
+  512.69kB  4.33% 82.70%   512.69kB  4.33%  regexp/syntax.(*compiler).inst (inline)
+  512.08kB  4.32% 87.03%  1024.09kB  8.65%  go.opentelemetry.io/obi/pkg/export/prom.labelValues[go.shape.*uint8]
+  512.02kB  4.32% 91.35%   512.02kB  4.32%  go.opentelemetry.io/obi/pkg/internal/ebpf/watcher.(*Watcher).Run
+  512.02kB  4.32% 95.68%   512.02kB  4.32%  strings.genSplit
+  512.02kB  4.32%   100%   512.02kB  4.32%  syscall.anyToSockaddr
+         0     0%   100%   858.34kB  7.25%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  7.25%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  7.25%  encoding/gob.getType
+         0     0%   100%   858.34kB  7.25%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  7.25%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  7.25%  encoding/gob.init
+         0     0%   100%   858.34kB  7.25%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  7.25%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  7.25%  encoding/gob.userType
+         0     0%   100%   858.34kB  7.25%  encoding/gob.validUserType
+         0     0%   100%   516.64kB  4.36%  encoding/json.Unmarshal
+         0     0%   100%   516.64kB  4.36%  encoding/json/v2.Unmarshal
+         0     0%   100%   516.64kB  4.36%  encoding/json/v2.makeStructArshaler.func1
+         0     0%   100%   516.64kB  4.36%  encoding/json/v2.makeStructArshaler.func3
+         0     0%   100%   516.64kB  4.36%  encoding/json/v2.makeStructFields
+         0     0%   100%   516.64kB  4.36%  encoding/json/v2.makeStructFields.func3
+         0     0%   100%   516.64kB  4.36%  encoding/json/v2.unmarshalDecode
+         0     0%   100%   512.09kB  4.32%  github.com/aws/aws-sdk-go-v2/service/signin/schemas.init.0
+         0     0%   100%   512.05kB  4.32%  github.com/aws/aws-sdk-go-v2/service/sso/schemas.init
+         0     0%   100%   512.09kB  4.32%  github.com/aws/smithy-go.(*Schema).AddMember
+         0     0%   100%   512.05kB  4.32%  github.com/aws/smithy-go.NewSchema
+         0     0%   100%   512.02kB  4.32%  go.opentelemetry.io/obi/pkg/appolly/app/request.HTTPScheme
+         0     0%   100%   512.02kB  4.32%  go.opentelemetry.io/obi/pkg/appolly/app/request.spanOTELGetters.func10
+         0     0%   100%   512.02kB  4.32%  go.opentelemetry.io/obi/pkg/appolly/app/request.spanPromGetters.func2
+         0     0%   100%  1210.25kB 10.22%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner.func1
+         0     0%   100%   512.69kB  4.33%  go.opentelemetry.io/obi/pkg/ebpf/common/http.init
+         0     0%   100%  1024.09kB  8.65%  go.opentelemetry.io/obi/pkg/export/prom.(*metricsReporter).collectMetrics

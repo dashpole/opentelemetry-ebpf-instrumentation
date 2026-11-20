@@ -1,0 +1,47 @@
+File: obi
+Build ID: 503d6d6183b36bdd535eca7c23a309036e3a3f00
+Type: inuse_space
+Time: 2026-11-20 18:57:06 UTC
+Showing nodes accounting for 13910.69kB, 100% of 13910.69kB total
+Showing top 40 nodes out of 122
+      flat  flat%   sum%        cum   cum%
+ 3597.29kB 25.86% 25.86%  3597.29kB 25.86%  runtime.mallocgc
+ 1133.89kB  8.15% 34.01%  1133.89kB  8.15%  go.opentelemetry.io/obi/pkg/internal/netolly/ebpf.chooseMapReader
+ 1031.52kB  7.42% 41.43%  1031.52kB  7.42%  regexp/syntax.(*compiler).inst (inline)
+ 1024.03kB  7.36% 48.79%  1024.03kB  7.36%  github.com/google/gnostic-models/openapiv3.file_openapiv3_OpenAPIv3_proto_init
+  858.34kB  6.17% 54.96%   858.34kB  6.17%  reflect.compiledTypelinks
+  618.49kB  4.45% 59.40%   618.49kB  4.45%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  520.04kB  3.74% 63.14%   520.04kB  3.74%  hash/crc64.makeSlicingBy8Table
+  518.65kB  3.73% 66.87%   518.65kB  3.73%  github.com/xwb1989/sqlparser.map.init.1
+  512.11kB  3.68% 70.55%   512.11kB  3.68%  github.com/aws/smithy-go.(*Schema).AddMember
+  512.10kB  3.68% 74.23%   512.10kB  3.68%  go.opentelemetry.io/obi/pkg/internal/goexec.map.init.0
+  512.06kB  3.68% 77.92%   512.06kB  3.68%  go.opentelemetry.io/obi/pkg/export/prom.labelNames[go.shape.*uint8]
+  512.05kB  3.68% 81.60%   512.05kB  3.68%  net/http.(*persistConn).roundTrip
+  512.02kB  3.68% 85.28%  1025.52kB  7.37%  github.com/opencontainers/go-digest.init
+  512.02kB  3.68% 88.96%   512.02kB  3.68%  go.opentelemetry.io/obi/pkg/export/connector.(*PrometheusManager).StartHTTP
+  512.02kB  3.68% 92.64%   512.02kB  3.68%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypeWithName
+  512.01kB  3.68% 96.32%   512.01kB  3.68%  encoding/json/v2.makeStructArshaler (inline)
+  512.01kB  3.68%   100%   512.01kB  3.68%  github.com/cilium/ebpf/internal/sys.newFD
+         0     0%   100%   512.05kB  3.68%  cloud.google.com/go/compute/metadata.init.func1
+         0     0%   100%   858.34kB  6.17%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  6.17%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  6.17%  encoding/gob.getType
+         0     0%   100%   858.34kB  6.17%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  6.17%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  6.17%  encoding/gob.init
+         0     0%   100%   858.34kB  6.17%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  6.17%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  6.17%  encoding/gob.userType
+         0     0%   100%   858.34kB  6.17%  encoding/gob.validUserType
+         0     0%   100%   512.01kB  3.68%  encoding/json.Unmarshal
+         0     0%   100%   512.01kB  3.68%  encoding/json/v2.Unmarshal
+         0     0%   100%   512.01kB  3.68%  encoding/json/v2.lookupArshaler
+         0     0%   100%   512.01kB  3.68%  encoding/json/v2.makeDefaultArshaler
+         0     0%   100%   512.01kB  3.68%  encoding/json/v2.unmarshalDecode
+         0     0%   100%   512.11kB  3.68%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.01kB  3.68%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign
+         0     0%   100%   512.01kB  3.68%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign.func1
+         0     0%   100%   512.01kB  3.68%  github.com/cilium/ebpf.(*collectionLoader).loadProgram
+         0     0%   100%   512.01kB  3.68%  github.com/cilium/ebpf.assignValues
+         0     0%   100%   512.01kB  3.68%  github.com/cilium/ebpf.newProgramWithOptions
+         0     0%   100%   512.01kB  3.68%  github.com/cilium/ebpf/internal/sys.NewFD

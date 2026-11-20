@@ -1,0 +1,47 @@
+File: obi
+Build ID: 371bc8850325075ec00d40904bffc7e151357b51
+Type: inuse_space
+Time: 2026-11-20 20:16:35 UTC
+Showing nodes accounting for 16792.80kB, 100% of 16792.80kB total
+Showing top 40 nodes out of 129
+      flat  flat%   sum%        cum   cum%
+ 4116.38kB 24.51% 24.51%  4628.39kB 27.56%  runtime.mallocgc
+ 1133.89kB  6.75% 31.26%  1133.89kB  6.75%  go.opentelemetry.io/obi/pkg/internal/netolly/ebpf.chooseMapReader
+ 1024.23kB  6.10% 37.36%  1024.23kB  6.10%  github.com/DataDog/go-sqllexer.addToTrie
+  858.34kB  5.11% 42.48%   858.34kB  5.11%  reflect.compiledTypelinks
+  809.97kB  4.82% 47.30%   809.97kB  4.82%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  618.49kB  3.68% 50.98%   618.49kB  3.68%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  526.13kB  3.13% 54.12%   526.13kB  3.13%  github.com/google/gnostic-models/openapiv3.init
+  525.43kB  3.13% 57.24%   525.43kB  3.13%  github.com/go-playground/validator/v10.map.init.7
+  518.65kB  3.09% 60.33%   518.65kB  3.09%  maps.Copy[go.shape.map[string]uint64,go.shape.map[string]uint64,go.shape.string,go.shape.uint64]
+  516.64kB  3.08% 63.41%   516.64kB  3.08%  github.com/aws/aws-sdk-go-v2/service/ssooidc/internal/endpoints.init
+  512.14kB  3.05% 66.46%   512.14kB  3.05%  k8s.io/api/core/v1.map.init.44
+  512.14kB  3.05% 69.51%   512.14kB  3.05%  k8s.io/api/extensions/v1beta1.map.init.0
+  512.11kB  3.05% 72.56%   512.11kB  3.05%  github.com/aws/smithy-go.NewSchema
+  512.10kB  3.05% 75.61%   512.10kB  3.05%  github.com/aws/smithy-go.(*Schema).AddMember
+  512.05kB  3.05% 78.66%   512.05kB  3.05%  sync.runtime_SemacquireWaitGroup
+  512.02kB  3.05% 81.71%  1024.04kB  6.10%  go.opentelemetry.io/obi/pkg/export/prom.labelValues[go.shape.*uint8]
+  512.02kB  3.05% 84.76%   512.02kB  3.05%  k8s.io/api/resource/v1beta2.init
+  512.02kB  3.05% 87.80%   512.02kB  3.05%  net.SplitHostPort.func1 (inline)
+  512.01kB  3.05% 90.85%   512.01kB  3.05%  github.com/cilium/ebpf/internal/sys.newFD
+  512.01kB  3.05% 93.90%   512.01kB  3.05%  github.com/prometheus/client_golang/prometheus.MakeLabelPairs
+  512.01kB  3.05% 96.95%   512.01kB  3.05%  github.com/prometheus/client_golang/prometheus.init.func1
+  512.01kB  3.05%   100%   512.01kB  3.05%  runtime.mallocgcSmallScanNoHeaderSC2
+         0     0%   100%   858.34kB  5.11%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  5.11%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  5.11%  encoding/gob.getType
+         0     0%   100%   858.34kB  5.11%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  5.11%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  5.11%  encoding/gob.init
+         0     0%   100%   858.34kB  5.11%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  5.11%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  5.11%  encoding/gob.userType
+         0     0%   100%   858.34kB  5.11%  encoding/gob.validUserType
+         0     0%   100%  1024.23kB  6.10%  github.com/DataDog/go-sqllexer.buildCombinedTrie
+         0     0%   100%  1024.23kB  6.10%  github.com/DataDog/go-sqllexer.init
+         0     0%   100%   512.11kB  3.05%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%   512.10kB  3.05%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.01kB  3.05%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign
+         0     0%   100%   512.01kB  3.05%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign.func1
+         0     0%   100%   512.01kB  3.05%  github.com/cilium/ebpf.(*collectionLoader).loadProgram
+         0     0%   100%   512.01kB  3.05%  github.com/cilium/ebpf.assignValues

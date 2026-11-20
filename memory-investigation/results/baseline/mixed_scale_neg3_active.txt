@@ -1,0 +1,31 @@
+PID=12  cgroup.current=155.84 MiB  cgroup.peak=157.84 MiB
+  cgroup.stat: anon=62.52 file=0.00 kernel=54.42 slab=10.81(unrecl=9.18) percpu=0.26 vmalloc=41.82 pagetables=0.83
+  proc.status: VmRSS=133072 kB VmHWM=141304 kB RssAnon=56056 kB RssFile=424 kB Threads=23
+  BPF maps=236 memlock=48.33 MiB | BPF progs=253 memlock=3.52 MiB | BPF total=51.85 MiB
+  BPF maps by type: Array=1.62MiB Hash=1.78MiB LRUHash=40.59MiB PerCPUArray=4.12MiB ProgramArray=0.00MiB RingBuf=0.23MiB
+  Top 25 BPF maps by real kernel memlock:
+     1. id=3718  ongoing_tcp_req  LRUHash       k= 40 v=  544 max=   3750 flg=0 memlock=  2.32 MiB
+     2. id=3727  ongoing_http2_g  LRUHash       k= 44 v=  456 max=   3750 flg=0 memlock=  2.04 MiB
+     3. id=3720  ongoing_http     LRUHash       k= 40 v=  424 max=   3750 flg=0 memlock=  1.89 MiB
+     4. id=3735  go_offsets_map   LRUHash       k= 16 v= 1208 max=   1250 flg=0 memlock=  1.55 MiB
+     5. id=3782  traces_ctx_v1    LRUHash       k=  8 v=   24 max=  16384 flg=0 memlock=  1.50 MiB
+     6. id=3760  java_http1_requ  Array         k=  4 v=  112 max=  10000 flg=0 memlock=  1.07 MiB
+     7. id=3803  tcp_large_buffe  PerCPUArray   k=  4 v=32768 max=      1 flg=0 memlock=  0.75 MiB
+     8. id=3873  tcp_large_buffe  PerCPUArray   k=  4 v=32768 max=      1 flg=0 memlock=  0.75 MiB
+     9. id=3763  http1_header_sc  LRUHash       k= 40 v=   84 max=   3750 flg=0 memlock=  0.69 MiB
+    10. id=3901  ongoing_mongo_r  LRUHash       k= 16 v=  480 max=   1250 flg=0 memlock=  0.68 MiB
+    11. id=3893  ongoing_http_se  LRUHash       k= 16 v=  400 max=   1250 flg=0 memlock=  0.59 MiB
+    12. id=3717  trace_map        LRUHash       k= 40 v=   56 max=   3750 flg=0 memlock=  0.58 MiB
+    13. id=3929  ongoing_redis_r  LRUHash       k= 16 v=  376 max=   1250 flg=0 memlock=  0.56 MiB
+    14. id=3745  http_server_tra  LRUHash       k= 20 v=   64 max=   3750 flg=0 memlock=  0.55 MiB
+    15. id=3707  server_traces_a  LRUHash       k= 24 v=   56 max=   3750 flg=0 memlock=  0.52 MiB
+    16. id=3732  cp_support_conn  LRUHash       k= 40 v=   40 max=   3750 flg=0 memlock=  0.52 MiB
+    17. id=3761  server_traces    LRUHash       k= 24 v=   56 max=   3750 flg=0 memlock=  0.52 MiB
+    18. id=3919  ongoing_http_cl  LRUHash       k= 16 v=  344 max=   1250 flg=0 memlock=  0.52 MiB
+    19. id=3709  valid_pids       Array         k=  4 v=    8 max=  65536 flg=0 memlock=  0.50 MiB
+    20. id=3935  kafka_requests   LRUHash       k= 16 v=  328 max=   1250 flg=0 memlock=  0.50 MiB
+    21. id=3741  go_trace_map     LRUHash       k= 16 v=   48 max=   3750 flg=0 memlock=  0.46 MiB
+    22. id=3830  go_h2_owned_str  LRUHash       k= 52 v=    8 max=   3750 flg=0 memlock=  0.46 MiB
+    23. id=3737  ssl_to_conn      LRUHash       k= 16 v=   48 max=   3750 flg=0 memlock=  0.46 MiB
+    24. id=3743  python_task_sta  LRUHash       k= 16 v=   48 max=   3750 flg=0 memlock=  0.46 MiB
+    25. id=3722  ongoing_server_  LRUHash       k= 16 v=   48 max=   3750 flg=0 memlock=  0.46 MiB

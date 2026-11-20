@@ -1,0 +1,47 @@
+File: obi
+Build ID: 371bc8850325075ec00d40904bffc7e151357b51
+Type: inuse_space
+Time: 2026-11-20 20:10:58 UTC
+Showing nodes accounting for 15351.21kB, 100% of 15351.21kB total
+Showing top 40 nodes out of 82
+      flat  flat%   sum%        cum   cum%
+ 4117.32kB 26.82% 26.82%  4117.32kB 26.82%  runtime.mallocgc
+ 2560.53kB 16.68% 43.50%  2560.53kB 16.68%  github.com/aws/smithy-go.(*Schema).AddMember
+ 1536.42kB 10.01% 53.51%  1536.42kB 10.01%  github.com/aws/smithy-go.NewSchema
+    1027kB  6.69% 60.20%     1027kB  6.69%  google.golang.org/protobuf/internal/filedesc.(*File).initDecls
+  858.34kB  5.59% 65.79%   858.34kB  5.59%  reflect.compiledTypelinks
+  618.49kB  4.03% 69.82%   618.49kB  4.03%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  524.09kB  3.41% 73.23%   524.09kB  3.41%  regexp/syntax.(*compiler).inst (inline)
+  518.02kB  3.37% 76.61%   518.02kB  3.37%  google.golang.org/protobuf/types/descriptorpb.init
+  516.64kB  3.37% 79.97%   516.64kB  3.37%  github.com/go-playground/validator/v10.New
+  512.88kB  3.34% 83.31%   512.88kB  3.34%  github.com/prometheus/client_golang/prometheus.(*Registry).Register
+  512.88kB  3.34% 86.66%   512.88kB  3.34%  go.opentelemetry.io/obi/pkg/internal/pythontools/frameworks.optionSet (inline)
+  512.28kB  3.34% 89.99%   512.28kB  3.34%  k8s.io/api/apps/v1beta1.map.init.3
+  512.14kB  3.34% 93.33%   512.14kB  3.34%  k8s.io/api/resource/v1beta2.init
+  512.12kB  3.34% 96.66%   512.12kB  3.34%  go.opentelemetry.io/obi/pkg/export/attributes.buildGetterList[go.shape.*uint8,go.shape.string] (inline)
+  512.05kB  3.34%   100%   512.05kB  3.34%  os/signal.NotifyContext.func1
+         0     0%   100%   858.34kB  5.59%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  5.59%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  5.59%  encoding/gob.getType
+         0     0%   100%   858.34kB  5.59%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  5.59%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  5.59%  encoding/gob.init
+         0     0%   100%   858.34kB  5.59%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  5.59%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  5.59%  encoding/gob.userType
+         0     0%   100%   858.34kB  5.59%  encoding/gob.validUserType
+         0     0%   100%  1536.42kB 10.01%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%  2560.53kB 16.68%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   524.09kB  3.41%  github.com/go-playground/validator/v10.init
+         0     0%   100%   512.88kB  3.34%  github.com/prometheus/client_golang/prometheus.(*Registry).MustRegister (inline)
+         0     0%   100%  1024.99kB  6.68%  go.opentelemetry.io/obi/pkg/appolly.(*graphFunctions).buildGraph
+         0     0%   100%  1024.99kB  6.68%  go.opentelemetry.io/obi/pkg/appolly.BuildWithProtocolMetricSelection
+         0     0%   100%   618.49kB  4.03%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner.func1
+         0     0%   100%   512.12kB  3.34%  go.opentelemetry.io/obi/pkg/export/attributes.PrometheusGetters[go.shape.*uint8,go.shape.string]
+         0     0%   100%   512.88kB  3.34%  go.opentelemetry.io/obi/pkg/export/connector.(*PrometheusManager).Register
+         0     0%   100%  1024.99kB  6.68%  go.opentelemetry.io/obi/pkg/export/prom.PrometheusEndpoint.func1
+         0     0%   100%  1024.99kB  6.68%  go.opentelemetry.io/obi/pkg/export/prom.newReporter
+         0     0%   100%  1024.99kB  6.68%  go.opentelemetry.io/obi/pkg/instrumenter.runWithContextInfo.func2
+         0     0%   100%  1024.99kB  6.68%  go.opentelemetry.io/obi/pkg/instrumenter.setupAppO11y
+         0     0%   100%  1024.99kB  6.68%  go.opentelemetry.io/obi/pkg/internal/appolly.NewWithProtocolMetricSelection
+         0     0%   100%   512.88kB  3.34%  go.opentelemetry.io/obi/pkg/internal/pythontools/frameworks.init

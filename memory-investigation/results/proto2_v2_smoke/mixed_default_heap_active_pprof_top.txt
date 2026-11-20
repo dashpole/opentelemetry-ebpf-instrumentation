@@ -1,0 +1,47 @@
+File: obi
+Build ID: 37e4edfc00c0ebea45066c99e2283b5e7b63a9f4
+Type: inuse_space
+Time: 2026-11-20 20:41:48 UTC
+Showing nodes accounting for 14549.62kB, 100% of 14549.62kB total
+Showing top 40 nodes out of 89
+      flat  flat%   sum%        cum   cum%
+ 4629.57kB 31.82% 31.82%  4629.57kB 31.82%  runtime.mallocgc
+ 1536.32kB 10.56% 42.38%  1536.32kB 10.56%  github.com/aws/smithy-go.(*Schema).AddMember
+  858.34kB  5.90% 48.28%   858.34kB  5.90%  reflect.compiledTypelinks
+  809.97kB  5.57% 53.84%   809.97kB  5.57%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  565.76kB  3.89% 57.73%   565.76kB  3.89%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).flushEvents
+     514kB  3.53% 61.27%      514kB  3.53%  regexp.onePassCopy
+  513.56kB  3.53% 64.80%   513.56kB  3.53%  sync.(*Pool).pinSlow
+  512.88kB  3.53% 68.32%   512.88kB  3.53%  github.com/aws/aws-sdk-go-v2/aws/signer/internal/v4.init
+  512.44kB  3.52% 71.84%   512.44kB  3.52%  google.golang.org/protobuf/internal/filetype.init
+  512.16kB  3.52% 75.36%   512.16kB  3.52%  regexp/syntax.(*compiler).inst
+  512.14kB  3.52% 78.88%   512.14kB  3.52%  k8s.io/api/core/v1.init
+  512.14kB  3.52% 82.40%   512.14kB  3.52%  k8s.io/api/flowcontrol/v1beta3.init
+  512.14kB  3.52% 85.92%   512.14kB  3.52%  k8s.io/api/resource/v1.init
+  512.10kB  3.52% 89.44%   512.10kB  3.52%  github.com/vishvananda/netlink.init
+  512.08kB  3.52% 92.96%   512.08kB  3.52%  go.opentelemetry.io/obi/pkg/export/prom.labelValues[go.shape.*uint8]
+  512.02kB  3.52% 96.48%   512.02kB  3.52%  regexp/syntax.(*Regexp).CapNames
+  512.01kB  3.52%   100%   512.01kB  3.52%  github.com/go-playground/validator/v10.map.init.11
+         0     0%   100%   858.34kB  5.90%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  5.90%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  5.90%  encoding/gob.getType
+         0     0%   100%   858.34kB  5.90%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  5.90%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  5.90%  encoding/gob.init
+         0     0%   100%   858.34kB  5.90%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  5.90%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  5.90%  encoding/gob.userType
+         0     0%   100%   858.34kB  5.90%  encoding/gob.validUserType
+         0     0%   100%   513.56kB  3.53%  fmt.Fscan
+         0     0%   100%   513.56kB  3.53%  fmt.newScanState
+         0     0%   100%  1536.32kB 10.56%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.01kB  3.52%  github.com/go-playground/validator/v10.init
+         0     0%   100%   513.56kB  3.53%  github.com/prometheus/procfs.Proc.Stat
+         0     0%   100%   513.56kB  3.53%  go.opentelemetry.io/obi/pkg/appolly/discover.(*pollAccounter).run
+         0     0%   100%   809.97kB  5.57%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1
+         0     0%   100%   809.97kB  5.57%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1.1
+         0     0%   100%   809.97kB  5.57%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).getTracer
+         0     0%   100%   809.97kB  5.57%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).monitorPIDs
+         0     0%   100%   513.56kB  3.53%  go.opentelemetry.io/obi/pkg/appolly/discover.fetchProcessPorts
+         0     0%   100%   809.97kB  5.57%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).AllowPID (inline)
+         0     0%   100%   565.76kB  3.89%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop

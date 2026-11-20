@@ -1,0 +1,47 @@
+File: obi
+Build ID: 371bc8850325075ec00d40904bffc7e151357b51
+Type: inuse_space
+Time: 2026-11-20 20:12:18 UTC
+Showing nodes accounting for 13992.28kB, 100% of 13992.28kB total
+Showing top 40 nodes out of 65
+      flat  flat%   sum%        cum   cum%
+ 7700.55kB 55.03% 55.03%  7700.55kB 55.03%  runtime.mallocgc
+ 1024.21kB  7.32% 62.35%  1024.21kB  7.32%  github.com/aws/smithy-go.(*Schema).AddMember
+  858.34kB  6.13% 68.49%   858.34kB  6.13%  reflect.compiledTypelinks
+  809.97kB  5.79% 74.28%   809.97kB  5.79%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  524.09kB  3.75% 78.02%   524.09kB  3.75%  regexp/syntax.(*compiler).inst (inline)
+     514kB  3.67% 81.70%      514kB  3.67%  bufio.NewReaderSize (inline)
+  512.88kB  3.67% 85.36%   512.88kB  3.67%  go.opentelemetry.io/obi/pkg/internal/helpers.map.init.0
+  512.11kB  3.66% 89.02%   512.11kB  3.66%  github.com/aws/smithy-go.NewSchema
+  512.10kB  3.66% 92.68%   512.10kB  3.66%  github.com/aws/aws-sdk-go-v2/service/sso.init
+  512.02kB  3.66% 96.34%   512.02kB  3.66%  regexp/syntax.(*Regexp).CapNames
+  512.01kB  3.66%   100%   512.01kB  3.66%  k8s.io/api/flowcontrol/v1.init
+         0     0%   100%      514kB  3.67%  bufio.NewReader (inline)
+         0     0%   100%   858.34kB  6.13%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  6.13%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  6.13%  encoding/gob.getType
+         0     0%   100%   858.34kB  6.13%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  6.13%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  6.13%  encoding/gob.init
+         0     0%   100%   858.34kB  6.13%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  6.13%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  6.13%  encoding/gob.userType
+         0     0%   100%   858.34kB  6.13%  encoding/gob.validUserType
+         0     0%   100%  1024.21kB  7.32%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.11kB  3.66%  github.com/aws/aws-sdk-go-v2/service/ssooidc/schemas.init
+         0     0%   100%  1036.11kB  7.40%  github.com/distribution/reference.init
+         0     0%   100%   809.97kB  5.79%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1
+         0     0%   100%   809.97kB  5.79%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1.1
+         0     0%   100%   809.97kB  5.79%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).getTracer
+         0     0%   100%   809.97kB  5.79%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).monitorPIDs
+         0     0%   100%   809.97kB  5.79%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).AllowPID (inline)
+         0     0%   100%   809.97kB  5.79%  go.opentelemetry.io/obi/pkg/internal/ebpf/generictracer.(*Tracer).AllowPID
+         0     0%   100%   809.97kB  5.79%  go.opentelemetry.io/obi/pkg/internal/ebpf/generictracer.(*Tracer).rebuildValidPids
+         0     0%   100%   512.88kB  3.67%  go.opentelemetry.io/obi/pkg/internal/helpers.init
+         0     0%   100%   809.97kB  5.79%  go.opentelemetry.io/obi/pkg/pipe/swarm.(*Runner).Start.func2
+         0     0%   100%   809.97kB  5.79%  go.opentelemetry.io/obi/pkg/pipe/swarm/swarms.ForEachInput[go.shape.[]go.opentelemetry.io/obi/pkg/appolly/discover.Event[go.opentelemetry.io/obi/pkg/ebpf.Instrumentable]]
+         0     0%   100%      514kB  3.67%  net/http.(*conn).serve
+         0     0%   100%      514kB  3.67%  net/http.newBufioReader
+         0     0%   100%   858.34kB  6.13%  reflect.(*rtype).ptrTo
+         0     0%   100%   858.34kB  6.13%  reflect.PointerTo (inline)
+         0     0%   100%   858.34kB  6.13%  reflect.typesByString

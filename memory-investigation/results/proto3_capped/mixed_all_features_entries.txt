@@ -1,0 +1,17 @@
+Hash/LRUHash maps audited=150, non-empty=16, total_live_entries=26252
+  id=9086  pid_tid_to_conn  Hash     entries=6646   max=30000  flg=1 memlock=1239.78 KiB
+  id=9025  fd_map           Hash     entries=5745   max=30000  flg=1 memlock=1096.35 KiB
+  id=9012  server_traces_a  Hash     entries=5745   max=30000  flg=1 memlock=1275.88 KiB
+  id=8998  connection_trac  Hash     entries=5184   max=30000  flg=1 memlock=1079.88 KiB
+  id=8975  tcp_io_accum     Hash     entries=2047   max=2048   flg=1 memlock=272.88 KiB
+  id=9029  ongoing_gorouti  Hash     entries=806    max=30000  flg=1 memlock=588.44 KiB
+  id=9060  server_traces    Hash     entries=26     max=30000  flg=1 memlock=516.33 KiB
+  id=9056  clone_map        Hash     entries=22     max=2048   flg=1 memlock= 34.77 KiB
+  id=9042  fd_to_connectio  Hash     entries=14     max=30000  flg=1 memlock=514.41 KiB
+  id=9068  trace_map        Hash     entries=7      max=30000  flg=1 memlock=513.91 KiB
+  id=9010  listening_ports  Hash     entries=4      max=2048   flg=1 memlock= 33.16 KiB
+  id=9015  filter_ports     Hash     entries=2      max=2048   flg=1 memlock= 33.02 KiB
+  id=9041  cp_support_conn  Hash     entries=1      max=30000  flg=1 memlock=513.01 KiB
+  id=9143  go_auto_targets  Hash     entries=1      max=2048   flg=1 memlock= 32.95 KiB
+  id=9137  go_offsets_map   Hash     entries=1      max=1024   flg=1 memlock= 18.12 KiB
+  id=8988  tcp_sendmsg_soc  Hash     entries=1      max=2048   flg=1 memlock= 32.88 KiB

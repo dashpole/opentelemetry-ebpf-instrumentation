@@ -1,0 +1,47 @@
+File: obi
+Build ID: 03ff4d1718bb24c66c39a56672a03753db270d95
+Type: inuse_space
+Time: 2026-11-20 19:08:43 UTC
+Showing nodes accounting for 19252.66kB, 100% of 19252.66kB total
+Showing top 40 nodes out of 76
+      flat  flat%   sum%        cum   cum%
+ 6144.56kB 31.92% 31.92%  6144.56kB 31.92%  github.com/hashicorp/golang-lru/v2/internal.(*LruList[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).insertValue (inline)
+ 4258.08kB 22.12% 54.03% 10402.64kB 54.03%  github.com/hashicorp/golang-lru/v2/simplelru.(*LRU[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).Add
+ 3083.54kB 16.02% 70.05%  3083.54kB 16.02%  runtime.mallocgc
+ 1536.35kB  7.98% 78.03%  1536.35kB  7.98%  github.com/DataDog/go-sqllexer.addToTrie
+  858.34kB  4.46% 82.49%   858.34kB  4.46%  reflect.compiledTypelinks
+  809.97kB  4.21% 86.69%   809.97kB  4.21%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  513.50kB  2.67% 89.36%   513.50kB  2.67%  regexp/syntax.(*compiler).inst
+  512.14kB  2.66% 92.02%   512.14kB  2.66%  k8s.io/api/authentication/v1.init
+  512.10kB  2.66% 94.68%   512.10kB  2.66%  k8s.io/client-go/tools/cache.init
+  512.04kB  2.66% 97.34%   512.04kB  2.66%  github.com/cilium/ebpf.newProgramWithOptions
+  512.02kB  2.66%   100%   512.02kB  2.66%  github.com/prometheus/common/expfmt.init
+         0     0%   100%   858.34kB  4.46%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  4.46%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  4.46%  encoding/gob.getType
+         0     0%   100%   858.34kB  4.46%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  4.46%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  4.46%  encoding/gob.init
+         0     0%   100%   858.34kB  4.46%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  4.46%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  4.46%  encoding/gob.userType
+         0     0%   100%   858.34kB  4.46%  encoding/gob.validUserType
+         0     0%   100%  1536.35kB  7.98%  github.com/DataDog/go-sqllexer.buildCombinedTrie
+         0     0%   100%  1536.35kB  7.98%  github.com/DataDog/go-sqllexer.init
+         0     0%   100%   512.04kB  2.66%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign
+         0     0%   100%   512.04kB  2.66%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign.func1
+         0     0%   100%   512.04kB  2.66%  github.com/cilium/ebpf.(*collectionLoader).loadProgram
+         0     0%   100%   512.04kB  2.66%  github.com/cilium/ebpf.assignValues
+         0     0%   100% 10402.64kB 54.03%  github.com/hashicorp/golang-lru/v2.(*Cache[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).Add
+         0     0%   100%  6144.56kB 31.92%  github.com/hashicorp/golang-lru/v2/internal.(*LruList[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).PushFront
+         0     0%   100% 10402.64kB 54.03%  go.opentelemetry.io/obi/pkg/appolly.(*parentSettler).process
+         0     0%   100% 10402.64kB 54.03%  go.opentelemetry.io/obi/pkg/appolly.(*parentSettler).run.func1
+         0     0%   100%  1322.01kB  6.87%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1
+         0     0%   100%  1322.01kB  6.87%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1.1
+         0     0%   100%  1322.01kB  6.87%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).getTracer
+         0     0%   100%   809.97kB  4.21%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).monitorPIDs
+         0     0%   100%   809.97kB  4.21%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).AllowPID (inline)
+         0     0%   100%   512.04kB  2.66%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).Init (inline)
+         0     0%   100%   512.04kB  2.66%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).loadAndAssign
+         0     0%   100%   512.04kB  2.66%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).loadTracer
+         0     0%   100%   512.04kB  2.66%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).loadTracers

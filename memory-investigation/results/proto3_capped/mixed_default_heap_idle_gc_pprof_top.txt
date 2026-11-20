@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:36:42 UTC
+Showing nodes accounting for 35959.48kB, 100% of 35959.48kB total
+Showing top 40 nodes out of 158
+      flat  flat%   sum%        cum   cum%
+ 3982.59kB 11.08% 11.08%  7566.74kB 21.04%  github.com/cilium/ebpf.(*elfCode).loadFunctions-range1
+ 3106.97kB  8.64% 19.72%  3106.97kB  8.64%  github.com/cilium/ebpf.(*ProgramSpec).Copy (inline)
+ 3072.14kB  8.54% 28.26%  3072.14kB  8.54%  github.com/cilium/ebpf/asm.(*Metadata).Set
+ 3072.14kB  8.54% 36.80%  3072.14kB  8.54%  github.com/cilium/ebpf/btf.newLineInfo
+ 2868.88kB  7.98% 44.78%  2868.88kB  7.98%  io.ReadAll
+ 2571.28kB  7.15% 51.93%  2571.28kB  7.15%  runtime.mallocgc
+ 2570.29kB  7.15% 59.08%  3607.78kB 10.03%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func3
+ 1140.13kB  3.17% 62.25%  1971.42kB  5.48%  github.com/cilium/ebpf/btf.newDecoder
+ 1050.86kB  2.92% 65.17%  1050.86kB  2.92%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func1
+ 1024.22kB  2.85% 68.02%  1536.23kB  4.27%  github.com/aws/smithy-go.(*Schema).AddMember
+  831.28kB  2.31% 70.33%   831.28kB  2.31%  github.com/cilium/ebpf/btf.newFuzzyStringIndex
+  809.97kB  2.25% 72.58%   809.97kB  2.25%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  596.16kB  1.66% 74.24%   596.16kB  1.66%  github.com/cilium/ebpf.flattenInstructions
+  525.43kB  1.46% 75.70%   525.43kB  1.46%  github.com/go-playground/validator/v10.map.init.7
+  525.43kB  1.46% 77.16%   525.43kB  1.46%  k8s.io/apimachinery/pkg/api/meta.init
+  524.09kB  1.46% 78.62%   524.09kB  1.46%  regexp/syntax.(*compiler).inst
+  515.19kB  1.43% 80.05%   515.19kB  1.43%  github.com/go-playground/validator/v10.map.init.9
+     514kB  1.43% 81.48%      514kB  1.43%  github.com/json-iterator/go.init.4
+     513kB  1.43% 82.91%      513kB  1.43%  google.golang.org/protobuf/internal/filedesc.(*File).initDecls
+  512.44kB  1.43% 84.34%   512.44kB  1.43%  go.opentelemetry.io/obi/pkg/internal/pythontools/frameworks.optionSet
+  512.44kB  1.43% 85.76%   512.44kB  1.43%  google.golang.org/protobuf/internal/strs.(*Builder).grow
+  512.31kB  1.42% 87.18%   512.31kB  1.42%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDsFilter).addPID
+  512.06kB  1.42% 88.61%  4645.23kB 12.92%  github.com/cilium/ebpf/btf.(*decoder).inflateType
+  512.05kB  1.42% 90.03%   512.05kB  1.42%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  512.02kB  1.42% 91.46%  1544.07kB  4.29%  github.com/cilium/ebpf/btf.newRelocationInfo
+  512.02kB  1.42% 92.88%   512.02kB  1.42%  internal/sync.newEntryNode[go.shape.interface {},go.shape.interface {}]
+  512.02kB  1.42% 94.30%   512.02kB  1.42%  regexp/syntax.(*compiler).init
+  512.02kB  1.42% 95.73%   512.02kB  1.42%  github.com/cilium/ebpf/btf.(*stringTable).Lookup (inline)
+  512.01kB  1.42% 97.15%   512.01kB  1.42%  github.com/aws/smithy-go.(*Schema).addTrait
+  512.01kB  1.42% 98.58%   512.01kB  1.42%  github.com/cilium/ebpf/asm.Instruction.WithReference (inline)
+  512.01kB  1.42%   100%   512.01kB  1.42%  github.com/cilium/ebpf/btf.parseCOREAccessor
+         0     0%   100%   512.11kB  1.42%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%  1024.12kB  2.85%  github.com/aws/aws-sdk-go-v2/service/signin/schemas.init.0
+         0     0%   100%  6105.42kB 16.98%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign
+         0     0%   100%  5352.49kB 14.88%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign.func1
+         0     0%   100%  6105.42kB 16.98%  github.com/cilium/ebpf.(*collectionLoader).loadProgram
+         0     0%   100%   752.93kB  2.09%  github.com/cilium/ebpf.(*collectionLoader).populateDeferredMaps
+         0     0%   100%  1037.44kB  2.89%  github.com/cilium/ebpf.(*elfCode).loadDataSections
+         0     0%   100%  7566.74kB 21.04%  github.com/cilium/ebpf.(*elfCode).loadFunctions
+         0     0%   100%  8162.90kB 22.70%  github.com/cilium/ebpf.(*elfCode).loadProgramSections

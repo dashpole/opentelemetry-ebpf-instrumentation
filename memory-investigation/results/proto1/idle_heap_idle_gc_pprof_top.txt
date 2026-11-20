@@ -1,0 +1,47 @@
+File: obi
+Build ID: 03ff4d1718bb24c66c39a56672a03753db270d95
+Type: inuse_space
+Time: 2026-11-20 19:06:55 UTC
+Showing nodes accounting for 12851.91kB, 100% of 12851.91kB total
+Showing top 40 nodes out of 76
+      flat  flat%   sum%        cum   cum%
+ 4621.78kB 35.96% 35.96%  4621.78kB 35.96%  runtime.mallocgc
+ 1536.33kB 11.95% 47.92%  1536.33kB 11.95%  github.com/aws/smithy-go.(*Schema).AddMember
+ 1024.30kB  7.97% 55.89%  1024.30kB  7.97%  github.com/aws/smithy-go.(*Schema).addTrait
+  532.26kB  4.14% 60.03%   532.26kB  4.14%  google.golang.org/protobuf/reflect/protoregistry.(*Files).RegisterFile.func2
+  521.05kB  4.05% 64.08%   521.05kB  4.05%  regexp.onePassCopy
+  518.65kB  4.04% 68.12%   518.65kB  4.04%  go.opentelemetry.io/obi/pkg/internal/nodejstools.map.init.1
+  513.12kB  3.99% 72.11%   513.12kB  3.99%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypeWithName
+  512.14kB  3.98% 76.09%   512.14kB  3.98%  k8s.io/api/core/v1.init
+  512.11kB  3.98% 80.08%  1536.41kB 11.95%  github.com/aws/smithy-go.NewSchema
+  512.08kB  3.98% 84.06%   512.08kB  3.98%  go.opentelemetry.io/obi/pkg/ebpf/common.forwardRingbuf[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed] (inline)
+  512.05kB  3.98% 88.05%   512.05kB  3.98%  go.opentelemetry.io/obi/pkg/ebpf.init
+  512.02kB  3.98% 92.03%   512.02kB  3.98%  go.opentelemetry.io/obi/pkg/internal/nodejstools.map.init.0
+  512.01kB  3.98% 96.02%   512.01kB  3.98%  github.com/cilium/ebpf/btf.(*Const).copy
+  512.01kB  3.98%   100%   512.01kB  3.98%  regexp/syntax.appendRange
+         0     0%   100%  1536.33kB 11.95%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%  1536.41kB 11.95%  github.com/aws/aws-sdk-go-v2/service/signin/schemas.init
+         0     0%   100%   512.01kB  3.98%  github.com/cilium/ebpf.(*elfCode).loadDataSections
+         0     0%   100%   512.01kB  3.98%  github.com/cilium/ebpf.LoadCollectionSpecFromReader
+         0     0%   100%   512.01kB  3.98%  github.com/cilium/ebpf/btf.Copy (inline)
+         0     0%   100%   512.01kB  3.98%  github.com/cilium/ebpf/btf.children.func1 (inline)
+         0     0%   100%   512.01kB  3.98%  github.com/cilium/ebpf/btf.copyType
+         0     0%   100%   512.01kB  3.98%  github.com/cilium/ebpf/btf.copyType-range1 (inline)
+         0     0%   100%   521.05kB  4.05%  github.com/distribution/reference.init
+         0     0%   100%   512.01kB  3.98%  go.opentelemetry.io/obi/pkg/appolly/discover.(*pollAccounter).run
+         0     0%   100%   512.01kB  3.98%  go.opentelemetry.io/obi/pkg/appolly/discover.loadBPFWatcher
+         0     0%   100%   512.01kB  3.98%  go.opentelemetry.io/obi/pkg/ebpf.RunUtilityTracer
+         0     0%   100%   512.08kB  3.98%  go.opentelemetry.io/obi/pkg/ebpf/common.ForwardRingbufWithDrainContext[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed] (inline)
+         0     0%   100%   512.01kB  3.98%  go.opentelemetry.io/obi/pkg/internal/ebpf/watcher.(*Watcher).LoadSpecs
+         0     0%   100%   512.08kB  3.98%  go.opentelemetry.io/obi/pkg/internal/ebpf/watcher.(*Watcher).Run
+         0     0%   100%   512.01kB  3.98%  go.opentelemetry.io/obi/pkg/internal/ebpf/watcher.LoadBpf
+         0     0%   100%  1030.68kB  8.02%  go.opentelemetry.io/obi/pkg/internal/nodejstools.init
+         0     0%   100%   512.01kB  3.98%  go.opentelemetry.io/obi/pkg/internal/phptools.init
+         0     0%   100%   532.26kB  4.14%  go.opentelemetry.io/obi/pkg/kube/kubecache/informer.file_proto_informer_proto_init
+         0     0%   100%   532.26kB  4.14%  go.opentelemetry.io/obi/pkg/kube/kubecache/informer.init.0
+         0     0%   100%   512.01kB  3.98%  go.opentelemetry.io/obi/pkg/pipe/swarm.(*Runner).Start.func2
+         0     0%   100%   532.26kB  4.14%  google.golang.org/protobuf/internal/filedesc.Builder.Build
+         0     0%   100%   532.26kB  4.14%  google.golang.org/protobuf/internal/filetype.Builder.Build
+         0     0%   100%   532.26kB  4.14%  google.golang.org/protobuf/reflect/protoregistry.(*Files).RegisterFile
+         0     0%   100%   532.26kB  4.14%  google.golang.org/protobuf/reflect/protoregistry.rangeTopLevelDescriptors
+         0     0%   100%   513.12kB  3.99%  k8s.io/apimachinery/pkg/apis/meta/v1.AddToGroupVersion

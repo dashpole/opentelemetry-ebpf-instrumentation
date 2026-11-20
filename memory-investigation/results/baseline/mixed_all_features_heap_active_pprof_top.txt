@@ -1,0 +1,47 @@
+File: obi
+Build ID: 503d6d6183b36bdd535eca7c23a309036e3a3f00
+Type: inuse_space
+Time: 2026-11-20 18:57:29 UTC
+Showing nodes accounting for 27499.96kB, 100% of 27499.96kB total
+Showing top 40 nodes out of 129
+      flat  flat%   sum%        cum   cum%
+ 7168.66kB 26.07% 26.07%  7168.66kB 26.07%  github.com/hashicorp/golang-lru/v2/internal.(*LruList[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).insertValue (inline)
+ 5854.86kB 21.29% 47.36% 13023.52kB 47.36%  github.com/hashicorp/golang-lru/v2/simplelru.(*LRU[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).Add
+ 3597.29kB 13.08% 60.44%  3597.29kB 13.08%  runtime.mallocgc
+ 1133.89kB  4.12% 64.56%  1133.89kB  4.12%  go.opentelemetry.io/obi/pkg/internal/netolly/ebpf.chooseMapReader
+ 1031.52kB  3.75% 68.31%  1031.52kB  3.75%  regexp/syntax.(*compiler).inst (inline)
+ 1024.03kB  3.72% 72.04%  1024.03kB  3.72%  github.com/google/gnostic-models/openapiv3.file_openapiv3_OpenAPIv3_proto_init
+  858.34kB  3.12% 75.16%   858.34kB  3.12%  reflect.compiledTypelinks
+  618.49kB  2.25% 77.41%  1184.25kB  4.31%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  565.76kB  2.06% 79.47%   565.76kB  2.06%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).flushEvents
+  520.04kB  1.89% 81.36%   520.04kB  1.89%  hash/crc64.makeSlicingBy8Table
+  518.65kB  1.89% 83.24%   518.65kB  1.89%  github.com/xwb1989/sqlparser.map.init.1
+  512.11kB  1.86% 85.10%   512.11kB  1.86%  github.com/aws/smithy-go.(*Schema).AddMember
+  512.10kB  1.86% 86.97%   512.10kB  1.86%  go.opentelemetry.io/obi/pkg/internal/goexec.map.init.0
+  512.06kB  1.86% 88.83%   512.06kB  1.86%  go.opentelemetry.io/obi/pkg/export/prom.labelNames[go.shape.*uint8]
+  512.05kB  1.86% 90.69%   512.05kB  1.86%  net/http.(*persistConn).roundTrip
+  512.02kB  1.86% 92.55%  1025.52kB  3.73%  github.com/opencontainers/go-digest.init
+  512.02kB  1.86% 94.41%   512.02kB  1.86%  go.opentelemetry.io/obi/pkg/export/connector.(*PrometheusManager).StartHTTP
+  512.02kB  1.86% 96.28%   512.02kB  1.86%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypeWithName
+  512.01kB  1.86% 98.14%   512.01kB  1.86%  encoding/json/v2.makeStructArshaler (inline)
+  512.01kB  1.86%   100%   512.01kB  1.86%  github.com/cilium/ebpf/internal/sys.newFD
+         0     0%   100%   512.05kB  1.86%  cloud.google.com/go/compute/metadata.init.func1
+         0     0%   100%   858.34kB  3.12%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  3.12%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  3.12%  encoding/gob.getType
+         0     0%   100%   858.34kB  3.12%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  3.12%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  3.12%  encoding/gob.init
+         0     0%   100%   858.34kB  3.12%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  3.12%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  3.12%  encoding/gob.userType
+         0     0%   100%   858.34kB  3.12%  encoding/gob.validUserType
+         0     0%   100%   512.01kB  1.86%  encoding/json.Unmarshal
+         0     0%   100%   512.01kB  1.86%  encoding/json/v2.Unmarshal
+         0     0%   100%   512.01kB  1.86%  encoding/json/v2.lookupArshaler
+         0     0%   100%   512.01kB  1.86%  encoding/json/v2.makeDefaultArshaler
+         0     0%   100%   512.01kB  1.86%  encoding/json/v2.unmarshalDecode
+         0     0%   100%   512.11kB  1.86%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.01kB  1.86%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign
+         0     0%   100%   512.01kB  1.86%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign.func1
+         0     0%   100%   512.01kB  1.86%  github.com/cilium/ebpf.(*collectionLoader).loadProgram

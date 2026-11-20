@@ -1,0 +1,14 @@
+Hash/LRUHash maps audited=145, non-empty=13, total_live_entries=24907
+  id=11169 pid_tid_to_conn  LRUHash  entries=6794   max=30000  flg=0 memlock=3559.75 KiB
+  id=11147 fd_map           LRUHash  entries=5914   max=30000  flg=0 memlock=3325.38 KiB
+  id=11113 server_traces_a  LRUHash  entries=5914   max=30000  flg=0 memlock=4262.88 KiB
+  id=11134 connection_trac  LRUHash  entries=5436   max=30000  flg=0 memlock=3559.75 KiB
+  id=11088 ongoing_gorouti  LRUHash  entries=777    max=30000  flg=0 memlock=3091.00 KiB
+  id=11112 server_traces    LRUHash  entries=24     max=30000  flg=0 memlock=4262.88 KiB
+  id=11095 clone_map        LRUHash  entries=20     max=30000  flg=0 memlock=2856.62 KiB
+  id=11099 fd_to_connectio  LRUHash  entries=13     max=30000  flg=0 memlock=3559.75 KiB
+  id=11137 trace_map        LRUHash  entries=7      max=30000  flg=0 memlock=4731.62 KiB
+  id=11091 listening_ports  LRUHash  entries=4      max=10000  flg=0 memlock=881.88 KiB
+  id=11145 filter_ports     LRUHash  entries=2      max=10000  flg=0 memlock=881.88 KiB
+  id=11216 go_auto_targets  Hash     entries=1      max=3001   flg=1 memlock= 64.95 KiB
+  id=11235 go_offsets_map   Hash     entries=1      max=1024   flg=1 memlock= 18.12 KiB

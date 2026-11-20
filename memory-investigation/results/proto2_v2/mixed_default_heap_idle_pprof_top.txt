@@ -1,0 +1,47 @@
+File: obi
+Build ID: 371bc8850325075ec00d40904bffc7e151357b51
+Type: inuse_space
+Time: 2026-11-20 20:11:23 UTC
+Showing nodes accounting for 30858.06kB, 100% of 30858.06kB total
+Showing top 40 nodes out of 144
+      flat  flat%   sum%        cum   cum%
+ 6169.13kB 19.99% 19.99%  6169.13kB 19.99%  runtime.mallocgc
+ 3584.16kB 11.61% 31.61%  3584.16kB 11.61%  github.com/cilium/ebpf/asm.(*Metadata).Set
+ 3190.65kB 10.34% 41.95%  6774.82kB 21.95%  github.com/cilium/ebpf.(*elfCode).loadFunctions-range1
+ 1988.31kB  6.44% 48.39%  1988.31kB  6.44%  github.com/cilium/ebpf.(*ProgramSpec).Copy
+ 1536.32kB  4.98% 53.37%  1536.32kB  4.98%  github.com/aws/smithy-go.(*Schema).AddMember
+ 1536.07kB  4.98% 58.35%  2061.50kB  6.68%  github.com/cilium/ebpf/btf.newLineInfo
+ 1283.45kB  4.16% 62.51%  1283.45kB  4.16%  github.com/cilium/ebpf.flattenInstructions
+ 1140.13kB  3.69% 66.20%  1140.13kB  3.69%  github.com/cilium/ebpf/btf.newDecoder
+  809.97kB  2.62% 68.83%   809.97kB  2.62%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  809.97kB  2.62% 71.45%   809.97kB  2.62%  internal/saferio.ReadData
+  553.04kB  1.79% 73.24%   553.04kB  1.79%  github.com/cilium/ebpf.ebpfFields
+  536.37kB  1.74% 74.98%   536.37kB  1.74%  github.com/cilium/ebpf/btf.symbolOffsets
+  525.43kB  1.70% 76.68%   525.43kB  1.70%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func1
+  525.43kB  1.70% 78.39%   525.43kB  1.70%  github.com/cilium/ebpf/btf.(*stringTable).LookupCached
+  518.65kB  1.68% 80.07%   518.65kB  1.68%  go.opentelemetry.io/obi/pkg/ebpf/common.init.func4
+  515.19kB  1.67% 81.74%   515.19kB  1.67%  github.com/go-playground/validator/v10.map.init.14
+  515.19kB  1.67% 83.41%   515.19kB  1.67%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner
+  512.25kB  1.66% 85.07%   512.25kB  1.66%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func3
+  512.14kB  1.66% 86.73%   512.14kB  1.66%  k8s.io/api/storagemigration/v1beta1.init
+  512.05kB  1.66% 88.39%   512.05kB  1.66%  github.com/aws/smithy-go.(*Schema).addTrait
+  512.05kB  1.66% 90.04%   512.05kB  1.66%  go.opentelemetry.io/obi/pkg/pipe/swarm/swarms.ForEachInput[go.shape.[]go.opentelemetry.io/obi/pkg/appolly/discover.Event[go.opentelemetry.io/obi/pkg/appolly/discover.ProcessMatch]]
+  512.02kB  1.66% 91.70%  1536.28kB  4.98%  github.com/cilium/ebpf/btf.newRelocationInfo
+  512.02kB  1.66% 93.36%  1024.07kB  3.32%  github.com/aws/smithy-go.NewSchema
+  512.02kB  1.66% 95.02%   512.02kB  1.66%  syscall.anyToSockaddr
+  512.01kB  1.66% 96.68%   512.01kB  1.66%  github.com/cilium/ebpf/btf.parseCOREAccessor
+  512.01kB  1.66% 98.34%   512.01kB  1.66%  google.golang.org/protobuf/reflect/protoregistry.(*Files).RegisterFile
+  512.01kB  1.66%   100%   512.01kB  1.66%  regexp.mergeRuneSets.func2 (inline)
+         0     0%   100%   809.97kB  2.62%  debug/elf.(*Section).Data
+         0     0%   100%   512.01kB  1.66%  github.com/aws/aws-sdk-go-v2/service/ecs/internal/endpoints.init
+         0     0%   100%   512.02kB  1.66%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%  1536.32kB  4.98%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.05kB  1.66%  github.com/aws/aws-sdk-go-v2/service/signin/schemas.init
+         0     0%   100%  1693.17kB  5.49%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign
+         0     0%   100%  1140.13kB  3.69%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign.func1
+         0     0%   100%  1140.13kB  3.69%  github.com/cilium/ebpf.(*collectionLoader).loadProgram
+         0     0%   100%   525.43kB  1.70%  github.com/cilium/ebpf.(*elfCode).loadDataSections
+         0     0%   100%  6774.82kB 21.95%  github.com/cilium/ebpf.(*elfCode).loadFunctions
+         0     0%   100%  8058.27kB 26.11%  github.com/cilium/ebpf.(*elfCode).loadProgramSections
+         0     0%   100%   512.02kB  1.66%  github.com/cilium/ebpf.(*elfCode).relocateInstruction
+         0     0%   100%  6774.82kB 21.95%  github.com/cilium/ebpf.(*elfSection).symbolsSorted.func1 (inline)

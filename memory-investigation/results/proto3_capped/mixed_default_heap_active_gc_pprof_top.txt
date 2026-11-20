@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:37:05 UTC
+Showing nodes accounting for 13158.92kB, 100% of 13158.92kB total
+Showing top 40 nodes out of 110
+      flat  flat%   sum%        cum   cum%
+ 4110.28kB 31.24% 31.24%  4110.28kB 31.24%  runtime.mallocgc
+ 1024.22kB  7.78% 39.02%  1536.23kB 11.67%  github.com/aws/smithy-go.(*Schema).AddMember
+  809.97kB  6.16% 45.17%   809.97kB  6.16%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  525.43kB  3.99% 49.17%   525.43kB  3.99%  github.com/go-playground/validator/v10.map.init.7
+  525.43kB  3.99% 53.16%   525.43kB  3.99%  k8s.io/apimachinery/pkg/api/meta.init
+  524.09kB  3.98% 57.14%   524.09kB  3.98%  regexp/syntax.(*compiler).inst (inline)
+  515.19kB  3.92% 61.06%   515.19kB  3.92%  github.com/go-playground/validator/v10.map.init.9
+     514kB  3.91% 64.96%      514kB  3.91%  github.com/json-iterator/go.init.4
+     513kB  3.90% 68.86%      513kB  3.90%  google.golang.org/protobuf/internal/filedesc.(*File).initDecls
+  512.44kB  3.89% 72.76%   512.44kB  3.89%  go.opentelemetry.io/obi/pkg/internal/pythontools/frameworks.optionSet
+  512.44kB  3.89% 76.65%   512.44kB  3.89%  google.golang.org/protobuf/internal/strs.(*Builder).grow (inline)
+  512.31kB  3.89% 80.54%   512.31kB  3.89%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDsFilter).addPID
+  512.05kB  3.89% 84.44%   512.05kB  3.89%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  512.02kB  3.89% 88.33%   512.02kB  3.89%  internal/sync.newEntryNode[go.shape.interface {},go.shape.interface {}]
+  512.02kB  3.89% 92.22%   512.02kB  3.89%  regexp/syntax.(*compiler).init (inline)
+  512.02kB  3.89% 96.11%   512.02kB  3.89%  github.com/cilium/ebpf/btf.(*stringTable).Lookup (inline)
+  512.01kB  3.89%   100%   512.01kB  3.89%  github.com/aws/smithy-go.(*Schema).addTrait
+         0     0%   100%   512.11kB  3.89%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%  1024.12kB  7.78%  github.com/aws/aws-sdk-go-v2/service/signin/schemas.init.0
+         0     0%   100%   512.02kB  3.89%  github.com/cilium/ebpf.(*elfCode).loadDataSections
+         0     0%   100%   512.02kB  3.89%  github.com/cilium/ebpf.LoadCollectionSpecFromReader
+         0     0%   100%   512.02kB  3.89%  github.com/cilium/ebpf/btf.(*Spec).AnyTypesByName
+         0     0%   100%   512.02kB  3.89%  github.com/cilium/ebpf/btf.(*Spec).TypeByName
+         0     0%   100%   512.02kB  3.89%  github.com/cilium/ebpf/btf.(*decoder).TypeByID
+         0     0%   100%   512.02kB  3.89%  github.com/cilium/ebpf/btf.(*decoder).TypesByName
+         0     0%   100%   512.02kB  3.89%  github.com/cilium/ebpf/btf.(*decoder).TypesByName-range1 (inline)
+         0     0%   100%   512.02kB  3.89%  github.com/cilium/ebpf/btf.(*decoder).inflateType
+         0     0%   100%   512.02kB  3.89%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func2 (inline)
+         0     0%   100%   512.02kB  3.89%  github.com/cilium/ebpf/btf.(*fuzzyStringIndex).Find.func1 (inline)
+         0     0%   100%  1564.71kB 11.89%  github.com/go-playground/validator/v10.init
+         0     0%   100%   512.44kB  3.89%  github.com/google/gnostic-models/openapiv2.file_openapiv2_OpenAPIv2_proto_init
+         0     0%   100%   512.44kB  3.89%  github.com/google/gnostic-models/openapiv2.init.0
+         0     0%   100%   512.02kB  3.89%  github.com/hashicorp/go-version.NewVersion
+         0     0%   100%   512.02kB  3.89%  github.com/hashicorp/go-version.getVersionRegexp
+         0     0%   100%   512.02kB  3.89%  github.com/hashicorp/go-version.getVersionRegexp.func1
+         0     0%   100%   512.02kB  3.89%  go.opentelemetry.io/collector/featuregate.(*Registry).MustRegister (inline)
+         0     0%   100%   512.02kB  3.89%  go.opentelemetry.io/collector/featuregate.(*Registry).Register
+         0     0%   100%   512.02kB  3.89%  go.opentelemetry.io/collector/featuregate.WithRegisterFromVersion.func1
+         0     0%   100%   512.02kB  3.89%  go.opentelemetry.io/collector/featuregate.registerOptionFunc.apply
+         0     0%   100%   512.02kB  3.89%  go.opentelemetry.io/collector/pdata/internal/metadata.init

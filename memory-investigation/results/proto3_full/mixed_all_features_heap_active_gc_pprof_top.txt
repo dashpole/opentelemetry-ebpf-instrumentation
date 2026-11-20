@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:34:58 UTC
+Showing nodes accounting for 11073.85kB, 100% of 11073.85kB total
+Showing top 40 nodes out of 73
+      flat  flat%   sum%        cum   cum%
+ 4116.90kB 37.18% 37.18%  4116.90kB 37.18%  runtime.mallocgc
+ 2048.43kB 18.50% 55.67%  2048.43kB 18.50%  github.com/aws/smithy-go.(*Schema).AddMember
+  809.97kB  7.31% 62.99%   809.97kB  7.31%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  513.69kB  4.64% 67.63%   513.69kB  4.64%  github.com/hashicorp/golang-lru/v2/expirable.NewLRU[go.shape.struct { go.opentelemetry.io/obi/pkg/ebpf/common.traceID [16]uint8; go.opentelemetry.io/obi/pkg/ebpf/common.spanID [8]uint8; go.opentelemetry.io/obi/pkg/ebpf/common.packetType uint8; go.opentelemetry.io/obi/pkg/ebpf/common.direction uint8; go.opentelemetry.io/obi/pkg/ebpf/common.connInfo go.opentelemetry.io/obi/pkg/ebpf/common.BpfConnectionInfoT; go.opentelemetry.io/obi/pkg/ebpf/common.kind go.opentelemetry.io/obi/pkg/ebpf/common.largeBufferKind },go.shape.*uint8]
+  512.34kB  4.63% 72.25%   512.34kB  4.63%  go.opentelemetry.io/obi/pkg/pipe/swarm.(*Instancer).Instance
+  512.14kB  4.62% 76.88%   512.14kB  4.62%  k8s.io/api/admissionregistration/v1alpha1.init
+  512.14kB  4.62% 81.50%   512.14kB  4.62%  k8s.io/api/authentication/v1.init
+  512.10kB  4.62% 86.13%   512.10kB  4.62%  context.(*cancelCtx).propagateCancel
+  512.05kB  4.62% 90.75%   512.05kB  4.62%  github.com/prometheus/client_golang/prometheus.(*Registry).Register
+  512.05kB  4.62% 95.38%   512.05kB  4.62%  regexp/syntax.(*parser).newRegexp (inline)
+  512.02kB  4.62%   100%   512.02kB  4.62%  github.com/modern-go/reflect2.newUnsafeType
+         0     0%   100%   512.10kB  4.62%  context.WithCancel
+         0     0%   100%   512.10kB  4.62%  context.withCancel (inline)
+         0     0%   100%  2048.43kB 18.50%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.02kB  4.62%  github.com/modern-go/reflect2.(*frozenConfig).Type2
+         0     0%   100%   512.02kB  4.62%  github.com/modern-go/reflect2.(*frozenConfig).TypeOf
+         0     0%   100%   512.02kB  4.62%  github.com/modern-go/reflect2.(*frozenConfig).wrapType
+         0     0%   100%   512.02kB  4.62%  github.com/modern-go/reflect2.TypeOf (inline)
+         0     0%   100%   512.02kB  4.62%  github.com/modern-go/reflect2.init
+         0     0%   100%   512.05kB  4.62%  github.com/prometheus/client_golang/prometheus.(*Registry).MustRegister
+         0     0%   100%   512.05kB  4.62%  github.com/prometheus/client_golang/prometheus.MustRegister (inline)
+         0     0%   100%   512.05kB  4.62%  github.com/prometheus/client_golang/prometheus.init.0
+         0     0%   100%   512.05kB  4.62%  github.com/prometheus/procfs.init
+         0     0%   100%   512.34kB  4.63%  go.opentelemetry.io/obi/pkg/appolly.(*graphFunctions).buildGraph
+         0     0%   100%   512.34kB  4.63%  go.opentelemetry.io/obi/pkg/appolly.BuildWithProtocolMetricSelection
+         0     0%   100%   809.97kB  7.31%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1
+         0     0%   100%   809.97kB  7.31%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).attacherLoop.func1.1
+         0     0%   100%   809.97kB  7.31%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).getTracer
+         0     0%   100%   809.97kB  7.31%  go.opentelemetry.io/obi/pkg/appolly/discover.(*traceAttacher).monitorPIDs
+         0     0%   100%   809.97kB  7.31%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).AllowPID (inline)
+         0     0%   100%   513.69kB  4.64%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).Run.func1
+         0     0%   100%   513.69kB  4.64%  go.opentelemetry.io/obi/pkg/ebpf/common.NewEBPFParseContext
+         0     0%   100%   512.10kB  4.62%  go.opentelemetry.io/obi/pkg/instrumenter.BuildCommonContextInfo
+         0     0%   100%   512.10kB  4.62%  go.opentelemetry.io/obi/pkg/instrumenter.Run
+         0     0%   100%   512.34kB  4.63%  go.opentelemetry.io/obi/pkg/instrumenter.runWithContextInfo.func2
+         0     0%   100%   512.34kB  4.63%  go.opentelemetry.io/obi/pkg/instrumenter.setupAppO11y
+         0     0%   100%   512.34kB  4.63%  go.opentelemetry.io/obi/pkg/internal/appolly.NewWithProtocolMetricSelection
+         0     0%   100%   809.97kB  7.31%  go.opentelemetry.io/obi/pkg/internal/ebpf/generictracer.(*Tracer).AllowPID
+         0     0%   100%   809.97kB  7.31%  go.opentelemetry.io/obi/pkg/internal/ebpf/generictracer.(*Tracer).rebuildValidPids
+         0     0%   100%   513.69kB  4.64%  go.opentelemetry.io/obi/pkg/internal/ebpf/gotracer.(*Tracer).Run

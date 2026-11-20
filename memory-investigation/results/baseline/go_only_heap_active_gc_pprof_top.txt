@@ -1,0 +1,47 @@
+File: obi
+Build ID: 503d6d6183b36bdd535eca7c23a309036e3a3f00
+Type: inuse_space
+Time: 2026-11-20 18:52:46 UTC
+Showing nodes accounting for 20689.06kB, 100% of 20689.06kB total
+Showing top 40 nodes out of 88
+      flat  flat%   sum%        cum   cum%
+ 6144.56kB 29.70% 29.70%  6144.56kB 29.70%  github.com/hashicorp/golang-lru/v2/internal.(*LruList[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).insertValue (inline)
+ 3725.82kB 18.01% 47.71%  9870.38kB 47.71%  github.com/hashicorp/golang-lru/v2/simplelru.(*LRU[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).Add
+ 3597.29kB 17.39% 65.10%  3597.29kB 17.39%  runtime.mallocgc
+ 2560.54kB 12.38% 77.47%  2560.54kB 12.38%  github.com/aws/smithy-go.(*Schema).AddMember
+  548.84kB  2.65% 80.12%   548.84kB  2.65%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypeWithName
+  526.13kB  2.54% 82.67%   526.13kB  2.54%  github.com/google/gnostic-models/openapiv3.init
+  512.88kB  2.48% 85.15%   512.88kB  2.48%  go.opentelemetry.io/obi/pkg/internal/pythontools/frameworks.optionSet
+  512.69kB  2.48% 87.62%   512.69kB  2.48%  regexp/syntax.(*compiler).inst (inline)
+  512.14kB  2.48% 90.10%   512.14kB  2.48%  k8s.io/api/autoscaling/v1.init
+  512.12kB  2.48% 92.58%   512.12kB  2.48%  reflect.growslice
+  512.03kB  2.47% 95.05%   512.03kB  2.47%  github.com/cilium/ebpf/btf.(*Typedef).copy
+  512.01kB  2.47% 97.53%   512.01kB  2.47%  internal/bytealg.MakeNoZero
+     512kB  2.47%   100%      512kB  2.47%  github.com/prometheus/client_golang/prometheus.NewGoCollector
+         0     0%   100%   512.12kB  2.48%  encoding/json.Unmarshal (inline)
+         0     0%   100%   512.12kB  2.48%  encoding/json/v2.Unmarshal
+         0     0%   100%   512.12kB  2.48%  encoding/json/v2.makeSliceArshaler.func3
+         0     0%   100%   512.12kB  2.48%  encoding/json/v2.makeStructArshaler.func3
+         0     0%   100%   512.12kB  2.48%  encoding/json/v2.unmarshalDecode
+         0     0%   100%  2560.54kB 12.38%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.03kB  2.47%  github.com/cilium/ebpf.(*elfCode).loadDataSections
+         0     0%   100%   512.03kB  2.47%  github.com/cilium/ebpf.LoadCollectionSpecFromReader
+         0     0%   100%   512.03kB  2.47%  github.com/cilium/ebpf/btf.Copy (inline)
+         0     0%   100%   512.03kB  2.47%  github.com/cilium/ebpf/btf.children.func1 (inline)
+         0     0%   100%   512.03kB  2.47%  github.com/cilium/ebpf/btf.copyType
+         0     0%   100%   512.03kB  2.47%  github.com/cilium/ebpf/btf.copyType-range1 (inline)
+         0     0%   100%   512.69kB  2.48%  github.com/google/gnostic-models/openapiv2.init
+         0     0%   100%  9870.38kB 47.71%  github.com/hashicorp/golang-lru/v2.(*Cache[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).Add
+         0     0%   100%  6144.56kB 29.70%  github.com/hashicorp/golang-lru/v2/internal.(*LruList[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).PushFront
+         0     0%   100%      512kB  2.47%  github.com/prometheus/client_golang/prometheus.init.0
+         0     0%   100%  1024.14kB  4.95%  go.opentelemetry.io/obi/pkg/appolly.(*graphFunctions).buildGraph
+         0     0%   100%  9870.38kB 47.71%  go.opentelemetry.io/obi/pkg/appolly.(*parentSettler).process
+         0     0%   100%  9870.38kB 47.71%  go.opentelemetry.io/obi/pkg/appolly.(*parentSettler).run.func1
+         0     0%   100%  1024.14kB  4.95%  go.opentelemetry.io/obi/pkg/appolly.BuildWithProtocolMetricSelection
+         0     0%   100%   512.03kB  2.47%  go.opentelemetry.io/obi/pkg/appolly/discover.(*pollAccounter).run
+         0     0%   100%   512.03kB  2.47%  go.opentelemetry.io/obi/pkg/appolly/discover.loadBPFWatcher
+         0     0%   100%   512.03kB  2.47%  go.opentelemetry.io/obi/pkg/ebpf.RunUtilityTracer
+         0     0%   100%   512.01kB  2.47%  go.opentelemetry.io/obi/pkg/export/attributes.PrometheusGetters[go.shape.*uint8,go.shape.string]
+         0     0%   100%   512.01kB  2.47%  go.opentelemetry.io/obi/pkg/export/attributes.buildGetterList[go.shape.*uint8,go.shape.string] (inline)
+         0     0%   100%   512.01kB  2.47%  go.opentelemetry.io/obi/pkg/export/attributes/names.Name.Prom (inline)
+         0     0%   100%   512.01kB  2.47%  go.opentelemetry.io/obi/pkg/export/prom.PrometheusEndpoint.func1

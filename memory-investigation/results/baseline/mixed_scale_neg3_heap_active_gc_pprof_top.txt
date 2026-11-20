@@ -1,0 +1,47 @@
+File: obi
+Build ID: 503d6d6183b36bdd535eca7c23a309036e3a3f00
+Type: inuse_space
+Time: 2026-11-20 18:54:13 UTC
+Showing nodes accounting for 24938.94kB, 100% of 24938.94kB total
+Showing top 40 nodes out of 115
+      flat  flat%   sum%        cum   cum%
+ 6919.38kB 27.75% 27.75% 11527.81kB 46.22%  github.com/hashicorp/golang-lru/v2/simplelru.(*LRU[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).Add
+ 4608.42kB 18.48% 46.22%  4608.42kB 18.48%  github.com/hashicorp/golang-lru/v2/internal.(*LruList[go.shape.struct { go.opentelemetry.io/obi/pkg/appolly.traceID [16]uint8; go.opentelemetry.io/obi/pkg/appolly.spanID [8]uint8 },go.shape.int64]).insertValue (inline)
+ 3612.12kB 14.48% 60.71%  3612.12kB 14.48%  runtime.mallocgc
+    1027kB  4.12% 64.83%     1027kB  4.12%  regexp/syntax.(*compiler).inst (inline)
+ 1024.21kB  4.11% 68.93%  1024.21kB  4.11%  github.com/aws/smithy-go.(*Schema).AddMember
+ 1024.16kB  4.11% 73.04%  1024.16kB  4.11%  internal/sync.newIndirectNode[go.shape.interface {},go.shape.interface {}] (inline)
+  858.34kB  3.44% 76.48%   858.34kB  3.44%  reflect.compiledTypelinks
+  618.49kB  2.48% 78.96%   618.49kB  2.48%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  565.76kB  2.27% 81.23%   565.76kB  2.27%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner
+  548.84kB  2.20% 83.43%   548.84kB  2.20%  k8s.io/apimachinery/pkg/runtime.(*Scheme).AddKnownTypeWithName
+  532.26kB  2.13% 85.56%   532.26kB  2.13%  google.golang.org/protobuf/reflect/protoregistry.(*Files).RegisterFile.func2
+  525.43kB  2.11% 87.67%   525.43kB  2.11%  github.com/go-playground/validator/v10.map.init.7
+  513.31kB  2.06% 89.73%   513.31kB  2.06%  gopkg.in/yaml%2ev3.getStructInfo
+  512.88kB  2.06% 91.79%   512.88kB  2.06%  go.opentelemetry.io/obi/pkg/internal/ebpf/bhpack.init
+  512.14kB  2.05% 93.84%   512.14kB  2.05%  k8s.io/api/scheduling/v1beta1.init
+  512.12kB  2.05% 95.89%   512.12kB  2.05%  github.com/DataDog/go-sqllexer.addToTrie
+  512.05kB  2.05% 97.95%   512.05kB  2.05%  os/signal.NotifyContext.func1
+  512.01kB  2.05%   100%   512.01kB  2.05%  github.com/go-openapi/swag/mangling.asUpperCased
+         0     0%   100%   858.34kB  3.44%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  3.44%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  3.44%  encoding/gob.getType
+         0     0%   100%   858.34kB  3.44%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  3.44%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  3.44%  encoding/gob.init
+         0     0%   100%   858.34kB  3.44%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  3.44%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  3.44%  encoding/gob.userType
+         0     0%   100%   858.34kB  3.44%  encoding/gob.validUserType
+         0     0%   100%   512.08kB  2.05%  encoding/json.Marshal
+         0     0%   100%   512.08kB  2.05%  encoding/json/v2.Marshal
+         0     0%   100%   512.08kB  2.05%  encoding/json/v2.lookupArshaler
+         0     0%   100%   512.08kB  2.05%  encoding/json/v2.makeInterfaceArshaler.func1
+         0     0%   100%   512.08kB  2.05%  encoding/json/v2.makeMapArshaler.func2
+         0     0%   100%   512.08kB  2.05%  encoding/json/v2.makeSliceArshaler.func2
+         0     0%   100%   512.08kB  2.05%  encoding/json/v2.marshalEncode
+         0     0%   100%   512.12kB  2.05%  github.com/DataDog/go-sqllexer.buildCombinedTrie
+         0     0%   100%   512.12kB  2.05%  github.com/DataDog/go-sqllexer.init
+         0     0%   100%  1024.21kB  4.11%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   513.50kB  2.06%  github.com/aws/aws-sdk-go-v2/service/sso/internal/endpoints.init
+         0     0%   100%   513.50kB  2.06%  github.com/aws/aws-sdk-go-v2/service/sts/internal/endpoints.init

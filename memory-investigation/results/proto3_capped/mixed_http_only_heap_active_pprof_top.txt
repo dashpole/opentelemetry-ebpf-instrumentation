@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:37:54 UTC
+Showing nodes accounting for 11282.20kB, 100% of 11282.20kB total
+Showing top 40 nodes out of 80
+      flat  flat%   sum%        cum   cum%
+ 3084.29kB 27.34% 27.34%  3084.29kB 27.34%  runtime.mallocgc
+  858.34kB  7.61% 34.95%   858.34kB  7.61%  reflect.compiledTypelinks
+  618.49kB  5.48% 40.43%  1184.25kB 10.50%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+  565.76kB  5.01% 45.44%   565.76kB  5.01%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).flushEvents
+  518.65kB  4.60% 50.04%   518.65kB  4.60%  go.opentelemetry.io/obi/pkg/ebpf/common.init.func4
+  516.01kB  4.57% 54.61%   516.01kB  4.57%  google.golang.org/protobuf/internal/filedesc.(*File).initDecls
+  512.28kB  4.54% 59.15%   512.28kB  4.54%  github.com/cilium/ebpf/ringbuf.(*ringReader).readRecord
+  512.11kB  4.54% 63.69%   512.11kB  4.54%  github.com/aws/smithy-go.(*Schema).AddMember
+  512.08kB  4.54% 68.23%  2048.16kB 18.15%  regexp.compile
+  512.05kB  4.54% 72.77%   512.05kB  4.54%  github.com/prometheus/client_golang/prometheus.(*goCollector).Describe
+  512.05kB  4.54% 77.31%   512.05kB  4.54%  regexp/syntax.(*parser).newRegexp (inline)
+  512.02kB  4.54% 81.85%   512.02kB  4.54%  k8s.io/api/core/v1.init
+  512.02kB  4.54% 86.39%   512.02kB  4.54%  github.com/prometheus/client_golang/prometheus.memstatNamespace (inline)
+  512.02kB  4.54% 90.92%   512.02kB  4.54%  regexp/syntax.appendRange
+  512.01kB  4.54% 95.46%   512.01kB  4.54%  internal/bytealg.MakeNoZero
+  512.01kB  4.54%   100%   512.01kB  4.54%  regexp.makeOnePass.func1
+         0     0%   100%   858.34kB  7.61%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  7.61%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  7.61%  encoding/gob.getType
+         0     0%   100%   858.34kB  7.61%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  7.61%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  7.61%  encoding/gob.init
+         0     0%   100%   858.34kB  7.61%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  7.61%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  7.61%  encoding/gob.userType
+         0     0%   100%   858.34kB  7.61%  encoding/gob.validUserType
+         0     0%   100%   512.05kB  4.54%  github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime/datetime.init
+         0     0%   100%   512.11kB  4.54%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.01kB  4.54%  github.com/aws/aws-sdk-go-v2/service/ssooidc/internal/endpoints.init
+         0     0%   100%   512.28kB  4.54%  github.com/cilium/ebpf/ringbuf.(*Reader).ReadInto
+         0     0%   100%   512.05kB  4.54%  github.com/prometheus/client_golang/prometheus.(*Registry).Register.func1
+         0     0%   100%   512.01kB  4.54%  github.com/prometheus/client_golang/prometheus.BuildFQName
+         0     0%   100%   512.01kB  4.54%  github.com/prometheus/client_golang/prometheus.NewGauge
+         0     0%   100%  1024.03kB  9.08%  github.com/prometheus/client_golang/prometheus.NewGoCollector
+         0     0%   100%   512.02kB  4.54%  github.com/prometheus/client_golang/prometheus.goRuntimeMemStats
+         0     0%   100%  1024.03kB  9.08%  github.com/prometheus/client_golang/prometheus.init.0
+         0     0%   100%   512.02kB  4.54%  github.com/prometheus/common/model.init
+         0     0%   100%   512.28kB  4.54%  go.opentelemetry.io/obi/pkg/ebpf.(*ProcessTracer).Run.func1
+         0     0%   100%   512.28kB  4.54%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).fillAndDispatch
+         0     0%   100%   512.28kB  4.54%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).readAndForwardInner

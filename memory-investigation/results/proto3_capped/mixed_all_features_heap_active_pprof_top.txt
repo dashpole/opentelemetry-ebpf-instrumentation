@@ -1,0 +1,47 @@
+File: obi
+Build ID: b31411fa47c1267fa660ae9912cf89dc46acd504
+Type: inuse_space
+Time: 2026-11-20 19:38:42 UTC
+Showing nodes accounting for 17975.53kB, 100% of 17975.53kB total
+Showing top 40 nodes out of 106
+      flat  flat%   sum%        cum   cum%
+ 5136.29kB 28.57% 28.57%  5136.29kB 28.57%  runtime.mallocgc
+ 1536.32kB  8.55% 37.12%  1536.32kB  8.55%  github.com/aws/smithy-go.(*Schema).AddMember
+ 1236.99kB  6.88% 44.00%  2314.75kB 12.88%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).parserLoop
+ 1133.89kB  6.31% 50.31%  1133.89kB  6.31%  go.opentelemetry.io/obi/pkg/internal/netolly/ebpf.chooseMapReader
+ 1050.86kB  5.85% 56.16%  1050.86kB  5.85%  github.com/go-playground/validator/v10.map.init.7
+  858.34kB  4.78% 60.93%   858.34kB  4.78%  reflect.compiledTypelinks
+  809.97kB  4.51% 65.44%   809.97kB  4.51%  go.opentelemetry.io/obi/pkg/ebpf/common.(*PIDBitmap).Rebuild
+  565.76kB  3.15% 68.58%   565.76kB  3.15%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).flushEvents
+  518.65kB  2.89% 71.47%   518.65kB  2.89%  go.opentelemetry.io/obi/pkg/ebpf/common.init.func4
+  518.02kB  2.88% 74.35%   518.02kB  2.88%  regexp/syntax.(*compiler).inst
+     514kB  2.86% 77.21%      514kB  2.86%  regexp.onePassCopy
+  512.14kB  2.85% 80.06%   512.14kB  2.85%  k8s.io/api/storage/v1.init
+  512.11kB  2.85% 82.91%   512.11kB  2.85%  github.com/aws/smithy-go.NewSchema
+  512.05kB  2.85% 85.76%   512.05kB  2.85%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).bgFlushOnTimeout
+  512.04kB  2.85% 88.61%   512.04kB  2.85%  github.com/cilium/ebpf.newProgramWithOptions
+  512.03kB  2.85% 91.45%   512.03kB  2.85%  go.opentelemetry.io/obi/pkg/pipe/msg.NewQueue[go.shape.[]go.opentelemetry.io/obi/pkg/appolly/app/request.Span]
+  512.03kB  2.85% 94.30%   512.03kB  2.85%  regexp.mergeRuneSets.func2 (inline)
+  512.02kB  2.85% 97.15%   512.02kB  2.85%  github.com/cilium/ebpf.newVariable
+  512.01kB  2.85%   100%   512.01kB  2.85%  go.opentelemetry.io/obi/pkg/ebpf/common.httpInfoToSpanLegacy
+         0     0%   100%   858.34kB  4.78%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  4.78%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  4.78%  encoding/gob.getType
+         0     0%   100%   858.34kB  4.78%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  4.78%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  4.78%  encoding/gob.init
+         0     0%   100%   858.34kB  4.78%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  4.78%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  4.78%  encoding/gob.userType
+         0     0%   100%   858.34kB  4.78%  encoding/gob.validUserType
+         0     0%   100%   512.11kB  2.85%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init
+         0     0%   100%  1536.32kB  8.55%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%   512.03kB  2.85%  github.com/aws/aws-sdk-go-v2/service/ssooidc/internal/endpoints.init
+         0     0%   100%  1024.06kB  5.70%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign
+         0     0%   100%  1024.06kB  5.70%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign.func1
+         0     0%   100%   512.04kB  2.85%  github.com/cilium/ebpf.(*collectionLoader).loadProgram
+         0     0%   100%   512.02kB  2.85%  github.com/cilium/ebpf.(*collectionLoader).loadVariable
+         0     0%   100%  1024.06kB  5.70%  github.com/cilium/ebpf.assignValues
+         0     0%   100%  1050.86kB  5.85%  github.com/go-playground/validator/v10.init
+         0     0%   100%      514kB  2.86%  go.opentelemetry.io/contrib/detectors/gcp/internal.init
+         0     0%   100%   512.03kB  2.85%  go.opentelemetry.io/obi/pkg/appolly.BuildWithProtocolMetricSelection

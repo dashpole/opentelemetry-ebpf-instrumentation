@@ -1,0 +1,31 @@
+PID=7  cgroup.current=295.10 MiB  cgroup.peak=295.10 MiB
+  cgroup.stat: anon=43.30 file=1.12 kernel=207.20 slab=4.08(unrecl=2.96) percpu=0.10 vmalloc=200.40 pagetables=0.86
+  proc.status: VmRSS=107236 kB VmHWM=137292 kB RssAnon=34316 kB RssFile=2148 kB Threads=21
+  BPF maps=122 memlock=203.08 MiB | BPF progs=96 memlock=1.65 MiB | BPF total=204.73 MiB
+  BPF maps by type: Array=1.62MiB Hash=3.54MiB LRUHash=194.69MiB PerCPUArray=1.88MiB ProgramArray=0.00MiB RingBuf=1.34MiB
+  Top 25 BPF maps by real kernel memlock:
+     1. id=3181  ongoing_tcp_req  LRUHash       k= 40 v=  544 max=  30000 flg=0 memlock= 18.58 MiB
+     2. id=3150  ongoing_http2_g  LRUHash       k= 44 v=  456 max=  30000 flg=0 memlock= 16.29 MiB
+     3. id=3149  ongoing_http     LRUHash       k= 40 v=  424 max=  30000 flg=0 memlock= 15.15 MiB
+     4. id=3190  go_offsets_map   LRUHash       k= 16 v= 1208 max=  10000 flg=0 memlock= 12.38 MiB
+     5. id=3191  http1_header_sc  LRUHash       k= 40 v=   84 max=  30000 flg=0 memlock=  5.54 MiB
+     6. id=3151  trace_map        LRUHash       k= 40 v=   56 max=  30000 flg=0 memlock=  4.62 MiB
+     7. id=3155  http_server_tra  LRUHash       k= 20 v=   64 max=  30000 flg=0 memlock=  4.39 MiB
+     8. id=3172  server_traces    LRUHash       k= 24 v=   56 max=  30000 flg=0 memlock=  4.16 MiB
+     9. id=3197  server_traces_a  LRUHash       k= 24 v=   56 max=  30000 flg=0 memlock=  4.16 MiB
+    10. id=3175  cp_support_conn  LRUHash       k= 40 v=   40 max=  30000 flg=0 memlock=  4.16 MiB
+    11. id=3195  ssl_to_conn      LRUHash       k= 16 v=   48 max=  30000 flg=0 memlock=  3.71 MiB
+    12. id=3157  ongoing_server_  LRUHash       k= 16 v=   48 max=  30000 flg=0 memlock=  3.71 MiB
+    13. id=3200  go_trace_map     LRUHash       k= 16 v=   48 max=  30000 flg=0 memlock=  3.71 MiB
+    14. id=3209  python_task_sta  LRUHash       k= 16 v=   48 max=  30000 flg=0 memlock=  3.71 MiB
+    15. id=3159  sock_filter_buf  LRUHash       k= 36 v=  260 max=  10000 flg=0 memlock=  3.61 MiB
+    16. id=3182  h2_cut_frames    LRUHash       k= 40 v=  264 max=  10000 flg=0 memlock=  3.61 MiB
+    17. id=3233  pid_tid_to_conn  LRUHash       k=  8 v=   48 max=  30000 flg=0 memlock=  3.48 MiB
+    18. id=3185  fd_to_connectio  LRUHash       k= 16 v=   36 max=  30000 flg=0 memlock=  3.48 MiB
+    19. id=3152  connection_trac  LRUHash       k= 36 v=   16 max=  30000 flg=0 memlock=  3.48 MiB
+    20. id=3170  fd_map           LRUHash       k= 24 v=   20 max=  30000 flg=0 memlock=  3.25 MiB
+    21. id=3183  active_ssl_conn  LRUHash       k= 40 v=    8 max=  30000 flg=0 memlock=  3.25 MiB
+    22. id=3158  active_ssl_writ  LRUHash       k=  8 v=   32 max=  30000 flg=0 memlock=  3.02 MiB
+    23. id=3205  python_context_  LRUHash       k= 16 v=   24 max=  30000 flg=0 memlock=  3.02 MiB
+    24. id=3171  python_thread_s  LRUHash       k=  8 v=   32 max=  30000 flg=0 memlock=  3.02 MiB
+    25. id=3165  active_ssl_read  LRUHash       k=  8 v=   32 max=  30000 flg=0 memlock=  3.02 MiB

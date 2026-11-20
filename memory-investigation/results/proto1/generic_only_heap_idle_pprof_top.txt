@@ -1,0 +1,47 @@
+File: obi
+Build ID: 03ff4d1718bb24c66c39a56672a03753db270d95
+Type: inuse_space
+Time: 2026-11-20 19:07:12 UTC
+Showing nodes accounting for 27264.41kB, 100% of 27264.41kB total
+Showing top 40 nodes out of 120
+      flat  flat%   sum%        cum   cum%
+ 3603.90kB 13.22% 13.22%  3603.90kB 13.22%  runtime.mallocgc
+ 3072.14kB 11.27% 24.49%  3072.14kB 11.27%  github.com/cilium/ebpf/asm.(*Metadata).Set
+ 2892.53kB 10.61% 35.10%  6476.68kB 23.76%  github.com/cilium/ebpf.(*elfCode).loadFunctions-range1
+ 1846.69kB  6.77% 41.87%  1846.69kB  6.77%  github.com/cilium/ebpf.(*ProgramSpec).Copy
+ 1652.16kB  6.06% 47.93%  1652.16kB  6.06%  github.com/cilium/ebpf/btf.newDecoder
+ 1536.32kB  5.63% 53.56%  1536.32kB  5.63%  github.com/aws/smithy-go.(*Schema).AddMember
+ 1536.07kB  5.63% 59.20%  2560.11kB  9.39%  github.com/cilium/ebpf/btf.newLineInfo
+ 1025.50kB  3.76% 62.96%  2076.36kB  7.62%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func3
+ 1024.04kB  3.76% 66.71%  1024.04kB  3.76%  github.com/cilium/ebpf/btf.(*stringTable).Lookup (inline)
+  858.34kB  3.15% 69.86%   858.34kB  3.15%  reflect.compiledTypelinks
+  758.02kB  2.78% 72.64%   758.02kB  2.78%  github.com/cilium/ebpf.flattenInstructions
+  732.77kB  2.69% 75.33%   732.77kB  2.69%  internal/saferio.ReadData
+  525.43kB  1.93% 77.26%  2076.36kB  7.62%  github.com/cilium/ebpf/btf.(*decoder).inflateType
+  525.43kB  1.93% 79.19%   525.43kB  1.93%  github.com/cilium/ebpf/btf.(*decoder).inflateType.func1
+  525.43kB  1.93% 81.11%   525.43kB  1.93%  github.com/cilium/ebpf/btf.(*stringTableBuilder).append (inline)
+  525.43kB  1.93% 83.04%   525.43kB  1.93%  github.com/go-playground/validator/v10.map.init.7
+  522.70kB  1.92% 84.96%   522.70kB  1.92%  github.com/google/gnostic-models/openapiv2.init
+  516.76kB  1.90% 86.85%   516.76kB  1.90%  io.ReadAll
+  512.56kB  1.88% 88.73%   512.56kB  1.88%  github.com/aws/aws-sdk-go-v2/service/route53/internal/endpoints.init
+  512.05kB  1.88% 90.61%   512.05kB  1.88%  github.com/prometheus/client_golang/prometheus.(*goCollector).Describe
+  512.05kB  1.88% 92.49%   512.05kB  1.88%  go.opentelemetry.io/obi/pkg/ebpf/common.(*ringBufForwarder[go.shape.ea8a83a24073e2976ba86c9a545b4d7fbb5992920b44b4cffc087b2b433db6ed]).bgFlushOnTimeout
+  512.05kB  1.88% 94.37%   512.05kB  1.88%  os/signal.NotifyContext.func1
+  512.02kB  1.88% 96.24%   512.02kB  1.88%  github.com/prometheus/client_golang/prometheus.(*Registry).Register
+  512.01kB  1.88% 98.12%  1024.03kB  3.76%  github.com/cilium/ebpf/asm.Instruction.WithReference (inline)
+  512.01kB  1.88%   100%   512.01kB  1.88%  k8s.io/kube-openapi/pkg/internal/third_party/go-json-experiment/json.init
+         0     0%   100%   732.77kB  2.69%  debug/elf.(*Section).Data
+         0     0%   100%   858.34kB  3.15%  encoding/gob.buildTypeInfo
+         0     0%   100%   858.34kB  3.15%  encoding/gob.getBaseType
+         0     0%   100%   858.34kB  3.15%  encoding/gob.getType
+         0     0%   100%   858.34kB  3.15%  encoding/gob.getTypeInfo
+         0     0%   100%   858.34kB  3.15%  encoding/gob.implementsInterface
+         0     0%   100%   858.34kB  3.15%  encoding/gob.init
+         0     0%   100%   858.34kB  3.15%  encoding/gob.mustGetTypeInfo
+         0     0%   100%   858.34kB  3.15%  encoding/gob.newTypeObject
+         0     0%   100%   858.34kB  3.15%  encoding/gob.userType
+         0     0%   100%   858.34kB  3.15%  encoding/gob.validUserType
+         0     0%   100%  1536.32kB  5.63%  github.com/aws/aws-sdk-go-v2/service/ecs/schemas.init.0
+         0     0%   100%  2694.35kB  9.88%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign
+         0     0%   100%  2694.35kB  9.88%  github.com/cilium/ebpf.(*CollectionSpec).LoadAndAssign.func1
+         0     0%   100%  2694.35kB  9.88%  github.com/cilium/ebpf.(*collectionLoader).loadProgram
